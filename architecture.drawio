@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-05-23T20:55:35.582Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="c27w5U-eUZgMt8TfpseS" version="18.1.1" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2022-05-23T23:46:59.993Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="nrZbTDFIj6tFb3lF56m6" version="18.1.1" type="github" pages="4">
   <diagram id="47KrEkZLhTzOhG2FSN4O" name="Full Stack">
-    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="460" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -51,7 +51,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="PvW_enq9UGXB3ru8nlyR" name="Web Routers">
-    <mxGraphModel dx="1022" dy="1653" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+    <mxGraphModel dx="1778" dy="943" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -101,35 +101,107 @@
         <mxCell id="g_RVh42yEwUMsMvVFJ3A-38" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="40" y="420" width="60" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-2" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;" edge="1" parent="1">
+        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-2" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint y="1055" as="sourcePoint" />
-            <mxPoint x="90" y="1055" as="targetPoint" />
+            <mxPoint x="56" y="1055" as="sourcePoint" />
+            <mxPoint x="146" y="1055" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-3" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="10" y="1030" width="60" height="20" as="geometry" />
+        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-3" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="66" y="1030" width="60" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-4" value="Start Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="90" y="950" width="120" height="220" as="geometry" />
+        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-4" value="Start Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="150" y="950" width="120" height="220" as="geometry" />
         </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-5" value="1. Instruction&#xa;2. Create new labeling rules or browse existing labeling rules&#xa;3. Name your new rule&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="BcaRZCJnmTh3YWK_XgHJ-4">
+        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-5" value="1. Instruction&#xa;2. Create new labeling rules or browse existing labeling rules&#xa;3. Name your new rule&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="BcaRZCJnmTh3YWK_XgHJ-4" vertex="1">
           <mxGeometry y="30" width="120" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-6" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-6" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="210" y="1065" as="sourcePoint" />
-            <mxPoint x="280" y="1065" as="targetPoint" />
+            <mxPoint x="270" y="1065" as="sourcePoint" />
+            <mxPoint x="340" y="1065" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-7" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="280" y="1010" width="240" height="120" as="geometry" />
+        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-7" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="340" y="950" width="240" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-8" value="1. Pick Group A(training) images&#xa;2. Or automatically pick several Group A (training) images" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="BcaRZCJnmTh3YWK_XgHJ-7">
-          <mxGeometry y="30" width="240" height="90" as="geometry" />
+        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-8" value="1. Pick Group A (training) images.&#xa;&#xa;2. Pick Group B (testing) images.&#xa;&#xa;3. Or automatically pick several images" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="BcaRZCJnmTh3YWK_XgHJ-7" vertex="1">
+          <mxGeometry y="30" width="240" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-10" value="Below are Eric&#39;s work, not finished and may contain mistakes. PLEASE NOT MOVE" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="870" width="260" height="50" as="geometry" />
+        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-10" value="Below is Eric&#39;s work, not finished and may contain mistakes. PLEASE NOT MOVE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="90" y="850" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="581" y="1069.52" as="sourcePoint" />
+            <mxPoint x="730" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-5" value="Image Working Station" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="730" y="950" width="220" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-6" value="1. Labeling images in bounding boxes&#xa;&#xa;2. Presenting auto labels or existing labels on images by rules and pre-trained model. If user initially selected exisiting rules, show the predicted labels.&#xa;&#xa;3. Able to modify labels &#xa;&#xa;4. Save any modification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="F2cL5pHydMBEZYkqf1JW-5">
+          <mxGeometry y="30" width="220" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-7" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="F2cL5pHydMBEZYkqf1JW-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="290" as="sourcePoint" />
+            <mxPoint x="100" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-3" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="880" y="1130.0014285714287" as="geometry">
+            <mxPoint x="-46" y="157" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-8" value="Rule Training " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="730" y="1340" width="220" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-9" value="1. Training labeling rules by labeled group A images and group B images (if modified labels)&#xa;&#xa;2. Presenting labeling rules to user&#xa;&#xa;3. Modify labeling rules&#xa;&#xa;4. Save any modification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="F2cL5pHydMBEZYkqf1JW-8">
+          <mxGeometry y="30" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-19" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="F2cL5pHydMBEZYkqf1JW-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1.1100000000000136" y="130" as="sourcePoint" />
+            <mxPoint x="-200" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-13" value="INPUT&lt;br&gt;GROUP A&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="650" y="1069.9955555555555" as="geometry" />
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-14" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="1440" as="sourcePoint" />
+            <mxPoint x="1020" y="1440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-15" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1020" y="1440" as="sourcePoint" />
+            <mxPoint x="1020" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-16" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.995;entryY=0.23;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="F2cL5pHydMBEZYkqf1JW-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1020" y="1040" as="sourcePoint" />
+            <mxPoint x="970" y="1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-17" value="INPUT&lt;br&gt;GROUP B&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1040" y="1249.9955555555555" as="geometry">
+            <mxPoint x="-18" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-18" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="680" y="1310.0014285714287" as="geometry">
+            <mxPoint x="-46" y="157" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-20" value="End Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="330" y="1420" width="200" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="F2cL5pHydMBEZYkqf1JW-21" value="1. Save created labeling rules." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="F2cL5pHydMBEZYkqf1JW-20">
+          <mxGeometry y="30" width="200" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
