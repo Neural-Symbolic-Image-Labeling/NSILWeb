@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-05-24T20:22:02.150Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="6Eo5BQ7dPwVBcvKctPbp" version="18.1.1" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-05-24T22:06:04.431Z" agent="5.0 (Windows)" etag="Y49uGNGElFWNLj-zYZI_" version="18.1.1" type="github" pages="5">
   <diagram id="47KrEkZLhTzOhG2FSN4O" name="Full Stack">
-    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="536" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -241,138 +241,141 @@
     </mxGraphModel>
   </diagram>
   <diagram id="tczMv72_5mbwNv8jfYSI" name="Scratch">
-    <mxGraphModel dx="2844" dy="1508" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+    <mxGraphModel dx="798" dy="412" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-1" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;" edge="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-1" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="40" y="275" as="sourcePoint" />
             <mxPoint x="130" y="275" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-2" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-2" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="50" y="250" width="60" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-3" value="Start Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-3" value="Start Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="134" y="170" width="120" height="220" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-4" value="1. Instruction&#xa;2. Create new labeling rules or browse existing labeling rules&#xa;3. Name your new rule&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="3K2ijmS7LoKxx6wy-EOr-3">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-4" value="1. Instruction&#xa;2. Create new labeling rules or browse existing labeling rules&#xa;3. Name your new rule&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-3" vertex="1">
           <mxGeometry y="30" width="120" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.999;exitY=0.449;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.001;entryY=0.406;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3K2ijmS7LoKxx6wy-EOr-4" target="3K2ijmS7LoKxx6wy-EOr-7">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.999;exitY=0.449;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.001;entryY=0.406;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-4" target="3K2ijmS7LoKxx6wy-EOr-7" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="254" y="285" as="sourcePoint" />
             <mxPoint x="324" y="285" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-6" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-6" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="324" y="170" width="240" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-7" value="1. Pick Group A images, including positive and negative samples.&#xa;&#xa;2. Pick Group B images used for validation.&#xa;&#xa;3. Or automatically pick several images" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="3K2ijmS7LoKxx6wy-EOr-6">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-7" value="1. Pick Group A images, including positive and negative samples.&#xa;&#xa;2. Pick Group B images used for validation.&#xa;&#xa;3. Or automatically pick several images" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-6" vertex="1">
           <mxGeometry y="30" width="240" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.004;exitY=0.39;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.458;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3K2ijmS7LoKxx6wy-EOr-7" target="3K2ijmS7LoKxx6wy-EOr-10">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.004;exitY=0.39;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.458;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-7" target="3K2ijmS7LoKxx6wy-EOr-10" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="565" y="289.52" as="sourcePoint" />
             <mxPoint x="714" y="290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-9" value="Image Working Station" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-9" value="Image Working Station" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="712" y="105" width="220" height="370" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-10" value="1. Labeling images in bounding boxes&#xa;&#xa;2. Presenting auto labels or existing labels on images by rules and pre-trained model. If user initially selected exisiting rules, show the predicted labels.&#xa;&#xa;3. Able to modify labels &#xa;&#xa;4. Save any modification&#xa;&#xa;5. Select new group B images and add old group B images into group A" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="3K2ijmS7LoKxx6wy-EOr-9">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-10" value="1. Labeling images in bounding boxes&#xa;&#xa;2. Presenting auto labels or existing labels on images by rules and pre-trained model. If user initially selected exisiting rules, show the predicted labels.&#xa;&#xa;3. Able to modify labels &#xa;&#xa;4. Save any modification&#xa;&#xa;5. Select new group B images and add old group B images into group A" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-9" vertex="1">
           <mxGeometry y="30" width="220" height="340" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-13" value="Rule Training " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-13" value="Rule Training " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="712" y="600" width="220" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-14" value="1. Training labeling rules by labeled group A images&#xa;&#xa;2. Presenting labeling rules to user&#xa;&#xa;3. Modify labeling rules&#xa;&#xa;4. Save any modification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="3K2ijmS7LoKxx6wy-EOr-13">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-14" value="1. Training labeling rules by labeled group A images&#xa;&#xa;2. Presenting labeling rules to user&#xa;&#xa;3. Modify labeling rules&#xa;&#xa;4. Save any modification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-13" vertex="1">
           <mxGeometry y="30" width="220" height="220" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-16" value="INPUT&lt;br&gt;GROUP A&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-16" value="INPUT&lt;br&gt;GROUP A&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="634" y="289.9955555555555" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-17" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="3K2ijmS7LoKxx6wy-EOr-14">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-17" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-14" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="934" y="660" as="sourcePoint" />
             <mxPoint x="1004.0000000000005" y="660" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-18" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-18" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1004.0000000000005" y="660" as="sourcePoint" />
             <mxPoint x="1004.0000000000005" y="260" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-19" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.995;entryY=0.23;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="3K2ijmS7LoKxx6wy-EOr-10">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-19" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.995;entryY=0.23;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="3K2ijmS7LoKxx6wy-EOr-10" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1004.0000000000005" y="260" as="sourcePoint" />
             <mxPoint x="954" y="530" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-20" value="INPUT&lt;br&gt;GROUP B&lt;br&gt;IMAGES&lt;br&gt;(IF GROUP B&lt;br&gt;IMAGES ARE NOT&lt;br&gt;LABELED &lt;br&gt;CORRECTLY)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-20" value="INPUT&lt;br&gt;GROUP B&lt;br&gt;IMAGES&lt;br&gt;(IF GROUP B&lt;br&gt;IMAGES ARE NOT&lt;br&gt;LABELED &lt;br&gt;CORRECTLY)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="1024" y="469.9955555555555" as="geometry">
             <mxPoint x="-18" y="-4" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-22" value="End Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-22" value="End Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="314" y="640" width="200" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-23" value="1. Save created labeling rules." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="3K2ijmS7LoKxx6wy-EOr-22">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-23" value="1. Save created labeling rules." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-22" vertex="1">
           <mxGeometry y="30" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-11" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.508;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="3K2ijmS7LoKxx6wy-EOr-10" target="3K2ijmS7LoKxx6wy-EOr-13">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-11" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.508;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-10" target="3K2ijmS7LoKxx6wy-EOr-13" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="822" y="480" as="sourcePoint" />
             <mxPoint x="812" y="495" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-12" value="NO MORE&lt;br&gt;MODIFICATION&lt;br&gt;OR&lt;br&gt;FIRST TRAINING" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-12" value="NO MORE&lt;br&gt;MODIFICATION&lt;br&gt;OR&lt;br&gt;FIRST TRAINING" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="872" y="370.00142857142873" as="geometry">
             <mxPoint x="-46" y="157" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="3K2ijmS7LoKxx6wy-EOr-14" target="3K2ijmS7LoKxx6wy-EOr-23">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-14" target="3K2ijmS7LoKxx6wy-EOr-23" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="710.89" y="730" as="sourcePoint" />
             <mxPoint x="512" y="730" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-21" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-21" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="662" y="560.0014285714287" as="geometry">
             <mxPoint x="-46" y="157" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=-0.014;exitY=0.682;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.004;entryY=0.73;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3K2ijmS7LoKxx6wy-EOr-10" target="3K2ijmS7LoKxx6wy-EOr-7">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=-0.014;exitY=0.682;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.004;entryY=0.73;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-10" target="3K2ijmS7LoKxx6wy-EOr-7" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="672" y="320" as="sourcePoint" />
             <mxPoint x="722" y="270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-25" value="SELECT&lt;br&gt;GROUP B&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-25" value="SELECT&lt;br&gt;GROUP B&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="634" y="359.9955555555555" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-26" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.789;exitY=1.004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.003;entryY=0.115;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3K2ijmS7LoKxx6wy-EOr-7" target="3K2ijmS7LoKxx6wy-EOr-14">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-26" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.789;exitY=1.004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.003;entryY=0.115;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-7" target="3K2ijmS7LoKxx6wy-EOr-14" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="672" y="510" as="sourcePoint" />
             <mxPoint x="722" y="460" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-27" value="AFTER&lt;br&gt;FIRST&lt;br&gt;TRAINING" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-27" value="AFTER&lt;br&gt;FIRST&lt;br&gt;TRAINING" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="612" y="519.9955555555555" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-28" value="Group A images" style="swimlane;" vertex="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-28" value="Group A images" style="swimlane;" parent="1" vertex="1">
           <mxGeometry x="200" y="920" width="200" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="AMXna7f9SMDh4iYn8GQR-2" value="1. Images that user add to group A.&#xa;&#xa;2. Group B images that labeled by the program&#xa;&#xa;3. Simply are labeled images&#xa;&#xa;4. Images that used in FOIL" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="3K2ijmS7LoKxx6wy-EOr-28">
+        <mxCell id="AMXna7f9SMDh4iYn8GQR-2" value="1. Images that user add to group A.&#xa;&#xa;2. Group B images that labeled by the program&#xa;&#xa;3. Simply are labeled images&#xa;&#xa;4. Images that used in FOIL" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-28" vertex="1">
           <mxGeometry y="20" width="180" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-29" value="Group B images" style="swimlane;" vertex="1" parent="1">
+        <mxCell id="3K2ijmS7LoKxx6wy-EOr-29" value="Group B images" style="swimlane;" parent="1" vertex="1">
           <mxGeometry x="510" y="920" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="AMXna7f9SMDh4iYn8GQR-3" value="1. Simply are unlabeled images&#xa;&#xa;2. If labeled by program, added to Group A" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" vertex="1" parent="3K2ijmS7LoKxx6wy-EOr-29">
+        <mxCell id="AMXna7f9SMDh4iYn8GQR-3" value="1. Simply are unlabeled images&#xa;&#xa;2. If labeled by program, added to Group A" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-29" vertex="1">
           <mxGeometry y="20" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="4lwMNArxevPM33Wyxda3-1" value="&lt;div&gt;Some comments by Gareth:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. As far as I know, &lt;b&gt;it is tough to adjust an existing logic definition by introducing new knowledge base items&lt;/b&gt;. Usually, we just run the entire training process all over again. As long as there is one sample in the dataset that fails the pre-existing logic definition, FOIL stops functioning since it cannot break the current logic definition and somehow revert to or reconstruct a different definition that satisfies all samples in the current dataset. &lt;b&gt;So we need to group all images that are under a label together and should be able to access all these images by that label. Every time new images come in and violate the current logical definition of the label, we treat pre-existing images as human-labelled images and combine them with the new images to formulate a new definition by training FOIL all over again(The previous definition is not even used due to reason explained above). &lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;2. The two training workflows we discussed are listed below:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;u&gt;Predict &lt;b&gt;ALL&lt;/b&gt; remaining images in every circulation:&lt;/u&gt; After initially receiving  some labelled images through manual labelling(the system knows these are labelled by humans), the system predicts labels for all images that are not labelled yet(and the system knows those are labelled by itself). If a user notices that some images are falsely labelled by the system, they can request another portion of &lt;b&gt;machine-labelled&lt;/b&gt; images and manually label them(i.e. the system gets more human-labelled samples). The system will then clear all labels of other images and redo the training to predict these images which now become unlabelled again. Repeating the whole process until the user is satisfied with all labels. &lt;br&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;Pros: easy to implement and reduce training overload.&lt;br&gt;&lt;/li&gt;&lt;li&gt;Cons: In this workflow, we predict labels for all images every time the logic definition is changed. If the dataset is very large, we may experience unnecessary idling time in the early stage of training.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;&lt;u&gt;Predict &lt;b&gt;ONE&lt;/b&gt; image in every circulation:&lt;/u&gt; After initially receiving  some labelled images through manual labelling(the system knows these are labelled by humans), the system begins to predict the label for the upcoming new image(only predict a label for that image). Users can verify the predicted label by either accepting or rejecting it. If rejected, users can change the label manually. The system gradually increases its knowledge base in this way and hopefully generates labels more accurately after several circulations.&lt;/li&gt;&lt;ul&gt;&lt;li&gt;Pros: fast response since only one image is required to predict and require fewer users&#39; work since they only need to focus on the current image, not all images in the dataset. &lt;br&gt;&lt;/li&gt;&lt;li&gt;Cons: train the entire FOIL each time only one image is added(too much overload!)&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1300" width="720" height="460" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
