@@ -1,496 +1,502 @@
-<mxfile host="app.diagrams.net" modified="2022-05-26T15:50:13.571Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" version="18.1.2" etag="EOc7H6JmjQadTwA9Ag0J" type="github" pages="5">
-  <diagram id="47KrEkZLhTzOhG2FSN4O" name="Full Stack">
-    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="dLUs6U6uPm_U_Gfk23dq-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" parent="1" source="dLUs6U6uPm_U_Gfk23dq-1" target="dLUs6U6uPm_U_Gfk23dq-4" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="214.5" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <UserObject label="Web" link="data:page/id,PvW_enq9UGXB3ru8nlyR" id="dLUs6U6uPm_U_Gfk23dq-1">
-          <mxCell style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.website;" parent="1" vertex="1">
-            <mxGeometry x="250" y="184.5" width="59" height="49" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <mxCell id="dLUs6U6uPm_U_Gfk23dq-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dLUs6U6uPm_U_Gfk23dq-2" target="dLUs6U6uPm_U_Gfk23dq-1" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="220" y="209" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="dLUs6U6uPm_U_Gfk23dq-2" value="User" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.user;" parent="1" vertex="1">
-          <mxGeometry x="90" y="179" width="60" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="dLUs6U6uPm_U_Gfk23dq-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="dLUs6U6uPm_U_Gfk23dq-4" target="dLUs6U6uPm_U_Gfk23dq-9" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="dLUs6U6uPm_U_Gfk23dq-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="dLUs6U6uPm_U_Gfk23dq-4" target="dLUs6U6uPm_U_Gfk23dq-11" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <UserObject label="Server 1" link="data:page/id,Duz-_O268H7gZ4dPwLsp" id="dLUs6U6uPm_U_Gfk23dq-4">
-          <mxCell style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;" parent="1" vertex="1">
-            <mxGeometry x="440" y="180" width="33.46" height="58" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <mxCell id="dLUs6U6uPm_U_Gfk23dq-9" value="DB" style="shape=datastore;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="434.23" y="320" width="45" height="50" as="geometry" />
-        </mxCell>
-        <UserObject label="Server 2" link="data:page/id,AcOgOhmYx5mgDnrSKiOU" id="dLUs6U6uPm_U_Gfk23dq-11">
-          <mxCell style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;" parent="1" vertex="1">
-            <mxGeometry x="580" y="180" width="33.46" height="58" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <mxCell id="dLUs6U6uPm_U_Gfk23dq-13" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Express&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="431.73" y="160" width="50" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="dLUs6U6uPm_U_Gfk23dq-14" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Flask&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="576.73" y="160" width="40" height="20" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="PvW_enq9UGXB3ru8nlyR" name="Web Routers">
-    <mxGraphModel dx="1302" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="cSDTdN8RX92u3f3dDQFw-2" value="" style="group;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" connectable="0" vertex="1">
-          <mxGeometry x="6" y="10" width="740" height="740" as="geometry" />
-        </mxCell>
-        <mxCell id="cSDTdN8RX92u3f3dDQFw-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
-          <mxGeometry width="740" height="740" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-8" value="Dashboard Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
-          <mxGeometry x="130" y="280" width="220" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-9" value="1. website introduction &amp; statistics " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="g_RVh42yEwUMsMvVFJ3A-8" vertex="1">
-          <mxGeometry y="30" width="220" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-13" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="cSDTdN8RX92u3f3dDQFw-2" target="g_RVh42yEwUMsMvVFJ3A-9" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="20" y="345" as="sourcePoint" />
-            <mxPoint x="110" y="340" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-14" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
-          <mxGeometry x="480" y="30" width="220" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-15" value="1.view all images with their labels if available&#xa;&#xa;2. search for or rank images&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="g_RVh42yEwUMsMvVFJ3A-14" vertex="1">
-          <mxGeometry y="30" width="220" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-18" value="Work Station Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
-          <mxGeometry x="480" y="450" width="220" height="250" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-19" value="1. display loaded / auto picked image&#xa;&#xa;2. request for label from ML server if the image is not loaded&#xa;&#xa;3. edit / assign label&#xa;&#xa;4. edit ML logic expression&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="g_RVh42yEwUMsMvVFJ3A-18" vertex="1">
-          <mxGeometry y="30" width="220" height="220" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;shadow=0;fontSize=16;startArrow=none;startFill=0;endArrow=classic;endFill=1;fillColor=#595959;" parent="cSDTdN8RX92u3f3dDQFw-2" source="g_RVh42yEwUMsMvVFJ3A-9" target="g_RVh42yEwUMsMvVFJ3A-19" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-28" value="&lt;div&gt;AUTO&lt;/div&gt;&lt;div&gt;PICK&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="g_RVh42yEwUMsMvVFJ3A-27" vertex="1" connectable="0">
-          <mxGeometry x="-0.1162" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;fontSize=16;startArrow=none;startFill=0;endArrow=classic;endFill=1;fillColor=#595959;" parent="cSDTdN8RX92u3f3dDQFw-2" source="g_RVh42yEwUMsMvVFJ3A-14" target="g_RVh42yEwUMsMvVFJ3A-18" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-33" value="&lt;div&gt;LOAD&lt;/div&gt;&lt;div&gt;INTO&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="g_RVh42yEwUMsMvVFJ3A-32" vertex="1" connectable="0">
-          <mxGeometry x="-0.1156" y="1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.011;entryY=0.397;entryDx=0;entryDy=0;entryPerimeter=0;shadow=0;fontSize=16;startArrow=none;startFill=0;endArrow=classic;endFill=1;fillColor=#595959;" parent="cSDTdN8RX92u3f3dDQFw-2" source="g_RVh42yEwUMsMvVFJ3A-9" target="g_RVh42yEwUMsMvVFJ3A-15" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="g_RVh42yEwUMsMvVFJ3A-38" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
-          <mxGeometry x="30" y="320" width="60" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="cSDTdN8RX92u3f3dDQFw-4" value="V1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
-          <mxGeometry x="24" y="30" width="100" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="cSDTdN8RX92u3f3dDQFw-7" value="" style="group" parent="1" connectable="0" vertex="1">
-          <mxGeometry x="13" y="810" width="1074" height="830" as="geometry" />
-        </mxCell>
-        <mxCell id="cSDTdN8RX92u3f3dDQFw-6" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#D2A6FF;fontColor=#F1D4FF;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry width="1074" height="830" as="geometry" />
-        </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-2" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="50" y="255" as="sourcePoint" />
-            <mxPoint x="140" y="255" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-3" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry x="60" y="230" width="60" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-4" value="Start Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry x="144" y="150" width="120" height="220" as="geometry" />
-        </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-5" value="1. Instruction&#xa;2. Create new labeling rules or browse existing labeling rules&#xa;3. Name your new rule&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="BcaRZCJnmTh3YWK_XgHJ-4" vertex="1">
-          <mxGeometry y="30" width="120" height="190" as="geometry" />
-        </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-6" value="" style="endArrow=classic;html=1;rounded=0;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="264" y="265" as="sourcePoint" />
-            <mxPoint x="334" y="265" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-7" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry x="334" y="150" width="240" height="240" as="geometry" />
-        </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-8" value="1. Pick Group A images, including positive and negative samples.&#xa;&#xa;2. Pick Group B images used for validation.&#xa;&#xa;3. Or automatically pick several images" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="BcaRZCJnmTh3YWK_XgHJ-7" vertex="1">
-          <mxGeometry y="30" width="240" height="210" as="geometry" />
-        </mxCell>
-        <mxCell id="BcaRZCJnmTh3YWK_XgHJ-10" value="Below is Eric&#39;s work, not finished and may contain mistakes. PLEASE NOT MOVE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry x="14" y="60" width="260" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-2" value="" style="endArrow=classic;html=1;rounded=0;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="575" y="269.52" as="sourcePoint" />
-            <mxPoint x="724" y="270" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-5" value="Image Working Station" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry x="724" y="150" width="220" height="290" as="geometry" />
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-6" value="1. Labeling images in bounding boxes&#xa;&#xa;2. Presenting auto labels or existing labels on images by rules and pre-trained model. If user initially selected exisiting rules, show the predicted labels.&#xa;&#xa;3. Able to modify labels &#xa;&#xa;4. Save any modification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="F2cL5pHydMBEZYkqf1JW-5" vertex="1">
-          <mxGeometry y="30" width="220" height="260" as="geometry" />
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-7" value="" style="endArrow=classic;html=1;rounded=0;" parent="F2cL5pHydMBEZYkqf1JW-5" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="100" y="290" as="sourcePoint" />
-            <mxPoint x="100" y="390" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-3" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1" connectable="0">
-          <mxGeometry x="874" y="330.00142857142873" as="geometry">
-            <mxPoint x="-46" y="157" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-8" value="Rule Training " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry x="724" y="540" width="220" height="250" as="geometry" />
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-9" value="1. Training labeling rules by labeled group A images and group B images (if modified labels)&#xa;&#xa;2. Presenting labeling rules to user&#xa;&#xa;3. Modify labeling rules&#xa;&#xa;4. Save any modification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="F2cL5pHydMBEZYkqf1JW-8" vertex="1">
-          <mxGeometry y="30" width="220" height="220" as="geometry" />
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-19" value="" style="endArrow=classic;html=1;rounded=0;" parent="F2cL5pHydMBEZYkqf1JW-8" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="-1.1100000000000136" y="130" as="sourcePoint" />
-            <mxPoint x="-200" y="130" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-13" value="INPUT&lt;br&gt;GROUP A&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1" connectable="0">
-          <mxGeometry x="644" y="269.9955555555555" as="geometry" />
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-14" value="" style="endArrow=none;html=1;rounded=0;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="944" y="640" as="sourcePoint" />
-            <mxPoint x="1014" y="640" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-15" value="" style="endArrow=none;html=1;rounded=0;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="1014" y="640" as="sourcePoint" />
-            <mxPoint x="1014" y="240" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-16" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.995;entryY=0.23;entryDx=0;entryDy=0;entryPerimeter=0;" parent="cSDTdN8RX92u3f3dDQFw-7" target="F2cL5pHydMBEZYkqf1JW-6" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="1014" y="240" as="sourcePoint" />
-            <mxPoint x="964" y="510" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-17" value="INPUT&lt;br&gt;GROUP B&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1" connectable="0">
-          <mxGeometry x="1034" y="449.9955555555555" as="geometry">
-            <mxPoint x="-18" y="-4" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-18" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1" connectable="0">
-          <mxGeometry x="674" y="510.00142857142873" as="geometry">
-            <mxPoint x="-46" y="157" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-20" value="End Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry x="324" y="620" width="200" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="F2cL5pHydMBEZYkqf1JW-21" value="1. Save created labeling rules." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="F2cL5pHydMBEZYkqf1JW-20" vertex="1">
-          <mxGeometry y="30" width="200" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="cSDTdN8RX92u3f3dDQFw-24" value="V2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
-          <mxGeometry x="14" y="20" width="100" height="40" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="Duz-_O268H7gZ4dPwLsp" name="Server 1">
-    <mxGraphModel dx="1302" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="AcOgOhmYx5mgDnrSKiOU" name="Server 2">
-    <mxGraphModel dx="1302" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="tczMv72_5mbwNv8jfYSI" name="Scratch">
-    <mxGraphModel dx="2680" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-1" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;" parent="1" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="-50" y="350" as="sourcePoint" />
-            <mxPoint x="40" y="350" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-2" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="-40" y="325" width="60" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-3" value="Start Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="44" y="245" width="120" height="220" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-4" value="1. Instruction&#xa;2. Create new labeling rules or browse existing labeling rules&#xa;3. Name your new rule&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-3" vertex="1">
-          <mxGeometry y="30" width="120" height="190" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.999;exitY=0.449;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.001;entryY=0.406;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-4" target="3K2ijmS7LoKxx6wy-EOr-7" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="164" y="360" as="sourcePoint" />
-            <mxPoint x="234" y="360" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-6" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="290" y="245" width="240" height="210" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-7" value="&#xa;1. Pick images and add them into image set. They are all in unlabeled set at first&#xa;&#xa;2. Automatically pick several images" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-6" vertex="1">
-          <mxGeometry y="30" width="240" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.004;exitY=0.39;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.458;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-7" target="3K2ijmS7LoKxx6wy-EOr-10" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="565" y="369.52" as="sourcePoint" />
-            <mxPoint x="714" y="370" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-9" value="Image Working Station" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="712" y="90" width="220" height="440" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-10" value="1. Presenting auto labels or existing labels on several images from unlabeled set by rules and pre-trained model. If user initially selected exisiting rules, show the predicted labels.&#xa;&#xa;2. Presenting current labeling accuracy (monitored by the system)&#xa;&#xa;3. Able to modify labels and save&#xa;&#xa;4. Randomly select new  images from unlabeled image set and pop labeled images into labeled set&#xa;&#xa;5. Able to continue labeling" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-9" vertex="1">
-          <mxGeometry y="30" width="220" height="410" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-13" value="Labeling and Rule Training " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="712" y="680" width="220" height="310" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-14" value="1. Presenting labeling result of all unlabeled images (may add one more page) and show accuracy&#xa;&#xa;2. Presenting labeling rules to user&#xa;&#xa;3. Modify labeling rules&#xa;&#xa;4. Save any modification and move images from labeled image set to unlabeled image set" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-13" vertex="1">
-          <mxGeometry y="30" width="220" height="280" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-17" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-14" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="934" y="740" as="sourcePoint" />
-            <mxPoint x="1004.0000000000005" y="740" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-18" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="1004.0000000000005" y="740" as="sourcePoint" />
-            <mxPoint x="1004.0000000000005" y="340" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-19" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.995;entryY=0.23;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="3K2ijmS7LoKxx6wy-EOr-10" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="1004.0000000000005" y="340" as="sourcePoint" />
-            <mxPoint x="954" y="610" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-20" value="IF LABELING RULES&lt;br&gt;WERE MODIFIED OR&lt;br&gt;USER WANT TO KEEP&amp;nbsp;&lt;br&gt;TRAINING" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="1024" y="599.9955555555555" as="geometry">
-            <mxPoint x="-18" y="-4" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-22" value="End Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="314" y="720" width="200" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-23" value="1. Save created labeling rules." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-22" vertex="1">
-          <mxGeometry y="30" width="200" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-11" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.508;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-10" target="3K2ijmS7LoKxx6wy-EOr-13" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="822" y="560" as="sourcePoint" />
-            <mxPoint x="812" y="575" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-12" value="ACCURACY OVER&lt;br&gt;THRESHOLD&lt;br&gt;OR&lt;br&gt;USER MANUALLY" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="872" y="450.00142857142873" as="geometry">
-            <mxPoint x="-46" y="157" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-14" target="3K2ijmS7LoKxx6wy-EOr-23" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="710.89" y="810" as="sourcePoint" />
-            <mxPoint x="512" y="810" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-21" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="662" y="660.0014285714287" as="geometry">
-            <mxPoint x="-46" y="157" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-28" value="Labeled image set" style="swimlane;startSize=23;" parent="1" vertex="1">
-          <mxGeometry x="200" y="1000" width="190" height="140" as="geometry" />
-        </mxCell>
-        <mxCell id="AMXna7f9SMDh4iYn8GQR-2" value="1. Images that used in each FOIL&#xa;&#xa;2. Increase size after each labeling" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-28" vertex="1">
-          <mxGeometry y="20" width="180" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="3K2ijmS7LoKxx6wy-EOr-29" value="Unlabeled image set" style="swimlane;" parent="1" vertex="1">
-          <mxGeometry x="410" y="1000" width="200" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="AMXna7f9SMDh4iYn8GQR-3" value="1. Simply are unlabeled images and waiting labeled&#xa;&#xa;2. Pop to labeled image set in each circulation" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-29" vertex="1">
-          <mxGeometry y="20" width="200" height="140" as="geometry" />
-        </mxCell>
-        <mxCell id="662GoSva-zzIvYBhd-8a-1" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="4lwMNArxevPM33Wyxda3-1" target="662GoSva-zzIvYBhd-8a-2" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="940" y="1675" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="662GoSva-zzIvYBhd-8a-4" value="New idea after discussion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="662GoSva-zzIvYBhd-8a-1" vertex="1" connectable="0">
-          <mxGeometry x="0.1129" y="-1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="4lwMNArxevPM33Wyxda3-1" value="&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Some comments by Gareth:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;1. As far as I know, &lt;b&gt;it is tough to adjust an existing logic definition by introducing new knowledge base items&lt;/b&gt;. Usually, we just run the entire training process all over again. As long as there is one sample in the dataset that fails the pre-existing logic definition, FOIL stops functioning since it cannot break the current logic definition and somehow revert to or reconstruct a different definition that satisfies all samples in the current dataset. &lt;b&gt;&lt;strike&gt;So we need to group all images that are under a label together and should be able to access all these images by that label. Every time new images come in and violate the current logical definition of the label, we treat pre-existing images as human-labelled images and combine them with the new images to formulate a new definition by training FOIL all over again(The previous definition is not even used in the training process due to reason explained above). &lt;/strike&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;2. The two training workflows we discussed are listed below:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;u&gt;Predict &lt;b&gt;ALL&lt;/b&gt; remaining images in every circulation:&lt;/u&gt; After initially receiving  some labelled images through manual labelling(the system knows these are labelled by humans), the system predicts labels for all images that are not labelled yet(and the system knows those are labelled by itself). If a user notices that some images are falsely labelled by the system, they can request another portion of &lt;b&gt;machine-labelled&lt;/b&gt; images and manually label them(i.e. the system gets more human-labelled samples). The system will then clear all labels of other images and redo the training to predict these images which now become unlabelled again. Repeating the whole process until the user is satisfied with all labels. &lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Pros: easy to implement and reduce training overload.&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Cons: In this workflow, we predict labels for all images every time the logic definition is changed. If the dataset is very large, we may experience unnecessary idling time in the early stage of training.&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;u&gt;Predict &lt;b&gt;ONE&lt;/b&gt; image in every circulation:&lt;/u&gt; After initially receiving  some labelled images through manual labelling(the system knows these are labelled by humans), the system begins to predict the label for the upcoming new image(only predict a label for that image). Users can verify the predicted label by either accepting or rejecting it. If rejected, users can change the label manually. The system gradually increases its knowledge base in this way and hopefully generates labels more accurately after several circulations.&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Pros: fast response since only one image is required to predict and require fewer users&#39; work since they only need to focus on the current image, not all images in the dataset. &lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Cons: train the entire FOIL each time only one image is added(too much overload!)&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;spacingLeft=5;spacingRight=5;" parent="1" vertex="1">
-          <mxGeometry x="100" y="1300" width="720" height="750" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-45" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;" parent="1" source="662GoSva-zzIvYBhd-8a-2" target="n68zJQZQ37yLhg8xty_T-39" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="662GoSva-zzIvYBhd-8a-2" value="We design to combine two workflows together. The overall process is given as follows:&lt;br&gt;&lt;br&gt;==============================================================================&lt;br&gt;1. An image set is selected to be labelled and the label domain is provided(a set of target labels).&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;i&gt;Initial circulation:&lt;/i&gt;&lt;br&gt;2.&amp;nbsp;&lt;font color=&quot;#ff3333&quot;&gt;N&amp;nbsp;&lt;/font&gt;images are randomly selected by the system and are predicted by FOIL algorithm using existing logical definitions in the database. (If FOIL failed to predict an image or there is no such label in the database, leave it unlabelled.)&lt;br&gt;3. These &lt;font color=&quot;#ff3333&quot;&gt;N &lt;/font&gt;images with generated labels are sent to users for manual labelling.&lt;br&gt;4. User review and correct label for each image if there is no label or the predicted label is false. The system then update label definition( build a new FOL representation of the image -&amp;gt; add it in knowledge base -&amp;gt; re-train the model).&lt;br&gt;&lt;br&gt;&lt;i&gt;Circulation steps:&lt;/i&gt;&lt;br&gt;5. Another&amp;nbsp;&lt;font color=&quot;#ff3333&quot;&gt;X &lt;/font&gt;images(&lt;b&gt;other than the previews &lt;/b&gt;&lt;font color=&quot;#ff3333&quot;&gt;&lt;b&gt;N&lt;/b&gt; &lt;/font&gt;images) are randomly picked by the system and run FOIL to predict their labels. The result labels are sent to users for verification.&lt;br&gt;6. User review and correct label for each image if there is no label or the predicted label is false. The system then update label definition( build a new FOL representation of the image -&amp;gt; add it in knowledge base -&amp;gt; re-train the model).&lt;br&gt;7. Prediction accuracy(&lt;font color=&quot;#ff3333&quot;&gt;A = # of correct labels / X&lt;/font&gt;) are monitored by the system and once the accuracy reach some threshold &lt;font color=&quot;#ff3333&quot;&gt;T&lt;/font&gt;, the system increases &lt;font color=&quot;#ff3333&quot;&gt;X&lt;/font&gt;.(basically give user more images each circulation)&lt;br&gt;&lt;br&gt;Repeat until user is satisfied with all images.&lt;br&gt;==============================================================================&lt;br&gt;&lt;br&gt;During the process, users can manually choose to predict labels for &lt;b&gt;ALL&lt;/b&gt; remaining images using current definition generated by the system. And they can freely jump back if they are not satisfied with the result.&lt;br&gt;&lt;br&gt;" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;spacingLeft=2;spacingRight=2;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="1130" y="1362" width="740" height="630" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-40" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="100" y="2120" width="1100" height="810" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-39" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontColor=#FF3333;container=0;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry width="1100" height="810" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-4" value="Select Image Set &amp;amp; Label Domain" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="90" y="130" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-5" value="Randomly Pick &lt;font color=&quot;#ff3333&quot;&gt;N&lt;/font&gt; Images" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="290" y="130" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-6" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-4" target="n68zJQZQ37yLhg8xty_T-5" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-7" value="Label Images" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="810" y="130" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-8" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#FF3333;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-5" target="n68zJQZQ37yLhg8xty_T-7" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-12" value="" style="endArrow=classic;html=1;fontSize=16;fontColor=#3333FF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-13" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="480" y="100" as="sourcePoint" />
-            <mxPoint x="480" y="160" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-13" value="&lt;span style=&quot;color: rgb(51 , 51 , 255) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 16px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250) ; display: inline ; float: none&quot;&gt;Label Definitions Stored in the Database&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="320" y="60" width="320" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-14" value="Review &amp;amp; Correction" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="810" y="310" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-15" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-7" target="n68zJQZQ37yLhg8xty_T-14" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-22" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="n68zJQZQ37yLhg8xty_T-40" target="n68zJQZQ37yLhg8xty_T-31" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="820" y="551.4699999999998" as="sourcePoint" />
-            <mxPoint x="742" y="549.9999999999995" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="810" y="551.4699999999998" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-23" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-22" vertex="1" connectable="0">
-          <mxGeometry x="0.4863" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-16" value="Label Changed?" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="820" y="500" width="100" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-17" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-14" target="n68zJQZQ37yLhg8xty_T-16" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-18" value="Re-train Model" style="whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="810" y="650" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-19" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-16" target="n68zJQZQ37yLhg8xty_T-18" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-20" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;Yes&lt;/b&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-19" vertex="1" connectable="0">
-          <mxGeometry x="0.2916" y="1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-25" style="edgeStyle=none;html=1;fontSize=16;fontColor=#FF3333;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-18" target="n68zJQZQ37yLhg8xty_T-31" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="672" y="593" as="targetPoint" />
-            <mxPoint x="810" y="682" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="670" y="682" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-33" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-29" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="670" y="160.00000000000045" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-29" value="Randomly Pick &lt;font color=&quot;#ff3333&quot;&gt;X&lt;/font&gt; Images (from the remaining ones)" style="whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="590" y="220" width="160" height="82" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-31" value="Done Labelling?" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="620" y="501" width="100" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-34" value="Done" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="430" y="521" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-35" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-31" target="n68zJQZQ37yLhg8xty_T-34" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-36" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-35" vertex="1" connectable="0">
-          <mxGeometry x="0.435" y="1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-38" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=16;fontColor=#FF3333;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-37" target="n68zJQZQ37yLhg8xty_T-29" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-37" value="Adjust &lt;font color=&quot;#ff3333&quot;&gt;X&lt;/font&gt; Based On&amp;nbsp;&lt;font color=&quot;#ff3333&quot;&gt;A&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="590" y="360" width="160" height="82" as="geometry" />
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-28" style="edgeStyle=none;html=1;fontSize=16;fontColor=#FF3333;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-31" target="n68zJQZQ37yLhg8xty_T-37" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="670" y="440" as="targetPoint" />
-            <mxPoint x="672" y="411" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-32" value="&lt;b&gt;&lt;font color=&quot;#000000&quot;&gt;No&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontSize=16;fontColor=#FF3333;" parent="n68zJQZQ37yLhg8xty_T-28" vertex="1" connectable="0">
-          <mxGeometry x="-0.4117" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n68zJQZQ37yLhg8xty_T-41" value="&lt;font color=&quot;#00994d&quot;&gt;Green&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;: user action&lt;br&gt;&lt;/font&gt;&lt;br&gt;&lt;div&gt;&lt;span&gt;&lt;font color=&quot;#007fff&quot;&gt;Blue&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0)&quot;&gt;: system action&lt;/span&gt;&lt;span style=&quot;color: rgb(255 , 51 , 51)&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;fontColor=#FF3333;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
-          <mxGeometry x="80" y="260" width="160" height="60" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e" pages="5">
+    <diagram id="47KrEkZLhTzOhG2FSN4O" name="Full Stack">
+        <mxGraphModel dx="1302" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="dLUs6U6uPm_U_Gfk23dq-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" parent="1" source="dLUs6U6uPm_U_Gfk23dq-1" target="dLUs6U6uPm_U_Gfk23dq-4" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="214.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <UserObject label="Web" link="data:page/id,PvW_enq9UGXB3ru8nlyR" id="dLUs6U6uPm_U_Gfk23dq-1">
+                    <mxCell style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.website;" parent="1" vertex="1">
+                        <mxGeometry x="250" y="184.5" width="59" height="49" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="dLUs6U6uPm_U_Gfk23dq-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dLUs6U6uPm_U_Gfk23dq-2" target="dLUs6U6uPm_U_Gfk23dq-1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="209" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="dLUs6U6uPm_U_Gfk23dq-2" value="User" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.user;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="179" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dLUs6U6uPm_U_Gfk23dq-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="dLUs6U6uPm_U_Gfk23dq-4" target="dLUs6U6uPm_U_Gfk23dq-9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dLUs6U6uPm_U_Gfk23dq-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="dLUs6U6uPm_U_Gfk23dq-4" target="dLUs6U6uPm_U_Gfk23dq-11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <UserObject label="Server 1" link="data:page/id,Duz-_O268H7gZ4dPwLsp" id="dLUs6U6uPm_U_Gfk23dq-4">
+                    <mxCell style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;" parent="1" vertex="1">
+                        <mxGeometry x="440" y="180" width="33.46" height="58" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="dLUs6U6uPm_U_Gfk23dq-9" value="DB" style="shape=datastore;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="434.23" y="320" width="45" height="50" as="geometry"/>
+                </mxCell>
+                <UserObject label="Server 2" link="data:page/id,AcOgOhmYx5mgDnrSKiOU" id="dLUs6U6uPm_U_Gfk23dq-11">
+                    <mxCell style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;" parent="1" vertex="1">
+                        <mxGeometry x="580" y="180" width="33.46" height="58" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="dLUs6U6uPm_U_Gfk23dq-13" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Express&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="431.73" y="160" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="dLUs6U6uPm_U_Gfk23dq-14" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Flask&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="576.73" y="160" width="40" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="PvW_enq9UGXB3ru8nlyR" name="Web Routers">
+        <mxGraphModel dx="1302" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="cSDTdN8RX92u3f3dDQFw-2" value="" style="group;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" connectable="0" vertex="1">
+                    <mxGeometry x="6" y="10" width="740" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="cSDTdN8RX92u3f3dDQFw-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
+                    <mxGeometry width="740" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-8" value="Dashboard Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
+                    <mxGeometry x="130" y="280" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-9" value="1. website introduction &amp; statistics " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="g_RVh42yEwUMsMvVFJ3A-8" vertex="1">
+                    <mxGeometry y="30" width="220" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-13" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="cSDTdN8RX92u3f3dDQFw-2" target="g_RVh42yEwUMsMvVFJ3A-9" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="20" y="345" as="sourcePoint"/>
+                        <mxPoint x="110" y="340" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-14" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
+                    <mxGeometry x="480" y="30" width="220" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-15" value="1.view all images with their labels if available&#10;&#10;2. search for or rank images&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="g_RVh42yEwUMsMvVFJ3A-14" vertex="1">
+                    <mxGeometry y="30" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-18" value="Work Station Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
+                    <mxGeometry x="480" y="450" width="220" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-19" value="1. display loaded / auto picked image&#10;&#10;2. request for label from ML server if the image is not loaded&#10;&#10;3. edit / assign label&#10;&#10;4. edit ML logic expression&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="g_RVh42yEwUMsMvVFJ3A-18" vertex="1">
+                    <mxGeometry y="30" width="220" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;shadow=0;fontSize=16;startArrow=none;startFill=0;endArrow=classic;endFill=1;fillColor=#595959;" parent="cSDTdN8RX92u3f3dDQFw-2" source="g_RVh42yEwUMsMvVFJ3A-9" target="g_RVh42yEwUMsMvVFJ3A-19" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-28" value="&lt;div&gt;AUTO&lt;/div&gt;&lt;div&gt;PICK&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="g_RVh42yEwUMsMvVFJ3A-27" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1162" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;fontSize=16;startArrow=none;startFill=0;endArrow=classic;endFill=1;fillColor=#595959;" parent="cSDTdN8RX92u3f3dDQFw-2" source="g_RVh42yEwUMsMvVFJ3A-14" target="g_RVh42yEwUMsMvVFJ3A-18" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-33" value="&lt;div&gt;LOAD&lt;/div&gt;&lt;div&gt;INTO&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="g_RVh42yEwUMsMvVFJ3A-32" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1156" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.011;entryY=0.397;entryDx=0;entryDy=0;entryPerimeter=0;shadow=0;fontSize=16;startArrow=none;startFill=0;endArrow=classic;endFill=1;fillColor=#595959;" parent="cSDTdN8RX92u3f3dDQFw-2" source="g_RVh42yEwUMsMvVFJ3A-9" target="g_RVh42yEwUMsMvVFJ3A-15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="g_RVh42yEwUMsMvVFJ3A-38" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
+                    <mxGeometry x="30" y="320" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="cSDTdN8RX92u3f3dDQFw-4" value="V1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="cSDTdN8RX92u3f3dDQFw-2" vertex="1">
+                    <mxGeometry x="24" y="30" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="cSDTdN8RX92u3f3dDQFw-7" value="" style="group" parent="1" connectable="0" vertex="1">
+                    <mxGeometry x="13" y="810" width="1074" height="830" as="geometry"/>
+                </mxCell>
+                <mxCell id="cSDTdN8RX92u3f3dDQFw-6" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#D2A6FF;fontColor=#F1D4FF;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry width="1074" height="830" as="geometry"/>
+                </mxCell>
+                <mxCell id="BcaRZCJnmTh3YWK_XgHJ-2" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="50" y="255" as="sourcePoint"/>
+                        <mxPoint x="140" y="255" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="BcaRZCJnmTh3YWK_XgHJ-3" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry x="60" y="230" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="BcaRZCJnmTh3YWK_XgHJ-4" value="Start Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry x="144" y="150" width="120" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="BcaRZCJnmTh3YWK_XgHJ-5" value="1. Instruction&#10;2. Create new labeling rules or browse existing labeling rules&#10;3. Name your new rule&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="BcaRZCJnmTh3YWK_XgHJ-4" vertex="1">
+                    <mxGeometry y="30" width="120" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="BcaRZCJnmTh3YWK_XgHJ-6" value="" style="endArrow=classic;html=1;rounded=0;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="264" y="265" as="sourcePoint"/>
+                        <mxPoint x="334" y="265" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="BcaRZCJnmTh3YWK_XgHJ-7" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry x="334" y="150" width="240" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="BcaRZCJnmTh3YWK_XgHJ-8" value="1. Pick Group A images, including positive and negative samples.&#10;&#10;2. Pick Group B images used for validation.&#10;&#10;3. Or automatically pick several images" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="BcaRZCJnmTh3YWK_XgHJ-7" vertex="1">
+                    <mxGeometry y="30" width="240" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="BcaRZCJnmTh3YWK_XgHJ-10" value="Below is Eric's work, not finished and may contain mistakes. PLEASE NOT MOVE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry x="14" y="60" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-2" value="" style="endArrow=classic;html=1;rounded=0;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="575" y="269.52" as="sourcePoint"/>
+                        <mxPoint x="724" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-5" value="Image Working Station" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry x="724" y="150" width="220" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-6" value="1. Labeling images in bounding boxes&#10;&#10;2. Presenting auto labels or existing labels on images by rules and pre-trained model. If user initially selected exisiting rules, show the predicted labels.&#10;&#10;3. Able to modify labels &#10;&#10;4. Save any modification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="F2cL5pHydMBEZYkqf1JW-5" vertex="1">
+                    <mxGeometry y="30" width="220" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-7" value="" style="endArrow=classic;html=1;rounded=0;" parent="F2cL5pHydMBEZYkqf1JW-5" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="100" y="290" as="sourcePoint"/>
+                        <mxPoint x="100" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-3" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1" connectable="0">
+                    <mxGeometry x="874" y="330.00142857142873" as="geometry">
+                        <mxPoint x="-46" y="157" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-8" value="Rule Training " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry x="724" y="540" width="220" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-9" value="1. Training labeling rules by labeled group A images and group B images (if modified labels)&#10;&#10;2. Presenting labeling rules to user&#10;&#10;3. Modify labeling rules&#10;&#10;4. Save any modification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="F2cL5pHydMBEZYkqf1JW-8" vertex="1">
+                    <mxGeometry y="30" width="220" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-19" value="" style="endArrow=classic;html=1;rounded=0;" parent="F2cL5pHydMBEZYkqf1JW-8" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1.1100000000000136" y="130" as="sourcePoint"/>
+                        <mxPoint x="-200" y="130" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-13" value="INPUT&lt;br&gt;GROUP A&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1" connectable="0">
+                    <mxGeometry x="644" y="269.9955555555555" as="geometry"/>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-14" value="" style="endArrow=none;html=1;rounded=0;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="944" y="640" as="sourcePoint"/>
+                        <mxPoint x="1014" y="640" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-15" value="" style="endArrow=none;html=1;rounded=0;" parent="cSDTdN8RX92u3f3dDQFw-7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1014" y="640" as="sourcePoint"/>
+                        <mxPoint x="1014" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-16" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.995;entryY=0.23;entryDx=0;entryDy=0;entryPerimeter=0;" parent="cSDTdN8RX92u3f3dDQFw-7" target="F2cL5pHydMBEZYkqf1JW-6" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1014" y="240" as="sourcePoint"/>
+                        <mxPoint x="964" y="510" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-17" value="INPUT&lt;br&gt;GROUP B&lt;br&gt;IMAGES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1" connectable="0">
+                    <mxGeometry x="1034" y="449.9955555555555" as="geometry">
+                        <mxPoint x="-18" y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-18" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1" connectable="0">
+                    <mxGeometry x="674" y="510.00142857142873" as="geometry">
+                        <mxPoint x="-46" y="157" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-20" value="End Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry x="324" y="620" width="200" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="F2cL5pHydMBEZYkqf1JW-21" value="1. Save created labeling rules." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="F2cL5pHydMBEZYkqf1JW-20" vertex="1">
+                    <mxGeometry y="30" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cSDTdN8RX92u3f3dDQFw-24" value="V2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="cSDTdN8RX92u3f3dDQFw-7" vertex="1">
+                    <mxGeometry x="14" y="20" width="100" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="Duz-_O268H7gZ4dPwLsp" name="Server 1">
+        <mxGraphModel dx="1302" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="AcOgOhmYx5mgDnrSKiOU" name="Server 2">
+        <mxGraphModel dx="1302" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="tczMv72_5mbwNv8jfYSI" name="Scratch">
+        <mxGraphModel dx="3704" dy="1030" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-1" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontSize=16;shadow=0;fillColor=#595959;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-50" y="350" as="sourcePoint"/>
+                        <mxPoint x="40" y="350" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-2" value="VISIT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="-40" y="325" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-3" value="Start Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="44" y="245" width="120" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-4" value="1. Instruction&#10;2. Create new labeling rules or browse existing labeling rules&#10;3. Name your new rule&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-3" vertex="1">
+                    <mxGeometry y="30" width="120" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.999;exitY=0.449;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.001;entryY=0.406;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-4" target="3K2ijmS7LoKxx6wy-EOr-7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="164" y="360" as="sourcePoint"/>
+                        <mxPoint x="234" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-6" value="Image Gallery Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="245" width="240" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-7" value="&#10;1. Pick images and add them into image set. They are all in unlabeled set at first&#10;&#10;2. Automatically pick several images" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-6" vertex="1">
+                    <mxGeometry y="30" width="240" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.004;exitY=0.39;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.458;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-7" target="3K2ijmS7LoKxx6wy-EOr-10" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="565" y="369.52" as="sourcePoint"/>
+                        <mxPoint x="714" y="370" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-9" value="Image Working Station" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="712" y="90" width="220" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-10" value="1. Presenting auto labels or existing labels on several images from unlabeled set by rules and pre-trained model. If user initially selected exisiting rules, show the predicted labels.&#10;&#10;2. Presenting current labeling accuracy (monitored by the system)&#10;&#10;3. Able to modify labels and save&#10;&#10;4. Randomly select new  images from unlabeled image set and pop labeled images into labeled set&#10;&#10;5. Able to continue labeling" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-9" vertex="1">
+                    <mxGeometry y="30" width="220" height="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-13" value="Labeling and Rule Training " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="712" y="680" width="220" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-14" value="1. Presenting labeling result of all unlabeled images (may add one more page) and show accuracy&#10;&#10;2. Presenting labeling rules to user&#10;&#10;3. Modify labeling rules&#10;&#10;4. Save any modification and move images from labeled image set to unlabeled image set" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-13" vertex="1">
+                    <mxGeometry y="30" width="220" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-17" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-14" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="934" y="740" as="sourcePoint"/>
+                        <mxPoint x="1004.0000000000005" y="740" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-18" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1004.0000000000005" y="740" as="sourcePoint"/>
+                        <mxPoint x="1004.0000000000005" y="340" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-19" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.995;entryY=0.23;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="3K2ijmS7LoKxx6wy-EOr-10" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1004.0000000000005" y="340" as="sourcePoint"/>
+                        <mxPoint x="954" y="610" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-20" value="IF LABELING RULES&lt;br&gt;WERE MODIFIED OR&lt;br&gt;USER WANT TO KEEP&amp;nbsp;&lt;br&gt;TRAINING" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="1024" y="599.9955555555555" as="geometry">
+                        <mxPoint x="-18" y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-22" value="End Page" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="314" y="720" width="200" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-23" value="1. Save created labeling rules." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-22" vertex="1">
+                    <mxGeometry y="30" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-11" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.508;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-10" target="3K2ijmS7LoKxx6wy-EOr-13" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="822" y="560" as="sourcePoint"/>
+                        <mxPoint x="812" y="575" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-12" value="ACCURACY OVER&lt;br&gt;THRESHOLD&lt;br&gt;OR&lt;br&gt;USER MANUALLY" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="872" y="450.00142857142873" as="geometry">
+                        <mxPoint x="-46" y="157" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3K2ijmS7LoKxx6wy-EOr-14" target="3K2ijmS7LoKxx6wy-EOr-23" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="710.89" y="810" as="sourcePoint"/>
+                        <mxPoint x="512" y="810" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-21" value="NO MORE&lt;br&gt;MODIFICATION" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBorderColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="662" y="660.0014285714287" as="geometry">
+                        <mxPoint x="-46" y="157" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-28" value="Labeled image set" style="swimlane;startSize=23;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="1000" width="190" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="AMXna7f9SMDh4iYn8GQR-2" value="1. Images that used in each FOIL&#10;&#10;2. Increase size after each labeling" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-28" vertex="1">
+                    <mxGeometry y="20" width="180" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="3K2ijmS7LoKxx6wy-EOr-29" value="Unlabeled image set" style="swimlane;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="1000" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="AMXna7f9SMDh4iYn8GQR-3" value="1. Simply are unlabeled images and waiting labeled&#10;&#10;2. Pop to labeled image set in each circulation" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=16;whiteSpace=wrap;" parent="3K2ijmS7LoKxx6wy-EOr-29" vertex="1">
+                    <mxGeometry y="20" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="662GoSva-zzIvYBhd-8a-1" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="4lwMNArxevPM33Wyxda3-1" target="662GoSva-zzIvYBhd-8a-2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="940" y="1675" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="662GoSva-zzIvYBhd-8a-4" value="New idea after discussion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="662GoSva-zzIvYBhd-8a-1" vertex="1" connectable="0">
+                    <mxGeometry x="0.1129" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4lwMNArxevPM33Wyxda3-1" value="&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Some comments by Gareth:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;1. As far as I know, &lt;b&gt;it is tough to adjust an existing logic definition by introducing new knowledge base items&lt;/b&gt;. Usually, we just run the entire training process all over again. As long as there is one sample in the dataset that fails the pre-existing logic definition, FOIL stops functioning since it cannot break the current logic definition and somehow revert to or reconstruct a different definition that satisfies all samples in the current dataset. &lt;b&gt;&lt;strike&gt;So we need to group all images that are under a label together and should be able to access all these images by that label. Every time new images come in and violate the current logical definition of the label, we treat pre-existing images as human-labelled images and combine them with the new images to formulate a new definition by training FOIL all over again(The previous definition is not even used in the training process due to reason explained above). &lt;/strike&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;2. The two training workflows we discussed are listed below:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;u&gt;Predict &lt;b&gt;ALL&lt;/b&gt; remaining images in every circulation:&lt;/u&gt; After initially receiving  some labelled images through manual labelling(the system knows these are labelled by humans), the system predicts labels for all images that are not labelled yet(and the system knows those are labelled by itself). If a user notices that some images are falsely labelled by the system, they can request another portion of &lt;b&gt;machine-labelled&lt;/b&gt; images and manually label them(i.e. the system gets more human-labelled samples). The system will then clear all labels of other images and redo the training to predict these images which now become unlabelled again. Repeating the whole process until the user is satisfied with all labels. &lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Pros: easy to implement and reduce training overload.&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Cons: In this workflow, we predict labels for all images every time the logic definition is changed. If the dataset is very large, we may experience unnecessary idling time in the early stage of training.&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;u&gt;Predict &lt;b&gt;ONE&lt;/b&gt; image in every circulation:&lt;/u&gt; After initially receiving  some labelled images through manual labelling(the system knows these are labelled by humans), the system begins to predict the label for the upcoming new image(only predict a label for that image). Users can verify the predicted label by either accepting or rejecting it. If rejected, users can change the label manually. The system gradually increases its knowledge base in this way and hopefully generates labels more accurately after several circulations.&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Pros: fast response since only one image is required to predict and require fewer users' work since they only need to focus on the current image, not all images in the dataset. &lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Cons: train the entire FOIL each time only one image is added(too much overload!)&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;spacingLeft=5;spacingRight=5;sketch=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="1300" width="720" height="750" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-45" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;" parent="1" source="662GoSva-zzIvYBhd-8a-2" target="n68zJQZQ37yLhg8xty_T-39" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="662GoSva-zzIvYBhd-8a-2" value="We design to combine two workflows together. The overall process is given as follows:&lt;br&gt;&lt;br&gt;==============================================================================&lt;br&gt;1. An image set is selected to be labelled and the label domain is provided(a set of target labels).&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;i&gt;Initial circulation:&lt;/i&gt;&lt;br&gt;2.&amp;nbsp;&lt;font color=&quot;#ff3333&quot;&gt;N&amp;nbsp;&lt;/font&gt;images are randomly selected by the system and are predicted by FOIL algorithm using existing logical definitions in the database. (If FOIL failed to predict an image or there is no such label in the database, leave it unlabelled.)&lt;br&gt;3. These &lt;font color=&quot;#ff3333&quot;&gt;N &lt;/font&gt;images with generated labels are sent to users for manual labelling.&lt;br&gt;4. User review and correct label for each image if there is no label or the predicted label is false. The system then update label definition( build a new FOL representation of the image -&amp;gt; add it in knowledge base -&amp;gt; re-train the model).&lt;br&gt;&lt;br&gt;&lt;i&gt;Circulation steps:&lt;/i&gt;&lt;br&gt;5. Another&amp;nbsp;&lt;font color=&quot;#ff3333&quot;&gt;X &lt;/font&gt;images(&lt;b&gt;other than the previews &lt;/b&gt;&lt;font color=&quot;#ff3333&quot;&gt;&lt;b&gt;N&lt;/b&gt; &lt;/font&gt;images) are randomly picked by the system and run FOIL to predict their labels. The result labels are sent to users for verification.&lt;br&gt;6. User review and correct label for each image if there is no label or the predicted label is false. The system then update label definition( build a new FOL representation of the image -&amp;gt; add it in knowledge base -&amp;gt; re-train the model).&lt;br&gt;7. Prediction accuracy(&lt;font color=&quot;#ff3333&quot;&gt;A = # of correct labels / X&lt;/font&gt;) are monitored by the system and once the accuracy reach some threshold &lt;font color=&quot;#ff3333&quot;&gt;T&lt;/font&gt;, the system increases &lt;font color=&quot;#ff3333&quot;&gt;X&lt;/font&gt;.(basically give user more images each circulation)&lt;br&gt;&lt;br&gt;Repeat until user is satisfied with all images.&lt;br&gt;==============================================================================&lt;br&gt;&lt;br&gt;During the process, users can manually choose to predict labels for &lt;b&gt;ALL&lt;/b&gt; remaining images using current definition generated by the system. And they can freely jump back if they are not satisfied with the result.&lt;br&gt;&lt;br&gt;" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;spacingLeft=2;spacingRight=2;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="1130" y="1362" width="740" height="630" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-40" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="100" y="2120" width="1100" height="810" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-39" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontColor=#FF3333;container=0;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry width="1100" height="810" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-4" value="Select Image Set &amp;amp; Label Domain" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="90" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-5" value="Randomly Pick &lt;font color=&quot;#ff3333&quot;&gt;N&lt;/font&gt; Images" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="290" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-6" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-4" target="n68zJQZQ37yLhg8xty_T-5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-7" value="Label Images" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="810" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-8" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#FF3333;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-5" target="n68zJQZQ37yLhg8xty_T-7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-12" value="" style="endArrow=classic;html=1;fontSize=16;fontColor=#3333FF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-13" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="100" as="sourcePoint"/>
+                        <mxPoint x="480" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-13" value="&lt;span style=&quot;color: rgb(51 , 51 , 255) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 16px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250) ; display: inline ; float: none&quot;&gt;Label Definitions Stored in the Database&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="320" y="60" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-14" value="Review &amp;amp; Correction" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="810" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-15" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-7" target="n68zJQZQ37yLhg8xty_T-14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-22" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="n68zJQZQ37yLhg8xty_T-40" target="n68zJQZQ37yLhg8xty_T-31" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="820" y="551.4699999999998" as="sourcePoint"/>
+                        <mxPoint x="742" y="549.9999999999995" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="810" y="551.4699999999998"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-23" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-22" vertex="1" connectable="0">
+                    <mxGeometry x="0.4863" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-16" value="Label Changed?" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="820" y="500" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-17" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-14" target="n68zJQZQ37yLhg8xty_T-16" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-18" value="Re-train Model" style="whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="810" y="650" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-19" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-16" target="n68zJQZQ37yLhg8xty_T-18" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-20" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;Yes&lt;/b&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontSize=16;fontColor=#3333FF;" parent="n68zJQZQ37yLhg8xty_T-19" vertex="1" connectable="0">
+                    <mxGeometry x="0.2916" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-25" style="edgeStyle=none;html=1;fontSize=16;fontColor=#FF3333;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-18" target="n68zJQZQ37yLhg8xty_T-31" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="672" y="593" as="targetPoint"/>
+                        <mxPoint x="810" y="682" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="670" y="682"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-33" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-29" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="670" y="160.00000000000045" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-29" value="Randomly Pick &lt;font color=&quot;#ff3333&quot;&gt;X&lt;/font&gt; Images (from the remaining ones)" style="whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="590" y="220" width="160" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-31" value="Done Labelling?" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="620" y="501" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-34" value="Done" style="ellipse;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="430" y="521" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-35" value="" style="edgeStyle=none;html=1;fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-31" target="n68zJQZQ37yLhg8xty_T-34" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-36" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontColor=#000000;" parent="n68zJQZQ37yLhg8xty_T-35" vertex="1" connectable="0">
+                    <mxGeometry x="0.435" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-38" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=16;fontColor=#FF3333;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-37" target="n68zJQZQ37yLhg8xty_T-29" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-37" value="Adjust &lt;font color=&quot;#ff3333&quot;&gt;X&lt;/font&gt; Based On&amp;nbsp;&lt;font color=&quot;#ff3333&quot;&gt;A&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="590" y="360" width="160" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-28" style="edgeStyle=none;html=1;fontSize=16;fontColor=#FF3333;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="n68zJQZQ37yLhg8xty_T-40" source="n68zJQZQ37yLhg8xty_T-31" target="n68zJQZQ37yLhg8xty_T-37" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="670" y="440" as="targetPoint"/>
+                        <mxPoint x="672" y="411" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-32" value="&lt;b&gt;&lt;font color=&quot;#000000&quot;&gt;No&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontSize=16;fontColor=#FF3333;" parent="n68zJQZQ37yLhg8xty_T-28" vertex="1" connectable="0">
+                    <mxGeometry x="-0.4117" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="n68zJQZQ37yLhg8xty_T-41" value="&lt;font color=&quot;#00994d&quot;&gt;Green&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;: user action&lt;br&gt;&lt;/font&gt;&lt;br&gt;&lt;div&gt;&lt;span&gt;&lt;font color=&quot;#007fff&quot;&gt;Blue&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0)&quot;&gt;: system action&lt;/span&gt;&lt;span style=&quot;color: rgb(255 , 51 , 51)&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;fontColor=#FF3333;" parent="n68zJQZQ37yLhg8xty_T-40" vertex="1">
+                    <mxGeometry x="80" y="260" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="wJ85cByLVnsc0VSyhhtM-1" value="&lt;font style=&quot;font-size: 19px&quot; color=&quot;#007fff&quot;&gt;&lt;b&gt;Application Workflow&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1130" y="1330" width="210" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="wJ85cByLVnsc0VSyhhtM-2" value="&lt;font style=&quot;font-size: 19px&quot; color=&quot;#007fff&quot;&gt;&lt;b&gt;Flowchart I&lt;/b&gt;&lt;/font&gt;&lt;font color=&quot;#007fff&quot;&gt;&lt;span style=&quot;font-size: 19px&quot;&gt;&lt;b&gt;llustration&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="2100" width="210" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
