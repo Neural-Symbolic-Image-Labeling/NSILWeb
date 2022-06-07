@@ -13,7 +13,7 @@ export class RectangleTool extends Tool {
      * }} props 
     */
     configureCanvas = (props) => {
-        // console.log("RectangleTool.configureCanvas");
+        console.log("RectangleTool.configureCanvas");
 
         let canvas = this.fbCanvas;
         canvas.isDrawingMode = false;
@@ -21,7 +21,7 @@ export class RectangleTool extends Tool {
         this._width = props.lineWidth;
         this._color = props.lineColor;
         this._fill = props.fillColor;
-        canvas.requestRenderAll();
+        canvas.renderAll();
     }
 
     /** Create new rectangle when mouse is down
@@ -46,9 +46,9 @@ export class RectangleTool extends Tool {
             stroke: this._color,
             strokeWidth: this._width,
             fill: this._fill,
-            // selectable: false,
+            selectable: false,
             // transparentCorners: false,
-            // evented: false,
+            evented: false,
             // strokeUniform: true,
             // noScaleCache: false,
             // angle: 0,
@@ -60,7 +60,7 @@ export class RectangleTool extends Tool {
         canvas.add(temp);
         console.log(temp);
         // canvas.setActiveObject(this.rect);
-        canvas.requestRenderAll();
+        canvas.renderAll();
     }
 
     // adjust rectangle when mouse is moving
@@ -78,7 +78,7 @@ export class RectangleTool extends Tool {
         this.rect.set({ width: Math.abs(this.startX - pointer.x) });
         this.rect.set({ height: Math.abs(this.startY - pointer.y) });
         this.rect.setCoords();
-        canvas.requestRenderAll();
+        canvas.renderAll();
     }
 
     /** Finish rectangle when mouse is up.
@@ -90,6 +90,6 @@ export class RectangleTool extends Tool {
         this.isDown = false;
         this.rect.setCoords();
         canvas.setActiveObject(this.rect);
-        canvas.requestRenderAll();
+        canvas.renderAll();
     }
 }

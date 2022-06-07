@@ -16,7 +16,7 @@ export class SelectedTool extends Tool {
             // obj.selectable = true;
             // obj.evented = true;
         });
-        canvas.requestRenderAll();
+        canvas.renderAll();
     }
 
     onMouseDown = (e) => { console.log("SelectedTool.onMouseDown"); }

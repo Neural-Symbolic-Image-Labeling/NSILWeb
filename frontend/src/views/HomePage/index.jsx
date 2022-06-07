@@ -25,7 +25,7 @@ export const HomePage = () => {
         </AppBar>
       </div>
       {/* <ImageGallery /> */}
-      <AnnotationTool />
+      {/* <AnnotationTool /> */}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import style from "./style.module.css";
-import { TestCanvas } from "../../TestPage/TestCanvas";
+// import { TestCanvas } from "../../TestPage/TestCanvas";
 import { Sidebar } from "./Sidebar";
 
 const defaultImage = {
@@ -21,7 +21,7 @@ export const AnnotationTool = () => {
             </div>
           </div>
           <div className={style["image-canvas"]}>
-            <TestCanvas />
+            {/* <TestCanvas /> */}
           </div>
         </div>
         <div className={style["sidebar-container"]}>
