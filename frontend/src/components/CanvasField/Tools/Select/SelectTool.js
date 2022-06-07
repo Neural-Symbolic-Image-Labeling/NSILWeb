@@ -12,6 +12,7 @@ export class SelectedTool extends Tool {
         canvas.forEachObject(obj => {
             obj.set('selectable', true );
             obj.set('evented', true);
+            obj.set('hasControls', true);
             console.log(obj);
             // obj.selectable = true;
             // obj.evented = true;

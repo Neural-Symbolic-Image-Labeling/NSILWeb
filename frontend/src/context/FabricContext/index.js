@@ -3,9 +3,9 @@ import { fabric } from "fabric";
 import ToolList from "../../components/CanvasField/Tools/ToolList";
 import { RectangleTool } from "../../components/CanvasField/Tools/Rectangle/Rectangle";
 import { SelectedTool } from "../../components/CanvasField/Tools/Select/SelectTool";
+
 /** @type {React.Context<[fabric.Canvas, string, (c: fabric.Canvas) => void, (t: any) => void]>}*/
 export const FabricContext = createContext([null, null, (c) => { }, (t) => { }]);
-
 
 const defaultProps = {
     canvasHeight: 600,
@@ -26,15 +26,16 @@ export const FabricProvider = (props) => {
      * @param {fabric.Canvas} canvas 
      */
     const initCanvas = (canvasRef) => {
+        console.log("FabricProvider.initCanvas");
         setFbCnavas(new fabric.Canvas(canvasRef.current, {
             // preserveObjectStacking: false, 
             // renderOnAddRemove: false,
             // skipTargetFind: true
-          }));
+        }));
+        // canvasRef.current.remove();
     }
 
     const setTool = (tool) => {
-        if (!fbCanvas) return;
         setCurrTool(tool);
     }
 

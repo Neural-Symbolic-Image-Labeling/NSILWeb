@@ -17,7 +17,10 @@ export class RectangleTool extends Tool {
 
         let canvas = this.fbCanvas;
         canvas.isDrawingMode = false;
-        canvas.forEachObject(obj => { obj.selectable = false; });
+        canvas.forEachObject(obj => {
+            obj.set("selectable", false);
+            obj.set('hasControls', false);
+        });
         this._width = props.lineWidth;
         this._color = props.lineColor;
         this._fill = props.fillColor;
@@ -47,6 +50,7 @@ export class RectangleTool extends Tool {
             strokeWidth: this._width,
             fill: this._fill,
             selectable: false,
+            hasControls: false,
             // transparentCorners: false,
             evented: false,
             // strokeUniform: true,

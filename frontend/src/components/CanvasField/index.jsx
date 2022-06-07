@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useLayoutEffect } from "react";
 import { FabricContext } from "../../context/FabricContext";
 import ToolList from "./Tools/ToolList";
+import { Container } from "@mui/material";
 import { fabric } from "fabric";
 
 export const CanvasField = () => {
@@ -9,7 +10,7 @@ export const CanvasField = () => {
 
   useEffect(() => {
     initCanvas(canvasRef);
-    // console.log(localCanvas);
+    console.log(canvasRef);
   }, []);
 
   return (
@@ -19,9 +20,9 @@ export const CanvasField = () => {
         <button onClick={() => setTool(ToolList.RectangleTool)}>Rect</button>
         <button onClick={() => setTool(ToolList.SelectedTool)}>Select</button>
       </div>
-      <div>
+      <Container>
         <canvas ref={canvasRef}></canvas>
-      </div>
+      </Container>
     </>
   )
 }
