@@ -76,6 +76,13 @@ export const gallerySlice = createSlice({
       state.loading = true;
       state.images = [];
       state.displayedImages = [];
+      state.statistics = {
+        total: 0,
+        unlabeled: 0,
+        manual: 0,
+        userChecked: 0,
+        autoLabeled: 0,
+      };
     });
 
     builder.addCase(fetchImages.rejected, (state) => {
