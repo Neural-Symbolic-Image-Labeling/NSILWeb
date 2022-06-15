@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { Box, Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { addRule, removeRule } from "../../../stores/rules/index.js";
+//import { addRule, removeRule } from "../../../stores/rules/index.js";
 
 
 // const ruleCard= [
