@@ -1,31 +1,46 @@
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
-import { ImageGallery } from "./ImageGallery";
-import { AnnotationTool } from "./AnnotationTool";
+import { Box } from '@mui/system';
+import { HomePageHeader } from './Header';
+import { TopActionBar } from './TopActionBar';
 
 export const HomePage = () => {
   return (
-    <div>
-      <div className="app-bar">
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h5">
-              NSIL
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </div>
-      <ImageGallery />
-      {/* <AnnotationTool /> */}
-    </div>
+    <>
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+      }}>
+        {/* Header Part */}
+        <HomePageHeader />
+
+        {/* Body Part*/}
+        <Box sx={{
+          display: "flex",
+        }}>
+          {/* Left Part */}
+          <Box sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            flexBasis: "60%",
+            border: "1px solid black",
+          }}>
+            {/* Top Action Bar */}
+            <TopActionBar />
+            {/* Work Station Part */}
+            <div>Work Station Part In Progress...</div>
+          </Box>
+          {/* Right Part */}
+          <Box sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            flexBasis: "40%",
+            border: "1px solid black",
+          }}>
+            <div> Right Part In Progress...</div>
+          </Box>
+        </Box>
+      </Box>
+    </>
   )
 }
