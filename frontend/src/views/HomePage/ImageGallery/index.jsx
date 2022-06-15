@@ -49,9 +49,9 @@ export const ImageGallery = () => {
 
   return (
     <div className={style.container}>
-      {images.map(image => (
-        <div className={style["image-container"]}>
-          <img className={style["image"]}  />
+      {images.map((image, index) => (
+        <div key={index} className={style["image-container"]}>
+          <img src={image.src} className={style["image"]}  />
           <div className={style["image-label-wrapper"]}>
             <div className={style["image-caption"]}>
               {image.label}

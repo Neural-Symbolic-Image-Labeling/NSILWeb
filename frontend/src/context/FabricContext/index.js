@@ -1,11 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
 import { fabric } from "fabric";
-import ToolList from "../../components/CanvasField/Tools/ToolList";
-import { RectangleTool } from "../../components/CanvasField/Tools/Rectangle/Rectangle";
-import { SelectedTool } from "../../components/CanvasField/Tools/Select/SelectTool";
+import ToolList from "./Tools/ToolList";
+import { RectangleTool } from "./Tools/Rectangle/Rectangle";
+import { SelectedTool } from "./Tools/Select/SelectTool";
 
-/** @type {React.Context<[fabric.Canvas, string, (c: fabric.Canvas) => void, (t: any) => void]>}*/
-export const FabricContext = createContext([null, null, (c) => { }, (t) => { }]);
+/** @type {React.Context<[fabric.Canvas, string, (c: fabric.Canvas) => void, (t: any) => void, (p: any) => void]>}*/
+export const FabricContext = createContext(null);
 
 const defaultProps = {
     canvasHeight: 600,
@@ -22,11 +22,16 @@ export const FabricProvider = (props) => {
     /**@type {[string, (t: string) => void]} */
     const [currTool, setCurrTool] = useState(ToolList.RectangleTool);
 
+    const [canvasProps, setCanvasProps] = useState(defaultProps);
+
+    //#region Helpers
+
     /** Initialize fabric canvas
      * @param {fabric.Canvas} canvas 
      */
     const initCanvas = (canvasRef) => {
         console.log("FabricProvider.initCanvas");
+        if (fbCanvas) return;
         setFbCnavas(new fabric.Canvas(canvasRef.current, {
             // preserveObjectStacking: false, 
             // renderOnAddRemove: false,
@@ -37,6 +42,10 @@ export const FabricProvider = (props) => {
 
     const setTool = (tool) => {
         setCurrTool(tool);
+    }
+
+    const setProps = (props) => { 
+        setCanvasProps(p => ({ ...p, ...props }));
     }
 
     const handleEvent = (e, callback) => {
@@ -59,18 +68,34 @@ export const FabricProvider = (props) => {
         console.log("_onMouseUp", currTool);
     }
 
+    //#endregion
+
+    //#region useEffects
+    useEffect(() => { 
+        if (!fbCanvas) return;
+        fbCanvas.setBackgroundColor(canvasProps.canvasBackgroundColor);
+        fbCanvas.setDimensions({ width: canvasProps.canvasWidth, height: canvasProps.canvasHeight });
+        fbCanvas.renderAll();
+
+        if (currTool) tools[currTool].configureCanvas(canvasProps);
+    }, [canvasProps]);
+
+    useEffect(() => { 
+        console.log("FabricProvider.useEffect");
+    }, [canvasProps]);
+
     useEffect(() => {
         if (!fbCanvas) return;
 
         console.log("create canvas", fbCanvas);
-        fbCanvas.setBackgroundColor('#66ccff');
-        fbCanvas.setDimensions({ width: 500, height: 500 });
-        fbCanvas.renderTop();
+        fbCanvas.setBackgroundColor(canvasProps.canvasBackgroundColor);
+        fbCanvas.setDimensions({ width: canvasProps.canvasWidth, height: canvasProps.canvasHeight });
+        fbCanvas.renderAll();
 
         tools[ToolList.RectangleTool] = new RectangleTool(fbCanvas);
         tools[ToolList.SelectedTool] = new SelectedTool(fbCanvas);
 
-        if (currTool) tools[currTool].configureCanvas(defaultProps);
+        if (currTool) tools[currTool].configureCanvas(canvasProps);
 
         fbCanvas.on('mouse:down', (e) => { handleEvent(e, _onMouseDown); });
         fbCanvas.on('mouse:move', (e) => { handleEvent(e, _onMouseMove); });
@@ -85,18 +110,20 @@ export const FabricProvider = (props) => {
     useEffect(() => {
         if (!fbCanvas) return;
         console.log("setTool", currTool);
-        tools[currTool].configureCanvas(defaultProps);
+        tools[currTool].configureCanvas(canvasProps);
         fbCanvas.off();
         fbCanvas.on('mouse:down', (e) => { handleEvent(e, _onMouseDown); });
         fbCanvas.on('mouse:move', (e) => { handleEvent(e, _onMouseMove); });
         fbCanvas.on('mouse:up', (e) => { handleEvent(e, _onMouseUp); });
         fbCanvas.renderAll();
-    }, [currTool])
+    }, [currTool]);
 
+    
 
+    //#endregion
 
     return (
-        <FabricContext.Provider value={[fbCanvas, currTool, initCanvas, setTool]}>
+        <FabricContext.Provider value={[fbCanvas, currTool, initCanvas, setTool, setProps]}>
             {props.children}
         </FabricContext.Provider>
     )

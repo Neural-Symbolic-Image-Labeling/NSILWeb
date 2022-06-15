@@ -1,6 +1,7 @@
 import style from "./style.module.css";
 // import { TestCanvas } from "../../TestPage/TestCanvas";
 import { Sidebar } from "./Sidebar";
+import { CanvasField } from "../../../components/CanvasField";
 
 const defaultImage = {
   src: "https://picsum.photos/id/1018/200/300",
@@ -21,7 +22,7 @@ export const AnnotationTool = () => {
             </div>
           </div>
           <div className={style["image-canvas"]}>
-            {/* <TestCanvas /> */}
+            <CanvasField />
           </div>
         </div>
         <div className={style["sidebar-container"]}>
