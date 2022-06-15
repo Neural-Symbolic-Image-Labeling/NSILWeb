@@ -16,6 +16,13 @@ export const gallerySlice = createSlice({
     loading: false,
     images: [],
     displayedImages: [],
+    statistics: {
+      total: 0,
+      unlabeled: 0,
+      manual: 0,
+      userChecked: 0,
+      autoLabeled: 0,
+    }
   },
   reducers: {
     setImages: (state, action) => {
@@ -29,6 +36,20 @@ export const gallerySlice = createSlice({
       state.displayedImages = state.images.filter((image) =>
         image.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
+    },
+    labelImage: (state, action) => {
+      const { imageId, label } = action.payload;
+      const image = state.images.find((image) => image.id === imageId);
+      if (image) {
+        image.label = label;
+        // when it is the first time being labeled manually.
+        if (!image.manual) {
+          image.manual = true; 
+          state.statistics.manual++;
+          state.statistics.userChecked++;
+          state.statistics.unlabeled--;
+        }
+      }
     }
   },
   extraReducers: (builder) => {
@@ -40,10 +61,15 @@ export const gallerySlice = createSlice({
           url: imageURL,
           label: "unlabeled",
           name: `image${index}`,
+          canvas: null,
+          manual: false
         }
       });
       state.images = imgs
       state.displayedImages = imgs;
+      state.statistics.total = imgs.length;
+      state.statistics.unlabeled = imgs.length;
+
     });
 
     builder.addCase(fetchImages.pending, (state) => {
@@ -60,5 +86,5 @@ export const gallerySlice = createSlice({
   }
 });
 
-export const { setImages, setDisplayedImages, search } = gallerySlice.actions;
+export const { setImages, setDisplayedImages, search, labelImage } = gallerySlice.actions;
 export default gallerySlice.reducer;

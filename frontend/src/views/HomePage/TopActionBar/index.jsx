@@ -1,5 +1,5 @@
 import { Button, Box, Typography, TextField, InputAdornment } from "@mui/material";
-import { fetchImages, search } from "../../../stores/gallery";
+import { fetchImages, labelImage, search } from "../../../stores/gallery";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
@@ -29,7 +29,7 @@ export const TopActionBar = () => {
         <Button
           variant="outlined"
           onClick={() => dispatch(fetchImages())}
-          size="large"
+          size="medium"
         >
           Load Images
         </Button>
@@ -41,7 +41,7 @@ export const TopActionBar = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <Search />
+                  <Search sx={{color: "rgba(25, 118, 210, 0.7)"}} />
                 </InputAdornment>
               )
             }}
@@ -56,13 +56,14 @@ export const TopActionBar = () => {
           </Button>
         </Box>
         {/* Right Button */}
-        <Button variant="outlined" size="large">
+        <Button variant="outlined" size="medium">
           Auto Label
         </Button>
       </Box>
       <Box>
+        <Button onClick={() => dispatch(labelImage({imageId: 1, label: 'lol'}))}>label fisrt</Button>
         <Typography variant="body1">
-          {isLoading ? "Loading..." : `${images.length} images loaded`}
+          {isLoading ? "Loading..." : `${images.length} images showed`}
         </Typography>
       </Box>
     </>

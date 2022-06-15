@@ -8,5 +8,6 @@ Frontend
 3. React-uuid
 4. React-router-dom
 5. FabricJS
-6. ChartJS
-7. React-redux
+6. React-redux
+7. React-chartjs-2
+8. ChartJS

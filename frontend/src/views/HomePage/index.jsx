@@ -1,4 +1,5 @@
 import { Box } from '@mui/system';
+import { ChartSection } from './ChartSection';
 import { HomePageHeader } from './Header';
 import { TopActionBar } from './TopActionBar';
 
@@ -21,7 +22,7 @@ export const HomePage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            flexBasis: "60%",
+            flexBasis: "70%",
             border: "1px solid black",
           }}>
             {/* Top Action Bar */}
@@ -34,10 +35,12 @@ export const HomePage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            flexBasis: "40%",
+            flexBasis: "30%",
             border: "1px solid black",
           }}>
-            <div> Right Part In Progress...</div>
+            {/* Chart Section */}
+            <ChartSection />
+            {/* Rule List */}
           </Box>
         </Box>
       </Box>
