@@ -9,20 +9,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { addRule, removeRule } from "../../../stores/rules/index.js";
 
 
-const rule= [
-  {
-    ruleName: "Dog Twins",
-    description: "match(X, “dog”) ^ match(Y, “dog”) ^ IOU(X, Y) < 0.6",
-  },
-  {
-    ruleName: "Guitarist",
-    description: "match(X, “guitar”) ^ match(Y, “person”) ^ IOU(X, Y) < 0.4",
-  },
-  {
-    ruleName: "Dog Twins",
-    description: "match(X, “dog”) ^ match(Y, “dog”) ^ IOU(X, Y) < 0.6",
-  },
-];
+// const ruleCard= [
+//   {
+//     ruleName: "Dog Twins",
+//     description: "match(X, “dog”) ^ match(Y, “dog”) ^ IOU(X, Y) < 0.6",
+//   },
+//   {
+//     ruleName: "Guitarist",
+//     description: "match(X, “guitar”) ^ match(Y, “person”) ^ IOU(X, Y) < 0.4",
+//   },
+//   {
+//     ruleName: "Dog Twins",
+//     description: "match(X, “dog”) ^ match(Y, “dog”) ^ IOU(X, Y) < 0.6",
+//   },
+// ];
 
 export const LearningRules = () => {
   const [] = useState([]);
