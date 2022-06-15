@@ -2,6 +2,7 @@ import { Box } from '@mui/system';
 import { ChartSection } from './ChartSection';
 import { HomePageHeader } from './Header';
 import { TopActionBar } from './TopActionBar';
+import { LearningRules } from './LearningRules'
 
 export const HomePage = () => {
   return (
@@ -41,6 +42,7 @@ export const HomePage = () => {
             {/* Chart Section */}
             <ChartSection />
             {/* Rule List */}
+            <LearningRules />
           </Box>
         </Box>
       </Box>
