@@ -24,7 +24,7 @@ export const HomePage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            flexBasis: "65%",
+            flexBasis: "70%",
             border: "1px solid black",
           }}>
             {/* Top Action Bar */}
@@ -37,7 +37,7 @@ export const HomePage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            flexBasis: "35%",
+            flexBasis: "30%",
             border: "1px solid black",
           }}>
             {/* Chart Section */}

@@ -5,12 +5,16 @@ import reportWebVitals from './reportWebVitals';
 import { WebRouters } from './routers';
 import { Provider } from 'react-redux';
 import store from "./stores";
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './muiStyles';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
     <Provider store={store}>
-      <WebRouters />
+      <ThemeProvider theme={theme}>
+        <WebRouters />
+      </ThemeProvider>
     </Provider>
   </>
 );

@@ -19,12 +19,7 @@ export const ChartSection = () => {
         'rgba(75, 192, 192, 0.2)',
         'rgba(153, 102, 255, 0.2)'
       ],
-      borderColor: [
-        'rgba(255, 159, 64, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)'
-      ],
-      borderWidth: 1,
+      borderWidth: 0,
     }],
   };
 
@@ -33,7 +28,9 @@ export const ChartSection = () => {
       legend: {
         position: "bottom"
       }
-    }
+    },
+    responsive: true,
+    maintainAspectRatio: true,
   }
 
   return (
@@ -49,7 +46,9 @@ export const ChartSection = () => {
         </Typography>
         {isLoading ? <div>Loading...</div> : (
           <>
-            <Pie data={data} options={options} />
+            <Box sx={{width: "250px", height: "250px"}}>
+              <Pie data={data} options={options} />
+            </Box>
 
             <Box sx={{
               display: "flex",
