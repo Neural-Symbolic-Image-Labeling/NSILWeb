@@ -26,6 +26,7 @@ import { useSelector, useDispatch } from "react-redux";
 export const LearningRules = () => {
   const [] = useState([]);
   const rules = useSelector((state) => state.rules.rules);
+  const isLoading = useSelector((state) => state.gallery.loading);
   const dispatch = useDispatch();
 
   return (
