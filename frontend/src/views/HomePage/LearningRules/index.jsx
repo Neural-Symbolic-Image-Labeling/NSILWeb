@@ -8,7 +8,6 @@ import { Box, Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 //import { addRule, removeRule } from "../../../stores/rules/index.js";
 
-
 // const ruleCard= [
 //   {
 //     ruleName: "Dog Twins",
@@ -53,6 +52,29 @@ export const LearningRules = () => {
           borderRadius: 1.5,
           padding: 2,
           mb: 1.5,
+          scrollbarWidth: "thin",
+          "&::-webkit-scrollbar": {
+            width: "0.4em",
+            borderRadius: '10px',
+            marginRight: '15px',
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "#00000",
+            borderRadius: '10px',
+            marginRight: '15px',
+          },
+          "&::-webkit-scrollbar-thumb": {
+            height: "3em",
+            backgroundColor: "#888",
+            borderRadius: '10px',
+            marginRight: '15px',
+          },
+          "&::-webkit-scrollbar-thumb:hover": {
+            height: "3em",
+            background: "#555",
+            borderRadius: '10px',
+            marginRight: '15px',
+          },
         }}
       >
         {rules.map((card, index) => (
