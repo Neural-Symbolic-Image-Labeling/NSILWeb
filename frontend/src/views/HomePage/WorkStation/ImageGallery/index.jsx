@@ -12,7 +12,35 @@ export const ImageGallery = ({ setPage }) => {
     <>
       <Box sx={{}}>
         {isLoading ? (<div>Loading...</div>) : (
-          <ImageList sx={{ maxHeight: "650px", paddingRight: "20px", overflowX: "hidden" }} cols={4} gap={6}>
+          <ImageList
+            sx={{
+              maxHeight: "650px",
+              paddingRight: "20px",
+              overflowX: "hidden",
+              scrollbarWidth: "thin",
+              "&::-webkit-scrollbar": {
+                width: "0.4em",
+                borderRadius: "10px",
+              },
+              "&::-webkit-scrollbar-track": {
+                background: "#00000",
+                borderRadius: "10px",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                height: "3em",
+                backgroundColor: "#888",
+                borderRadius: "10px",
+              },
+              "&::-webkit-scrollbar-thumb:hover": {
+                height: "3em",
+                background: "#555",
+                borderRadius: "10px",
+                marginRight: "15px",
+              },
+            }}
+            cols={4}
+            gap={6}
+          >
             {images.filter(img => img.name.toLowerCase().includes(filterStr.toLowerCase())).map((image, index) => (
               <ImageListItem key={index}>
                 <Box

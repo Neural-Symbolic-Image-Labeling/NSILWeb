@@ -8,6 +8,7 @@ import { Search } from "@mui/icons-material";
 export const TopActionBar = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
+  const images = useSelector(state => state.gallery.images);
 
   useEffect(() => {
     dispatch(fetchImages());
@@ -58,7 +59,7 @@ export const TopActionBar = () => {
         </Button>
       </Box>
       <Box>
-        <Button onClick={() => dispatch(labelImage({imageId: 1, label: 'lol'}))}>Label image1</Button>
+        <Button onClick={() => dispatch(labelImage({imageId: (Math.floor(Math.random() * (images.length + 1))), label: 'lol'}))}>Label images</Button>
         {/* <Typography variant="body1">
           {isLoading ? "Loading..." : `${images.length} images showed`}
         </Typography> */}

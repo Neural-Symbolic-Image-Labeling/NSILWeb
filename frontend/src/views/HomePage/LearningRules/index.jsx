@@ -52,7 +52,6 @@ export const LearningRules = () => {
             maxHeight: "30vh",
             overflow: "auto",
             border: 1,
-            borderRadius: 1.5,
             padding: 2,
             mb: 1.5,
             scrollbarWidth: "thin",
