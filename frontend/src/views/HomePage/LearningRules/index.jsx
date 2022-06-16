@@ -44,55 +44,58 @@ export const LearningRules = () => {
           Logic Rules
         </Typography>
       </Box>
-
-      <Box
-        sx={{
-          maxHeight: "30vh",
-          overflow: "auto",
-          border: 1,
-          borderRadius: 1.5,
-          padding: 2,
-          mb: 1.5,
-          scrollbarWidth: "thin",
-          "&::-webkit-scrollbar": {
-            width: "0.4em",
-            borderRadius: '10px',
-          },
-          "&::-webkit-scrollbar-track": {
-            background: "#00000",
-            borderRadius: '10px',
-          },
-          "&::-webkit-scrollbar-thumb": {
-            height: "3em",
-            backgroundColor: "#888",
-            borderRadius: '10px',
-          },
-          "&::-webkit-scrollbar-thumb:hover": {
-            height: "3em",
-            background: "#555",
-            borderRadius: '10px',
-            marginRight: '15px',
-          },
-        }}
-      >
-        {rules.map((card, index) => (
-          <Card sx={{ minWidth: 270, mb: 1.5 }}>
-            <CardContent>
-              <Typography variant="h5" component="div">
-                {card.ruleName}
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                {"logic rule"}
-              </Typography>
-              <Typography variant="body2">{card.description}</Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">COPY</Button>
-              <Button size="small">EDIT</Button>
-            </CardActions>
-          </Card>
-        ))}
-      </Box>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <Box
+          sx={{
+            maxHeight: "30vh",
+            overflow: "auto",
+            border: 1,
+            borderRadius: 1.5,
+            padding: 2,
+            mb: 1.5,
+            scrollbarWidth: "thin",
+            "&::-webkit-scrollbar": {
+              width: "0.4em",
+              borderRadius: "10px",
+            },
+            "&::-webkit-scrollbar-track": {
+              background: "#00000",
+              borderRadius: "10px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              height: "3em",
+              backgroundColor: "#888",
+              borderRadius: "10px",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              height: "3em",
+              background: "#555",
+              borderRadius: "10px",
+              marginRight: "15px",
+            },
+          }}
+        >
+          {rules.map((card, index) => (
+            <Card key={index} sx={{ minWidth: 270, mb: 1.5 }}>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  {card.ruleName}
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  {"logic rule"}
+                </Typography>
+                <Typography variant="body2">{card.description}</Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">COPY</Button>
+                <Button size="small">EDIT</Button>
+              </CardActions>
+            </Card>
+          ))}
+        </Box>
+      )}
     </div>
   );
 };
