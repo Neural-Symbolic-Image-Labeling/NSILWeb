@@ -58,7 +58,7 @@ export const TopActionBar = () => {
         </Button>
       </Box>
       <Box>
-        <Button onClick={() => dispatch(labelImage({imageId: 1, label: 'lol'}))}>label fisrt</Button>
+        <Button onClick={() => dispatch(labelImage({imageId: 1, label: 'lol'}))}>Label image1</Button>
         {/* <Typography variant="body1">
           {isLoading ? "Loading..." : `${images.length} images showed`}
         </Typography> */}

@@ -12,7 +12,7 @@ export const ImageGallery = ({ setPage }) => {
     <>
       <Box sx={{}}>
         {isLoading ? (<div>Loading...</div>) : (
-          <ImageList sx={{ maxHeight: "500px", paddingRight: "20px", overflowX: "hidden" }} cols={4} gap={6}>
+          <ImageList sx={{ maxHeight: "650px", paddingRight: "20px", overflowX: "hidden" }} cols={4} gap={6}>
             {images.filter(img => img.name.toLowerCase().includes(filterStr.toLowerCase())).map((image, index) => (
               <ImageListItem key={index}>
                 <Box

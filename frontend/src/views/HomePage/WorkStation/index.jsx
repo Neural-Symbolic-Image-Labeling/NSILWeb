@@ -13,7 +13,7 @@ export const WorkStation = () => {
           <ImageGallery setPage={setPage}/>
         )}
         {page == 1 && (
-          <AnnotationTool />
+          <AnnotationTool setPage={setPage}/>
         )}
       </Box>
     </>

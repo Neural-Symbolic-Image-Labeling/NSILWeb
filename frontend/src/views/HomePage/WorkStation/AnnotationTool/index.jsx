@@ -10,7 +10,7 @@ const defaultImage = {
   name: "image1.jpg"
 }
 
-export const AnnotationTool = () => {
+export const AnnotationTool = ({setPage}) => {
 
   return (
     <div className={style["container"]}>
