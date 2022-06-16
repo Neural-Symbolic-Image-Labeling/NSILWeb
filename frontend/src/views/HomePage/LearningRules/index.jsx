@@ -56,18 +56,15 @@ export const LearningRules = () => {
           "&::-webkit-scrollbar": {
             width: "0.4em",
             borderRadius: '10px',
-            marginRight: '15px',
           },
           "&::-webkit-scrollbar-track": {
             background: "#00000",
             borderRadius: '10px',
-            marginRight: '15px',
           },
           "&::-webkit-scrollbar-thumb": {
             height: "3em",
             backgroundColor: "#888",
             borderRadius: '10px',
-            marginRight: '15px',
           },
           "&::-webkit-scrollbar-thumb:hover": {
             height: "3em",
