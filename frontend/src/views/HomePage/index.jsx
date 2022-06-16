@@ -2,6 +2,7 @@ import { Box } from '@mui/system';
 import { ChartSection } from './ChartSection';
 import { HomePageHeader } from './Header';
 import { TopActionBar } from './TopActionBar';
+import { WorkStation } from './WorkStation';
 
 export const HomePage = () => {
   return (
@@ -28,7 +29,7 @@ export const HomePage = () => {
             {/* Top Action Bar */}
             <TopActionBar />
             {/* Work Station Part */}
-            <div>Work Station Part In Progress...</div>
+            <WorkStation />
           </Box>
           {/* Right Part */}
           <Box sx={{

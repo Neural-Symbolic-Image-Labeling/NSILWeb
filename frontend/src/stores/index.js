@@ -6,5 +6,5 @@ export default configureStore({
   reducer: {
     controller: controllerReducer,
     gallery: galleryReducer,
-  }
+  },
 });

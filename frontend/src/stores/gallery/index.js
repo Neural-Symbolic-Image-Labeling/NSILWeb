@@ -13,9 +13,9 @@ export const gallerySlice = createSlice({
   name: "gallery",
   initialState: {
     mode: "local",
-    loading: false,
+    loading: true,
     images: [],
-    displayedImages: [],
+    filter: "",
     statistics: {
       total: 0,
       unlabeled: 0,
@@ -28,14 +28,8 @@ export const gallerySlice = createSlice({
     setImages: (state, action) => {
       state.images = action.payload;
     },
-    setDisplayedImages: (state, action) => {
-      state.displayedImages = action.payload;
-    },
-    search: (state, action) => {
-      const searchTerm = action.payload;
-      state.displayedImages = state.images.filter((image) =>
-        image.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+    setFilter: (state, action) => { 
+      state.filter = action.payload;
     },
     labelImage: (state, action) => {
       const { imageId, label } = action.payload;
@@ -66,7 +60,6 @@ export const gallerySlice = createSlice({
         }
       });
       state.images = imgs
-      state.displayedImages = imgs;
       state.statistics.total = imgs.length;
       state.statistics.unlabeled = imgs.length;
 
@@ -75,7 +68,6 @@ export const gallerySlice = createSlice({
     builder.addCase(fetchImages.pending, (state) => {
       state.loading = true;
       state.images = [];
-      state.displayedImages = [];
       state.statistics = {
         total: 0,
         unlabeled: 0,
@@ -88,10 +80,9 @@ export const gallerySlice = createSlice({
     builder.addCase(fetchImages.rejected, (state) => {
       state.loading = false;
       state.images = [];
-      state.displayedImages = [];
     });
   }
 });
 
-export const { setImages, setDisplayedImages, search, labelImage } = gallerySlice.actions;
+export const { setImages, setFilter, labelImage } = gallerySlice.actions;
 export default gallerySlice.reducer;

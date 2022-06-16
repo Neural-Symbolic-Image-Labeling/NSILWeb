@@ -1,5 +1,5 @@
 import { Button, Box, Typography, TextField, InputAdornment } from "@mui/material";
-import { fetchImages, labelImage, search } from "../../../stores/gallery";
+import { fetchImages, labelImage, search, setFilter } from "../../../stores/gallery";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
@@ -7,9 +7,6 @@ import { Search } from "@mui/icons-material";
 
 export const TopActionBar = () => {
   const dispatch = useDispatch();
-  const images = useSelector(state => state.gallery.displayedImages);
-  const isLoading = useSelector(state => state.gallery.loading);
-
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -50,7 +47,7 @@ export const TopActionBar = () => {
           <Button
             variant="contained"
             sx={{ marginLeft: "2px" }}
-            onClick={() => dispatch(search(searchTerm))}
+            onClick={() => dispatch(setFilter(searchTerm))}
           >
             Search
           </Button>
@@ -62,9 +59,9 @@ export const TopActionBar = () => {
       </Box>
       <Box>
         <Button onClick={() => dispatch(labelImage({imageId: 1, label: 'lol'}))}>label fisrt</Button>
-        <Typography variant="body1">
+        {/* <Typography variant="body1">
           {isLoading ? "Loading..." : `${images.length} images showed`}
-        </Typography>
+        </Typography> */}
       </Box>
     </>
   )

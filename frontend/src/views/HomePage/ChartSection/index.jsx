@@ -86,14 +86,14 @@ export const ChartSection = () => {
                 height: "88px",
                 width: "102px"
               }}>
-                <div>
+                <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                   <Typography variant="body2" sx={{ marginTop: "10px" }}>
                     Manually
                   </Typography>
                   <Typography variant="body2" gutterBottom>
                     Labeled
                   </Typography>
-                </div>
+                </Box>
 
                 <Typography variant="body1" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
                   {((statistics.manual / statistics.total) * 100).toFixed(0) + '%'}
@@ -109,14 +109,14 @@ export const ChartSection = () => {
                 height: "88px",
                 width: "102px"
               }}>
-                <div>
+                <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                   <Typography variant="body2" sx={{ marginTop: "10px" }}>
                     Auto
                   </Typography>
                   <Typography variant="body2" gutterBottom>
                     Labeled
                   </Typography>
-                </div>
+                </Box>
 
                 <Typography variant="body1" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
                   {((statistics.autoLabeled / statistics.total) * 100).toFixed(0) + '%'}
