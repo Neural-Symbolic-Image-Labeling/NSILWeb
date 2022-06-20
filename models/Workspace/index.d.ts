@@ -2,6 +2,7 @@ import { Model, ObjectId, Schema } from "mongoose";
 
 export interface IImageMetaDataSchema {
     imageId: ObjectId;
+    url: string;
     label: string;
     name: string;
     canvas: Object | string;

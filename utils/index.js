@@ -8,12 +8,14 @@ const authWorkspace = async (req, res, next) => {
       if(workspace) {
         req.workspace = workspace;
         next();
+        return;
       }
     } catch (err) {
       res.status(401).json(new ErrorResponse(0, "Database error"));
+      return;
     }
   }
-  res.stauts(401).json(new ErrorResponse(-1, "Session expired"));
+  res.status(401).json(new ErrorResponse(-1, "Session expired"));
 };
 
 const authAdmin = async (req, res, next) => { 

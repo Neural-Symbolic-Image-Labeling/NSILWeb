@@ -10,6 +10,7 @@ const imageUrlParser = (data) => {
  */
 const createWorkspace = async (name) => { 
   const data = await Image.find({}).lean();
+  /**@type {import('../../models/Workspace/response').IImageMetaDataResponse[]} */
   const images = data.map(img => {
     return {
       imageId: img._id,

@@ -1,5 +1,5 @@
 import { Button, Box, Typography, TextField, InputAdornment } from "@mui/material";
-import { fetchImages, labelImage, search, setFilter } from "../../../stores/gallery";
+import { fetchWorkspace, labelImage, search, setFilter } from "../../../stores/gallery";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
@@ -8,10 +8,10 @@ import { Search } from "@mui/icons-material";
 export const TopActionBar = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  const images = useSelector(state => state.gallery.images);
+  const workspace = useSelector(state => state.gallery.workspace);
 
   useEffect(() => {
-    dispatch(fetchImages());
+    dispatch(fetchWorkspace());
   }, []);
 
   return (
@@ -26,7 +26,7 @@ export const TopActionBar = () => {
         {/* Left Button */}
         <Button
           variant="outlined"
-          onClick={() => dispatch(fetchImages())}
+          onClick={() => dispatch(fetchWorkspace())}
           size="medium"
         >
           Load Images
@@ -59,7 +59,7 @@ export const TopActionBar = () => {
         </Button>
       </Box>
       <Box>
-        <Button onClick={() => dispatch(labelImage({imageId: (Math.floor(Math.random() * (images.length + 1))), label: 'lol'}))}>Label images</Button>
+        <Button disabled={workspace === null} onClick={() => dispatch(labelImage({imageId: workspace.images.sort(() => .5 - Math.random()).slice(0,1)[0], label: 'lol'}))}>Label images</Button>
         {/* <Typography variant="body1">
           {isLoading ? "Loading..." : `${images.length} images showed`}
         </Typography> */}

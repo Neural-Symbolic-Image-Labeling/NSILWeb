@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 import { LabelItem } from "../../../../components/LabelItem";
 
 export const ImageGallery = ({ setPage }) => {
-  const images = useSelector(state => state.gallery.images);
+  const workspace = useSelector(state => state.gallery.workspace);
   const filterStr = useSelector(state => state.gallery.filter);
   const isLoading = useSelector(state => state.gallery.loading);
 
   return (
     <>
       <Box sx={{}}>
-        {isLoading ? (<div>Loading...</div>) : (
+        {isLoading ? <div>Loading...</div> : workspace === null ? <div>No Data</div> : (
           <ImageList
             sx={{
               maxHeight: "650px",
@@ -41,7 +41,7 @@ export const ImageGallery = ({ setPage }) => {
             cols={4}
             gap={6}
           >
-            {images.filter(img => img.name.toLowerCase().includes(filterStr.toLowerCase())).map((image, index) => (
+            {workspace.images.filter(img => img.name.toLowerCase().includes(filterStr.toLowerCase())).map((image, index) => (
               <ImageListItem key={index}>
                 <Box
                   component="img"

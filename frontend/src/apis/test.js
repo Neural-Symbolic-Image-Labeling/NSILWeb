@@ -1,14 +1,9 @@
-import { get } from "./axios";
+import { get, post } from "./axios";
 
-export const getImages = async () => { 
-  const list = [];
-  for (let i = 0; i < 20; i++) { 
-    let item = `https://picsum.photos/300/300?random=${i}`;
-    list.push(item);
-  }
-  return new Promise((resolve) => { 
-    setTimeout(() => { 
-      resolve(list);
-    }, 2000);
-  });
+export const autoLogin = async () => { 
+  return get("/workspace/auto");
+}
+
+export const login = async (name) => { 
+  return post("/workspace/login", { workspaceName: name });
 }

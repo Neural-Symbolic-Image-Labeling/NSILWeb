@@ -6,14 +6,14 @@ import { useSelector } from "react-redux";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const ChartSection = () => {
-  const statistics = useSelector(state => state.gallery.statistics);
+  const workspace = useSelector(state => state.gallery.workspace);
   const isLoading = useSelector(state => state.gallery.loading);
 
-  const data = {
+  const data = workspace === null? null : {
     labels: ['Unlabeled', 'Manually Labeled', 'Auto labeled'],
     datasets: [{
       label: '# of images',
-      data: [statistics.unlabeled, statistics.manual, statistics.autoLabeled],
+      data: [workspace.statistics.unlabeled, workspace.statistics.manual, workspace.statistics.autoLabeled],
       backgroundColor: [
         'rgba(255, 159, 64, 0.2)',
         'rgba(75, 192, 192, 0.2)',
@@ -44,7 +44,7 @@ export const ChartSection = () => {
         <Typography variant="h5" gutterBottom>
           Statistics
         </Typography>
-        {isLoading ? <div>Loading...</div> : (
+        {isLoading ? <div>Loading...</div> : workspace === null ? <div>No Data</div> : (
           <>
             <Box sx={{width: "250px", height: "250px"}}>
               <Pie data={data} options={options} />
@@ -71,7 +71,7 @@ export const ChartSection = () => {
                   Unlabeled
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
-                  {((statistics.unlabeled / statistics.total) * 100).toFixed(0) + '%'}
+                  {((workspace.statistics.unlabeled / workspace.statistics.total) * 100).toFixed(0) + '%'}
                 </Typography>
               </Box>
               <Box sx={{
@@ -95,7 +95,7 @@ export const ChartSection = () => {
                 </Box>
 
                 <Typography variant="body1" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
-                  {((statistics.manual / statistics.total) * 100).toFixed(0) + '%'}
+                  {((workspace.statistics.manual / workspace.statistics.total) * 100).toFixed(0) + '%'}
                 </Typography>
               </Box>
               <Box sx={{
@@ -118,7 +118,7 @@ export const ChartSection = () => {
                 </Box>
 
                 <Typography variant="body1" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
-                  {((statistics.autoLabeled / statistics.total) * 100).toFixed(0) + '%'}
+                  {((workspace.statistics.autoLabeled / workspace.statistics.total) * 100).toFixed(0) + '%'}
                 </Typography>
               </Box>
 

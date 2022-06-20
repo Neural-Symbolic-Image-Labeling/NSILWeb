@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getImages } from "../../apis/test";
+import { autoLogin } from "../../apis/test";
 
-export const fetchImages = createAsyncThunk("gallery/fetchImages",
+export const fetchWorkspace = createAsyncThunk("gallery/fetchWorkspace",
   async () => {
-    const data = await getImages();
+    const data = await autoLogin();
     return data;
   }
 );
@@ -14,75 +14,53 @@ export const gallerySlice = createSlice({
   initialState: {
     mode: "local",
     loading: true,
-    images: [],
     filter: "",
-    statistics: {
-      total: 0,
-      unlabeled: 0,
-      manual: 0,
-      userChecked: 0,
-      autoLabeled: 0,
-    }
+    /**@type {import ('../../../../models/Workspace/response').IWorkspaceResponse}*/
+    workspace: null
   },
   reducers: {
-    setImages: (state, action) => {
-      state.images = action.payload;
+    setWorkspace: (state, action) => { 
+      state.workspace = action.payload;
     },
     setFilter: (state, action) => { 
       state.filter = action.payload;
     },
+    setLoading: (state, action) => { 
+      state.loading = action.payload;
+    },
     labelImage: (state, action) => {
+
       const { imageId, label } = action.payload;
-      const image = state.images.find((image) => image.id === imageId);
+      const image = state.workspace.images.find((image) => image.imageId.toString() === imageId.toString());
       if (image) {
         image.label = label;
         // when it is the first time being labeled manually.
         if (!image.manual) {
           image.manual = true; 
-          state.statistics.manual++;
-          state.statistics.userChecked++;
-          state.statistics.unlabeled--;
+          state.workspace.statistics.manual++;
+          state.workspace.statistics.userChecked++;
+          state.workspace.statistics.unlabeled--;
         }
       }
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchImages.fulfilled, (state, action) => {
+    builder.addCase(fetchWorkspace.fulfilled, (state, action) => {
       state.loading = false;
-      const imgs = action.payload.map((imageURL, index) => {
-        return {
-          id: index,
-          url: imageURL,
-          label: "unlabeled",
-          name: `image${index}`,
-          canvas: null,
-          manual: false
-        }
-      });
-      state.images = imgs
-      state.statistics.total = imgs.length;
-      state.statistics.unlabeled = imgs.length;
-
+      state.workspace = action.payload;
     });
 
-    builder.addCase(fetchImages.pending, (state) => {
+    builder.addCase(fetchWorkspace.pending, (state) => {
       state.loading = true;
-      state.images = [];
-      state.statistics = {
-        total: 0,
-        unlabeled: 0,
-        manual: 0,
-        userChecked: 0,
-        autoLabeled: 0,
-      };
+      state.workspace = null;
     });
 
-    builder.addCase(fetchImages.rejected, (state) => {
+    builder.addCase(fetchWorkspace.rejected, (state) => {
       state.loading = false;
-      state.images = [];
+      state.workspace = null;
     });
   }
 });
 
-export const { setImages, setFilter, labelImage } = gallerySlice.actions;
+export const { setLoading, setWorkspace, setFilter, labelImage } = gallerySlice.actions;
 export default gallerySlice.reducer;
