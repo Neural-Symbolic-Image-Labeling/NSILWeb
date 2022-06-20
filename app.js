@@ -34,8 +34,16 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({
+  limit: '50mb',
+  parameterLimit: 100000,
+  extended: true
+}));
+app.use(express.urlencoded({
+  limit: '50mb',
+  parameterLimit: 100000,
+  extended: true
+}));
 
 // Routers
 app.use('/api', require('./controllers/Workspace').router);

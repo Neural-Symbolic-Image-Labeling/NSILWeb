@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { ErrorResponse } = require('../../models/ErrorResponse');
 const { Image } = require('../../models/Image');
-const { authAdmin } = require('../../utils');
+const { authAdmin, uuidValidator } = require('../../utils');
 
 const getPath = (path) => `/img${path}`;
 
@@ -39,6 +39,21 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
     return;
   }
   res.status(400).send(new ErrorResponse(2, "Request body is missing"));
+});
+
+router.get(getPath("/:uuid"), uuidValidator, async (req, res) => { 
+  const uuid = req.params.uuid;
+  const imgRaw = await Image.findById(uuid);
+  if (imgRaw) { 
+    const img = Buffer.from(imgRaw.data.split(",")[1], 'base64');
+    res.writeHead(200, {
+      'Content-Type': 'image/png',
+      'Content-Length': img.length,
+    });
+    res.end(img);
+    return;
+  }
+  res.status(404).send(new ErrorResponse(-1, "Image not found"));
 });
 
 module.exports = { router }

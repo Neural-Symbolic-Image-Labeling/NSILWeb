@@ -59,7 +59,7 @@ export const TopActionBar = () => {
         </Button>
       </Box>
       <Box>
-        <Button disabled={workspace === null} onClick={() => dispatch(labelImage({imageId: workspace.images.sort(() => .5 - Math.random()).slice(0,1)[0], label: 'lol'}))}>Label images</Button>
+        <Button disabled={workspace === null} onClick={() => dispatch(labelImage({imageId: workspace.images.sort(() => .5 - Math.random()).slice(0,1)[0].imageId, label: 'lol'}))}>Label images</Button>
         {/* <Typography variant="body1">
           {isLoading ? "Loading..." : `${images.length} images showed`}
         </Typography> */}

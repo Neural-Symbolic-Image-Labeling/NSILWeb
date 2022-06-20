@@ -2,7 +2,7 @@ import { Model, Schema } from "mongoose";
 
 export interface IImageSchema { 
     name: string;
-    data: Buffer;
+    data: string;
 }
 
 export declare const ImageSchema: Schema<IImageSchema>;

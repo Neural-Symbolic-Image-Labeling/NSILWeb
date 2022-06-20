@@ -1,7 +1,7 @@
 const { Image } = require('../../models/Image');
 
-const imageUrlParser = (data) => { 
-  return Buffer.from(data).toString('base64');
+const imageUrlParser = (uuid) => { 
+  return `${(process.env.REACT_APP_API_URL || "http://localhost:8888/api")}/img/${uuid}`;
 };
 
 /** Create a new workspace 
@@ -14,7 +14,7 @@ const createWorkspace = async (name) => {
   const images = data.map(img => {
     return {
       imageId: img._id,
-      url: imageUrlParser(img.data),
+      url: imageUrlParser(img._id),
       name: img.name,
       label: "unlabeled",
       canvas: null,
@@ -31,6 +31,7 @@ const createWorkspace = async (name) => {
       autoLabeled: 0,
     },
     images: images,
+    rules: []
   };
   return result;
 }

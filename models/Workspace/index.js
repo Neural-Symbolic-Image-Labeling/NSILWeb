@@ -68,6 +68,17 @@ const StatisticsSchema = new mongoose.Schema({
   }
 }, { _id: false });
 
+const RuleSchema = new mongoose.Schema({
+  label: {
+    type: String,
+    required: true,
+  },
+  value: {
+    type: String,
+    required: true,
+  }
+}, { _id: false });
+
 const WorkspaceSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -75,6 +86,7 @@ const WorkspaceSchema = new mongoose.Schema({
   },
   images: [ImageMetaDataSchema],
   statistics: StatisticsSchema,
+  rules: [RuleSchema],
 });
 
 const Workspace = mongoose.model('Workspace', WorkspaceSchema);

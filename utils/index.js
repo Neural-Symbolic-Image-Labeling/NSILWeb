@@ -1,3 +1,4 @@
+const { default: mongoose } = require("mongoose");
 const { ErrorResponse } = require("../models/ErrorResponse");
 const { Workspace } = require("../models/Workspace");
 
@@ -26,8 +27,17 @@ const authAdmin = async (req, res, next) => {
   }
 };
 
+const uuidValidator = (req, res, next) => {
+  if (req.params.uuid && mongoose.Types.ObjectId.isValid(req.params.uuid)) {
+    next();
+    return;
+  }
+  res.status(400).json(new ErrorResponse(1, "Invalid uuid"));
+};
+
 
 module.exports = {
   authWorkspace,
   authAdmin,
+  uuidValidator,
 }
