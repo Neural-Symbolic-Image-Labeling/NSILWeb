@@ -31,8 +31,8 @@ router.post(getPath('/login'), async (req, res) => {
   res.status(400).json(new ErrorResponse(2, "request body is required"));
 });
 
-router.get(getPath('/'), authWorkspace, (req, res) => { 
-   
+router.get(getPath('/auto'), authWorkspace, (req, res) => { 
+   res.status(200).json(req.workspace);
 }); 
 
 module.exports = { router }
