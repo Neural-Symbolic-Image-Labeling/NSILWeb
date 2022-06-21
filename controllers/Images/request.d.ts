@@ -1,6 +1,6 @@
 export interface ImageUploadRequest { 
     name: string;
-    data: Buffer;
+    data: string;
 }
 
 export interface AuthRequest { 
