@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import { SmartToy } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../../../apis/test";
+import { login } from "../../../apis/workspace";
 import { setLoading, setWorkspace } from "../../../stores/gallery";
 import { useState } from "react";
 

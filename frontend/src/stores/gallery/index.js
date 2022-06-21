@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { autoLogin } from "../../apis/test";
+import { autoLogin } from "../../apis/workspace";
 
 export const fetchWorkspace = createAsyncThunk("gallery/fetchWorkspace",
   async () => {
@@ -15,12 +15,16 @@ export const gallerySlice = createSlice({
     mode: "local",
     loading: true,
     filter: "",
+    authed: false,
     /**@type {import ('../../../../models/Workspace/response').IWorkspaceResponse}*/
     workspace: null
   },
   reducers: {
     setWorkspace: (state, action) => { 
       state.workspace = action.payload;
+    },
+    setAuthed: (state, action) => { 
+      state.authed = action.payload;
     },
     setFilter: (state, action) => { 
       state.filter = action.payload;
@@ -62,5 +66,5 @@ export const gallerySlice = createSlice({
   }
 });
 
-export const { setLoading, setWorkspace, setFilter, labelImage } = gallerySlice.actions;
+export const { setLoading, setWorkspace, setAuthed, setFilter, labelImage } = gallerySlice.actions;
 export default gallerySlice.reducer;

@@ -5,7 +5,11 @@ const { authAdmin, uuidValidator } = require('../../utils');
 
 const getPath = (path) => `/img${path}`;
 
-router.get(getPath('/auth'), async (req, res) => {
+router.get(getPath("/auto"), authAdmin, async (req, res) => { 
+  res.json({ message: "success" });
+});
+
+router.post(getPath('/auth'), async (req, res) => {
   if (req.body) {
     /**@type {import('./request').AuthRequest} */
     const reqBody = req.body;
@@ -39,15 +43,18 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
     return;
   }
   res.status(400).send(new ErrorResponse(2, "Request body is missing"));
+  return;
 });
 
 router.get(getPath("/:uuid"), uuidValidator, async (req, res) => { 
   const uuid = req.params.uuid;
   const imgRaw = await Image.findById(uuid);
   if (imgRaw) { 
-    const img = Buffer.from(imgRaw.data.split(",")[1], 'base64');
+    const temp = imgRaw.data.split(",");
+    let ext = temp[0].split(";")[0].split("/")[1];
+    const img = Buffer.from(temp[1], 'base64');
     res.writeHead(200, {
-      'Content-Type': 'image/png',
+      'Content-Type': `image/${ext}`,
       'Content-Length': img.length,
     });
     res.end(img);
