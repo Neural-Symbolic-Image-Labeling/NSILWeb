@@ -25,7 +25,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export const LearningRules = () => {
   const [] = useState([]);
-  const rules = useSelector((state) => state.rules.rules);
+  const workspace = useSelector((state) => state.gallery.workspace);
   const isLoading = useSelector((state) => state.gallery.loading);
   const dispatch = useDispatch();
 
@@ -46,7 +46,7 @@ export const LearningRules = () => {
       </Box>
       {isLoading ? (
         <div>Loading...</div>
-      ) : (
+      ) : workspace === null ? <div>No Data</div> : (
         <Box
           sx={{
             maxHeight: "30vh",
@@ -76,16 +76,16 @@ export const LearningRules = () => {
             },
           }}
         >
-          {rules.map((card, index) => (
+          {workspace.rules.map((rule, index) => (
             <Card key={index} sx={{ minWidth: 270, mb: 1.5 }}>
               <CardContent>
                 <Typography variant="h5" component="div">
-                  {card.ruleName}
+                  {rule.label}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
                   {"logic rule"}
                 </Typography>
-                <Typography variant="body2">{card.description}</Typography>
+                <Typography variant="body2">{rule.value}</Typography>
               </CardContent>
               <CardActions>
                 <Button size="small">COPY</Button>
