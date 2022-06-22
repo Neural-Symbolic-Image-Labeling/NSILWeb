@@ -2,6 +2,8 @@ import { useState } from "react";
 import { CanvasField } from "../../components/CanvasField";
 import ToolList from "../../context/FabricContext/Tools/ToolList";
 import { FabricProvider } from "../../context/FabricContext";
+import React from 'react';
+
 
 export const TestPage = () => { 
 

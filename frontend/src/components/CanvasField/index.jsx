@@ -2,6 +2,8 @@ import { useContext, useEffect, useRef } from "react";
 import { FabricContext } from "../../context/FabricContext";
 import ToolList from "../../context/FabricContext/Tools/ToolList";
 import { Container } from "@mui/material";
+import React from 'react';
+
 
 export const CanvasField = () => {
   const canvasRef = useRef(null);

@@ -2,6 +2,8 @@ import { Box, Typography } from "@mui/material";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from 'react-chartjs-2';
 import { useSelector } from "react-redux";
+import React from 'react';
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

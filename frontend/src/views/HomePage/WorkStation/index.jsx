@@ -2,6 +2,8 @@ import { Box } from "@mui/material";
 import { ImageGallery } from "./ImageGallery";
 import { AnnotationTool } from "./AnnotationTool";
 import { useState } from "react";
+import React from 'react';
+
 
 export const WorkStation = () => { 
   const [page, setPage] = useState(0);

@@ -2,6 +2,8 @@ import style from "./style.module.css";
 // import { TestCanvas } from "../../TestPage/TestCanvas";
 import { Sidebar } from "./Sidebar";
 import { CanvasField } from "../../../../components/CanvasField";
+import React from 'react';
+
 
 const defaultImage = {
   src: "https://picsum.photos/id/1018/200/300",

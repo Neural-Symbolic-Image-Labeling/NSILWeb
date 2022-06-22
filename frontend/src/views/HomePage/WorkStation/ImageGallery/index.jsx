@@ -2,6 +2,8 @@ import { Box, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { LabelItem } from "../../../../components/LabelItem";
+import React from 'react';
+
 
 export const ImageGallery = ({ setPage }) => {
   const images = useSelector(state => state.gallery.images);

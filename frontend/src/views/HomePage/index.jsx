@@ -4,6 +4,7 @@ import { HomePageHeader } from './Header';
 import { TopActionBar } from './TopActionBar';
 import { WorkStation } from './WorkStation';
 import { LearningRules } from './LearningRules'
+import React from 'react';
 
 export const HomePage = () => {
   return (

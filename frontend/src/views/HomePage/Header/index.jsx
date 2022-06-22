@@ -2,6 +2,8 @@ import { AppBar, Button, List, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { SmartToy } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
+import React from 'react';
+
 
 const navigations = [
   { title: "Tutorial", link: "/tutorial" },
@@ -23,7 +25,7 @@ export const HomePageHeader = () => {
                 variant="h6"
                 sx={{ marginLeft: "10px" }}
               >
-                NSIL
+                Neural-Symbolic Image Labeling
               </Typography>
             </Box>
             <Box sx={{ flexBasis: "50%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
