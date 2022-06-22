@@ -63,4 +63,15 @@ router.get(getPath("/:uuid"), uuidValidator, async (req, res) => {
   res.status(404).send(new ErrorResponse(-1, "Image not found"));
 });
 
+router.delete(getPath('/all'), authAdmin, async (req, res) => { 
+  try {
+    await Image.deleteMany({});
+    res.status(200).send({ message: "success" });
+    return;
+  } catch (err) { 
+    res.status(500).send(new ErrorResponse(0, "Failed to delete images", err));
+    return;
+  }
+});
+
 module.exports = { router }

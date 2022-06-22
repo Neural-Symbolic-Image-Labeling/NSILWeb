@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Dialog, DialogContent, DialogContentText, DialogTitle, Box, TextField, Button, Alert, IconButton, FormControl, Paper } from "@mui/material";
-import { authDashboard, autoAuth, uploadImage } from "../../apis/image";
+import { Dialog, DialogContent, DialogContentText, DialogTitle, Box, TextField, Button, Alert, IconButton, FormControl, Paper, Typography, DialogActions } from "@mui/material";
+import { authDashboard, autoAuth, deleteAllImages, uploadImage } from "../../apis/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setAuthed } from "../../stores/gallery";
 import { UploadFile } from "@mui/icons-material";
+import { Intermediate } from "../../components/Intermediate";
 
 const readerProcess = (file) => {
   return new Promise((resolve, reject) => {
@@ -26,7 +27,13 @@ const readerProcess = (file) => {
 export const DashboardPage = () => {
   const dispatch = useDispatch();
   const authed = useSelector(state => state.gallery.authed);
-  const [openModal, setOpenModal] = useState(false);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
+  const [openNotifyModal, setOpenNotifyModal] = useState(false);
+  const [notifyData, setNotifyData] = useState({
+    variant: "primary",
+    title: "",
+    content: "",
+  });
   const [images, setImages] = useState([]);
   const [waiting, setWaiting] = useState(false);
 
@@ -36,7 +43,7 @@ export const DashboardPage = () => {
         dispatch(setAuthed(true));
       }).catch(err => {
         if (!authed) {
-          setOpenModal(true);
+          setOpenAuthModal(true);
         }
       })
   }, []);
@@ -58,24 +65,39 @@ export const DashboardPage = () => {
     const results = await Promise.all(readers);
     setImages(images.concat(results));
     setWaiting(false);
+
+    setNotifyData({
+      variant: "success",
+      title: "Images added",
+      content: "Images added successfully, you can upload by clicking the upload button.",
+    });
+    setOpenNotifyModal(true);
   }
 
-  const handleImageUpload = async () => { 
-    if(images.length <= 0) {
+  const handleImageUpload = async () => {
+    if (images.length <= 0) {
       return;
     }
     setWaiting(true);
-    for (let i = 0; i < images.length; i++) { 
+    for (let i = 0; i < images.length; i++) {
       await uploadImage(images[i].name, images[i].data);
     }
     setImages([]);
     setWaiting(false);
+
+    setNotifyData({
+      variant: "success",
+      title: "Images uploaded",
+      content: "Images uploaded successfully.",
+    });
+    setOpenNotifyModal(true);
   }
 
   return (
-    <Box>
-      <AuthModal openModal={openModal} setOpenModal={setOpenModal} />
-      {!authed ? <div>You are not allowed to see this page.</div> : (
+    <Paper sx={{}}>
+      <AuthModal openModal={openAuthModal} setOpenModal={setOpenAuthModal} />
+      <NotifyModal openModal={openNotifyModal} setOpenModal={setOpenNotifyModal} data={notifyData} />
+      {!authed ? <Intermediate>You are not allowed to see this page.</Intermediate> : (
         <Box sx={{
           display: "flex",
           flexDirection: "column",
@@ -89,8 +111,8 @@ export const DashboardPage = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            width: "50%",
-            height: "50%",
+            width: "760px",
+            height: "300px",
           }}>
             <Button component="label" startIcon={<UploadFile />} disabled={waiting}>
               Upload Images
@@ -112,9 +134,36 @@ export const DashboardPage = () => {
               {`Upload(${images.length} images)`}
             </Button>
           </Paper>
+          <Paper sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            width: "760px",
+            height: "300px",
+            mt: '15px'
+          }}>
+            <KeyValueRow keyName="Delete All Images">
+              <Button
+                variant="contained"
+                onClick={() => {
+                  deleteAllImages().then(() => {
+                    setNotifyData({
+                      variant: "success",
+                      title: "Images deleted",
+                      content: "Images deleted successfully.",
+                    });
+                    setOpenNotifyModal(true);
+                  })
+                }}
+              >
+                Delete
+              </Button>
+            </KeyValueRow>
+          </Paper>
         </Box>
       )}
-    </Box>
+    </Paper>
   )
 }
 
@@ -176,11 +225,65 @@ const AuthModal = ({ openModal, setOpenModal }) => {
             alignItems: "center",
             justifyContent: "center",
           }}>
-            <Button color="info" onClick={() => navigate("/")}>Go back</Button>
+            <Button variant="text" onClick={() => navigate("/")}>Go back</Button>
             <Button variant="outlined" onClick={() => handleSubmit()}>Confirm</Button>
           </Box>
         </Box>
       </DialogContent>
     </Dialog>
+  )
+}
+
+/** @param {{data: {variant: "primary" | "error" | "success"; title: string; content: string;}; [x: string]: any}} param0 */
+const NotifyModal = ({ openModal, setOpenModal, data }) => {
+  const colorPicker = {
+    primary: "",
+    error: "rgb(255, 51, 0, 0.8)",
+    success: "rgb(0, 153, 51, 0.8)",
+  }
+
+  return (
+    <Dialog open={openModal} onClose={() => setOpenModal(false)}>
+      <DialogTitle sx={{ color: colorPicker[data.variant] }}>{data.title}</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          {data.content}
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={() => setOpenModal(false)}>OK</Button>
+      </DialogActions>
+    </Dialog>
+  )
+}
+
+const KeyValueRow = ({ keyName, children }) => {
+  return (
+    <Paper sx={{
+      display: "flex",
+      flexDirection: "row",
+      width: '100%',
+      p: "2% 0",
+      mb: '15px'
+    }}>
+      <Box sx={{
+        flexGrow: 1,
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        pl: '15px'
+      }}>
+        <Typography variant="h7" sx={{ color: 'black' }}>{keyName}</Typography>
+      </Box>
+      <Box sx={{
+        flexGrow: 1,
+        display: "flex",
+        justifyContent: "flex-end",
+        alignItems: "center",
+        pr: '15px'
+      }}>
+        {children}
+      </Box>
+    </Paper>
   )
 }

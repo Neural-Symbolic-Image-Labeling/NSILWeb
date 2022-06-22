@@ -62,7 +62,7 @@ export const ImageGallery = ({ setPage }) => {
               <ImageListItem key={index}>
                 <Box
                   component="img"
-                  sx={{ width: "220px", height: "220px", border: "1px solid black" }}
+                  sx={{ width: "200px", height: "200px", border: "1px solid black" }}
                   src={image.url}
                   alt={image.name}
                   loading="lazy"

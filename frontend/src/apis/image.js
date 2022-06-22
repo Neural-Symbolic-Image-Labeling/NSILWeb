@@ -1,19 +1,17 @@
-const { get, post } = require("./axios")
+import {get, post, deleteMethod, put} from "./axios";
 
-const autoAuth = () => { 
+export const autoAuth = () => { 
   return get("/img/auto");
 }
 
-const authDashboard = (token) => {
+export const authDashboard = (token) => {
   return post("/img/auth", { token: token });
 }
 
-const uploadImage = (name, imageData) => { 
+export const uploadImage = (name, imageData) => { 
   return post("/img", { name: name, data: imageData });
 }
 
-module.exports = {
-  authDashboard,
-  autoAuth,
-  uploadImage
+export const deleteAllImages = () => { 
+  return deleteMethod("/img/all");
 }
