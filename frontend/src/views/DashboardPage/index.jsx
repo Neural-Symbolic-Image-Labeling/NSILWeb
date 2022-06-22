@@ -219,17 +219,12 @@ const AuthModal = ({ openModal, setOpenModal }) => {
           }}>
             <TextField size="small" type="password" required label="Token" defaultValue="" onChange={e => setToken(e.target.value)} />
           </Box>
-          <Box sx={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-          }}>
-            <Button variant="text" onClick={() => navigate("/")}>Go back</Button>
-            <Button variant="outlined" onClick={() => handleSubmit()}>Confirm</Button>
-          </Box>
         </Box>
       </DialogContent>
+      <DialogActions>
+        <Button variant="text" onClick={() => navigate("/")}>Go back</Button>
+        <Button variant="contained" onClick={() => handleSubmit()}>Confirm</Button>
+      </DialogActions>
     </Dialog>
   )
 }

@@ -1,7 +1,7 @@
 import { Box } from '@mui/system';
 import { ChartSection } from './ChartSection';
 import { HomePageHeader } from './Header';
-import { TopActionBar } from './TopActionBar';
+import { TopActionBar } from './WorkStation/ImageGallery/TopActionBar';
 import { WorkStation } from './WorkStation';
 import { LearningRules } from './LearningRules'
 import { Paper } from '@mui/material';
@@ -27,8 +27,6 @@ export const HomePage = () => {
             alignItems: "center",
             flexBasis: "70%",
           }}>
-            {/* Top Action Bar */}
-            <TopActionBar />
             {/* Work Station Part */}
             <WorkStation />
           </Box>

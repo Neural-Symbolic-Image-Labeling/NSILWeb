@@ -11,6 +11,10 @@ const authWorkspace = async (req, res, next) => {
         next();
         return;
       }
+      else {
+        res.status(404).json(new ErrorResponse(-1, "Workspace not found"));
+        return;
+      }
     } catch (err) {
       res.status(401).json(new ErrorResponse(0, "Database error"));
       return;

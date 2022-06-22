@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Intermediate } from "../../../../components/Intermediate";
 import { LabelItem } from "../../../../components/LabelItem";
+import { TopActionBar } from "./TopActionBar";
 
 export const ImageGallery = ({ setPage }) => {
   const workspace = useSelector(state => state.gallery.workspace);
@@ -17,20 +18,21 @@ export const ImageGallery = ({ setPage }) => {
     } else {
       return "auto";
     }
-    return "unlabeled";
   }
 
   return (
     <>
+      <TopActionBar />
       <Paper sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        pl: "30px",
       }}>
         {isLoading ? <Intermediate>Loading</Intermediate> : workspace === null ? <Intermediate>No Data</Intermediate> : (
           <ImageList
             sx={{
-              width: "95%",
+              width: "100%",
               maxHeight: "720px",
               paddingRight: "20px",
               overflowX: "hidden",
@@ -62,7 +64,7 @@ export const ImageGallery = ({ setPage }) => {
               <ImageListItem key={index}>
                 <Box
                   component="img"
-                  sx={{ width: "200px", height: "200px", border: "1px solid black" }}
+                  sx={{ width: "100%", height: "220px", objectFit: "contain" }}
                   src={image.url}
                   alt={image.name}
                   loading="lazy"

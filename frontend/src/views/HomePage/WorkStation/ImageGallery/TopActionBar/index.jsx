@@ -1,5 +1,5 @@
 import { Button, Box, Typography, TextField, InputAdornment, Paper } from "@mui/material";
-import { fetchWorkspace, labelImage, search, setFilter } from "../../../stores/gallery";
+import { fetchWorkspace, labelImage, search, setFilter } from "../../../../../stores/gallery";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
