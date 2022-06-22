@@ -11,11 +11,11 @@ const imageUrlParser = (uuid) => {
 const createWorkspace = async (name) => { 
   const data = await Image.find({}).lean();
   /**@type {import('../../models/Workspace/response').IImageMetaDataResponse[]} */
-  const images = data.map(img => {
+  const images = data.map((img, index) => {
     return {
       imageId: img._id.toString(),
       url: imageUrlParser(img._id),
-      name: img.name,
+      name: `No. ${index}`,
       label: "unlabeled",
       canvas: null,
       manual: false,
