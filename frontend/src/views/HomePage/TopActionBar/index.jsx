@@ -1,4 +1,4 @@
-import { Button, Box, Typography, TextField, InputAdornment } from "@mui/material";
+import { Button, Box, Typography, TextField, InputAdornment, Paper } from "@mui/material";
 import { fetchWorkspace, labelImage, search, setFilter } from "../../../stores/gallery";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -16,16 +16,16 @@ export const TopActionBar = () => {
 
   return (
     <>
-      <Box sx={{
+      <Paper sx={{
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
         width: "100%",
-        margin: "20px 0 20px 0",
+        padding: "25px 0 25px 0",
       }}>
         {/* Left Button */}
         <Button
-          variant="outlined"
+          variant="contained"
           onClick={() => dispatch(fetchWorkspace())}
           size="medium"
         >
@@ -36,12 +36,16 @@ export const TopActionBar = () => {
           <TextField
             variant="outlined"
             size="small"
+            placeholder="Search label name or image name"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <Search sx={{color: "rgba(25, 118, 210, 0.7)"}} />
+                  <Search sx={{color: "#505050"}} />
                 </InputAdornment>
               )
+            }}
+            sx={{
+              width: "350px"
             }}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -54,16 +58,16 @@ export const TopActionBar = () => {
           </Button>
         </Box>
         {/* Right Button */}
-        <Button variant="outlined" size="medium">
+        <Button variant="contained" size="medium">
           Auto Label
         </Button>
-      </Box>
-      <Box>
+      </Paper>
+      {/* <Box>
         <Button disabled={workspace === null} onClick={() => dispatch(labelImage({imageId: workspace.images.sort(() => .5 - Math.random()).slice(0,1)[0].imageId, label: 'lol'}))}>Label images</Button>
-        {/* <Typography variant="body1">
+        <Typography variant="body1">
           {isLoading ? "Loading..." : `${images.length} images showed`}
-        </Typography> */}
-      </Box>
+        </Typography>
+      </Box> */}
     </>
   )
 }

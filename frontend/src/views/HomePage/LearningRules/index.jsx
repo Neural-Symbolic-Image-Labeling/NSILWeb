@@ -4,24 +4,9 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import { Box, Typography } from "@mui/material";
+import { Box, List, ListItem, Paper, Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-//import { addRule, removeRule } from "../../../stores/rules/index.js";
-
-// const ruleCard= [
-//   {
-//     ruleName: "Dog Twins",
-//     description: "match(X, “dog”) ^ match(Y, “dog”) ^ IOU(X, Y) < 0.6",
-//   },
-//   {
-//     ruleName: "Guitarist",
-//     description: "match(X, “guitar”) ^ match(Y, “person”) ^ IOU(X, Y) < 0.4",
-//   },
-//   {
-//     ruleName: "Dog Twins",
-//     description: "match(X, “dog”) ^ match(Y, “dog”) ^ IOU(X, Y) < 0.6",
-//   },
-// ];
+import { Intermediate } from "../../../components/Intermediate";
 
 export const LearningRules = () => {
   const [] = useState([]);
@@ -30,30 +15,30 @@ export const LearningRules = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <Box
-        sx={{
-          borderTop: 2,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: 1,
-        }}
-      >
-        <Typography variant="h5" gutterBottom>
-          Logic Rules
+    <Paper sx={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      width: "95%",
+      padding: '0 0 35px 0'
+    }}>
+      <Box sx={{
+        display: "flex",
+        width: "100%",
+        justifyContent: "flex-start",
+        m: '5px 5px 10px 5px'
+      }}>
+        <Typography variant="h5" gutterBottom sx={{ ml: '20px' }}>
+          <strong>Logic Rules</strong>
         </Typography>
       </Box>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : workspace === null ? <div>No Data</div> : (
-        <Box
-          sx={{
-            maxHeight: "30vh",
-            overflow: "auto",
-            border: 1,
-            padding: 2,
-            mb: 1.5,
+      <Paper sx={{
+        padding: '10px 0 0 0',
+        width: "90%",
+      }}>
+        {isLoading ? <Intermediate>Loading</Intermediate> : workspace === null ? <Intermediate>No Data</Intermediate> : (
+          <List sx={{
+            width: '100%', maxHeight: '200px', overflowY: 'scroll',
             scrollbarWidth: "thin",
             "&::-webkit-scrollbar": {
               width: "0.4em",
@@ -74,27 +59,39 @@ export const LearningRules = () => {
               borderRadius: "10px",
               marginRight: "15px",
             },
-          }}
-        >
-          {workspace.rules.map((rule, index) => (
-            <Card key={index} sx={{ minWidth: 270, mb: 1.5 }}>
-              <CardContent>
-                <Typography variant="h5" component="div">
-                  {rule.label}
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  {"logic rule"}
-                </Typography>
-                <Typography variant="body2">{rule.value}</Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">COPY</Button>
-                <Button size="small">EDIT</Button>
-              </CardActions>
-            </Card>
-          ))}
-        </Box>
-      )}
-    </div>
+          }}>
+            {workspace.rules.map((rule, index) => (
+              <ListItem key={index} sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: 'center',
+                width: '100%'
+              }}>
+                <Card sx={{
+                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                  width: "100%",
+                  mb: "10px"
+                }}>
+                  <CardContent sx={{ pb: '0' }}>
+                    <Typography variant="h5" component="div">
+                      <strong>{rule.label}</strong>
+                    </Typography>
+                    <Typography color="text.secondary" gutterBottom>
+                      {"logic rule"}
+                    </Typography>
+                    <Typography variant="body1">{rule.value}</Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="medium"><strong>COPY</strong></Button>
+                    <Button size="medium"><strong>EDIT</strong></Button>
+                  </CardActions>
+                </Card>
+              </ListItem>
+            ))}
+          </List>
+        )}
+      </Paper>
+    </Paper>
   );
 };

@@ -4,6 +4,7 @@ import { HomePageHeader } from './Header';
 import { TopActionBar } from './TopActionBar';
 import { WorkStation } from './WorkStation';
 import { LearningRules } from './LearningRules'
+import { Paper } from '@mui/material';
 
 export const HomePage = () => {
   return (
@@ -25,7 +26,6 @@ export const HomePage = () => {
             flexDirection: "column",
             alignItems: "center",
             flexBasis: "70%",
-            border: "1px solid black",
           }}>
             {/* Top Action Bar */}
             <TopActionBar />
@@ -33,18 +33,18 @@ export const HomePage = () => {
             <WorkStation />
           </Box>
           {/* Right Part */}
-          <Box sx={{
+          <Paper sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             flexBasis: "30%",
-            border: "1px solid black",
+            padding: '10px',
           }}>
             {/* Chart Section */}
             <ChartSection />
             {/* Rule List */}
             <LearningRules />
-          </Box>
+          </Paper>
         </Box>
       </Box>
     </>

@@ -13,7 +13,7 @@ const createWorkspace = async (name) => {
   /**@type {import('../../models/Workspace/response').IImageMetaDataResponse[]} */
   const images = data.map(img => {
     return {
-      imageId: img._id,
+      imageId: img._id.toString(),
       url: imageUrlParser(img._id),
       name: img.name,
       label: "unlabeled",

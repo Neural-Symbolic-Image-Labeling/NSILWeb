@@ -1,7 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from 'react-chartjs-2';
 import { useSelector } from "react-redux";
+import { colorPicker } from "../../../muiStyles";
+import { Intermediate } from "../../../components/Intermediate";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -9,15 +11,15 @@ export const ChartSection = () => {
   const workspace = useSelector(state => state.gallery.workspace);
   const isLoading = useSelector(state => state.gallery.loading);
 
-  const data = workspace === null? null : {
-    labels: ['Unlabeled', 'Manually Labeled', 'Auto labeled'],
+  const data = workspace === null ? null : {
+    labels: ['Unlabeled', 'Manually Labeled', 'Auto-Labeled'],
     datasets: [{
       label: '# of images',
       data: [workspace.statistics.unlabeled, workspace.statistics.manual, workspace.statistics.autoLabeled],
       backgroundColor: [
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)'
+        colorPicker.unlabeled,
+        colorPicker.manual,
+        colorPicker.auto
       ],
       borderWidth: 0,
     }],
@@ -26,31 +28,86 @@ export const ChartSection = () => {
   const options = {
     plugins: {
       legend: {
-        position: "bottom"
+        position: "right"
       }
     },
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
   }
 
   return (
     <>
-      <Box sx={{
+      <Paper sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        margin: "20px 5px 20px 5px",
+        width: "95%",
+        padding: '0 0 35px 0',
+        mb: '20px'
       }}>
-        <Typography variant="h5" gutterBottom>
-          Statistics
-        </Typography>
-        {isLoading ? <div>Loading...</div> : workspace === null ? <div>No Data</div> : (
+        <Box sx={{
+          display: "flex",
+          width: "100%",
+          justifyContent: "flex-start",
+          m: '5px 5px 10px 5px'
+        }}>
+          <Typography variant="h5" gutterBottom sx={{ ml: '20px' }}>
+            <strong>Statistics</strong>
+          </Typography>
+        </Box>
+        {isLoading ? <Intermediate>Loading</Intermediate> : workspace === null ? <Intermediate>No Data</Intermediate> : (
           <>
-            <Box sx={{width: "250px", height: "250px"}}>
-              <Pie data={data} options={options} />
-            </Box>
+            <Paper sx={{
+              width: "90%",
+              display: "flex",
+              justifyContent: 'center',
+              alignItems: 'center',
+              mb: '35px'
+            }}>
+              <Box sx={{ width: "330px", height: "200px" }}>
+                <Pie data={data} options={options} />
+              </Box>
+            </Paper>
 
-            <Box sx={{
+            <Paper sx={{
+              display: "flex",
+              width: "90%",
+              padding: '10px 0 10px 0',
+            }}>
+              <GridBox>
+                Unlabeled
+              </GridBox>
+              <GridBox>
+                Manually Labeled
+              </GridBox>
+              <GridBox>
+                Auto-Labeled
+              </GridBox>
+            </Paper>
+            <Paper sx={{
+              display: "flex",
+              width: "90%",
+              padding: '20px 0 20px 0',
+              mt: '5px'
+
+            }}>
+              <GridBox>
+                <strong>
+                  {((workspace.statistics.unlabeled / workspace.statistics.total) * 100).toFixed(0) + '%'}
+                </strong>
+              </GridBox>
+              <GridBox>
+                <strong>
+                {((workspace.statistics.manual / workspace.statistics.total) * 100).toFixed(0) + '%'}
+                </strong>
+              </GridBox>
+              <GridBox>
+                <strong>
+                {((workspace.statistics.autoLabeled / workspace.statistics.total) * 100).toFixed(0) + '%'}
+                </strong>
+              </GridBox>
+            </Paper>
+            {/* <Paper sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -85,7 +142,7 @@ export const ChartSection = () => {
                 height: "88px",
                 width: "102px"
               }}>
-                <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                   <Typography variant="body2" sx={{ marginTop: "10px" }}>
                     Manually
                   </Typography>
@@ -108,7 +165,7 @@ export const ChartSection = () => {
                 height: "88px",
                 width: "102px"
               }}>
-                <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                   <Typography variant="body2" sx={{ marginTop: "10px" }}>
                     Auto
                   </Typography>
@@ -122,10 +179,32 @@ export const ChartSection = () => {
                 </Typography>
               </Box>
 
-            </Box>
+            </Paper> */}
           </>
         )}
-      </Box>
+      </Paper>
     </>
+  )
+}
+
+const GridBox = ({ children }) => {
+  return (
+    <Box sx={{
+      flexBasis: '33%',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      wordWrap: "break-word",
+    }}>
+      <Typography sx={{
+        fontWeight: '200px',
+        width: '73px',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
+        {children}
+      </Typography>
+    </Box>
   )
 }

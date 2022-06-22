@@ -2,9 +2,8 @@ const { mongoose } = require('../../mongoose');
 
 const ImageMetaDataSchema = new mongoose.Schema({
   imageId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
-    unique: true,
   },
   url: {
     type: String,
@@ -38,7 +37,7 @@ const ImageMetaDataSchema = new mongoose.Schema({
     required: true,
     default: false,
   }
-});
+}, {_id: false});
 
 const StatisticsSchema = new mongoose.Schema({
   total: {

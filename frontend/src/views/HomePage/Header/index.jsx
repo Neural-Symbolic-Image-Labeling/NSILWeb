@@ -1,4 +1,4 @@
-import { AppBar, Button, List, TextField, Toolbar, Typography } from "@mui/material";
+import { AppBar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, List, TextField, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { SmartToy } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,19 +17,13 @@ export const HomePageHeader = () => {
   const navigate = useNavigate();
 
   const [workspaceName, setWorkspaceName] = useState("");
-  const dispatch = useDispatch();
-
-  const loadWorkspace = async () => {
-    dispatch(setLoading(true));
-    const ws = await login(workspaceName);
-    dispatch(setWorkspace(ws));
-    dispatch(setLoading(false));
-  }
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
+      <LoadWorkspace workspaceName={workspaceName} setLoading={setLoading} openModal={openModal} setOpenModal={setOpenModal} setWorkspaceName={setWorkspaceName} />
       <Box>
-        <AppBar position="static">
+        <AppBar position="static" sx={{ bgcolor: "rgba(0, 0, 0, 0.8)" }}>
           <Toolbar>
             <SmartToy />
             <Box sx={{ flexBasis: "50%", display: "flex", alignItems: 'center' }}>
@@ -37,9 +31,9 @@ export const HomePageHeader = () => {
                 variant="h6"
                 sx={{ marginLeft: "10px" }}
               >
-                NSIL
+                Neural-Symbolic Image Labeling
               </Typography>
-              <Box sx={{ml: '10px', display: 'flex', alignItems: 'center'}}>
+              {/* <Box sx={{ml: '10px', display: 'flex', alignItems: 'center'}}>
                 <TextField
                   size="small"
                   variant="outlined"
@@ -47,9 +41,19 @@ export const HomePageHeader = () => {
                   sx={{backgroundColor: 'white'}}
                 />
                 <Button sx={{color: 'white'}} onClick={() => loadWorkspace() }>Load Workspace</Button>
-              </Box>
+              </Box> */}
             </Box>
             <Box sx={{ flexBasis: "50%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "#6E6E6E",
+                  mr: "10px"
+                }}
+                onClick={() => setOpenModal(true)}
+              >
+                Login
+              </Button>
               {navigations.map((link, index) => (
                 <Button
                   key={index}
@@ -65,5 +69,44 @@ export const HomePageHeader = () => {
         </AppBar>
       </Box>
     </>
+  )
+}
+
+const LoadWorkspace = ({ openModal, setOpenModal, setLoading, setWorkspaceName, workspaceName }) => {
+  const dispatch = useDispatch();
+  const loadWorkspace = async () => {
+    dispatch(setLoading(true));
+    const ws = await login(workspaceName);
+    dispatch(setWorkspace(ws));
+    dispatch(setLoading(false));
+    setOpenModal(false);
+  }
+
+  return (
+    <div>
+      <Dialog open={openModal} onClose={() => setOpenModal(false)}>
+        <DialogTitle>Load Workspace</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Enter workspace name to load your workspace. You can also create a new workspace by providing a custom name.
+          </DialogContentText>
+        </DialogContent>
+        <Box sx={{padding: '24px'}}>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Workspace Name"
+            type="text"
+            fullWidth
+            variant="standard"
+            onChange={e => setWorkspaceName(e.target.value)}
+          />
+        </Box>
+        <DialogActions>
+          <Button onClick={() => setOpenModal(false)}>Cancel</Button>
+          <Button onClick={() => loadWorkspace()}>Load</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
   )
 }

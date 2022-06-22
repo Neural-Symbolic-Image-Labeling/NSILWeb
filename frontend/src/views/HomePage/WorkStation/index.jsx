@@ -8,7 +8,7 @@ export const WorkStation = () => {
 
   return (
     <>
-      <Box sx={{}}>
+      <Box sx={{width: '100%', height: '100%'}}>
         {page == 0 && (
           <ImageGallery setPage={setPage}/>
         )}

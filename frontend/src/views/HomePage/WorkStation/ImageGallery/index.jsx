@@ -1,6 +1,7 @@
-import { Box, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+import { Box, ImageList, ImageListItem, ImageListItemBar, Paper } from "@mui/material";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Intermediate } from "../../../../components/Intermediate";
 import { LabelItem } from "../../../../components/LabelItem";
 
 export const ImageGallery = ({ setPage }) => {
@@ -8,13 +9,29 @@ export const ImageGallery = ({ setPage }) => {
   const filterStr = useSelector(state => state.gallery.filter);
   const isLoading = useSelector(state => state.gallery.loading);
 
+  const getType = (image) => { 
+    if(image.label === "unlabeled") {
+      return "unlabeled";
+    } else if (image.manual) {
+      return "manual";
+    } else {
+      return "auto";
+    }
+    return "unlabeled";
+  }
+
   return (
     <>
-      <Box sx={{}}>
-        {isLoading ? <div>Loading...</div> : workspace === null ? <div>No Data</div> : (
+      <Paper sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
+        {isLoading ? <Intermediate>Loading</Intermediate> : workspace === null ? <Intermediate>No Data</Intermediate> : (
           <ImageList
             sx={{
-              maxHeight: "650px",
+              width: "95%",
+              maxHeight: "720px",
               paddingRight: "20px",
               overflowX: "hidden",
               scrollbarWidth: "thin",
@@ -45,20 +62,20 @@ export const ImageGallery = ({ setPage }) => {
               <ImageListItem key={index}>
                 <Box
                   component="img"
-                  sx={{ width: "200px", height: "200px" }}
+                  sx={{ width: "220px", height: "220px", border: "1px solid black" }}
                   src={image.url}
                   alt={image.name}
                   loading="lazy"
                 />
                 <ImageListItemBar
-                  title={<LabelItem isLablled={image.label !== "unlabeled"} label={image.name} />}
+                  title={<LabelItem type={getType(image)} label={image.name} />}
                   position="below"
                 />
               </ImageListItem>
             ))}
           </ImageList>
         )}
-      </Box>
+      </Paper>
     </>
   )
 }
