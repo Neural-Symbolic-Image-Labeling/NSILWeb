@@ -1,9 +1,10 @@
 .label-tools{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    
 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -14,7 +15,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 2% 0 2%;
-    padding: 9px 8px 8px 8px;
+    padding: 20px 8px 8px 8px;
 
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);

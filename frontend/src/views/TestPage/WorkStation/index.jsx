@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { ImageGallery } from "./ImageGallery";
-import { AnnotationTool } from "./AnnotationTool";
+import AnnotationTool  from "./AnnotationTool";
 import { useState } from "react";
 
 export const WorkStation = () => { 

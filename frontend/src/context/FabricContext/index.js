@@ -3,16 +3,19 @@ import { fabric } from "fabric";
 import ToolList from "./Tools/ToolList";
 import { RectangleTool } from "./Tools/Rectangle/Rectangle";
 import { SelectedTool } from "./Tools/Select/SelectTool";
+import { DeleteTool } from "./Tools/Delete/DeleteTool";
+
 
 /** @type {React.Context<[fabric.Canvas, string, (c: fabric.Canvas) => void, (t: any) => void, (p: any) => void]>}*/
 export const FabricContext = createContext(null);
 
 const defaultProps = {
-    canvasHeight: 600,
-    canvasWidth: 1200,
+    canvasHeight: 650,
+    canvasWidth: 800,
+    canvasBackground : "https://www.c40.org/wp-content/uploads/2021/06/©-Alexander-Spatari-Getty-Images-e1622537794982.jpg",
     canvasBackgroundColor: "#66ccff",
-    lineWidth: 1,
-    fillColor: "#bd2b33",
+    lineWidth: 5,
+    fillColor: "",
     lineColor: "#000000",
 };
 const tools = {};
@@ -73,6 +76,7 @@ export const FabricProvider = (props) => {
     //#region useEffects
     useEffect(() => { 
         if (!fbCanvas) return;
+        fbCanvas.setBackgroundImage(canvasProps.canvasBackground);
         fbCanvas.setBackgroundColor(canvasProps.canvasBackgroundColor);
         fbCanvas.setDimensions({ width: canvasProps.canvasWidth, height: canvasProps.canvasHeight });
         fbCanvas.renderAll();
@@ -87,6 +91,7 @@ export const FabricProvider = (props) => {
     useEffect(() => {
         if (!fbCanvas) return;
 
+        fbCanvas.setBackgroundImage(canvasProps.canvasBackground);
         console.log("create canvas", fbCanvas);
         fbCanvas.setBackgroundColor(canvasProps.canvasBackgroundColor);
         fbCanvas.setDimensions({ width: canvasProps.canvasWidth, height: canvasProps.canvasHeight });
@@ -94,6 +99,7 @@ export const FabricProvider = (props) => {
 
         tools[ToolList.RectangleTool] = new RectangleTool(fbCanvas);
         tools[ToolList.SelectedTool] = new SelectedTool(fbCanvas);
+        tools[ToolList.DeleteTool] = new DeleteTool(fbCanvas);
 
         if (currTool) tools[currTool].configureCanvas(canvasProps);
 

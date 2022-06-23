@@ -5,7 +5,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    
     margin: 2%;
 
     border: 1px solid red;
@@ -15,16 +14,24 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 2% 0 2% 0;
+    margin: 0 0 0 0;
 
-
-    border: 1px solid green;
+/* 
+    border: 1px solid green; */
 }
 
-.image-container{
+/* .image-container{
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    border: 1px solid blue;
+} */
+
+.sidebar-container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 
     border: 1px solid blue;
 }
