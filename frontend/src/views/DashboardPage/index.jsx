@@ -115,7 +115,7 @@ export const DashboardPage = () => {
             height: "300px",
           }}>
             <Button component="label" startIcon={<UploadFile />} disabled={waiting}>
-              Upload Images
+              Add Images
               <input
                 accept="image/*"
                 type="file"
@@ -131,7 +131,7 @@ export const DashboardPage = () => {
               sx={{ mt: "5%" }}
               disabled={waiting}
             >
-              {`Upload(${images.length} images)`}
+              {`Upload (${images.length} images)`}
             </Button>
           </Paper>
           <Paper sx={{
