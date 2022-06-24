@@ -1,5 +1,15 @@
 const { mongoose } = require('../../mongoose');
 
+const ImageLabelSchema = new mongoose.Schema({
+  label: {
+    type: String,
+    required: true,
+  },
+  segTarget: {
+    type: String,
+  }
+}, {_id: false});
+
 const ImageMetaDataSchema = new mongoose.Schema({
   imageId: {
     type: String,
@@ -9,11 +19,7 @@ const ImageMetaDataSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  label: {
-    type: String,
-    required: true,
-    default: "unlabeled",
-  },
+  label: [ImageLabelSchema],
   name: {
     type: String,
     required: true,
@@ -67,16 +73,39 @@ const StatisticsSchema = new mongoose.Schema({
   }
 }, { _id: false });
 
+const ClauseSchema = new mongoose.Schema({
+  value: {
+    type: String,
+    required: true,
+  },
+  isLocked: {
+    type: Boolean,
+    required: true,
+  }
+}, { _id: false });
+
 const RuleSchema = new mongoose.Schema({
   label: {
     type: String,
     required: true,
   },
-  value: {
+  value: [ClauseSchema]
+}, { _id: false });
+
+const ImageCollectionSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
-  }
-}, { _id: false });
+  },
+  method: {
+    type: String,
+    required: true,
+    default: "Classification",
+  },
+  images: [ImageMetaDataSchema],
+  statistics: StatisticsSchema,
+  rules: [RuleSchema],
+});
 
 const WorkspaceSchema = new mongoose.Schema({
   name: {
@@ -84,16 +113,17 @@ const WorkspaceSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  images: [ImageMetaDataSchema],
-  statistics: StatisticsSchema,
-  rules: [RuleSchema],
+  collections: [ImageCollectionSchema],
 });
 
 const Workspace = mongoose.model('Workspace', WorkspaceSchema);
 
 module.exports = {
   Workspace,
+  ImageCollectionSchema,
+  ImageLabelSchema,
   WorkspaceSchema,
   ImageMetaDataSchema,
+  ClauseSchema,
   StatisticsSchema,
 }

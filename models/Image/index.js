@@ -8,12 +8,26 @@ const ImageSchema = new mongoose.Schema({
   data: {
     type: String,
     required: true,
-  }
+  },
+  interpretation: [{
+    type: String,
+    required: true
+  }],
 });
 
-const Image = mongoose.model('Image', ImageSchema);
+const ImageSetSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  images: [ImageSchema],
+});
+
+const ImageSet = mongoose.model('ImageSet', ImageSetSchema);
 
 module.exports = {
   ImageSchema,
-  Image
+  ImageSetSchema,
+  ImageSet
 };
