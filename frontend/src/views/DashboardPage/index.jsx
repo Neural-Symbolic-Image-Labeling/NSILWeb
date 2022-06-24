@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Dialog, DialogContent, DialogContentText, DialogTitle, Box, TextField, Button, Alert, IconButton, FormControl, Paper, Typography, DialogActions } from "@mui/material";
-import { authDashboard, autoAuth, deleteAllImages, uploadImage } from "../../apis/image";
+import { Dialog, DialogContent, DialogContentText, DialogTitle, Box, TextField, Button, Alert, IconButton, FormControl, Paper, Typography, DialogActions, Select, InputLabel, MenuItem } from "@mui/material";
+import { authDashboard, autoAuth, createImageSet, deleteAllImages, getAllSetNames, uploadImage } from "../../apis/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setAuthed } from "../../stores/gallery";
@@ -29,6 +29,9 @@ export const DashboardPage = () => {
   const authed = useSelector(state => state.gallery.authed);
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [openNotifyModal, setOpenNotifyModal] = useState(false);
+  const [imageSetNameList, setImageSetNameList] = useState([]);
+  const [imageSetName, setImageSetName] = useState("");
+  const [createImageSetName, setCreateImageSetName] = useState("");
   const [notifyData, setNotifyData] = useState({
     variant: "primary",
     title: "",
@@ -41,12 +44,22 @@ export const DashboardPage = () => {
     autoAuth()
       .then(res => {
         dispatch(setAuthed(true));
+        getAllSetNames()
+          .then(res => {
+            setImageSetNameList(res);
+          })
       }).catch(err => {
         if (!authed) {
           setOpenAuthModal(true);
         }
       })
   }, []);
+
+  useEffect(() => {
+    if (imageSetNameList.length > 0) {
+      setImageSetName(imageSetNameList[0]);
+    }
+  }, [imageSetNameList])
 
   /**
    * @param {import("react").ChangeEvent<HTMLInputElement>} e 
@@ -66,12 +79,12 @@ export const DashboardPage = () => {
     setImages(images.concat(results));
     setWaiting(false);
 
-    setNotifyData({
-      variant: "success",
-      title: "Images added",
-      content: "Images added successfully, you can upload by clicking the upload button.",
-    });
-    setOpenNotifyModal(true);
+    // setNotifyData({
+    //   variant: "success",
+    //   title: "Images added",
+    //   content: "Images added successfully, you can upload by clicking the upload button.",
+    // });
+    // setOpenNotifyModal(true);
   }
 
   const handleImageUpload = async () => {
@@ -80,7 +93,7 @@ export const DashboardPage = () => {
     }
     setWaiting(true);
     for (let i = 0; i < images.length; i++) {
-      await uploadImage(images[i].name, images[i].data);
+      await uploadImage(images[i].name, images[i].data, imageSetName);
     }
     setImages([]);
     setWaiting(false);
@@ -89,6 +102,29 @@ export const DashboardPage = () => {
       variant: "success",
       title: "Images uploaded",
       content: "Images uploaded successfully.",
+    });
+    setOpenNotifyModal(true);
+  }
+
+  const handleCreateImageSet = async () => {
+    if (createImageSetName === "") return;
+    try {
+      await createImageSet(createImageSetName);
+      const updatedSet = await getAllSetNames();
+      setImageSetNameList(updatedSet);
+    } catch (e) {
+      setNotifyData({
+        variant: "error",
+        title: "Cannot create image set",
+        content: "Duplicate image set name, please try another name.",
+      });
+      setOpenNotifyModal(true);
+      return;
+    }
+    setNotifyData({
+      variant: "success",
+      title: "Image set created",
+      content: "Image set created successfully.",
     });
     setOpenNotifyModal(true);
   }
@@ -108,31 +144,62 @@ export const DashboardPage = () => {
         }}>
           <Paper sx={{
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",
             width: "760px",
             height: "300px",
           }}>
-            <Button component="label" startIcon={<UploadFile />} disabled={waiting}>
-              Add Images
-              <input
-                accept="image/*"
-                type="file"
-                multiple
-                id="upload-image-button"
-                hidden
-                onChange={e => handleImageRead(e)}
-              />
-            </Button>
-            <Button
-              variant="contained"
-              onClick={async () => await handleImageUpload()}
-              sx={{ mt: "5%" }}
-              disabled={waiting}
-            >
-              {`Upload (${images.length} images)`}
-            </Button>
+            <TextField label="New Image Set Name" variant="standard" onChange={e => setCreateImageSetName(e.target.value)} />
+            <Button sx={{ml: '25px'}} variant="contained" onClick={() => handleCreateImageSet()}>Create</Button>
+          </Paper>
+          <Paper sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "760px",
+            height: "300px",
+            mt: '15px'
+          }}>
+            {imageSetNameList.length <= 0 ? <Intermediate>No Image Collection Found</Intermediate> : (
+              <>
+                <FormControl>
+                  <InputLabel>ImageSet</InputLabel>
+                  <Select
+                    value={imageSetName}
+                    label="ImageSet"
+                    onChange={(e) => setImageSetName(e.target.value)}
+                    sx={{minWidth: '150px'}}
+                  >
+                    {imageSetNameList.map(name => (
+                      <MenuItem key={name} value={name}>
+                        {name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                <Button variant="outlined" component="label" startIcon={<UploadFile />} disabled={waiting} sx={{ mt: "5%" }}>
+                  Add Images
+                  <input
+                    accept="image/*"
+                    type="file"
+                    multiple
+                    id="upload-image-button"
+                    hidden
+                    onChange={e => handleImageRead(e)}
+                  />
+                </Button>
+                <Button
+                  variant="contained"
+                  onClick={async () => await handleImageUpload()}
+                  sx={{ mt: "5%" }}
+                  disabled={waiting}
+                >
+                  {`Upload (${images.length} images)`}
+                </Button>
+              </>
+            )}
           </Paper>
           <Paper sx={{
             display: "flex",
@@ -148,6 +215,7 @@ export const DashboardPage = () => {
                 variant="contained"
                 onClick={() => {
                   deleteAllImages().then(() => {
+                    getAllSetNames().then(res => setImageSetNameList(res));
                     setNotifyData({
                       variant: "success",
                       title: "Images deleted",

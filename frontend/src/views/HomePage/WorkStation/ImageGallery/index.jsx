@@ -3,15 +3,35 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Intermediate } from "../../../../components/Intermediate";
 import { LabelItem } from "../../../../components/LabelItem";
+import { findCollection } from "../../../../utils/workspace";
 import { TopActionBar } from "./TopActionBar";
+
+const matchLabel = (labels, filterStr) => {
+  if (!filterStr) return true;
+  for (let i = 0; i < labels.length; i++) {
+    if (labels[i].label.toLowerCase().includes(filterStr.toLowerCase())) {
+      return true;
+    }
+  }
+  return false;
+}
 
 export const ImageGallery = ({ setPage }) => {
   const workspace = useSelector(state => state.gallery.workspace);
+  const currCollectionId = useSelector(state => state.gallery.currCollectionId);
   const filterStr = useSelector(state => state.gallery.filter);
   const isLoading = useSelector(state => state.gallery.loading);
 
+  const getDisplayImages = () => { 
+    // find collection
+    const collection = findCollection(workspace, currCollectionId);
+    // find filtered images
+    const filteredImages = collection ? collection.images.filter(i => i.name.toLowerCase().includes(filterStr.toLowerCase()) || matchLabel(i.labels, filterStr)) : [];
+    return filteredImages;
+  }
+
   const getType = (image) => { 
-    if(image.label === "unlabeled") {
+    if(image.labels.length === 0) {
       return "unlabeled";
     } else if (image.manual) {
       return "manual";
@@ -60,7 +80,7 @@ export const ImageGallery = ({ setPage }) => {
             cols={4}
             gap={6}
           >
-            {workspace.images.filter(img => img.name.toLowerCase().includes(filterStr.toLowerCase())).map((image, index) => (
+            {getDisplayImages().map((image, index) => (
               <ImageListItem key={index}>
                 <Box
                   component="img"

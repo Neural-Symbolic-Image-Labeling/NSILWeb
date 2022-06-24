@@ -7,12 +7,15 @@ import Button from "@mui/material/Button";
 import { Box, List, ListItem, Paper, Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { Intermediate } from "../../../components/Intermediate";
+import { findCollection } from "../../../utils/workspace";
 
 export const LearningRules = () => {
   const [] = useState([]);
   const workspace = useSelector((state) => state.gallery.workspace);
+  const currCollectionId = useSelector((state) => state.gallery.currCollectionId);
   const isLoading = useSelector((state) => state.gallery.loading);
   const dispatch = useDispatch();
+  const rules = workspace ? findCollection(workspace, currCollectionId).rules : [];
 
   return (
     <Paper sx={{
@@ -60,7 +63,7 @@ export const LearningRules = () => {
               marginRight: "15px",
             },
           }}>
-            {workspace.rules.map((rule, index) => (
+            {rules.map((rule, index) => (
               <ListItem key={index} sx={{
                 display: "flex",
                 flexDirection: "column",

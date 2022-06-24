@@ -19,7 +19,7 @@ const ImageMetaDataSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  label: [ImageLabelSchema],
+  labels: [ImageLabelSchema],
   name: {
     type: String,
     required: true,

@@ -1,8 +1,7 @@
 const { ImageSet } = require('../../models/Image');
 
-const imageUrlParser = (imgSetName, uuid) => { 
-  const encodedImgSetName = encodeURIComponent(imgSetName);
-  return `${(process.env.REACT_APP_API_URL || "http://localhost:8888/api")}/img/${encodedImgSetName}/${uuid}`;
+const imageUrlParser = (uuid) => { 
+  return `${(process.env.REACT_APP_API_URL || "http://localhost:8888/api")}/img/${uuid}`;
 
 };
 
@@ -13,16 +12,16 @@ const imageUrlParser = (imgSetName, uuid) => {
 const createWorkspace = async (name) => { 
   const data = await ImageSet.findOne({}).lean();
   /**@type {import('../../models/Workspace/response').IImageMetaDataResponse[]} */
-  const images = data.images.map((img, index) => {
+  const images = data ? data.images.map((imgId, index) => {
     return {
-      imageId: img._id.toString(),
-      url: imageUrlParser(data.name, img._id),
+      imageId: imgId.toString(),
+      url: imageUrlParser(imgId),
       name: `No. ${index}`,
       label: [],
       canvas: null,
       manual: false,
     }
-  });
+  }) : [];
   const collection = {
     name: data.name,
     statistics: {

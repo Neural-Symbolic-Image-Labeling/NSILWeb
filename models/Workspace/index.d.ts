@@ -9,7 +9,7 @@ export interface IImageLabelSchema {
 export interface IImageMetaDataSchema {
     imageId: ObjectId;
     url: string;
-    label: IImageLabelSchema[];
+    labels: IImageLabelSchema[];
     name: string;
     canvas: Object | string;
     manual: boolean;

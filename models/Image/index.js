@@ -21,13 +21,15 @@ const ImageSetSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  images: [ImageSchema],
+  images: [mongoose.Types.ObjectId],
 });
 
+const Image = mongoose.model('Image', ImageSchema);
 const ImageSet = mongoose.model('ImageSet', ImageSetSchema);
 
 module.exports = {
   ImageSchema,
   ImageSetSchema,
-  ImageSet
+  ImageSet,
+  Image
 };

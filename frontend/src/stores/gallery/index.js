@@ -12,7 +12,7 @@ export const fetchWorkspace = createAsyncThunk("gallery/fetchWorkspace",
 export const gallerySlice = createSlice({
   name: "gallery",
   initialState: {
-    mode: "local",
+    currCollectionId: null,
     loading: true,
     filter: "",
     authed: false,
@@ -22,6 +22,7 @@ export const gallerySlice = createSlice({
   reducers: {
     setWorkspace: (state, action) => { 
       state.workspace = action.payload;
+      state.currCollectionId = action.payload.collections[0]._id;
     },
     setAuthed: (state, action) => { 
       state.authed = action.payload;
@@ -33,17 +34,23 @@ export const gallerySlice = createSlice({
       state.loading = action.payload;
     },
     labelImage: (state, action) => {
-
-      const { imageId, label } = action.payload;
-      const image = state.workspace.images.find((image) => image.imageId.toString() === imageId.toString());
+      const { imageId, labels } = action.payload;
+      // find collection
+      const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
+      // find image
+      const image = collection.images.find((image) => image.imageId.toString() === imageId.toString());
       if (image) {
-        image.label = label;
+        // auto labelled before
+        if (image.labels.length > 0 && !image.manual) {
+          collection.statistics.autoLabeled--;
+        }
+        image.labels = labels;
         // when it is the first time being labeled manually.
         if (!image.manual) {
           image.manual = true; 
-          state.workspace.statistics.manual++;
-          state.workspace.statistics.userChecked++;
-          state.workspace.statistics.unlabeled--;
+          collection.statistics.manual++;
+          collection.statistics.userChecked++;
+          collection.statistics.unlabeled--;
         }
       }
     }
@@ -52,6 +59,7 @@ export const gallerySlice = createSlice({
     builder.addCase(fetchWorkspace.fulfilled, (state, action) => {
       state.loading = false;
       state.workspace = action.payload;
+      state.currCollectionId = action.payload.collections[0]._id;
     });
 
     builder.addCase(fetchWorkspace.pending, (state) => {

@@ -4,18 +4,21 @@ import { Pie } from 'react-chartjs-2';
 import { useSelector } from "react-redux";
 import { colorPicker } from "../../../muiStyles";
 import { Intermediate } from "../../../components/Intermediate";
+import { findCollection } from "../../../utils/workspace";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const ChartSection = () => {
   const workspace = useSelector(state => state.gallery.workspace);
   const isLoading = useSelector(state => state.gallery.loading);
+  const currCollectionId = useSelector(state => state.gallery.currCollectionId);
+  const statistics = workspace? findCollection(workspace, currCollectionId).statistics : null;
 
   const data = workspace === null ? null : {
     labels: ['Unlabeled', 'Manually Labeled', 'Auto-Labeled'],
     datasets: [{
       label: '# of images',
-      data: [workspace.statistics.unlabeled, workspace.statistics.manual, workspace.statistics.autoLabeled],
+      data: [statistics.unlabeled, statistics.manual, statistics.autoLabeled],
       backgroundColor: [
         colorPicker.unlabeled,
         colorPicker.manual,
@@ -93,17 +96,17 @@ export const ChartSection = () => {
             }}>
               <GridBox>
                 <strong>
-                  {((workspace.statistics.unlabeled / workspace.statistics.total) * 100).toFixed(0) + '%'}
+                  {((statistics.unlabeled / statistics.total) * 100).toFixed(0) + '%'}
                 </strong>
               </GridBox>
               <GridBox>
                 <strong>
-                {((workspace.statistics.manual / workspace.statistics.total) * 100).toFixed(0) + '%'}
+                {((statistics.manual / statistics.total) * 100).toFixed(0) + '%'}
                 </strong>
               </GridBox>
               <GridBox>
                 <strong>
-                {((workspace.statistics.autoLabeled / workspace.statistics.total) * 100).toFixed(0) + '%'}
+                {((statistics.autoLabeled / statistics.total) * 100).toFixed(0) + '%'}
                 </strong>
               </GridBox>
             </Paper>

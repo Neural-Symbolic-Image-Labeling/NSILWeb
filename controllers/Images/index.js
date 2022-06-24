@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { ErrorResponse } = require('../../models/ErrorResponse');
-const { ImageSet } = require('../../models/Image');
+const { ImageSet, Image } = require('../../models/Image');
 const { authAdmin, uuidValidator } = require('../../utils');
 
 const getPath = (path) => `/img${path}`;
@@ -63,40 +63,49 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
     /**@type {import('./request').ImageUploadRequest} */
     const reqBody = req.body;
     // find image set first
-    const imgSet = await ImageSet.findOne({ name: reqBody.setName });
+    const imgSet = await ImageSet.findOne({ name: reqBody.imageSetName });
     if (!imgSet) { 
       res.status(404).json(new ErrorResponse(-1, "Image set not found"));
       return;
     }
     // create image data
-    const image = {
+    const image = new Image({
       name: reqBody.name,
       data: reqBody.data,
       interpretation: [], // TODO: process image by image detection model
-    };
+    });
+    let imageData = null;
     try {
       // add image to image set
-      imgSet.images.push(image);
+      imageData = await image.save();
+    }catch (err) { 
+      res.status(500).json(new ErrorResponse(0, "Failed to save image", err));
+      return;
+    }
+    try {
+      // add image to image set
+      imgSet.images.push(imageData._id);
       await imgSet.save();
       res.status(200).send({ message: "success" });
+      return;
     } catch (err) {
-      res.status(500).send(new ErrorResponse(0, "Failed to save image", err));
+      await image.remove();
+      res.status(500).send(new ErrorResponse(0, "Database Error", err));
+      return;
     }
-    return;
+
   }
   res.status(400).send(new ErrorResponse(2, "Request body is missing"));
   return;
 });
 
-router.get(getPath("/:imgSet/:uuid"), uuidValidator, async (req, res) => { 
-  let { imgSet, uuid } = req.params;
-  imgSet = decodeURIComponent(imgSet);
-  const imgSetData = await ImageSet.find({ name: imgSet }).lean();
-  if (imgSetData) { 
-    let img = imgSetData.images.find(img => img._id.toString() === uuid);
-    const temp = imgRaw.data.split(",");
+router.get(getPath("/:uuid"), uuidValidator, async (req, res) => { 
+  const { uuid } = req.params;
+  const imgData = await Image.findById(uuid).lean();
+  if (imgData) { 
+    const temp = imgData.data.split(",");
     let ext = temp[0].split(";")[0].split("/")[1];
-    img = Buffer.from(temp[1], 'base64');
+    let img = Buffer.from(temp[1], 'base64');
     res.writeHead(200, {
       'Content-Type': `image/${ext}`,
       'Content-Length': img.length,
@@ -109,6 +118,7 @@ router.get(getPath("/:imgSet/:uuid"), uuidValidator, async (req, res) => {
 
 router.delete(getPath('/all'), authAdmin, async (req, res) => { 
   try {
+    await ImageSet.deleteMany({});
     await Image.deleteMany({});
     res.status(200).send({ message: "success" });
     return;
