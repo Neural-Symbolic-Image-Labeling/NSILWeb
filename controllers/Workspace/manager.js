@@ -15,7 +15,7 @@ const createWorkspace = async (name) => {
   const images = data ? data.images.map((imgId, index) => {
     return {
       imageId: imgId.toString(),
-      url: imageUrlParser(imgId),
+      url: imageUrlParser(imgId.toString()),
       name: `No. ${index}`,
       label: [],
       canvas: null,
