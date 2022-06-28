@@ -9,10 +9,9 @@ const ImageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  interpretation: [{
-    type: String,
-    required: true
-  }],
+  interpretation: {
+    type: mongoose.Schema.Types.Mixed,
+  },
 });
 
 const ImageSetSchema = new mongoose.Schema({

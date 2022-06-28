@@ -3,7 +3,7 @@ import { Model, ObjectId, Schema } from "mongoose";
 export interface IImageSchema { 
     name: string;
     data: string;
-    interpretation: string[];
+    interpretation: any;
 }
 
 export interface IImageSetSchema {

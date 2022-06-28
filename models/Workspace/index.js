@@ -89,7 +89,7 @@ const RuleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  value: [ClauseSchema]
+  value: [[ClauseSchema]]
 }, { _id: false });
 
 const ImageCollectionSchema = new mongoose.Schema({

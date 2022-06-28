@@ -30,7 +30,7 @@ export interface IStatisticsSchema {
 
 export interface IRuleSchema { 
     name: string;
-    value: [IClauseSchema];
+    value: IClauseSchema[][];
 }
 
 export interface IImageCollectionSchema { 

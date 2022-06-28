@@ -46,6 +46,7 @@ app.use(express.urlencoded({
 }));
 
 // Routers
+app.use('/api', require('./controllers/test').router);
 app.use('/api', require('./controllers/Workspace').router);
 app.use('/api', require('./controllers/Images').router);
 

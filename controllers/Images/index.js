@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { ErrorResponse } = require('../../models/ErrorResponse');
 const { ImageSet, Image } = require('../../models/Image');
 const { authAdmin, uuidValidator } = require('../../utils');
+const { requestForInterpretation } = require('./manager');
 
 const getPath = (path) => `/img${path}`;
 
@@ -72,7 +73,7 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
     const image = new Image({
       name: reqBody.name,
       data: reqBody.data,
-      interpretation: [], // TODO: process image by image detection model
+      interpretation: null, // TODO: process image by object detection model
     });
     let imageData = null;
     try {
@@ -86,6 +87,8 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
       // add image to image set
       imgSet.images.push(imageData._id);
       await imgSet.save();
+      // ask for image interpretation
+      requestForInterpretation(imageData._id);
       res.status(200).send({ message: "success" });
       return;
     } catch (err) {
