@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import { ImageGallery } from "./ImageGallery";
-import { AnnotationTool } from "./AnnotationTool";
+import { AnnotationTool } from "./AnnotationStation";
 import { useState } from "react";
 
 export const WorkStation = () => { 
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   return (
     <>
