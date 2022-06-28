@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { ImageGallery } from "./ImageGallery";
-import AnnotationTool  from "./AnnotationTool";
+import AnnotationTool  from "./AnnotationStation/index";
 import { useState } from "react";
 
 export const WorkStation = () => { 
@@ -14,6 +14,7 @@ export const WorkStation = () => {
         )}
         {page === 1 && (
           <AnnotationTool setPage={setPage}/>
+          
         )}
       </Box>
     </>
