@@ -7,3 +7,7 @@ export const autoLogin = async () => {
 export const login = async (name) => { 
   return post("/workspace/login", { workspaceName: name });
 }
+
+export const requestNewCollection = (setName, workspaceId) => { 
+  return post("/workspace/collection", { setName: setName, workspaceId: workspaceId });
+}

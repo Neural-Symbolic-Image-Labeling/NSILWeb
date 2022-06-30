@@ -12,9 +12,10 @@ export const ChartSection = () => {
   const workspace = useSelector(state => state.gallery.workspace);
   const isLoading = useSelector(state => state.gallery.loading);
   const currCollectionId = useSelector(state => state.gallery.currCollectionId);
-  const statistics = workspace? findCollection(workspace, currCollectionId).statistics : null;
+  const currCollection = findCollection(workspace, currCollectionId);
+  const statistics = workspace ? currCollection ? currCollection.statistics : null : null;
 
-  const data = workspace === null ? null : {
+  const data = (workspace === null || statistics === null) ? null : {
     labels: ['Unlabeled', 'Manually Labeled', 'Auto-Labeled'],
     datasets: [{
       label: '# of images',
@@ -58,7 +59,7 @@ export const ChartSection = () => {
             <strong>Statistics</strong>
           </Typography>
         </Box>
-        {isLoading ? <Intermediate>Loading</Intermediate> : workspace === null ? <Intermediate>No Data</Intermediate> : (
+        {isLoading ? <Intermediate>Loading</Intermediate> : (workspace === null || statistics === null) ? <Intermediate>No Data</Intermediate> : (
           <>
             <Paper sx={{
               width: "90%",

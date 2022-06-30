@@ -24,6 +24,9 @@ export const gallerySlice = createSlice({
       state.workspace = action.payload;
       state.currCollectionId = action.payload.collections[0]._id;
     },
+    setCurrCollectionId: (state, action) => { 
+      state.currCollectionId = action.payload;
+    },
     setAuthed: (state, action) => { 
       state.authed = action.payload;
     },
@@ -74,5 +77,5 @@ export const gallerySlice = createSlice({
   }
 });
 
-export const { setLoading, setWorkspace, setAuthed, setFilter, labelImage } = gallerySlice.actions;
+export const { setLoading, setWorkspace, setCurrCollectionId, setAuthed, setFilter, labelImage } = gallerySlice.actions;
 export default gallerySlice.reducer;
