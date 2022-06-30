@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose');
 const { ImageSet } = require('../../models/Image');
 
 const imageUrlParser = (uuid) => { 
@@ -5,14 +6,8 @@ const imageUrlParser = (uuid) => {
 
 };
 
-/** Create a new workspace 
- * @param {string} name 
- * @returns {Promise<import('../../models/Workspace').IWorkspaceSchema>}
- */
-const createWorkspace = async (name) => { 
-  const data = await ImageSet.findOne({}).lean();
-  /**@type {import('../../models/Workspace/response').IImageMetaDataResponse[]} */
-  const images = data ? data.images.map((imgId, index) => {
+const collectionBuilder = (imgSetDoc) => { 
+  const images = imgSetDoc ? imgSetDoc.images.map((imgId, index) => { 
     return {
       imageId: imgId.toString(),
       url: imageUrlParser(imgId.toString()),
@@ -23,7 +18,7 @@ const createWorkspace = async (name) => {
     }
   }) : [];
   const collection = {
-    name: data.name,
+    name: imgSetDoc.name,
     statistics: {
       total: images.length,
       unlabeled: images.length,
@@ -34,6 +29,16 @@ const createWorkspace = async (name) => {
     images: images,
     rules: []
   };
+  return collection;
+}
+
+/** Create a new workspace 
+ * @param {string} name 
+ * @returns {Promise<import('../../models/Workspace').IWorkspaceSchema>}
+ */
+const createWorkspace = async (name) => { 
+  const data = await ImageSet.findOne({});
+  const collection = collectionBuilder(data);
   const result = {
     name: name,
     collections: [],
@@ -43,5 +48,6 @@ const createWorkspace = async (name) => {
 }
 
 module.exports = {
-  createWorkspace
+  createWorkspace,
+  collectionBuilder
 }

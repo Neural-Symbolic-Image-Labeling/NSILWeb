@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { ErrorResponse } = require('../../models/ErrorResponse');
+const { ImageSet } = require('../../models/Image');
 const { Workspace } = require('../../models/Workspace');
 const { authWorkspace } = require('../../utils');
-const { createWorkspace } = require('./manager');
+const { createWorkspace, collectionBuilder } = require('./manager');
 
 const getPath = (path) => `/workspace${path}`;
 
@@ -34,5 +35,26 @@ router.post(getPath('/login'), async (req, res) => {
 router.get(getPath('/auto'), authWorkspace, (req, res) => { 
    res.status(200).json(req.workspace);
 }); 
+
+router.post(getPath('/collection'), async (req, res) => {
+  if (req.body) {
+    /**@type {import('./request').NewCollectionRequest} */
+    const reqBody = req.body;
+    try {
+      const workspaceDoc = await Workspace.findById(reqBody.workspaceId);
+      const imgSetDoc = await ImageSet.findOne({ name: reqBody.setName }).lean();
+  
+      const newCollection = collectionBuilder(imgSetDoc);
+      workspaceDoc.collections.push(newCollection);
+      const result = await workspaceDoc.save();
+      res.status(200).json(result.collections.find(c => c.name === reqBody.setName)._id.toString());
+      return;
+    } catch (err) {
+      res.status(500).json(new ErrorResponse(0, "Failed to add collection", err));
+      return;
+    }
+  }
+  res.status(400).json(new ErrorResponse(2, "request body is required"));
+});
 
 module.exports = { router }

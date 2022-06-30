@@ -15,7 +15,8 @@ export const LearningRules = () => {
   const currCollectionId = useSelector((state) => state.gallery.currCollectionId);
   const isLoading = useSelector((state) => state.gallery.loading);
   const dispatch = useDispatch();
-  const rules = workspace ? findCollection(workspace, currCollectionId).rules : [];
+  const currCollection = findCollection(workspace, currCollectionId);
+  const rules = workspace ? currCollection ? currCollection.rules : [] : [];
 
   return (
     <Paper sx={{
