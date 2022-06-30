@@ -3,8 +3,7 @@ import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import {
   FaArrowAltCircleRight,
-  FaArrowAltCircleLeft,
-  BsBoundingBoxCircles,
+  FaArrowAltCircleLeft
 } from "react-icons/fa";
 import style from "./style.module.css";
 
