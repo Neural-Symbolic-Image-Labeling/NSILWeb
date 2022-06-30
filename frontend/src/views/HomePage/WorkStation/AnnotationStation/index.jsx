@@ -67,7 +67,7 @@ export const AnnotationTool = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          padding: 2,
+          padding: 3,
         }}
       >
         <Box
