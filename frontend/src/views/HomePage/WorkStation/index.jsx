@@ -4,7 +4,7 @@ import { AnnotationTool } from "./AnnotationStation";
 import { useState } from "react";
 
 export const WorkStation = () => { 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   return (
     <>

@@ -14,14 +14,15 @@ export const LabelItem = ({ label, type }) => {
         alignItems: "center",
         width: "60px",
         height: "30px",
-        bgcolor: colorPicker[type],
-        borderRadius: "8px",
+        // color: colorPicker[type],
+        // borderRadius: "8px",
       }}>
         <Typography
           sx={{
-            color: "white",
+            // color: "white",
+            color: colorPicker[type],
           }}
-          variant="body2"
+          variant="h6"
         >
           {label}
         </Typography>

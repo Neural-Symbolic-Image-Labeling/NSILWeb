@@ -22,7 +22,7 @@ export const ImageGallery = ({ setPage }) => {
   const filterStr = useSelector(state => state.gallery.filter);
   const isLoading = useSelector(state => state.gallery.loading);
 
-  const getDisplayImages = () => { 
+  const getDisplayImages = () => {
     // find collection
     const collection = findCollection(workspace, currCollectionId);
     // find filtered images
@@ -30,8 +30,8 @@ export const ImageGallery = ({ setPage }) => {
     return filteredImages;
   }
 
-  const getType = (image) => { 
-    if(image.labels.length === 0) {
+  const getType = (image) => {
+    if (image.labels.length === 0) {
       return "unlabeled";
     } else if (image.manual) {
       return "manual";
@@ -81,10 +81,19 @@ export const ImageGallery = ({ setPage }) => {
             gap={6}
           >
             {getDisplayImages().map((image, index) => (
-              <ImageListItem key={index}>
+              <ImageListItem key={index}
+                sx={{
+                  width: '220px',
+                  minHeight: '220px',
+                }}
+              >
                 <Box
                   component="img"
-                  sx={{ width: "100%", height: "220px", objectFit: "contain" }}
+                  sx={{
+                    objectFit: "cover",
+                    width: '220px',
+                    height: '220px',
+                  }}
                   src={image.url}
                   alt={image.name}
                   loading="lazy"
