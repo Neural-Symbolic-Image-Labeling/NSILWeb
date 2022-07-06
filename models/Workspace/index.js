@@ -78,6 +78,10 @@ const ClauseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  naturalValue: {
+    type: String,
+    default: "",
+  }
 }, { _id: false });
 
 const RuleSchema = new mongoose.Schema({
@@ -88,7 +92,7 @@ const RuleSchema = new mongoose.Schema({
   value: {
     type: [ClauseSchema], // array of clauses
     default: []
-  },
+  }
 }, { _id: false });
 
 const ImageCollectionSchema = new mongoose.Schema({
