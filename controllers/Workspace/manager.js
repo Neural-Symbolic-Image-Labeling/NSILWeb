@@ -1,5 +1,6 @@
 const { default: mongoose } = require('mongoose');
 const { ImageSet } = require('../../models/Image');
+const { get, post } = require('../../utils/http');
 
 const imageUrlParser = (uuid) => { 
   return `${(process.env.REACT_APP_API_URL || "http://localhost:8888/api")}/img/${uuid}`;
@@ -47,7 +48,16 @@ const createWorkspace = async (name) => {
   return result;
 }
 
+const requestFoil = async (workspaceId, collectionId) => { 
+  const reqBody = {
+    workspaceID: workspaceId,
+    collectionID: collectionId,
+  }
+  return post(`/autolabel`, reqBody);
+}
+
 module.exports = {
   createWorkspace,
-  collectionBuilder
+  collectionBuilder,
+  requestFoil
 }

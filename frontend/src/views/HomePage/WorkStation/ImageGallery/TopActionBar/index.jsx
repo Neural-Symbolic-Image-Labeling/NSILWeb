@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
 import { getAllSetNames } from "../../../../../apis/image";
-import { autoLogin, requestNewCollection } from "../../../../../apis/workspace";
+import { autoLogin, requestAutoLabel, requestNewCollection } from "../../../../../apis/workspace";
 
 
 export const TopActionBar = () => {
@@ -15,6 +15,7 @@ export const TopActionBar = () => {
   const [loadSets, setLoadSets] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const workspace = useSelector(state => state.gallery.workspace);
+  const currCollectionId = useSelector(state => state.gallery.currCollectionId);
 
   useEffect(() => {
     dispatch(fetchWorkspace());
@@ -24,6 +25,16 @@ export const TopActionBar = () => {
         setLoadSets(false);
       })
   }, []);
+
+  const handleAutoLabel = () => { 
+    requestAutoLabel(workspace._id, currCollectionId)
+      .then(() => {
+        dispatch(fetchWorkspace());
+      })
+      .catch(err => { 
+        console.log(err);
+      });
+  }
 
   return (
     <>
@@ -71,7 +82,7 @@ export const TopActionBar = () => {
           </Button>
         </Box>
         {/* Right Button */}
-        <Button variant="contained" size="medium">
+        <Button variant="contained" size="medium" onClick={() => handleAutoLabel()}>
           Auto Label
         </Button>
       </Paper>

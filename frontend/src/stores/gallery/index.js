@@ -62,7 +62,7 @@ export const gallerySlice = createSlice({
     builder.addCase(fetchWorkspace.fulfilled, (state, action) => {
       state.loading = false;
       state.workspace = action.payload;
-      state.currCollectionId = action.payload.collections[0]._id;
+      if(!state.currCollectionId) state.currCollectionId = action.payload.collections[0]._id;
     });
 
     builder.addCase(fetchWorkspace.pending, (state) => {

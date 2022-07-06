@@ -11,3 +11,7 @@ export const login = async (name) => {
 export const requestNewCollection = (setName, workspaceId) => { 
   return post("/workspace/collection", { setName: setName, workspaceId: workspaceId });
 }
+
+export const requestAutoLabel = (workspaceId, collectionId) => { 
+  return post("/workspace/autolabel", { workspaceId: workspaceId, collectionId: collectionId });
+}
