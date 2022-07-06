@@ -78,10 +78,6 @@ const ClauseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  isLocked: {
-    type: Boolean,
-    required: true,
-  }
 }, { _id: false });
 
 const RuleSchema = new mongoose.Schema({
@@ -89,7 +85,10 @@ const RuleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  value: [[ClauseSchema]]
+  value: {
+    type: [ClauseSchema], // array of clauses
+    default: []
+  },
 }, { _id: false });
 
 const ImageCollectionSchema = new mongoose.Schema({
@@ -105,6 +104,7 @@ const ImageCollectionSchema = new mongoose.Schema({
   images: [ImageMetaDataSchema],
   statistics: StatisticsSchema,
   rules: [RuleSchema],
+  externalRules: [RuleSchema],
 });
 
 const WorkspaceSchema = new mongoose.Schema({

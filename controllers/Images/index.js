@@ -78,6 +78,7 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
     let imageData = null;
     try {
       // add image to image set
+      image.markModified('interpretation');
       imageData = await image.save();
     }catch (err) { 
       res.status(500).json(new ErrorResponse(0, "Failed to save image", err));

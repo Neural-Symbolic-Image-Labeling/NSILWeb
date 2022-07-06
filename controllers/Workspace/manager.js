@@ -6,12 +6,12 @@ const imageUrlParser = (uuid) => {
 
 };
 
-const collectionBuilder = (imgSetDoc) => { 
+const collectionBuilder = (imgSetDoc) => {
   const images = imgSetDoc ? imgSetDoc.images.map((imgId, index) => { 
     return {
       imageId: imgId.toString(),
       url: imageUrlParser(imgId.toString()),
-      name: `No. ${index}`,
+      name: `${index}.PNG`,
       label: [],
       canvas: null,
       manual: false,
