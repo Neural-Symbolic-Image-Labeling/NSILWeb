@@ -78,7 +78,6 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
     let imageData = null;
     try {
       // add image to image set
-      image.markModified('interpretation');
       imageData = await image.save();
     }catch (err) { 
       res.status(500).json(new ErrorResponse(0, "Failed to save image", err));
@@ -89,7 +88,7 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
       imgSet.images.push(imageData._id);
       await imgSet.save();
       // ask for image interpretation
-      requestForInterpretation(imageData._id);
+      await requestForInterpretation(imageData._id);
       res.status(200).send({ message: "success" });
       return;
     } catch (err) {
