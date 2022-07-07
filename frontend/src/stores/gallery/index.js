@@ -21,8 +21,8 @@ export const gallerySlice = createSlice({
   },
   reducers: {
     setWorkspace: (state, action) => { 
+      if(!state.workspace || state.workspace._id !== action.payload._id) state.currCollectionId = action.payload.collections[0]._id;
       state.workspace = action.payload;
-      state.currCollectionId = action.payload.collections[0]._id;
     },
     setCurrCollectionId: (state, action) => { 
       state.currCollectionId = action.payload;
@@ -60,9 +60,9 @@ export const gallerySlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchWorkspace.fulfilled, (state, action) => {
-      state.loading = false;
+      if(!state.workspace || state.workspace._id !== action.payload._id) state.currCollectionId = action.payload.collections[0]._id;
       state.workspace = action.payload;
-      if(!state.currCollectionId) state.currCollectionId = action.payload.collections[0]._id;
+      state.loading = false;
     });
 
     builder.addCase(fetchWorkspace.pending, (state) => {
