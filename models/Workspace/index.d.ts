@@ -43,7 +43,7 @@ export interface IImageCollectionSchema {
 
 export interface IWorkspaceSchema { 
     name: string;
-    collections: IImageCollection[];
+    collections: IImageCollectionSchema[];
 }
 
 export declare const ImageMetaDataSchema: Schema<IImageMetaDataSchema>;
