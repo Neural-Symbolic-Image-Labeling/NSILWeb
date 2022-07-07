@@ -63,6 +63,7 @@ router.post(getPath('/autolabel'), async (req, res) => {
     const reqBody = req.body;
     try {
       const res = await requestFoil(reqBody.workspaceId, reqBody.collectionId);
+      res.status(200).json(res);
     } catch (err) {
       res.status(500).json(new ErrorResponse(0, "Failed to request foil", err));
       return;
