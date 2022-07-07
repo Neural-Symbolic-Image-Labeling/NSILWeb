@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 
 const instance = axios.create({
-  baseURL: process.env.NSILAI_URL || "http://127.0.0.1:5000/api",
+  baseURL: process.env.NSILAI_URL || "http://localhost:7000/api",
   headers: {
     "Content-Type": "application/json"
   },
