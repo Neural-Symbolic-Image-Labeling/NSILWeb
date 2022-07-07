@@ -62,8 +62,8 @@ router.post(getPath('/autolabel'), async (req, res) => {
     /**@type {import('./request').AutoLabelRequest} */
     const reqBody = req.body;
     try {
-      const res = await requestFoil(reqBody.workspaceId, reqBody.collectionId);
-      res.status(200).json(res);
+      const result = await requestFoil(reqBody.workspaceId, reqBody.collectionId);
+      res.status(200).json(result);
       return;
     } catch (err) {
       console.log(err);
