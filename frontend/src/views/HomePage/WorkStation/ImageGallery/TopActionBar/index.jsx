@@ -14,7 +14,7 @@ export const TopActionBar = () => {
   const [imgSets, setImgSets] = useState([]);
   const [loadSets, setLoadSets] = useState(true);
   const [openModal, setOpenModal] = useState(false);
-  const [autoLabelButtonDisabled, setAutoLabelButtonDisabled] = useState(true);
+  const [autoLabelButtonDisabled, setAutoLabelButtonDisabled] = useState(false);
   const workspace = useSelector(state => state.gallery.workspace);
   const currCollectionId = useSelector(state => state.gallery.currCollectionId);
 

@@ -64,12 +64,15 @@ router.post(getPath('/autolabel'), async (req, res) => {
     try {
       const res = await requestFoil(reqBody.workspaceId, reqBody.collectionId);
       res.status(200).json(res);
+      return;
     } catch (err) {
       res.status(500).json(new ErrorResponse(0, "Failed to request foil", err));
       return;
     }
+  } else {
+    res.status(400).json(new ErrorResponse(2, "request body is required"));
+    return;
   }
-  res.status(400).json(new ErrorResponse(2, "request body is required"));
 });
 
 module.exports = { router }
