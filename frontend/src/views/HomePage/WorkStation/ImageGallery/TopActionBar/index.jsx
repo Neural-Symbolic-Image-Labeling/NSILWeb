@@ -1,4 +1,4 @@
-import { Button, Box, Typography, TextField, InputAdornment, Paper, Dialog, DialogTitle, DialogContent, List, ListItemButton, ListItemIcon, ListItemText, DialogActions } from "@mui/material";
+import { Button, Box, Typography, TextField, InputAdornment, Paper, Dialog, DialogTitle, DialogContent, List, ListItemButton, ListItemIcon, ListItemText, DialogActions, CircularProgress } from "@mui/material";
 import { Collections } from "@mui/icons-material";
 import { fetchWorkspace, labelImage, search, setCurrCollectionId, setFilter, setWorkspace } from "../../../../../stores/gallery";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +14,7 @@ export const TopActionBar = () => {
   const [imgSets, setImgSets] = useState([]);
   const [loadSets, setLoadSets] = useState(true);
   const [openModal, setOpenModal] = useState(false);
+  const [autoLabelButtonDisabled, setAutoLabelButtonDisabled] = useState(true);
   const workspace = useSelector(state => state.gallery.workspace);
   const currCollectionId = useSelector(state => state.gallery.currCollectionId);
 
@@ -26,13 +27,27 @@ export const TopActionBar = () => {
       })
   }, []);
 
-  const handleAutoLabel = () => { 
+  const handleAutoLabel = () => {
+    setAutoLabelButtonDisabled(true);
     requestAutoLabel(workspace._id, currCollectionId)
       .then(() => {
-        dispatch(fetchWorkspace());
+        autoLogin()
+          .then(updated => {
+            if (updated) {
+              dispatch(setWorkspace(updated));
+            } else {
+              console.log("cannot get new data");
+              return;
+            }
+            setAutoLabelButtonDisabled(false);
+          }).catch(err => { 
+            console.log(err);
+            setAutoLabelButtonDisabled(false);
+          });
       })
-      .catch(err => { 
+      .catch(err => {
         console.log(err);
+        setAutoLabelButtonDisabled(false);
       });
   }
 
@@ -64,7 +79,7 @@ export const TopActionBar = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <Search sx={{color: "#505050"}} />
+                  <Search sx={{ color: "#505050" }} />
                 </InputAdornment>
               )
             }}
@@ -82,25 +97,30 @@ export const TopActionBar = () => {
           </Button>
         </Box>
         {/* Right Button */}
-        <Button variant="contained" size="medium" onClick={() => handleAutoLabel()}>
-          Auto Label
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={() => handleAutoLabel()}
+          disabled={autoLabelButtonDisabled}
+        >
+          {autoLabelButtonDisabled? <CircularProgress /> :  "Auto Label"}
         </Button>
       </Paper>
     </>
   )
 }
 
-const ImageSetSelectionModal = ({imgSets, openModal, setOpenModal}) => { 
+const ImageSetSelectionModal = ({ imgSets, openModal, setOpenModal }) => {
   const dispatch = useDispatch();
   // const currCollectionId = useSelector(state => state.gallery.currCollectionId);
   const workspace = useSelector(state => state.gallery.workspace);
   const [seletedSet, setSeletedSet] = useState("");
 
-  const handleLoadSet = async () => { 
+  const handleLoadSet = async () => {
     if (seletedSet === "") return;
     // collection already exists
     let targetCollection = workspace.collections.find(c => c.name === seletedSet);
-    if (targetCollection) { 
+    if (targetCollection) {
       dispatch(setCurrCollectionId(targetCollection._id));
       setOpenModal(false);
       return;
@@ -113,7 +133,7 @@ const ImageSetSelectionModal = ({imgSets, openModal, setOpenModal}) => {
       if (updated) {
         dispatch(setWorkspace(updated));
       }
-      else { 
+      else {
         console.log("cannot get new data");
         return;
       }
@@ -121,7 +141,7 @@ const ImageSetSelectionModal = ({imgSets, openModal, setOpenModal}) => {
       dispatch(setCurrCollectionId(newCollectionId));
       setOpenModal(false);
       return;
-    } catch (err) { 
+    } catch (err) {
       console.log(err);
     }
   }
