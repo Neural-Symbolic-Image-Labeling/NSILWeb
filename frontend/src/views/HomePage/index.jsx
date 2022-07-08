@@ -1,9 +1,8 @@
 import { Box } from '@mui/system';
 import { ChartSection } from './ChartSection';
 import { HomePageHeader } from './Header';
-import { TopActionBar } from './WorkStation/ImageGallery/TopActionBar';
 import { WorkStation } from './WorkStation';
-import { LearningRules } from './LearningRules'
+import { LearningRules } from './LearningRules';
 import { Paper } from '@mui/material';
 
 export const HomePage = () => {
@@ -41,7 +40,7 @@ export const HomePage = () => {
             {/* Chart Section */}
             <ChartSection />
             {/* Rule List */}
-            <LearningRules />
+            {/* <LearningRules /> */}
           </Paper>
         </Box>
       </Box>

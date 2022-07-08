@@ -26,7 +26,7 @@ export function get(url, params = {}, config = {}) {
   });
 }
 
-export function post(url, data, config = {}) {
+export function post(url, data = {}, config = {}) {
   return new Promise((resolve, reject) => {
     instance.post(url, data, Object.assign(axiosConfig, config))
       .then((response) => {

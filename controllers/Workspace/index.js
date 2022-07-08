@@ -62,13 +62,18 @@ router.post(getPath('/autolabel'), async (req, res) => {
     /**@type {import('./request').AutoLabelRequest} */
     const reqBody = req.body;
     try {
-      const res = await requestFoil(reqBody.workspaceId, reqBody.collectionId);
+      const result = await requestFoil(reqBody.workspaceId, reqBody.collectionId);
+      res.status(200).json(result);
+      return;
     } catch (err) {
+      console.log(err);
       res.status(500).json(new ErrorResponse(0, "Failed to request foil", err));
       return;
     }
+  } else {
+    res.status(400).json(new ErrorResponse(2, "request body is required"));
+    return; 
   }
-  res.status(400).json(new ErrorResponse(2, "request body is required"));
 });
 
 module.exports = { router }
