@@ -14,27 +14,27 @@ export const dataset = [
       //     y: 89.67,
       //   }
       // },
-    ]
+    ],
   },
   {
     id: 1,
     image: "https://drive.google.com/uc?id=12r4gW9QIHx-DHozsKG_kU64hsm7WJtdJ",
-    labels: []
+    labels: [],
   },
   {
     id: 2,
     image: "https://drive.google.com/uc?id=1xS79tEzFH2X6YegcgHPmx_r_sSF298nI",
-    labels: []
+    labels: [],
   },
   {
     id: 3,
     image: "https://drive.google.com/uc?id=1JuMOnfTDYpdBWSIFOAnRpqOji_Nrk2G6",
-    labels: []
+    labels: [],
   },
   {
     id: 4,
     image: "https://drive.google.com/uc?id=1wKo7fNJbXGGUvN6wf41CHW3UuZ8UKUjr",
-  labels: []
+    labels: [],
   },
 ];
 
