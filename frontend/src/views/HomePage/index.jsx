@@ -1,9 +1,7 @@
-import { Box } from '@mui/system';
-import { ChartSection } from './ChartSection';
 import { HomePageHeader } from './Header';
 import { WorkStation } from './WorkStation';
-import { LearningRules } from './LearningRules';
-import { Paper } from '@mui/material';
+import { Paper, Box } from '@mui/material';
+import { SideBar } from './SideBar';
 
 export const HomePage = () => {
   return (
@@ -18,30 +16,31 @@ export const HomePage = () => {
         {/* Body Part*/}
         <Box sx={{
           display: "flex",
+          justifyContent: "space-between",
         }}>
           {/* Left Part */}
           <Box sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            flexBasis: "70%",
+            // flexBasis: "70%",
+            flexGrow: 1,
+            padding: '10px',
           }}>
             {/* Work Station Part */}
             <WorkStation />
           </Box>
           {/* Right Part */}
-          <Paper sx={{
+          <Box sx={{
             display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            flexBasis: "30%",
+            // flexBasis: "30%",
+            flexGrow: 0,
+            justifyContent: "flex-end",
             padding: '10px',
+            overflow: 'hidden',
           }}>
-            {/* Chart Section */}
-            <ChartSection />
-            {/* Rule List */}
-            {/* <LearningRules /> */}
-          </Paper>
+            <SideBar />
+          </Box>
         </Box>
       </Box>
     </>

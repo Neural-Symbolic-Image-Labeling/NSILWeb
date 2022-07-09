@@ -76,8 +76,9 @@ export const ImageGallery = ({ setPage }) => {
                 borderRadius: "10px",
                 marginRight: "15px",
               },
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr)) !important",
             }}
-            cols={4}
+            // cols={4}
             gap={6}
           >
             {getDisplayImages().map((image, index) => (

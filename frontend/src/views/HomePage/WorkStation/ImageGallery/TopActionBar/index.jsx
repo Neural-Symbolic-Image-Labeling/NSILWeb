@@ -59,7 +59,7 @@ export const TopActionBar = () => {
         justifyContent: "space-evenly",
         alignItems: "center",
         width: "100%",
-        padding: "25px 0 25px 0",
+        padding: "16px 0 16px 0",
       }}>
         {/* Left Button */}
         <Button
@@ -67,6 +67,10 @@ export const TopActionBar = () => {
           disabled={loadSets}
           onClick={() => setOpenModal(true)}
           size="medium"
+          sx={{
+            bgcolor: 'rgba(57, 125, 192, 1)',
+            color: 'white',
+          }}
         >
           Load Image Set
         </Button>
@@ -90,8 +94,12 @@ export const TopActionBar = () => {
           />
           <Button
             variant="contained"
-            sx={{ marginLeft: "2px" }}
             onClick={() => dispatch(setFilter(searchTerm))}
+            sx={{
+              marginLeft: "2px",
+              bgcolor: 'rgba(57, 125, 192, 1)',
+              color: 'white',
+            }}
           >
             Search
           </Button>
@@ -102,6 +110,10 @@ export const TopActionBar = () => {
           size="medium"
           onClick={() => handleAutoLabel()}
           disabled={autoLabelButtonDisabled}
+          sx={{
+            bgcolor: 'rgba(217, 56, 132, 1)',
+            color: 'white',
+          }}
         >
           {autoLabelButtonDisabled? <CircularProgress /> :  "Auto Label"}
         </Button>
