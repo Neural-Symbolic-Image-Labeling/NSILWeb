@@ -22,9 +22,11 @@ export const LabelItem = ({ label, type }) => {
             // color: "white",
             color: colorPicker[type],
           }}
-          variant="h6"
+          variant="body1"
         >
-          {label}
+          {/* <strong> */}
+            {label}
+          {/* </strong> */}
         </Typography>
       </Box>
     </Box>

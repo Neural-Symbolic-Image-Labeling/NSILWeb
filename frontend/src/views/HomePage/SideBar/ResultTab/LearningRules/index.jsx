@@ -6,8 +6,8 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { Box, List, ListItem, Paper, Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { Intermediate } from "../../../components/Intermediate";
-import { findCollection } from "../../../utils/workspace";
+import { Intermediate } from "../../../../../components/Intermediate";
+import { findCollection } from "../../../../../utils/workspace";
 
 export const LearningRules = () => {
   const [] = useState([]);

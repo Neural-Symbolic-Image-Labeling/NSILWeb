@@ -23,7 +23,7 @@ export const HomePageHeader = () => {
     <>
       <LoadWorkspace workspaceName={workspaceName} setLoading={setLoading} openModal={openModal} setOpenModal={setOpenModal} setWorkspaceName={setWorkspaceName} />
       <Box>
-        <AppBar position="static" sx={{ bgcolor: "rgba(0, 0, 0, 0.8)" }}>
+        <AppBar position="static" sx={{ bgcolor: "rgba(25, 74, 102, 1)" }}>
           <Toolbar>
             <SmartToy />
             <Box sx={{ flexBasis: "50%", display: "flex", alignItems: 'center' }}>
@@ -45,10 +45,15 @@ export const HomePageHeader = () => {
             </Box>
             <Box sx={{ flexBasis: "50%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
               <Button
-                variant="contained"
+                variant="outlined"
                 sx={{
-                  bgcolor: "#6E6E6E",
-                  mr: "10px"
+                  borderColor: "white",
+                  mr: "10px",
+                  color: "white",
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "rgba(25, 74, 102, 1)"
+                  },
                 }}
                 onClick={() => setOpenModal(true)}
               >
@@ -92,7 +97,7 @@ const LoadWorkspace = ({ openModal, setOpenModal, setLoading, setWorkspaceName, 
             Enter workspace name to load your workspace. You can also create a new workspace by providing a custom name.
           </DialogContentText>
         </DialogContent>
-        <Box sx={{padding: '24px'}}>
+        <Box sx={{ padding: '24px' }}>
           <TextField
             autoFocus
             margin="dense"
