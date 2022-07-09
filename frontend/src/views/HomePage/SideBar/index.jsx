@@ -3,6 +3,7 @@ import { PieChart, Brush, ArrowBack, ArrowForward } from "@mui/icons-material";
 import { useState } from "react";
 import { TabPanel } from "../../../components/TabPanel";
 import { ResultTab } from "./ResultTab";
+import { PaperFrame } from "../../../components/PaperFrame";
 
 export const SideBar = () => {
   const [tabNumber, setTabNumber] = useState(0);
@@ -28,14 +29,7 @@ export const SideBar = () => {
       value: 2,
       disabled: false,
       jsx: <Box>222</Box>
-    },
-    {
-      label: "Tools3",
-      icon: <Brush />,
-      value: 3,
-      disabled: false,
-      jsx: <Box>222</Box>
-    },
+    }
   ]
 
   return (
@@ -43,51 +37,61 @@ export const SideBar = () => {
       <Collapse
         in={showSideBar}
         orientation="horizontal"
-        collapsedSize={40}
+        collapsedSize={34}
       >
-        <Paper sx={{
-          width: "100%",
-          // minHeight: "100%",
-        }}>
+        <PaperFrame noFrame={!showSideBar}
+          sx={{
+            width: "28vw",
+            display: "flex",
+            // minHeight: "100%",
+          }}
+        >
           <Box sx={{
             display: "flex",
-            alignItems: "center",
+            flexDirection: "column",
+            pt: '20px'
           }}>
-            <IconButton onClick={() => setShowSideBar(!showSideBar)}>
+            <IconButton
+              onClick={() => setShowSideBar(!showSideBar)}
+              sx={{
+                p: "5px"
+              }}
+            >
               {!showSideBar ? <ArrowBack /> : <ArrowForward />}
             </IconButton>
-            {showSideBar && (
-              <Box>
-                <Tabs
-                  value={tabNumber}
-                  onChange={(e, val) => setTabNumber(val)}
-                  variant="fullWidth"
-                // variant="scrollable"
-                >
-                  {tabs.map(tab => (
-                    <Tab
-                      label={tab.label}
-                      icon={tab.icon}
-                      iconPosition="start"
-                      key={tab.value}
-                      disabled={tab.disabled}
-                      wrapped
-                    />
-                  ))}
-                </Tabs>
-              </Box>
-            )}
           </Box>
-
-          {showSideBar && (
-            tabs.map(tab => (
-              <TabPanel index={tabNumber} value={tab.value} key={tab.value}>
-                {tab.jsx}
-              </TabPanel>
-            ))
-          )}
-
-        </Paper>
+          <Box sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}>
+            <Box>
+              <Tabs
+                value={tabNumber}
+                onChange={(e, val) => setTabNumber(val)}
+                variant="fullWidth"
+              // variant="scrollable"
+              >
+                {tabs.map(tab => (
+                  <Tab
+                    label={tab.label}
+                    icon={tab.icon}
+                    iconPosition="start"
+                    key={tab.value}
+                    disabled={tab.disabled}
+                    wrapped
+                  />
+                ))}
+              </Tabs>
+            </Box>
+            {
+              tabs.map(tab => (
+                <TabPanel index={tabNumber} value={tab.value} key={tab.value}>
+                  {tab.jsx}
+                </TabPanel>
+              ))
+            }
+          </Box>
+        </PaperFrame>
       </Collapse>
     </>
   )

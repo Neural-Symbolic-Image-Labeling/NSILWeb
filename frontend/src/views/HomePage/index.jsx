@@ -23,7 +23,6 @@ export const HomePage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            // flexBasis: "70%",
             flexGrow: 1,
             padding: '10px',
           }}>
@@ -33,10 +32,9 @@ export const HomePage = () => {
           {/* Right Part */}
           <Box sx={{
             display: "flex",
-            // flexBasis: "30%",
             flexGrow: 0,
             justifyContent: "flex-end",
-            padding: '10px',
+            padding: '10px 10px 10px 5px',
             overflow: 'hidden',
           }}>
             <SideBar />

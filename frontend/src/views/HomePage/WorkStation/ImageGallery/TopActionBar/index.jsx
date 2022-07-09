@@ -68,7 +68,7 @@ export const TopActionBar = () => {
           onClick={() => setOpenModal(true)}
           size="medium"
           sx={{
-            bgcolor: 'rgba(57, 125, 192, 1)',
+            bgcolor: 'rgba(25, 74, 102, 0.8)',
             color: 'white',
           }}
         >
@@ -97,7 +97,7 @@ export const TopActionBar = () => {
             onClick={() => dispatch(setFilter(searchTerm))}
             sx={{
               marginLeft: "2px",
-              bgcolor: 'rgba(57, 125, 192, 1)',
+              bgcolor: 'rgba(25, 74, 102, 0.8)',
               color: 'white',
             }}
           >

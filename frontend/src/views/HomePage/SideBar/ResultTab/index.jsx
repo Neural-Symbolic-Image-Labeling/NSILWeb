@@ -5,7 +5,7 @@ export const ResultTab = () => {
 
   return (
     <Box sx={{
-      m: '5px'
+      mt: '5px'
     }}>
       <ChartSection />
       

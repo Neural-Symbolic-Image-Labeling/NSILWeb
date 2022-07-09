@@ -9,7 +9,7 @@ export const colorPicker = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "rgba(80, 80, 80, 0.8)",
+      main: "rgba(25, 74, 102, 0.8)",
     }
   },
   typography: {

@@ -48,6 +48,7 @@ export const ImageGallery = ({ setPage }) => {
         justifyContent: "center",
         alignItems: "center",
         pl: "30px",
+        mt: "5px"
       }}>
         {isLoading ? <Intermediate>Loading</Intermediate> : workspace === null ? <Intermediate>No Data</Intermediate> : (
           <ImageList
@@ -81,7 +82,7 @@ export const ImageGallery = ({ setPage }) => {
             // cols={4}
             gap={6}
           >
-            {getDisplayImages().map((image, index) => (
+            {getDisplayImages().length === 0 ? <Intermediate>No Result</Intermediate> : getDisplayImages().map((image, index) => (
               <ImageListItem key={index}
                 sx={{
                   width: '220px',

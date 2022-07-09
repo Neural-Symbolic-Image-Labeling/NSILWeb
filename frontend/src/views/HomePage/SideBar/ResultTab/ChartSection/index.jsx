@@ -71,7 +71,7 @@ export const ChartSection = () => {
         {isLoading ? <Intermediate>Loading</Intermediate> : (workspace === null || statistics === null) ? <Intermediate>No Data</Intermediate> : (
           <>
             <Box sx={{
-              width: "90%",
+              width: "100%",
               display: "flex",
               justifyContent: 'center',
               alignItems: 'center',
