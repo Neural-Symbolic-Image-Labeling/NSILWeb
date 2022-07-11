@@ -24,7 +24,7 @@ export const HomePage = () => {
             flexDirection: "column",
             alignItems: "center",
             flexGrow: 1,
-            padding: '10px',
+            // padding: '10px',
           }}>
             {/* Work Station Part */}
             <WorkStation />
@@ -34,7 +34,7 @@ export const HomePage = () => {
             display: "flex",
             flexGrow: 0,
             justifyContent: "flex-end",
-            padding: '10px 10px 10px 5px',
+            // padding: '10px 10px 10px 5px',
             overflow: 'hidden',
           }}>
             <SideBar />

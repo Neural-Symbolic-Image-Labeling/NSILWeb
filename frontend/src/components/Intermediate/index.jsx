@@ -1,8 +1,8 @@
-import { Paper } from "@mui/material"
+import { PaperFrame } from "../PaperFrame"
 
 export const Intermediate = ({children}) => { 
   return (
-    <Paper sx={{
+    <PaperFrame noFrame sx={{
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -10,6 +10,6 @@ export const Intermediate = ({children}) => {
       height: "100%",
     }}>
       {children}
-    </Paper>
+    </PaperFrame>
   )
 }

@@ -9,7 +9,7 @@ export const colorPicker = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "rgba(25, 74, 102, 0.8)",
+      main: "rgba(102, 102, 102, 1)",
     }
   },
   typography: {
@@ -19,11 +19,36 @@ export const theme = createTheme({
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-family: 'Helvetica',
-          font-style: normal;
-        }`
+      styleOverrides: {
+        '@font-face': {
+          'font-family': 'Helvetica',
+          'font-style': 'normal'
+        },
+      } 
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          'box-shadow': 'none',
+        }
+      }
+    },
+    MuiTabs: {
+      styleOverrides: {
+        indicator: {
+          backgroundColor: "black"
+        }
+      }
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          color: "rgba(142, 142, 142, 0.62)",
+          '&.Mui-selected': {
+            color: 'black'
+          }
+        }
+      },
     }
   },
   overrides: {

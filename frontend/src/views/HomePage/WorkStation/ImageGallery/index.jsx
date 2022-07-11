@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Intermediate } from "../../../../components/Intermediate";
 import { LabelItem } from "../../../../components/LabelItem";
+import { PaperFrame } from "../../../../components/PaperFrame";
 import { findCollection } from "../../../../utils/workspace";
 import { TopActionBar } from "./TopActionBar";
 
@@ -43,7 +44,7 @@ export const ImageGallery = ({ setPage }) => {
   return (
     <>
       <TopActionBar />
-      <Paper sx={{
+      <PaperFrame noFrame sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -108,7 +109,7 @@ export const ImageGallery = ({ setPage }) => {
             ))}
           </ImageList>
         )}
-      </Paper>
+      </PaperFrame>
     </>
   )
 }

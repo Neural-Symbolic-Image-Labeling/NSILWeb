@@ -1,14 +1,14 @@
 const { mongoose } = require('../../mongoose');
 
 const ImageLabelSchema = new mongoose.Schema({
-  label: {
+  name: { // label
     type: String,
     required: true,
   },
-  segTarget: {
-    type: String,
+  mark: { // segmentation target information, see Typescript definition for more details
+    type: mongoose.Types.Mixed,
   }
-}, {_id: false});
+});
 
 const ImageMetaDataSchema = new mongoose.Schema({
   imageId: {
@@ -25,25 +25,17 @@ const ImageMetaDataSchema = new mongoose.Schema({
     required: true,
     default: "image",
   },
-  canvas: {
-    type: String,
-    get: function (data) { 
-      try {
-        return JSON.parse(data);
-      } catch (e) { 
-        return data;
-      }
-    },
-    set: function (data) { 
-      return JSON.stringify(data);
-    }
+  labeled: {
+    type: Boolean,
+    required: true,
+    default: false,
   },
   manual: {
     type: Boolean,
     required: true,
     default: false,
   }
-}, {_id: false});
+}, { _id: false });
 
 const StatisticsSchema = new mongoose.Schema({
   total: {
@@ -61,11 +53,6 @@ const StatisticsSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
-  userChecked: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
   autoLabeled: {
     type: Number,
     required: true,
@@ -73,8 +60,8 @@ const StatisticsSchema = new mongoose.Schema({
   }
 }, { _id: false });
 
-const ClauseSchema = new mongoose.Schema({
-  value: {
+const LiteralSchema = new mongoose.Schema({
+  literal: {
     type: String,
     required: true,
   },
@@ -84,16 +71,20 @@ const ClauseSchema = new mongoose.Schema({
   }
 }, { _id: false });
 
+const ClauseSchema = new mongoose.Schema({
+  literals: [LiteralSchema], // array of literals
+});
+
 const RuleSchema = new mongoose.Schema({
-  label: {
+  name: {
     type: String,
     required: true,
   },
-  value: {
+  clauses: {
     type: [ClauseSchema], // array of clauses
     default: []
   }
-}, { _id: false });
+});
 
 const ImageCollectionSchema = new mongoose.Schema({
   name: {
@@ -128,6 +119,7 @@ module.exports = {
   ImageLabelSchema,
   WorkspaceSchema,
   ImageMetaDataSchema,
+  LiteralSchema,
   ClauseSchema,
   StatisticsSchema,
 }

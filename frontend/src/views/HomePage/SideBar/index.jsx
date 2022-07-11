@@ -23,13 +23,13 @@ export const SideBar = () => {
       disabled: false,
       jsx: <Box>222</Box>
     },
-    {
-      label: "Tools2",
-      icon: <Brush />,
-      value: 2,
-      disabled: false,
-      jsx: <Box>222</Box>
-    }
+    // {
+    //   label: "Tools2",
+    //   icon: <Brush />,
+    //   value: 2,
+    //   disabled: false,
+    //   jsx: <Box>222</Box>
+    // }
   ]
 
   return (
@@ -39,11 +39,10 @@ export const SideBar = () => {
         orientation="horizontal"
         collapsedSize={34}
       >
-        <PaperFrame noFrame={!showSideBar}
+        <PaperFrame left bottom
           sx={{
             width: "28vw",
             display: "flex",
-            // minHeight: "100%",
           }}
         >
           <Box sx={{
@@ -63,13 +62,16 @@ export const SideBar = () => {
           <Box sx={{
             display: "flex",
             flexDirection: "column",
+            width: "100%",
+            mr: "34px"
           }}>
             <Box>
               <Tabs
+                // TabIndicatorProps={{style: {background:'black'}}}
                 value={tabNumber}
                 onChange={(e, val) => setTabNumber(val)}
                 variant="fullWidth"
-              // variant="scrollable"
+                // variant="scrollable"
               >
                 {tabs.map(tab => (
                   <Tab

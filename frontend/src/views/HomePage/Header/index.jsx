@@ -23,7 +23,12 @@ export const HomePageHeader = () => {
     <>
       <LoadWorkspace workspaceName={workspaceName} setLoading={setLoading} openModal={openModal} setOpenModal={setOpenModal} setWorkspaceName={setWorkspaceName} />
       <Box>
-        <AppBar position="static" sx={{ bgcolor: "rgba(25, 74, 102, 1)" }}>
+        <AppBar position="static"
+          sx={{
+            color: 'black',
+            bgcolor: "rgba(142, 142, 142, 0.62)"
+          }}
+        >
           <Toolbar>
             <SmartToy />
             <Box sx={{ flexBasis: "50%", display: "flex", alignItems: 'center' }}>
@@ -47,9 +52,9 @@ export const HomePageHeader = () => {
               <Button
                 variant="outlined"
                 sx={{
-                  borderColor: "white",
+                  borderColor: "black",
                   mr: "10px",
-                  color: "white",
+                  color: "black",
                   "&:hover": {
                     backgroundColor: "white",
                     color: "rgba(25, 74, 102, 1)"
@@ -64,7 +69,7 @@ export const HomePageHeader = () => {
                   key={index}
                   onClick={() => navigate(link.link)}
                   variant="text"
-                  sx={{ color: "white" }}
+                  sx={{ color: "black" }}
                 >
                   {link.title}
                 </Button>

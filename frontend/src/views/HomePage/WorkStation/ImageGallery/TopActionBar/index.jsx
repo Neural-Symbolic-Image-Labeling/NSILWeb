@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
 import { getAllSetNames } from "../../../../../apis/image";
+import { PaperFrame } from "../../../../../components/PaperFrame";
 import { autoLogin, requestAutoLabel, requestNewCollection } from "../../../../../apis/workspace";
 
 
@@ -54,7 +55,7 @@ export const TopActionBar = () => {
   return (
     <>
       <ImageSetSelectionModal imgSets={imgSets} openModal={openModal} setOpenModal={setOpenModal} />
-      <Paper sx={{
+      <PaperFrame bottom sx={{
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
@@ -68,7 +69,7 @@ export const TopActionBar = () => {
           onClick={() => setOpenModal(true)}
           size="medium"
           sx={{
-            bgcolor: 'rgba(25, 74, 102, 0.8)',
+            bgcolor: 'rgba(57, 125, 192, 1)',
             color: 'white',
           }}
         >
@@ -97,7 +98,7 @@ export const TopActionBar = () => {
             onClick={() => dispatch(setFilter(searchTerm))}
             sx={{
               marginLeft: "2px",
-              bgcolor: 'rgba(25, 74, 102, 0.8)',
+              bgcolor: 'rgba(57, 125, 192, 1)',
               color: 'white',
             }}
           >
@@ -117,7 +118,7 @@ export const TopActionBar = () => {
         >
           {autoLabelButtonDisabled? <CircularProgress /> :  "Auto Label"}
         </Button>
-      </Paper>
+      </PaperFrame>
     </>
   )
 }

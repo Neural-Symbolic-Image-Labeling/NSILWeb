@@ -1,9 +1,21 @@
 import { Model, ObjectId, Schema } from "mongoose";
 
 export interface IImageLabelSchema {
-    label: string;
-    confidence: number;
-    segTarget: string;
+    name: string;
+    mark: { // different for different types of tools, examine property "type" when in use.
+        // Properties TBD
+        height?: number; // rectangle
+        width?: number; // rectangle
+        type: string;
+        x?: number; // rectangle
+        y?: number; // rectangle
+        path?: string; // segment
+        radius?: number; // circle
+        center?: { // circle
+            x: number;
+            y: number;
+        }
+    };
 }
 
 export interface IImageMetaDataSchema {
@@ -12,25 +24,29 @@ export interface IImageMetaDataSchema {
     labels: IImageLabelSchema[];
     name: string;
     canvas: Object | string;
+    labeled: boolean;
     manual: boolean;
 }
 
+export interface ILiteralSchema { 
+    literal: string;
+    naturalValue: string;
+}
+
 export interface IClauseSchema { 
-    value: string;
-    isLocked: boolean;
+    literals: ILiteralSchema[];
 }
 
 export interface IStatisticsSchema { 
     total: number;
     unlabeled: number;
     manual: number;
-    userChecked: number;
     autoLabeled: number;
 }
 
 export interface IRuleSchema { 
     name: string;
-    value: IClauseSchema[][];
+    clauses: IClauseSchema[];
 }
 
 export interface IImageCollectionSchema { 
@@ -47,6 +63,7 @@ export interface IWorkspaceSchema {
 }
 
 export declare const ImageMetaDataSchema: Schema<IImageMetaDataSchema>;
+export declare const LiteralSchema: Schema<ILiteralSchema>;
 export declare const ClauseSchema: Schema<IClauseSchema>;
 export declare const ImageLabelSchema: Schema<IImageLabelSchema>;
 export declare const StatisticsSchema: Schema<IStatisticsSchema>;
