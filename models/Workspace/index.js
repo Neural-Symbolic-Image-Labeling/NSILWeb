@@ -6,7 +6,7 @@ const ImageLabelSchema = new mongoose.Schema({
     required: true,
   },
   mark: { // segmentation target information, see Typescript definition for more details
-    type: mongoose.Types.Mixed,
+    type: mongoose.Schema.Types.Mixed,
   }
 });
 

@@ -1,41 +1,44 @@
 import { Tabs, Box, Tab, Paper, Collapse, IconButton } from "@mui/material";
-import { PieChart, Brush, ArrowBack, ArrowForward } from "@mui/icons-material";
+import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import { useState } from "react";
 import { TabPanel } from "../../../components/TabPanel";
-import { ResultTab } from "./ResultTab";
 import { PaperFrame } from "../../../components/PaperFrame";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsSideBarOpen, setTabNumber } from "../../../stores/workstation";
 
 export const SideBar = () => {
-  const [tabNumber, setTabNumber] = useState(0);
-  const [showSideBar, setShowSideBar] = useState(true);
-  const tabs = [
-    {
-      label: "Results",
-      icon: <PieChart />,
-      value: 0,
-      disabled: false,
-      jsx: <ResultTab />
-    },
-    {
-      label: "Tools",
-      icon: <Brush />,
-      value: 1,
-      disabled: false,
-      jsx: <Box>222</Box>
-    },
-    // {
-    //   label: "Tools2",
-    //   icon: <Brush />,
-    //   value: 2,
-    //   disabled: false,
-    //   jsx: <Box>222</Box>
-    // }
-  ]
+  const dispatch = useDispatch();
+  const sideBar = useSelector(state => state.workstation).sideBar;
+  // const [tabNumber, setTabNumber] = useState(0);
+  // const [showSideBar, setShowSideBar] = useState(true);
+  // const tabs = [
+  //   {
+  //     label: "Results",
+  //     icon: <PieChart />,
+  //     value: 0,
+  //     disabled: false,
+  //     jsx: <ResultTab />
+  //   },
+  //   {
+  //     label: "Tools",
+  //     icon: <Brush />,
+  //     value: 1,
+  //     disabled: false,
+  //     jsx: <Box>222</Box>
+  //   },
+  //   // {
+  //   //   label: "Tools2",
+  //   //   icon: <Brush />,
+  //   //   value: 2,
+  //   //   disabled: false,
+  //   //   jsx: <Box>222</Box>
+  //   // }
+  // ]
 
   return (
     <>
       <Collapse
-        in={showSideBar}
+        in={sideBar.isSideBarOpen}
         orientation="horizontal"
         collapsedSize={34}
       >
@@ -51,12 +54,12 @@ export const SideBar = () => {
             pt: '20px'
           }}>
             <IconButton
-              onClick={() => setShowSideBar(!showSideBar)}
+              onClick={() => dispatch(setIsSideBarOpen(!sideBar.isSideBarOpen))}
               sx={{
                 p: "5px"
               }}
             >
-              {!showSideBar ? <ArrowBack /> : <ArrowForward />}
+              {!sideBar.isSideBarOpen ? <ArrowBack /> : <ArrowForward />}
             </IconButton>
           </Box>
           <Box sx={{
@@ -68,12 +71,12 @@ export const SideBar = () => {
             <Box>
               <Tabs
                 // TabIndicatorProps={{style: {background:'black'}}}
-                value={tabNumber}
-                onChange={(e, val) => setTabNumber(val)}
+                value={sideBar.tabNumber}
+                onChange={(e, val) => dispatch(setTabNumber(val))}
                 variant="fullWidth"
                 // variant="scrollable"
               >
-                {tabs.map(tab => (
+                {sideBar.tabs.map(tab => (
                   <Tab
                     label={tab.label}
                     icon={tab.icon}
@@ -86,8 +89,8 @@ export const SideBar = () => {
               </Tabs>
             </Box>
             {
-              tabs.map(tab => (
-                <TabPanel index={tabNumber} value={tab.value} key={tab.value}>
+              sideBar.tabs.map(tab => (
+                <TabPanel index={sideBar.tabNumber} value={tab.value} key={tab.value}>
                   {tab.jsx}
                 </TabPanel>
               ))
