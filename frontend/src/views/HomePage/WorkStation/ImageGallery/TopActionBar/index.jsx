@@ -1,13 +1,12 @@
 import { Button, Box, Typography, TextField, InputAdornment, Paper, Dialog, DialogTitle, DialogContent, List, ListItemButton, ListItemIcon, ListItemText, DialogActions, CircularProgress } from "@mui/material";
 import { Collections } from "@mui/icons-material";
-import { fetchWorkspace, labelImage, search, setCurrCollectionId, setFilter, setWorkspace } from "../../../../../stores/gallery";
+import { fetchWorkspace, labelImage, loadWorkspace, search, setCurrCollectionId, setFilter, setWorkspace } from "../../../../../stores/gallery";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
 import { getAllSetNames } from "../../../../../apis/image";
 import { PaperFrame } from "../../../../../components/PaperFrame";
 import { autoLogin, requestAutoLabel, requestNewCollection } from "../../../../../apis/workspace";
-import { pullWorkspace } from "../../../../../utils/workspace";
 
 
 export const TopActionBar = () => {
@@ -33,7 +32,7 @@ export const TopActionBar = () => {
     setAutoLabelButtonDisabled(true);
     requestAutoLabel(workspace._id, currCollectionId)
       .then(() => {
-        pullWorkspace(workspace._id, dispatch(setWorkspace))
+        dispatch(loadWorkspace(workspace.name))
           .then(() => setAutoLabelButtonDisabled(false))
           .catch(err => {
             console.log(err);
@@ -136,14 +135,7 @@ const ImageSetSelectionModal = ({ imgSets, openModal, setOpenModal }) => {
       // request for new collection
       const newCollectionId = await requestNewCollection(seletedSet, workspace._id);
       // update workspace
-      const updated = await autoLogin();
-      if (updated) {
-        dispatch(setWorkspace(updated));
-      }
-      else {
-        console.log("cannot get new data");
-        return;
-      }
+      dispatch(loadWorkspace(workspace.name));
       // set curr collection id
       dispatch(setCurrCollectionId(newCollectionId));
       setOpenModal(false);

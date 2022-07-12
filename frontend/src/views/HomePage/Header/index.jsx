@@ -1,10 +1,9 @@
 import { AppBar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, List, TextField, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { SmartToy } from "@mui/icons-material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../../apis/workspace";
-import { setLoading, setWorkspace } from "../../../stores/gallery";
+import { setLoading, loadWorkspace } from "../../../stores/gallery";
 import { useState } from "react";
 
 const navigations = [
@@ -85,12 +84,11 @@ export const HomePageHeader = () => {
 const LoadWorkspace = ({ openModal, setOpenModal, setLoading, setWorkspaceName, workspaceName }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(state => state.gallery.loading);
-  const loadWorkspace = async () => {
-    dispatch(setLoading(true));
-    const ws = await login(workspaceName);
-    dispatch(setWorkspace(ws));
-    dispatch(setLoading(false));
-    setOpenModal(false);
+  const loadWorkspaceAction = () => {
+    new Promise((resolve, reject) => {
+      dispatch(loadWorkspace(workspaceName));
+      resolve();
+    }).then(() => setOpenModal(false));
   }
 
   return (
@@ -115,7 +113,7 @@ const LoadWorkspace = ({ openModal, setOpenModal, setLoading, setWorkspaceName, 
         </Box>
         <DialogActions>
           <Button onClick={() => setOpenModal(false)}>Cancel</Button>
-          <Button disabled={isLoading} onClick={() => loadWorkspace()}>Load</Button>
+          <Button disabled={isLoading} onClick={() => loadWorkspaceAction()}>Load</Button>
         </DialogActions>
       </Dialog>
     </div>

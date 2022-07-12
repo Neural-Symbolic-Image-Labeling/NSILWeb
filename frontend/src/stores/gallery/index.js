@@ -1,9 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { autoLogin } from "../../apis/workspace";
+import { autoLogin, login } from "../../apis/workspace";
 
 export const fetchWorkspace = createAsyncThunk("gallery/fetchWorkspace",
   async () => {
     const data = await autoLogin();
+    return data;
+  }
+);
+
+export const loadWorkspace = createAsyncThunk("gallery/loadWorkspace",
+  async (workspaceName) => { 
+    const data = await login(workspaceName);
     return data;
   }
 );
@@ -59,6 +66,7 @@ export const gallerySlice = createSlice({
     }
   },
   extraReducers: (builder) => {
+    // fetch workspace
     builder.addCase(fetchWorkspace.fulfilled, (state, action) => {
       if(!state.workspace || state.workspace._id !== action.payload._id) state.currCollectionId = action.payload.collections[0]._id;
       state.workspace = action.payload;
@@ -73,6 +81,21 @@ export const gallerySlice = createSlice({
     builder.addCase(fetchWorkspace.rejected, (state) => {
       state.loading = false;
       state.workspace = null;
+    });
+
+    // load workspace
+    builder.addCase(loadWorkspace.fulfilled, (state, action) => {
+      if(!state.workspace || state.workspace._id !== action.payload._id) state.currCollectionId = action.payload.collections[0]._id;
+      state.workspace = action.payload;
+      state.loading = false;
+    });
+
+    builder.addCase(loadWorkspace.pending, (state) => {
+      state.loading = true;
+    });
+
+    builder.addCase(loadWorkspace.rejected, (state) => {
+      state.loading = false;
     });
   }
 });
