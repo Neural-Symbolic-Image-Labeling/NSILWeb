@@ -7,6 +7,7 @@ import { Search } from "@mui/icons-material";
 import { getAllSetNames } from "../../../../../apis/image";
 import { PaperFrame } from "../../../../../components/PaperFrame";
 import { autoLogin, requestAutoLabel, requestNewCollection } from "../../../../../apis/workspace";
+import { pullWorkspace } from "../../../../../utils/workspace";
 
 
 export const TopActionBar = () => {
@@ -32,16 +33,9 @@ export const TopActionBar = () => {
     setAutoLabelButtonDisabled(true);
     requestAutoLabel(workspace._id, currCollectionId)
       .then(() => {
-        autoLogin()
-          .then(updated => {
-            if (updated) {
-              dispatch(setWorkspace(updated));
-            } else {
-              console.log("cannot get new data");
-              return;
-            }
-            setAutoLabelButtonDisabled(false);
-          }).catch(err => { 
+        pullWorkspace(workspace._id, dispatch(setWorkspace))
+          .then(() => setAutoLabelButtonDisabled(false))
+          .catch(err => {
             console.log(err);
             setAutoLabelButtonDisabled(false);
           });
@@ -116,7 +110,7 @@ export const TopActionBar = () => {
             color: 'white',
           }}
         >
-          {autoLabelButtonDisabled? <CircularProgress /> :  "Auto Label"}
+          {autoLabelButtonDisabled ? <CircularProgress /> : "Auto Label"}
         </Button>
       </PaperFrame>
     </>
