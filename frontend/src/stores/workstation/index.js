@@ -45,6 +45,6 @@ export const WorkstationSlice = createSlice({
   }
 });
 
-export const {setIsSideBarOpen, setTabNumber, setTabDisability } = WorkstationSlice.actions;
+export const {setPage, setIsSideBarOpen, setTabNumber, setTabDisability } = WorkstationSlice.actions;
 export default WorkstationSlice.reducer; 
 

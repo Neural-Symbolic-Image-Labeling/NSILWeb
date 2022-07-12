@@ -9,31 +9,6 @@ import { setIsSideBarOpen, setTabNumber } from "../../../stores/workstation";
 export const SideBar = () => {
   const dispatch = useDispatch();
   const sideBar = useSelector(state => state.workstation).sideBar;
-  // const [tabNumber, setTabNumber] = useState(0);
-  // const [showSideBar, setShowSideBar] = useState(true);
-  // const tabs = [
-  //   {
-  //     label: "Results",
-  //     icon: <PieChart />,
-  //     value: 0,
-  //     disabled: false,
-  //     jsx: <ResultTab />
-  //   },
-  //   {
-  //     label: "Tools",
-  //     icon: <Brush />,
-  //     value: 1,
-  //     disabled: false,
-  //     jsx: <Box>222</Box>
-  //   },
-  //   // {
-  //   //   label: "Tools2",
-  //   //   icon: <Brush />,
-  //   //   value: 2,
-  //   //   disabled: false,
-  //   //   jsx: <Box>222</Box>
-  //   // }
-  // ]
 
   return (
     <>
