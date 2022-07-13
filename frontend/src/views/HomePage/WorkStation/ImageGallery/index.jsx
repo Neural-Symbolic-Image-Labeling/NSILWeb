@@ -32,7 +32,7 @@ export const ImageGallery = ({ setPage }) => {
   }
 
   const getType = (image) => {
-    if (image.labels.length === 0) {
+    if (!image.labeled) {
       return "unlabeled";
     } else if (image.manual) {
       return "manual";

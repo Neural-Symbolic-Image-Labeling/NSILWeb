@@ -13,8 +13,8 @@ const collectionBuilder = (imgSetDoc) => {
       imageId: imgId.toString(),
       url: imageUrlParser(imgId.toString()),
       name: `${index}.PNG`,
-      label: [],
-      canvas: null,
+      labels: [],
+      labeled: false,
       manual: false,
     }
   }) : [];
@@ -24,7 +24,6 @@ const collectionBuilder = (imgSetDoc) => {
       total: images.length,
       unlabeled: images.length,
       manual: 0,
-      userChecked: 0,
       autoLabeled: 0,
     },
     images: images,
