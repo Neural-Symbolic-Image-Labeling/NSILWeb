@@ -33,9 +33,8 @@ export const gallerySlice = createSlice({
       state.workspace = action.payload;
     },
     setRule: (state, action) => { 
-      const { ruleId, rule } = action.payload;
+      const { ruleIndex, rule } = action.payload;
       const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
-      const ruleIndex = collection.rules.findIndex(r => r._id.toString() === ruleId.toString());
       collection.rules[ruleIndex] = rule;
     },
     setCurrImageId: (state, action) => { 
