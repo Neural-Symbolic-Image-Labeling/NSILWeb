@@ -65,7 +65,7 @@ export const ChartSection = () => {
           justifyContent: "flex-start",
           m: '5px 5px 0px 5px'
         }}>
-          <Typography variant="h5" gutterBottom sx={{ ml: '20px' }}>
+          <Typography variant="h5" gutterBottom sx={{ ml: '5px' }}>
             <strong>Statistics</strong>
           </Typography>
         </Box>

@@ -10,7 +10,7 @@ import { TopActionBar } from "./TopActionBar";
 const matchLabel = (labels, filterStr) => {
   if (!filterStr) return true;
   for (let i = 0; i < labels.length; i++) {
-    if (labels[i].label.toLowerCase().includes(filterStr.toLowerCase())) {
+    if (labels[i].name.toLowerCase().includes(filterStr.toLowerCase())) {
       return true;
     }
   }

@@ -19,7 +19,7 @@ export const SideBar = () => {
       >
         <PaperFrame left={sideBar.isSideBarOpen} bottom = {sideBar.isSideBarOpen}
           sx={{
-            width: "28vw",
+            width: "33vw",
             display: "flex",
           }}
         >
@@ -38,10 +38,7 @@ export const SideBar = () => {
             </IconButton>
           </Box>
           <Box sx={{
-            display: "flex",
-            flexDirection: "column",
             width: "100%",
-            mr: "34px"
           }}>
             <Box>
               <Tabs

@@ -32,6 +32,12 @@ export const gallerySlice = createSlice({
       if(!state.workspace || state.workspace._id !== action.payload._id) state.currCollectionId = action.payload.collections[0]._id;
       state.workspace = action.payload;
     },
+    setRule: (state, action) => { 
+      const { ruleId, rule } = action.payload;
+      const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
+      const ruleIndex = collection.rules.findIndex(r => r._id.toString() === ruleId.toString());
+      collection.rules[ruleIndex] = rule;
+    },
     setCurrImageId: (state, action) => { 
       state.currImageId = action.payload;
     },
@@ -104,5 +110,5 @@ export const gallerySlice = createSlice({
   }
 });
 
-export const { setLoading, setWorkspace, setCurrImageId, setCurrCollectionId, setAuthed, setFilter, labelImage } = gallerySlice.actions;
+export const { setLoading, setRule, setWorkspace, setCurrImageId, setCurrCollectionId, setAuthed, setFilter, labelImage } = gallerySlice.actions;
 export default gallerySlice.reducer;
