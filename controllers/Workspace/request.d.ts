@@ -11,3 +11,9 @@ export interface AutoLabelRequest {
     workspaceId: string;
     collectionId: string;
 }
+
+export interface SaveLabelStatusRequest { 
+    collectionId: string;
+    imageId: string;
+    labelData: any;
+}

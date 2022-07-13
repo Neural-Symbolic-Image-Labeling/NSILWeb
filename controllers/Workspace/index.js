@@ -76,4 +76,35 @@ router.post(getPath('/autolabel'), async (req, res) => {
   }
 });
 
+router.post(getPath('/savelabelstatus'), authWorkspace, async (req, res) => { 
+  if (req.body) {
+    /**@type {import('./request').SaveLabelStatusRequest} */
+    const reqBody = req.body;
+    try { 
+      // find the collection
+      const collection = req.workspace.collections.find(c => c._id.toString() === reqBody.collectionId);
+      if (!collection) {
+        res.status(404).json(new ErrorResponse(0, "Collection not found"));
+        return;
+      }
+      // find the image
+      const image = collection.images.find(i => i.imageId.toString() === reqBody.imageId);
+      if (!image) {
+        res.status(404).json(new ErrorResponse(0, "Image not found"));
+        return;
+      }
+      // update labels
+      image.labels = reqBody.labels;
+      await req.workspace.save();
+      res.status(200).json({ message: "success" });
+      return;
+    }catch(err) {
+      res.status(500).json(new ErrorResponse(0, "Failed to save label status", err));
+      return;
+    }
+  } else {
+    res.status(400).json(new ErrorResponse(2, "request body is required"));
+    return;
+  }
+});
 module.exports = { router }
