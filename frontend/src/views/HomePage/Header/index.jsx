@@ -37,15 +37,6 @@ export const HomePageHeader = () => {
               >
                 Neural-Symbolic Image Labeling
               </Typography>
-              {/* <Box sx={{ml: '10px', display: 'flex', alignItems: 'center'}}>
-                <TextField
-                  size="small"
-                  variant="outlined"
-                  onChange={e => setWorkspaceName(e.target.value)}
-                  sx={{backgroundColor: 'white'}}
-                />
-                <Button sx={{color: 'white'}} onClick={() => loadWorkspace() }>Load Workspace</Button>
-              </Box> */}
             </Box>
             <Box sx={{ flexBasis: "50%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
               <Button
@@ -55,8 +46,7 @@ export const HomePageHeader = () => {
                   mr: "10px",
                   color: "black",
                   "&:hover": {
-                    backgroundColor: "white",
-                    color: "rgba(25, 74, 102, 1)"
+                    backgroundColor: "rgba(142, 142, 142, 1)",
                   },
                 }}
                 onClick={() => setOpenModal(true)}

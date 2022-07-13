@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { colorPicker } from "../../../../../muiStyles";
 import { Intermediate } from "../../../../../components/Intermediate";
 import { findCollection } from "../../../../../utils/workspace";
+import { PaperFrame } from "../../../../../components/PaperFrame";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -50,7 +51,7 @@ export const ChartSection = () => {
 
   return (
     <>
-      <Box sx={{
+      <PaperFrame bottom sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -80,48 +81,9 @@ export const ChartSection = () => {
                 <Doughnut data={data} options={options} />
               </Box>
             </Box>
-
-            {/* <Box sx={{
-              display: "flex",
-              width: "90%",
-              padding: '0px 0 2px 0',
-            }}>
-              <GridBox>
-                Unlabeled
-              </GridBox>
-              <GridBox>
-                Manually Labeled
-              </GridBox>
-              <GridBox>
-                Auto-Labeled
-              </GridBox>
-            </Box>
-            <Box sx={{
-              display: "flex",
-              width: "90%",
-              padding: '5px 0 0px 0',
-              mt: '5px',
-              boxShadow: 'inset 0 7px 3px -7px rgba(0,0,0,0.75)'
-            }}>
-              <GridBox txtColor={colorPicker.unlabeled}>
-                <strong>
-                  {((statistics.unlabeled / statistics.total) * 100).toFixed(0) + '%'}
-                </strong>
-              </GridBox>
-              <GridBox txtColor={colorPicker.manual}>
-                <strong>
-                  {((statistics.manual / statistics.total) * 100).toFixed(0) + '%'}
-                </strong>
-              </GridBox>
-              <GridBox txtColor={colorPicker.auto}>
-                <strong>
-                  {((statistics.autoLabeled / statistics.total) * 100).toFixed(0) + '%'}
-                </strong>
-              </GridBox>
-            </Box> */}
           </>
         )}
-      </Box>
+      </PaperFrame>
     </>
   )
 }
