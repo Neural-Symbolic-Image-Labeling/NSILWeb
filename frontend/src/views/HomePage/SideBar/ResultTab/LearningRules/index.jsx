@@ -168,7 +168,7 @@ const LiteralEditModal = ({ isModalOpen, setIsModalOpen, selectedLiteralMetaData
           <TextField
             label="Literal"
             value={literalValue}
-            // defaultValue={literalValue}
+            InputLabelProps={{ shrink: literalValue ? true : false }}  
             onChange={(e) => setLiteralValue(e.target.value)}
           />
         </PaperFrame>
