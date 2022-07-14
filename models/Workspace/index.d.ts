@@ -31,6 +31,9 @@ export interface IImageMetaDataSchema {
 export interface ILiteralSchema { 
     literal: string;
     naturalValue: string;
+    modified: boolean;
+    modifiedValue: string;
+    isDeleted: boolean;
 }
 
 export interface IClauseSchema { 

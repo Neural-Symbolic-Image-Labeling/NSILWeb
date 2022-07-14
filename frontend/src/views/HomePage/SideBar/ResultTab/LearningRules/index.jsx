@@ -6,6 +6,7 @@ import { setRule } from "../../../../../stores/gallery";
 import { Intermediate } from "../../../../../components/Intermediate";
 import { findCollection } from "../../../../../utils/workspace";
 import { PaperFrame } from "../../../../../components/PaperFrame";
+import { updateRule } from "../../../../../apis/workspace";
 
 export const LearningRules = () => {
   const workspace = useSelector((state) => state.gallery.workspace);
@@ -56,6 +57,7 @@ const RuleListItem = ({ rule, indexR }) => {
 
 const RuleDatail = ({ rule, indexR }) => {
   const dispatch = useDispatch();
+  const currCollectionId = useSelector((state) => state.gallery.currCollectionId);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedLiteralMetaData, setSelectedLiteralMetaData] = useState(null);
 
@@ -69,18 +71,24 @@ const RuleDatail = ({ rule, indexR }) => {
       literalIndex: indexL,
     });
     setIsEditModalOpen(true);
-    // alert(`Rule ${indexR}, Clause ${indexC}, Literal ${indexL}`);
   }
 
   const handleChipDelete = (indexC, indexL) => {
     const editableRule = JSON.parse(JSON.stringify(rule));
-    // console.log(Object.getOwnPropertyDescriptor(editableRule.clauses[indexC], "literals"));
-    editableRule.clauses[indexC].literals.splice(indexL, 1);
-    if (editableRule.clauses[indexC].literals.length === 0) {
-      editableRule.clauses.splice(indexC, 1);
+
+    let deletedLiteral = editableRule.clauses[indexC].literals.splice(indexL, 1)[0];
+    editableRule.clauses[indexC].deletedLiterals.push(deletedLiteral);
+
+    if (editableRule.clauses[indexC].literals.length === 0) { // delete clause
+      let deletedClause = editableRule.clauses.splice(indexC, 1)[0];
+      editableRule.deletedClauses.push(deletedClause);
     }
-    dispatch(setRule({ ruleIndex: indexR, rule: editableRule }));
-    // TODO: add record to externalRules field
+
+    updateRule(currCollectionId, indexR, editableRule)
+      .then(() => { 
+        dispatch(setRule({ ruleIndex: indexR, rule: editableRule }));
+      })
+      .catch(err => console.log(err));
   }
 
   return (
@@ -152,7 +160,7 @@ const RuleDatail = ({ rule, indexR }) => {
 const LiteralEditModal = ({ isModalOpen, setIsModalOpen, selectedLiteralMetaData, rule, updator }) => {
   const [literalValue, setLiteralValue] = useState(null);
 
-  useEffect(() => { 
+  useEffect(() => {
     setLiteralValue(selectedLiteralMetaData ? rule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].literal : null);
   }, [selectedLiteralMetaData]);
 
@@ -168,7 +176,7 @@ const LiteralEditModal = ({ isModalOpen, setIsModalOpen, selectedLiteralMetaData
           <TextField
             label="Literal"
             value={literalValue}
-            InputLabelProps={{ shrink: literalValue ? true : false }}  
+            InputLabelProps={{ shrink: literalValue ? true : false }}
             onChange={(e) => setLiteralValue(e.target.value)}
           />
         </PaperFrame>
