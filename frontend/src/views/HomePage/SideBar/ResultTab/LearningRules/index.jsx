@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { Accordion, AccordionDetails, AccordionSummary, Box, Chip, Collapse, Dialog, DialogContent, DialogTitle, FormControl, InputLabel, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Chip, Collapse, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography } from "@mui/material";
 import { LocalOffer, ExpandMore, TouchApp } from "@mui/icons-material";
 import { useSelector, useDispatch } from "react-redux";
 import { setRule } from "../../../../../stores/gallery";
@@ -14,14 +14,14 @@ export const LearningRules = () => {
   const currCollectionId = useSelector((state) => state.gallery.currCollectionId);
   const dispatch = useDispatch();
   const currCollection = findCollection(workspace, currCollectionId);
-  const rules = workspace ? currCollection ? currCollection.rules : null : null;
+  const rules = workspace ? currCollection ? currCollection.rules : [] : [];
 
   return (
     <PaperFrame>
       <Typography variant="h5" gutterBottom sx={{ ml: '5px' }}>
         <strong>Learning Rules</strong>
       </Typography>
-      {isLoading ? <Intermediate>Loading</Intermediate> : (workspace === null || rules === null) ? <Intermediate>No Data</Intermediate> : (
+      {isLoading ? <Intermediate>Loading</Intermediate> : (workspace === null || rules.length === 0) ? <Intermediate>No Data</Intermediate> : (
         <Box>
           {rules.map((rule, indexR) => (
             <RuleListItem key={indexR} rule={rule} indexR={indexR} />
@@ -158,7 +158,25 @@ const RuleDatail = ({ rule, indexR }) => {
 }
 
 const LiteralEditModal = ({ isModalOpen, setIsModalOpen, selectedLiteralMetaData, rule, updator }) => {
+  const dispatch = useDispatch();
+  const currCollectionId = useSelector((state) => state.gallery.currCollectionId);
   const [literalValue, setLiteralValue] = useState(null);
+
+  const handleSubmit = () => { 
+    const editableRule = JSON.parse(JSON.stringify(rule));
+    editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].naturalValue = literalValue;
+    editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].literal = literalValue;
+    editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].modified = true;
+    updateRule(currCollectionId, selectedLiteralMetaData.ruleIndex, editableRule)
+      .then(() => { 
+        dispatch(setRule({ ruleIndex: selectedLiteralMetaData.ruleIndex, rule: editableRule }));
+        setIsModalOpen(false);
+      })
+      .catch(err => {
+        console.log(err);
+        setIsModalOpen(false);
+      });
+  }
 
   useEffect(() => {
     setLiteralValue(selectedLiteralMetaData ? rule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].literal : null);
@@ -180,8 +198,11 @@ const LiteralEditModal = ({ isModalOpen, setIsModalOpen, selectedLiteralMetaData
             onChange={(e) => setLiteralValue(e.target.value)}
           />
         </PaperFrame>
-        {/* {JSON.stringify(literalValue)} */}
       </DialogContent>
+      <DialogActions>
+        <Button onClick={() => setIsModalOpen(false)}>Cancel</Button>
+        <Button variant="outlined" onClick={() => handleSubmit()}>Submit</Button>
+      </DialogActions>
     </Dialog>
   )
 }
