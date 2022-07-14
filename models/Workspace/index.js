@@ -68,11 +68,22 @@ const LiteralSchema = new mongoose.Schema({
   naturalValue: {
     type: String,
     default: "",
-  }
+  },
+  modified: {
+    type: Boolean,
+    default: false,
+  },
 }, { _id: false });
 
 const ClauseSchema = new mongoose.Schema({
-  literals: [LiteralSchema], // array of literals
+  literals: {
+    type: [LiteralSchema],
+    default: [],
+  }, // array of literals
+  deletedLiterals: {
+    type: [LiteralSchema],
+    default: [],
+  },
 });
 
 const RuleSchema = new mongoose.Schema({
@@ -81,6 +92,10 @@ const RuleSchema = new mongoose.Schema({
     required: true,
   },
   clauses: {
+    type: [ClauseSchema], // array of clauses
+    default: []
+  },
+  deletedClauses: {
     type: [ClauseSchema], // array of clauses
     default: []
   }

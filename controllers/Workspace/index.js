@@ -107,4 +107,28 @@ router.post(getPath('/savelabelstatus'), authWorkspace, async (req, res) => {
     return;
   }
 });
+
+router.post(getPath('/updaterule'), authWorkspace, async (req, res) => { 
+  if (req.body) { 
+    /**@type {import('./request').UpdateRuleRequest} */
+    const reqBody = req.body;
+    const collection = req.workspace.collections.find(c => c._id.toString() === reqBody.collectionId);
+    if (!collection) { 
+      res.status(404).json(new ErrorResponse(0, "Collection not found"));
+      return;
+    }
+    collection.rules[reqBody.ruleIndex] = reqBody.rule;
+    try {
+      await req.workspace.save();
+      res.status(200).json({ message: "success" });
+      return;
+    } catch (err) {
+      res.status(500).json(new ErrorResponse(0, "Failed to update rule", err));
+      return;
+    }
+  } else {
+    res.status(400).json(new ErrorResponse(2, "request body is required"));
+    return;
+  }
+});
 module.exports = { router }
