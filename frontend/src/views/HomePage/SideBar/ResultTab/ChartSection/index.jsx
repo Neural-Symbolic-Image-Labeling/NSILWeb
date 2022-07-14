@@ -56,7 +56,8 @@ export const ChartSection = () => {
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        padding: '0 0 35px 0',
+        mb: '35px',
+        pb: '15px',
         mb: '20px'
       }}>
         <Box sx={{
