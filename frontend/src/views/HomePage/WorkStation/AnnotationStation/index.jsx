@@ -3,24 +3,30 @@ import { Box } from "@mui/material";
 import React, { useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import style from "./style.module.css";
+import { setLabels } from "../../../../stores/gallery";
 import { useDispatch, useSelector } from "react-redux";
+import { findCollection } from "../../../../utils/workspace";
+import dataset from "./dataset";
+import { updateLabels } from "../../../../apis/workspace";
 
 export const AnnotationTool = ({ dataSet, ...props }) => {
-  const [data, setData] = useState([]);
-  const [label, setLabel] = useState([]);
-  const { comment, mark } = data;
-  const [current, setCurrent] = useState(0);
   const length = dataSet.length;
   const dispatch = useDispatch();
+  const currCollectionId = useSelector(
+    (state) => state.gallery.currCollectionId
+  );
+  const currentImage = useSelector((state) => state.workstation.currentImage);
+  const [data, setData] = useState([]);
+  const { comment, mark } = data;
+  const [label, setLabel] = useState([]);
+  const [current, setCurrent] = useState(currentImage);
 
   const nextSlide = () => {
-    dataSet[current].labels = [...label];
     setLabel(dataSet[current === length - 1 ? 0 : current + 1].labels);
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
 
   const prevSlide = () => {
-    dataSet[current].labels = [...label];
     setLabel(dataSet[current === 0 ? length - 1 : current - 1].labels);
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
@@ -125,9 +131,9 @@ export const AnnotationTool = ({ dataSet, ...props }) => {
             {dataSet.map((slide, index) => {
               return (
                 <div key={index}>
-                  {index === current && (
+                  {dataSet.indexOf(slide) === current && (
                     <ReactPictureAnnotation
-                      image={slide.image}
+                      image={slide.url}
                       annotationData={label}
                       onSelect={(selectedId) => {}}
                       onChange={(labelData) => {
@@ -138,7 +144,6 @@ export const AnnotationTool = ({ dataSet, ...props }) => {
                           });
                         });
                         setLabel(labelData);
-                        console.log(labelData);
                       }}
                       height={648}
                       width={1152}
@@ -225,11 +230,13 @@ export const AnnotationTool = ({ dataSet, ...props }) => {
             {dataSet.map((slide, index) => {
               const pre = dataSet.find(
                 (slide) =>
-                  slide.id === (current === 0 ? length - 1 : current - 1)
+                  dataSet.indexOf(slide) ===
+                  (current === 0 ? length - 1 : current - 1)
               );
               const next = dataSet.find(
                 (slide) =>
-                  slide.id === (current === length - 1 ? 0 : current + 1)
+                  dataSet.indexOf(slide) ===
+                  (current === length - 1 ? 0 : current + 1)
               );
               return (
                 <div
@@ -240,9 +247,21 @@ export const AnnotationTool = ({ dataSet, ...props }) => {
                 >
                   {index === current && (
                     <div className={style["container"]}>
-                      <img src={pre.image} className={style["image_pre"]} />
-                      <img src={slide.image} className={style["image"]} />
-                      <img src={next.image} className={style["image_pre"]} />
+                      <img
+                        src={pre.url}
+                        alt={pre.name}
+                        className={style["image_pre"]}
+                      />
+                      <img
+                        src={slide.url}
+                        alt={slide.name}
+                        className={style["image"]}
+                      />
+                      <img
+                        src={next.url}
+                        alt={next.name}
+                        className={style["image_pre"]}
+                      />
                     </div>
                   )}
                 </div>

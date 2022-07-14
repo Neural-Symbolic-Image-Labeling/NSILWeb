@@ -7,7 +7,7 @@ import { PaperFrame } from "../../../../components/PaperFrame";
 import { findCollection } from "../../../../utils/workspace";
 import { TopActionBar } from "./TopActionBar";
 import { useDispatch } from "react-redux";
-import { setPage } from "../../../../stores/workstation";
+import { setCurrentImage, setPage } from "../../../../stores/workstation";
 
 const matchLabel = (labels, filterStr) => {
   if (!filterStr) return true;
@@ -19,7 +19,7 @@ const matchLabel = (labels, filterStr) => {
   return false;
 }
 
-export const ImageGallery = ({ setPage }) => {
+export const ImageGallery = () => {
   const dispatch = useDispatch();
   const workspace = useSelector(state => state.gallery.workspace);
   const currCollectionId = useSelector(state => state.gallery.currCollectionId);
@@ -92,6 +92,10 @@ export const ImageGallery = ({ setPage }) => {
                   width: '220px',
                   minHeight: '220px',
                 }}
+                onClick={() => {
+                    dispatch(setPage(1));
+                    dispatch(setCurrentImage(index));
+                  }}
               >
                 <Box
                   component="img"
@@ -103,10 +107,6 @@ export const ImageGallery = ({ setPage }) => {
                   src={image.url}
                   alt={image.name}
                   loading="lazy"
-                  onClick={() => {
-                    dispatch(setPage(1));
-                    console.log(image.name);
-                  }}
                 />
                 <ImageListItemBar
                   title={<LabelItem type={getType(image)} label={image.name} />}

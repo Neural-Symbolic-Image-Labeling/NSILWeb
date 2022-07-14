@@ -7,6 +7,7 @@ export const WorkstationSlice = createSlice({
   name: "workstation",
   initialState: {
     page: 0, // switch between gallery and annoatation canvas
+    currentImage : 0,
     sideBar: {
       isSideBarOpen: true,
       tabNumber: 0,
@@ -32,6 +33,9 @@ export const WorkstationSlice = createSlice({
     setPage: (state, action) => { 
       state.page = action.payload;
     },
+    setCurrentImage: (state, action) => { 
+      state.currentImage= action.payload;
+    },
     setIsSideBarOpen: (state, action) => { 
       state.sideBar.isSideBarOpen = action.payload;
    },
@@ -45,6 +49,6 @@ export const WorkstationSlice = createSlice({
   }
 });
 
-export const {setPage, setIsSideBarOpen, setTabNumber, setTabDisability } = WorkstationSlice.actions;
+export const {setPage, setIsSideBarOpen, setTabNumber,setCurrentImage, setTabDisability } = WorkstationSlice.actions;
 export default WorkstationSlice.reducer; 
 

@@ -4,6 +4,7 @@ import { AnnotationTool } from "./AnnotationStation";
 import dataset from "./AnnotationStation/dataset.js"
 import { setPage } from "../../../stores/workstation";
 import { useDispatch, useSelector } from "react-redux";
+import { findCollection } from "../../../utils/workspace";
 
 export const WorkStation = () => { 
   const page = useSelector(state => state.workstation.page);
@@ -13,6 +14,13 @@ export const WorkStation = () => {
     dispatch(setPage(page));
   }
 
+  const workspace = useSelector(state => state.gallery.workspace);
+  const currCollectionId = useSelector(state => state.gallery.currCollectionId);
+  const getDisplayImages = () => {
+    const collection = findCollection(workspace, currCollectionId);
+    return collection.images;
+  }
+
   return (
     <>
       <Box sx={{width: '100%', height: '100%'}}>
@@ -20,7 +28,7 @@ export const WorkStation = () => {
           <ImageGallery setPage={setPageNum}/>
         )}
         {page === 1 && (
-          <AnnotationTool dataSet = {dataset} setPage={setPageNum}/>
+          <AnnotationTool dataSet = {getDisplayImages()} setPage={setPageNum}/>
         )}
       </Box>
     </>

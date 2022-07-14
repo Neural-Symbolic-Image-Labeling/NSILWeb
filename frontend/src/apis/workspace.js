@@ -23,3 +23,7 @@ export const saveLabelStatus = (collectionId, imageId, labelData) => {
 export const updateRule = (collectionId, ruleIndex, ruleData) => { 
   return post("/workspace/updaterule", { collectionId: collectionId, ruleIndex: ruleIndex, rule: ruleData });
 }
+
+export const updateLabels = (collectionId, imageIndex, labelData) => { 
+  return post("/workspace/updateLabels", { collectionId: collectionId, imageIndex: imageIndex, label: labelData});
+}
