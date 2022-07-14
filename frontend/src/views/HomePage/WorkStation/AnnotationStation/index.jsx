@@ -1,15 +1,17 @@
 import { ReactPictureAnnotation } from "react-picture-annotation";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React, { useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import style from "./style.module.css";
+import { useDispatch, useSelector } from "react-redux";
 
-export const AnnotationTool = ({dataSet, ...props}) => {
+export const AnnotationTool = ({ dataSet, ...props }) => {
   const [data, setData] = useState([]);
   const [label, setLabel] = useState([]);
   const { comment, mark } = data;
   const [current, setCurrent] = useState(0);
   const length = dataSet.length;
+  const dispatch = useDispatch();
 
   const nextSlide = () => {
     dataSet[current].labels = [...label];
@@ -101,19 +103,23 @@ export const AnnotationTool = ({dataSet, ...props}) => {
       >
         <Box
           sx={{
+            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+            height: 700,
+            width: "100%",
+            overflow: "visible",
+            border: 0,
+            padding: 0.5,
+            mb: 1.5,
             display: "flex",
-            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <Box
             sx={{
-              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-              height: 400,
-              width: 600,
+              height: 648,
+              width: 1152,
               overflow: "visible",
-              border: 0,
-              padding: 2,
-              mb: 1.5,
             }}
           >
             {dataSet.map((slide, index) => {
@@ -134,16 +140,17 @@ export const AnnotationTool = ({dataSet, ...props}) => {
                         setLabel(labelData);
                         console.log(labelData);
                       }}
-                      width={600}
-                      height={400}
+                      height={648}
+                      width={1152}
                     />
                   )}
                 </div>
               );
             })}
           </Box>
+        </Box>
 
-          <Box
+        {/* <Box
             sx={{
               boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               height: 400,
@@ -184,19 +191,18 @@ export const AnnotationTool = ({dataSet, ...props}) => {
                 </div>
               </Box>
             )}
-          </Box>
-        </Box>
+          </Box> */}
 
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
             alignItems: "center",
-            boxShadow: "1px 4px 4px  rgba(0, 0, 0, 0.25)",
-            height: 200,
-            width: 900,
-            padding: 2,
+            boxShadow: "0px 4px 4px  rgba(0, 0, 0, 0.25)",
+            height: 180,
+            width: "100%",
+            padding: 0.5,
             mb: 1.5,
           }}
         >
@@ -210,10 +216,10 @@ export const AnnotationTool = ({dataSet, ...props}) => {
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              height: 150,
+              height: 100,
               width: 700,
-              padding: 2,
-              mb: 1.5,
+              padding: 10,
+              mb: 1,
             }}
           >
             {dataSet.map((slide, index) => {
