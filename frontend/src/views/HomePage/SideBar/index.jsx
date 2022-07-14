@@ -17,7 +17,7 @@ export const SideBar = () => {
         orientation="horizontal"
         collapsedSize={34}
       >
-        <PaperFrame left={sideBar.isSideBarOpen} bottom = {sideBar.isSideBarOpen}
+        <PaperFrame left={sideBar.isSideBarOpen} bottom={sideBar.isSideBarOpen}
           sx={{
             width: "33vw",
             display: "flex",
