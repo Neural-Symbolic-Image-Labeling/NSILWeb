@@ -34,7 +34,7 @@ export const WorkstationSlice = createSlice({
     },
     setIsSideBarOpen: (state, action) => { 
       state.sideBar.isSideBarOpen = action.payload;
-    },
+   },
     setTabNumber: (state, action) => { 
       state.sideBar.tabNumber = action.payload;
     },
