@@ -36,7 +36,7 @@ export const theme = createTheme({
     MuiTabs: {
       styleOverrides: {
         indicator: {
-          backgroundColor: "black"
+          backgroundColor: "transparent",
         }
       }
     },

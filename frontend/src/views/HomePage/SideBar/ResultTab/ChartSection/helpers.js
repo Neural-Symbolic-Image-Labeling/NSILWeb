@@ -1,5 +1,7 @@
+import { width } from "@mui/system";
+
 export const getRuleLabelInfo = (collection) => {
-  if (!collection) return { labels: [], values: [] };
+  if (!collection) return { labels: ['unlabeled'], values: [1] };
   const labels = new Map();
   collection.images.forEach((item) => {
     item.labels.forEach((label) => {
@@ -10,7 +12,8 @@ export const getRuleLabelInfo = (collection) => {
       labels.set(key, labels.get(key) + 1);
     })
   });
-  console.log(labels);
+  // console.log(labels);
+  if(labels.size === 0) return { labels: ['unlabeled'], values: [1] };
   return { labels: Array.from(labels.keys()), values: Array.from(labels.values()) };
 }
 
@@ -96,12 +99,18 @@ const externalTooltipHandlerHelper = (context, id) => {
 
       const td = document.createElement('td');
       td.style.borderWidth = 0;
-      td.style.fontSize = '14px';
-      td.style.wordBreak = 'break-all';
 
+      const textWrapper = document.createElement('div');
+      textWrapper.style.fontSize = '14px';
+      textWrapper.style.whiteSpace = 'nowrap';
+      textWrapper.style.textOverflow = 'ellipsis';
+      textWrapper.style.overflow = 'hidden';
+      textWrapper.style.width = 'fit-content';
+      textWrapper.style.display = 'inline-block';
       const text = document.createTextNode(body);
+      textWrapper.appendChild(text);
       td.appendChild(span);
-      td.appendChild(text);
+      td.appendChild(textWrapper);
       tr.appendChild(td);
       tableBody.appendChild(tr);
     });

@@ -19,13 +19,13 @@ export const WorkstationSlice = createSlice({
           disabled: false,
           jsx: <ResultTab />
         },
-        {
-          label: "Tools",
-          icon: <Brush />,
-          value: 1,
-          disabled: false,
-          jsx: <Box>222</Box>
-        },
+        // {
+        //   label: "Tools",
+        //   icon: <Brush />,
+        //   value: 1,
+        //   disabled: false,
+        //   jsx: <Box>222</Box>
+        // },
       ]
     },
   },

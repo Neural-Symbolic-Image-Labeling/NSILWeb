@@ -66,7 +66,7 @@ export const ChartSection = () => {
         external: externalTooltipHandlerDoughnut
       },
       datalabels: {
-        formatter: (value, context) => Number(value) === 0 ? '' : `${((Number(value) * 100) / statistics.total).toFixed(0)}%`,
+        formatter: (value, context) => Number(value) === 0 ? '' : `${((Number(value) * 100) / labelsInfo.values.reduce((partialSum, a) => partialSum + a, 0)).toFixed(0)}%`,
         color: "white",
         font: {
           size: 12,
@@ -129,7 +129,7 @@ export const ChartSection = () => {
         pb: '15px',
         mb: '20px'
       }}>
-        {`${JSON.stringify(labelsInfo)}`}
+        {/* {`${JSON.stringify(labelsInfo)}`} */}
         <Box sx={{
           display: "flex",
           width: "100%",

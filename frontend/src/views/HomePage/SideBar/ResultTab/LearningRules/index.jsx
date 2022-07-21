@@ -17,9 +17,11 @@ export const LearningRules = () => {
   const rules = workspace ? currCollection ? currCollection.rules : [] : [];
 
   return (
-    <PaperFrame>
+    <PaperFrame sx={{
+      mb: '25px',
+    }}>
       <Typography variant="h5" gutterBottom sx={{ ml: '5px' }}>
-        <strong>Learning Rules</strong>
+        <strong>Labeling Rules</strong>
       </Typography>
       {isLoading ? <Intermediate>Loading</Intermediate> : (workspace === null || rules.length === 0) ? <Intermediate>No Data</Intermediate> : (
         <Box>
@@ -76,16 +78,10 @@ const RuleDatail = ({ rule, indexR }) => {
   const handleChipDelete = (indexC, indexL) => {
     const editableRule = JSON.parse(JSON.stringify(rule));
 
-    let deletedLiteral = editableRule.clauses[indexC].literals.splice(indexL, 1)[0];
-    editableRule.clauses[indexC].deletedLiterals.push(deletedLiteral);
-
-    if (editableRule.clauses[indexC].literals.length === 0) { // delete clause
-      let deletedClause = editableRule.clauses.splice(indexC, 1)[0];
-      editableRule.deletedClauses.push(deletedClause);
-    }
+    editableRule.clauses[indexC].literals[indexL].deleted = true;
 
     updateRule(currCollectionId, indexR, editableRule)
-      .then(() => { 
+      .then(() => {
         dispatch(setRule({ ruleIndex: indexR, rule: editableRule }));
       })
       .catch(err => console.log(err));
@@ -100,58 +96,66 @@ const RuleDatail = ({ rule, indexR }) => {
         rule={rule}
       />
       {rule.clauses.map((clause, indexC) => (
-        <Box key={indexC} sx={{
-          display: "flex",
-          flexDirection: "column",
-        }}>
-          {indexC !== 0 && (
-            <Typography variant="body2" sx={{
-              mt: '10px',
-              mb: '10px',
-              color: 'text.secondary',
+        <Fragment key={indexC}>
+          {clause.literals.reduce((result, literal) => result || !literal.deleted, false) && (
+            <Box sx={{
+              display: "flex",
+              flexDirection: "column",
             }}>
-              <strong>OR</strong>
-            </Typography>
-          )}
+              {indexC !== 0 && (
+                <Typography variant="body2" sx={{
+                  mt: '10px',
+                  mb: '10px',
+                  color: 'text.secondary',
+                }}>
+                  <strong>OR</strong>
+                </Typography>
+              )}
 
-          <Box sx={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            alignItems: "center",
-          }}>
-            <Typography variant="body2" sx={{}}>
-              {`${indexC}.`}
-            </Typography>
-            {clause.literals.map((literal, indexL) => (
-              <Box key={indexL} sx={{
+              <Box sx={{
                 display: "flex",
                 flexDirection: "row",
+                flexWrap: "wrap",
                 alignItems: "center",
-                justifyContent: "center",
               }}>
-                {indexL !== 0 && (
-                  <Typography variant="body2" sx={{
-                    ml: '5px',
-                    color: 'text.secondary',
-                  }}>
-                    <strong>AND</strong>
-                  </Typography>
-                )}
-                <Tooltip disableInteractive title="EDIT" arrow>
-                  <Chip
-                    label={literal.naturalValue}
-                    onClick={() => handleChipClick(indexC, indexL)}
-                    onDelete={() => handleChipDelete(indexC, indexL)}
-                    sx={{
-                      ml: '5px',
-                    }}
-                  />
-                </Tooltip>
+                <Typography variant="body2" sx={{}}>
+                  {`${indexC}.`}
+                </Typography>
+                {clause.literals.map((literal, indexL) => (
+                  <Fragment key={indexL}>
+                    {!literal.deleted && (
+                      <Box sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}>
+                        {indexL !== 0 && (
+                          <Typography variant="body2" sx={{
+                            ml: '5px',
+                            color: 'text.secondary',
+                          }}>
+                            <strong>AND</strong>
+                          </Typography>
+                        )}
+                        <Tooltip disableInteractive title="EDIT" arrow>
+                          <Chip
+                            label={literal.naturalValue}
+                            onClick={() => handleChipClick(indexC, indexL)}
+                            onDelete={() => handleChipDelete(indexC, indexL)}
+                            sx={{
+                              ml: '5px',
+                            }}
+                          />
+                        </Tooltip>
+                      </Box>
+                    )}
+                  </Fragment>
+                ))}
               </Box>
-            ))}
-          </Box>
-        </Box>
+            </Box>
+          )}
+        </Fragment>
       ))}
     </PaperFrame>
   )
@@ -162,13 +166,13 @@ const LiteralEditModal = ({ isModalOpen, setIsModalOpen, selectedLiteralMetaData
   const currCollectionId = useSelector((state) => state.gallery.currCollectionId);
   const [literalValue, setLiteralValue] = useState(null);
 
-  const handleSubmit = () => { 
+  const handleSubmit = () => {
     const editableRule = JSON.parse(JSON.stringify(rule));
     editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].naturalValue = literalValue;
     editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].literal = literalValue;
     editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].modified = true;
     updateRule(currCollectionId, selectedLiteralMetaData.ruleIndex, editableRule)
-      .then(() => { 
+      .then(() => {
         dispatch(setRule({ ruleIndex: selectedLiteralMetaData.ruleIndex, rule: editableRule }));
         setIsModalOpen(false);
       })
