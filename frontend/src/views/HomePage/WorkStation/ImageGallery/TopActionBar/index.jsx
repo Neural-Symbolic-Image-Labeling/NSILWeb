@@ -105,7 +105,7 @@ export const TopActionBar = () => {
           onClick={() => handleAutoLabel()}
           disabled={autoLabelButtonDisabled}
           sx={{
-            bgcolor: 'rgba(217, 56, 132, 1)',
+            bgcolor: 'rgba(57, 125, 192, 1)',
             color: 'white',
           }}
         >

@@ -7,6 +7,7 @@ import { colorPicker } from "../../../../../muiStyles";
 import { Intermediate } from "../../../../../components/Intermediate";
 import { findCollection } from "../../../../../utils/workspace";
 import { PaperFrame } from "../../../../../components/PaperFrame";
+import { externalTooltipHandlerDoughnut, externalTooltipHandlerPie, getRuleLabelInfo } from "./helpers";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -16,8 +17,10 @@ export const ChartSection = () => {
   const currCollectionId = useSelector(state => state.gallery.currCollectionId);
   const currCollection = findCollection(workspace, currCollectionId);
   const statistics = workspace ? currCollection ? currCollection.statistics : null : null;
+  const labelsInfo = workspace ? currCollection ? getRuleLabelInfo(currCollection) : [] : [];
 
-  const data = (workspace === null || statistics === null) ? null : {
+  /**@type {import("chart.js").ChartData} */
+  const PieData = (workspace === null || statistics === null) ? null : {
     labels: ['Unlabeled', 'Manually Labeled', 'Auto-Labeled'],
     datasets: [{
       label: '# of images',
@@ -27,22 +30,87 @@ export const ChartSection = () => {
         colorPicker.manual,
         colorPicker.auto
       ],
-      borderWidth: 0,
+      // borderWidth: 0,
     }],
   };
 
-  const options = {
+  /**@type {import("chart.js").ChartData} */
+  const DoughnutData = (workspace === null || statistics === null) ? null : {
+    labels: labelsInfo ? labelsInfo.labels : [],
+    datasets: [{
+      label: '# of images',
+      data: labelsInfo ? labelsInfo.values : [],
+      backgroundColor: labelsInfo.colors,
+      hoverBackgroundColor: labelsInfo.colors,
+    }],
+
+  }
+
+  /**@type {import("chart.js").ChartOptions} */
+  const DoughnutOptions = {
+    cutout: 55,
     plugins: {
       legend: {
-        position: "right"
+        display: false,
+        position: "right",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        }
+      },
+      tooltip: {
+        position: "nearest",
+        // yAlign: "top",
+        enabled: false,
+        external: externalTooltipHandlerDoughnut
       },
       datalabels: {
-        formatter: (value, context) => Number(value) === 0 ? '' : `${((Number(value) * 100) / statistics.total).toFixed(0)}%`,
+        formatter: (value, context) => Number(value) === 0 ? '' : `${((Number(value) * 100) / labelsInfo.values.reduce((partialSum, a) => partialSum + a, 0)).toFixed(0)}%`,
         color: "white",
         font: {
           size: 12,
           weight: "bold"
         },
+      }
+    },
+    elements: {
+      arc: {
+        borderWidth: 0,
+      }
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+  }
+
+  /**@type {import("chart.js").ChartOptions} */
+  const PieOptions = {
+    plugins: {
+      legend: {
+        display: false,
+        position: "left",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        }
+      },
+      tooltip: {
+        position: "nearest",
+        // yAlign: "top",
+        enabled: false,
+        external: externalTooltipHandlerPie
+      },
+      datalabels: {
+        formatter: (value, context) => Number(value) === 0 ? '' : `${((Number(value) * 100) / statistics.total).toFixed(0)}%`,
+        color: "white",
+        font: {
+          size: 8,
+          weight: "bold"
+        },
+      }
+    },
+    elements: {
+      arc: {
+        borderWidth: 0,
       }
     },
     responsive: true,
@@ -60,6 +128,7 @@ export const ChartSection = () => {
         pb: '15px',
         mb: '20px'
       }}>
+        {/* {`${JSON.stringify(labelsInfo)}`} */}
         <Box sx={{
           display: "flex",
           width: "100%",
@@ -78,8 +147,22 @@ export const ChartSection = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-              <Box sx={{ width: "360px", height: "210px" }}>
-                <Doughnut data={data} options={options} />
+              <Box sx={{
+                width: "360px",
+                height: "210px",
+                position: 'relative',
+              }}>
+                <Doughnut data={DoughnutData} options={DoughnutOptions}/>
+                <Box sx={{
+                  width: "42%",
+                  height: "42%",
+                  top: "50%",
+                  left: "50%",
+                  position: "absolute",
+                  transform: "translate(-50%, -50%)",
+                }}>
+                  <Pie data={PieData} options={PieOptions} />
+                </Box>
               </Box>
             </Box>
           </>

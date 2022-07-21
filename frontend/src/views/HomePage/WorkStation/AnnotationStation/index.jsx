@@ -11,7 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import dataset from "./dataset";
 import { setPage } from "../../../../stores/workstation";
 import { updateLabels } from "../../../../apis/workspace";
-import { Label } from "@mui/icons-material";
+import { Download, Label } from "@mui/icons-material";
+import { findCollection } from "../../../../utils/workspace";
 
 
 
@@ -25,25 +26,25 @@ export const AnnotationTool = ({ dataSet, ...props }) => {
   const [label, setLabel] = useState([]);
   const [current, setCurrent] = useState(currentImage);
   const currCollectionId = useSelector((state) => state.gallery.currCollectionId);
-  
-
-  
-  const reformartUpload = (labelData) => {
-    const newLabels = [];
-    labelData.map((label, index) => {
-      newLabels.push({"name":[label.comment],"canvasId":label.id, "mark":label.mark})
-    });
-    return newLabels;
+  const workspace = useSelector(state => state.gallery.workspace);
+  const getDisplayImages = () => {
+    const collection = findCollection(workspace, currCollectionId);
+    return collection.images;
   }
-
-  const reformartDownload = (labelData) => {
-    
-  }
-
   const nextSlide = () => {
-    const editableLabel = JSON.parse(JSON.stringify(label));
+    const newLabels = [];
+    label.map((item, index) => {
+      return newLabels.push({"name":[item.comment],"canvasId":item.id, "mark":item.mark})
+    });
+    const editableLabel = JSON.parse(JSON.stringify(newLabels));
     updateLabels(currCollectionId,current,editableLabel).catch(err => console.log(err));
-    setLabel(dataSet[current === length - 1 ? 0 : current + 1].labels);
+    
+    const savedLabels = [];
+    const newImageSet = getDisplayImages();
+    newImageSet[current === length - 1 ? 0 : current + 1].labels.map((item, index) => {
+      return savedLabels.push({"comment":item.name[0],"id":item.canvasId,"mark":item.mark})
+    });
+    setLabel(savedLabels);
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
 

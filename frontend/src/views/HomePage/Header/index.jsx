@@ -22,10 +22,10 @@ export const HomePageHeader = () => {
     <>
       <LoadWorkspace workspaceName={workspaceName} setLoading={setLoading} openModal={openModal} setOpenModal={setOpenModal} setWorkspaceName={setWorkspaceName} />
       <Box>
-        <AppBar position="static"
+        <AppBar position="static" elevation={0}
           sx={{
             color: 'black',
-            bgcolor: "rgba(142, 142, 142, 0.62)"
+            bgcolor: "rgba(142, 142, 142, 0.32)"
           }}
         >
           <Toolbar>

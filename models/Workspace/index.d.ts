@@ -1,7 +1,8 @@
 import { Model, ObjectId, Schema } from "mongoose";
 
 export interface IImageLabelSchema {
-    comment: string;
+    name: string[];
+    canvasId: string;
     mark: { // different for different types of tools, examine property "type" when in use.
         // Properties TBD
         height?: number; // rectangle
@@ -27,7 +28,8 @@ export interface ILiteralSchema {
     naturalValue: string;
     modified: boolean;
     modifiedValue: string;
-    isDeleted: boolean;
+    locked: boolean;
+    deleted: boolean;
 }
 
 export interface IClauseSchema { 
