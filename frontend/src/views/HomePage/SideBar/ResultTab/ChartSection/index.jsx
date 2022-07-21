@@ -8,7 +8,6 @@ import { Intermediate } from "../../../../../components/Intermediate";
 import { findCollection } from "../../../../../utils/workspace";
 import { PaperFrame } from "../../../../../components/PaperFrame";
 import { externalTooltipHandlerDoughnut, externalTooltipHandlerPie, getRuleLabelInfo } from "./helpers";
-import { chartColors } from "./colors";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -41,8 +40,8 @@ export const ChartSection = () => {
     datasets: [{
       label: '# of images',
       data: labelsInfo ? labelsInfo.values : [],
-      backgroundColor: chartColors,
-      hoverBackgroundColor: chartColors,
+      backgroundColor: labelsInfo.colors,
+      hoverBackgroundColor: labelsInfo.colors,
     }],
 
   }

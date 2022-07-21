@@ -1,20 +1,24 @@
-import { width } from "@mui/system";
-
+import { chartColors } from './colors'; 
+  
 export const getRuleLabelInfo = (collection) => {
-  if (!collection) return { labels: ['unlabeled'], values: [1] };
+  if (!collection) return { labels: ['unlabeled'], values: [1], colors:[chartColors[0]] };
+  let nextColorIndex = 0;
+  const colors = [];
   const labels = new Map();
   collection.images.forEach((item) => {
     item.labels.forEach((label) => {
       let key = label.name.length > 1 ? 'uncertain' : label.name[0];
       if (!labels.has(key)) {
         labels.set(key, 0);
+        colors.push(chartColors[nextColorIndex]);
+        nextColorIndex++;
       }
       labels.set(key, labels.get(key) + 1);
     })
   });
   // console.log(labels);
-  if(labels.size === 0) return { labels: ['unlabeled'], values: [1] };
-  return { labels: Array.from(labels.keys()), values: Array.from(labels.values()) };
+  if(labels.size === 0) return { labels: ['unlabeled'], values: [1], colors:[chartColors[0]] };
+  return { labels: Array.from(labels.keys()), values: Array.from(labels.values()), colors: colors };
 }
 
 const getOrCreateTooltip = (chart, id) => {

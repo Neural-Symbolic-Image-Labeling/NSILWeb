@@ -7,6 +7,7 @@ import { Intermediate } from "../../../../../components/Intermediate";
 import { findCollection } from "../../../../../utils/workspace";
 import { PaperFrame } from "../../../../../components/PaperFrame";
 import { updateRule } from "../../../../../apis/workspace";
+import { getRuleLabelInfo } from "../ChartSection/helpers";
 
 export const LearningRules = () => {
   const workspace = useSelector((state) => state.gallery.workspace);
@@ -15,6 +16,7 @@ export const LearningRules = () => {
   const dispatch = useDispatch();
   const currCollection = findCollection(workspace, currCollectionId);
   const rules = workspace ? currCollection ? currCollection.rules : [] : [];
+  const labelsInfo = workspace ? currCollection ? getRuleLabelInfo(currCollection) : [] : [];
 
   return (
     <PaperFrame sx={{
@@ -26,7 +28,7 @@ export const LearningRules = () => {
       {isLoading ? <Intermediate>Loading</Intermediate> : (workspace === null || rules.length === 0) ? <Intermediate>No Data</Intermediate> : (
         <Box>
           {rules.map((rule, indexR) => (
-            <RuleListItem key={indexR} rule={rule} indexR={indexR} />
+            <RuleListItem key={indexR} rule={rule} indexR={indexR} color={labelsInfo.colors[labelsInfo.labels.findIndex(l => l === rule.name)]} />
           ))}
         </Box>
       )}
@@ -34,7 +36,7 @@ export const LearningRules = () => {
   );
 };
 
-const RuleListItem = ({ rule, indexR }) => {
+const RuleListItem = ({ rule, indexR, color }) => {
   return (
     <Fragment>
       <Accordion>
@@ -45,7 +47,7 @@ const RuleListItem = ({ rule, indexR }) => {
             display: "flex",
             alignItems: "center",
           }}>
-            <LocalOffer sx={{ mr: '5px' }} />
+            <LocalOffer sx={{ mr: '5px', color: color }} />
             <Typography>{rule.name}</Typography>
           </Box>
         </AccordionSummary>
