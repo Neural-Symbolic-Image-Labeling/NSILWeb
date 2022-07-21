@@ -147,6 +147,11 @@ router.post(getPath('/updateLabels'), authWorkspace, async (req, res) => {
         res.status(404).json(new ErrorResponse(0, "Collection not found"));
         return;
       }
+      if (!reqBody.label) {
+        collection.images[reqBody.imageIndex].labels = [];
+        res.status(200).json({ message: "success" });
+        return;
+      }
       // update labels
       collection.images[reqBody.imageIndex].labels = [...reqBody.label];
       await req.workspace.save();

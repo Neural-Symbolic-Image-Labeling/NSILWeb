@@ -18,7 +18,7 @@ export const WorkStation = () => {
   const currCollectionId = useSelector(state => state.gallery.currCollectionId);
   const getDisplayImages = () => {
     const collection = findCollection(workspace, currCollectionId);
-    return collection.images;
+    return JSON.parse(JSON.stringify(collection.images));
   }
 
   return (

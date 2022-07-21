@@ -11,9 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import dataset from "./dataset";
 import { setPage } from "../../../../stores/workstation";
 import { updateLabels } from "../../../../apis/workspace";
-import { Download, Label } from "@mui/icons-material";
 import { findCollection } from "../../../../utils/workspace";
-
 
 
 export const AnnotationTool = ({ dataSet, ...props }) => {
@@ -22,15 +20,11 @@ export const AnnotationTool = ({ dataSet, ...props }) => {
   const [currentTool, setCurrentTool] = useState();
   const currentImage = useSelector((state) => state.workstation.currentImage);
   const [data, setData] = useState([]);
-  const { comment, mark } = data;
-  const [label, setLabel] = useState([]);
+  const {comment, mark } = data;
+  const [label, setLabel] = useState(dataset[currentImage].labels);
   const [current, setCurrent] = useState(currentImage);
   const currCollectionId = useSelector((state) => state.gallery.currCollectionId);
-  const workspace = useSelector(state => state.gallery.workspace);
-  const getDisplayImages = () => {
-    const collection = findCollection(workspace, currCollectionId);
-    return collection.images;
-  }
+
   const nextSlide = () => {
     const newLabels = [];
     label.map((item, index) => {
@@ -38,17 +32,20 @@ export const AnnotationTool = ({ dataSet, ...props }) => {
     });
     const editableLabel = JSON.parse(JSON.stringify(newLabels));
     updateLabels(currCollectionId,current,editableLabel).catch(err => console.log(err));
-    
-    const savedLabels = [];
-    const newImageSet = getDisplayImages();
-    newImageSet[current === length - 1 ? 0 : current + 1].labels.map((item, index) => {
-      return savedLabels.push({"comment":item.name[0],"id":item.canvasId,"mark":item.mark})
-    });
-    setLabel(savedLabels);
+   
+    dataSet[current].labels = [...label];
+    setLabel(dataSet[current === length - 1 ? 0 : current + 1].labels);
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
-
+  
   const prevSlide = () => {
+    const newLabels = [];
+    label.map((item, index) => {
+      return newLabels.push({"name":[item.comment],"canvasId":item.id, "mark":item.mark})
+    });
+    const editableLabel = JSON.parse(JSON.stringify(newLabels));
+    updateLabels(currCollectionId,current,editableLabel).catch(err => console.log(err));
+    dataSet[current].labels = [...label];  
     setLabel(dataSet[current === 0 ? length - 1 : current - 1].labels);
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
@@ -137,7 +134,7 @@ export const AnnotationTool = ({ dataSet, ...props }) => {
                               mark: item?.mark,
                             });
                           });
-                          labelData? setLabel(labelData):setLabel(Label);
+                          setLabel(labelData);
                         }}
                         height={540}
                         width={960}
