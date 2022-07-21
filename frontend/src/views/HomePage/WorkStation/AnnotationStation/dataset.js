@@ -3,17 +3,17 @@ export const dataset = [
     id: 0,
     image: "https://drive.google.com/uc?id=1JvoXSE2mbg5LbiAUCoca3nk9Jb2ueI5L",
     labels: [
-      // {
-      //   comment: "a",
-      //   id: "bkEKpr",
-      //   mark: {
-      //     height: 163.3275,
-      //     type: "RECT",
-      //     width: 135.57249999999996,
-      //     x: 207.9125,
-      //     y: 89.67,
-      //   }
-      // },
+      {
+        comment: "a",
+        id: "bkEKpr",
+        mark: {
+          height: 163.3275,
+          type: "RECT",
+          width: 135.57249999999996,
+          x: 207.9125,
+          y: 89.67,
+        }
+      }
     ],
   },
   {

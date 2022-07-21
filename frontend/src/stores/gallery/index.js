@@ -37,11 +37,6 @@ export const gallerySlice = createSlice({
       const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
       collection.rules[ruleIndex] = rule;
     },
-    setLabels: (state, action) => { 
-      const { imageIndex, label } = action.payload;
-      const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
-      collection.images[imageIndex].labels = label;
-    },
     setCurrImageId: (state, action) => { 
       state.currImageId = action.payload;
     },
@@ -114,5 +109,5 @@ export const gallerySlice = createSlice({
   }
 });
 
-export const { setLoading, setRule, setWorkspace, setCurrImageId, setCurrCollectionId, setAuthed, setFilter, labelImage, setLabels } = gallerySlice.actions;
+export const { setLoading, setRule, setWorkspace, setCurrImageId, setCurrCollectionId, setAuthed, setFilter, labelImage } = gallerySlice.actions;
 export default gallerySlice.reducer;

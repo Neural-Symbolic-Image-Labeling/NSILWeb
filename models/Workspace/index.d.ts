@@ -1,20 +1,14 @@
 import { Model, ObjectId, Schema } from "mongoose";
 
 export interface IImageLabelSchema {
-    name: string;
+    comment: string;
     mark: { // different for different types of tools, examine property "type" when in use.
         // Properties TBD
         height?: number; // rectangle
-        width?: number; // rectangle
         type: string;
+        width?: number; // rectangle
         x?: number; // rectangle
         y?: number; // rectangle
-        path?: string; // segment
-        radius?: number; // circle
-        center?: { // circle
-            x: number;
-            y: number;
-        }
     };
 }
 

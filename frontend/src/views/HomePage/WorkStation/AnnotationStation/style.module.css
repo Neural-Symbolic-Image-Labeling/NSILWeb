@@ -25,7 +25,7 @@
 }
 .right-arrow {
   font-size: 3rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(142, 142, 142, 0.62);
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -33,6 +33,29 @@
 
 .left-arrow {
   font-size: 3rem;
+  color:  rgba(142, 142, 142, 0.62);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow:hover {
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.right-arrow:hover {
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+.back-arrow {
+  font-size: xx-large;
   color: rgba(0, 0, 0, 0.8);
   z-index: 10;
   cursor: pointer;
@@ -50,16 +73,3 @@
   transform: scale(1.08);
 }
 
-.tool-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 160px;
-  height: 90px;
-  margin: 0 2% 3% 2%;
-  padding: 9px 8px 8px 8px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}

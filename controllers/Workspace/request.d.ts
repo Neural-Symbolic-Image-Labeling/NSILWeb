@@ -23,3 +23,9 @@ export interface UpdateRuleRequest {
     ruleIndex: number;
     rule: any;
 }
+
+export interface UpdateLabelsRequest { 
+    collectionId: string;
+    imageIndex: number;
+    label: any;
+}
