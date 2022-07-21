@@ -47,10 +47,11 @@ const createWorkspace = async (name) => {
   return result;
 }
 
-const requestFoil = async (workspaceId, collectionId) => { 
+const requestLabel = async (workspaceId, collectionId, task) => { 
   const reqBody = {
     workspaceID: workspaceId,
     collectionID: collectionId,
+    task: task,
   }
   return post(`/autolabel`, reqBody);
 }
@@ -58,5 +59,5 @@ const requestFoil = async (workspaceId, collectionId) => {
 module.exports = {
   createWorkspace,
   collectionBuilder,
-  requestFoil
+  requestLabel
 }

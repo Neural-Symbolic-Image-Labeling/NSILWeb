@@ -22,9 +22,28 @@ export const LearningRules = () => {
     <PaperFrame sx={{
       mb: '25px',
     }}>
-      <Typography variant="h5" gutterBottom sx={{ ml: '5px' }}>
-        <strong>Labeling Rules</strong>
-      </Typography>
+      <Box sx={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        mb: '15px',
+      }}>
+        <Typography variant="h5" sx={{ ml: '5px' }}>
+          <strong>Labeling Rules</strong>
+        </Typography>
+        <Button
+          variant="contained"
+          onClick={() => alert("Not implemented yet")}
+          size="medium"
+          sx={{
+            bgcolor: 'rgba(57, 125, 192, 1)',
+            color: 'white',
+            ml: 'auto',
+          }}
+        >
+          Trail Label
+        </Button>
+      </Box>
       {isLoading ? <Intermediate>Loading</Intermediate> : (workspace === null || rules.length === 0) ? <Intermediate>No Data</Intermediate> : (
         <Box>
           {rules.map((rule, indexR) => (
@@ -170,8 +189,10 @@ const LiteralEditModal = ({ isModalOpen, setIsModalOpen, selectedLiteralMetaData
 
   const handleSubmit = () => {
     const editableRule = JSON.parse(JSON.stringify(rule));
+    // TODO: update literal value
     editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].naturalValue = literalValue;
-    editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].literal = literalValue;
+
+    editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].modifiedValue = literalValue;
     editableRule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].modified = true;
     updateRule(currCollectionId, selectedLiteralMetaData.ruleIndex, editableRule)
       .then(() => {
@@ -185,7 +206,9 @@ const LiteralEditModal = ({ isModalOpen, setIsModalOpen, selectedLiteralMetaData
   }
 
   useEffect(() => {
-    setLiteralValue(selectedLiteralMetaData ? rule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex].literal : null);
+    const targetLiteral = selectedLiteralMetaData ? rule.clauses[selectedLiteralMetaData.clauseIndex].literals[selectedLiteralMetaData.literalIndex] : null;
+    if (!targetLiteral) return;
+    setLiteralValue(targetLiteral.modified ? targetLiteral.modifiedValue : targetLiteral.literal);
   }, [selectedLiteralMetaData]);
 
   return (

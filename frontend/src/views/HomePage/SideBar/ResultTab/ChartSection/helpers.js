@@ -89,10 +89,10 @@ const externalTooltipHandlerHelper = (context, id) => {
     bodyLines.forEach((body, i) => {
       const colors = tooltip.labelColors[i];
 
-      const span = document.createElement('span');
+      const span = document.createElement('div');
       span.style.background = colors.backgroundColor;
       span.style.marginRight = '10px';
-      span.style.border = '3px soild white';
+      span.style.border = '2px solid rgb(255, 255, 255)';
       span.style.height = '12px';
       span.style.width = '12px';
       span.style.display = 'inline-block';

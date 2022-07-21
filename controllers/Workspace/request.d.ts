@@ -10,6 +10,7 @@ export interface NewCollectionRequest {
 export interface AutoLabelRequest {
     workspaceId: string;
     collectionId: string;
+    task: "auto" | "trail";
 }
 
 export interface SaveLabelStatusRequest { 

@@ -13,8 +13,12 @@ export const requestNewCollection = (setName, workspaceId) => {
 }
 
 export const requestAutoLabel = (workspaceId, collectionId) => { 
-  return post("/workspace/autolabel", { workspaceId: workspaceId, collectionId: collectionId });
+  return post("/workspace/label", { workspaceId: workspaceId, collectionId: collectionId, task: "auto" });
 }
+
+export const requestTrailLabel = (workspaceId, collectionId) => {
+  return post("/workspace/label", { workspaceId: workspaceId, collectionId: collectionId, task: "trail" });
+};
 
 export const saveLabelStatus = (collectionId, imageId, labelData) => { 
   return post("/workspace/savelabelstatus", { collectionId: collectionId, imageId: imageId, labelData: labelData });
