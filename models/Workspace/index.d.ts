@@ -2,6 +2,7 @@ import { Model, ObjectId, Schema } from "mongoose";
 
 export interface IImageLabelSchema {
     name: string[];
+    canvasId: string;
     mark: { // different for different types of tools, examine property "type" when in use.
         // Properties TBD
         height?: number; // rectangle

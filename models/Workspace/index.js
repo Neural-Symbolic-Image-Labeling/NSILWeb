@@ -1,9 +1,12 @@
 const { mongoose } = require('../../mongoose');
 
 const ImageLabelSchema = new mongoose.Schema({
-  name: { // label
+  name: { // label(s)
     type: [String],
     required: true,
+  },
+  canvasId: {
+    type: String,
   },
   mark: { // segmentation target information, see Typescript definition for more details
     type: mongoose.Schema.Types.Mixed,
