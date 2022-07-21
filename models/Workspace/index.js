@@ -2,7 +2,7 @@ const { mongoose } = require('../../mongoose');
 
 const ImageLabelSchema = new mongoose.Schema({
   name: { // label
-    type: String,
+    type: [String],
     required: true,
   },
   mark: { // segmentation target information, see Typescript definition for more details
@@ -73,17 +73,21 @@ const LiteralSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  locked: {
+    type: Boolean,
+    default: false,
+  },
+  deleted: {
+    type: Boolean,
+    default: false,
+  }
 }, { _id: false });
 
 const ClauseSchema = new mongoose.Schema({
   literals: {
     type: [LiteralSchema],
     default: [],
-  }, // array of literals
-  deletedLiterals: {
-    type: [LiteralSchema],
-    default: [],
-  },
+  }
 });
 
 const RuleSchema = new mongoose.Schema({
@@ -92,10 +96,6 @@ const RuleSchema = new mongoose.Schema({
     required: true,
   },
   clauses: {
-    type: [ClauseSchema], // array of clauses
-    default: []
-  },
-  deletedClauses: {
     type: [ClauseSchema], // array of clauses
     default: []
   }

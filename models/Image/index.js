@@ -21,6 +21,9 @@ const ImageSetSchema = new mongoose.Schema({
     unique: true,
   },
   images: [mongoose.Types.ObjectId],
+  worldDict: {
+    type: mongoose.Schema.Types.Mixed,
+  }
 });
 
 const Image = mongoose.model('Image', ImageSchema);

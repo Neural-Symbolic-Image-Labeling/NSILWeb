@@ -1,4 +1,4 @@
-import { Model, ObjectId, Schema } from "mongoose";
+import { Model, ObjectId, Schema, Mixed } from "mongoose";
 
 export interface IImageSchema { 
     name: string;
@@ -9,6 +9,7 @@ export interface IImageSchema {
 export interface IImageSetSchema {
     name: string;
     images: ObjectId[];
+    worldDict: Mixed;
 }
 
 export declare const ImageSchema: Schema<IImageSchema>;
