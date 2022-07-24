@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import galleryReducer from "./gallery";
+import workspaceReducer from "./workspace";
 import workstationReducer from "./workstation";
 
 export default configureStore({
@@ -9,7 +9,7 @@ export default configureStore({
     }
   }),
   reducer: {
-    gallery: galleryReducer,
+    workspace: workspaceReducer,
     workstation: workstationReducer
   }
 });

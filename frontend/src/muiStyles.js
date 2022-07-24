@@ -9,22 +9,22 @@ export const colorPicker = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "rgba(102, 102, 102, 1)",
+      main: "rgba(4, 18, 141, 1)",
     }
   },
   typography: {
     fontFamily: [
-      'Helvetica',
+      'Inter',
     ]
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
         '@font-face': {
-          'font-family': 'Helvetica',
+          'font-family': 'Inter',
           'font-style': 'normal'
         },
-      } 
+      }
     },
     MuiButton: {
       styleOverrides: {
@@ -33,28 +33,5 @@ export const theme = createTheme({
         }
       }
     },
-    MuiTabs: {
-      styleOverrides: {
-        indicator: {
-          backgroundColor: "transparent",
-        }
-      }
-    },
-    MuiTab: {
-      styleOverrides: {
-        root: {
-          color: "rgba(142, 142, 142, 0.62)",
-          '&.Mui-selected': {
-            color: 'black'
-          }
-        }
-      },
-    }
-  },
-  overrides: {
-    MuiButton: {
-      label:""
-    }
   }
-}
-);
+});

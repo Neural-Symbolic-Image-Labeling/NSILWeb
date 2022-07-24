@@ -16,8 +16,8 @@ export const loadWorkspace = createAsyncThunk("gallery/loadWorkspace",
 );
 
 
-export const gallerySlice = createSlice({
-  name: "gallery",
+export const workspcaeSlice = createSlice({
+  name: "workspace",
   initialState: {
     currCollectionId: null,
     currImageId: null,
@@ -75,7 +75,7 @@ export const gallerySlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    // fetch workspace
+    // #region fetchWorkspace
     builder.addCase(fetchWorkspace.fulfilled, (state, action) => {
       if(!state.workspace || state.workspace._id !== action.payload._id) state.currCollectionId = action.payload.collections[0]._id;
       state.workspace = action.payload;
@@ -91,8 +91,9 @@ export const gallerySlice = createSlice({
       state.loading = false;
       state.workspace = null;
     });
+    // #endregion
 
-    // load workspace
+    // #region loadWorkspace
     builder.addCase(loadWorkspace.fulfilled, (state, action) => {
       if(!state.workspace || state.workspace._id !== action.payload._id) state.currCollectionId = action.payload.collections[0]._id;
       state.workspace = action.payload;
@@ -106,8 +107,18 @@ export const gallerySlice = createSlice({
     builder.addCase(loadWorkspace.rejected, (state) => {
       state.loading = false;
     });
+    // #endregion
   }
 });
 
-export const { setLoading, setRule, setWorkspace, setCurrImageId, setCurrCollectionId, setAuthed, setFilter, labelImage } = gallerySlice.actions;
-export default gallerySlice.reducer;
+export const {
+  setLoading,
+  setRule,
+  setWorkspace,
+  setCurrImageId,
+  setCurrCollectionId,
+  setAuthed,
+  setFilter,
+  labelImage
+} = workspcaeSlice.actions;
+export default workspcaeSlice.reducer;
