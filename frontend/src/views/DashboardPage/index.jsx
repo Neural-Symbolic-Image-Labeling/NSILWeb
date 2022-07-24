@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogContentText, DialogTitle, Box, TextField, 
 import { authDashboard, autoAuth, createImageSet, deleteAllImages, getAllSetNames, uploadImage } from "../../apis/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setAuthed } from "../../stores/gallery";
+import { setAuthed } from "../../stores/workspace";
 import { UploadFile } from "@mui/icons-material";
 import { Intermediate } from "../../components/Intermediate";
 

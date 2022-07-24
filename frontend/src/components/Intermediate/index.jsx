@@ -2,8 +2,7 @@ import { PaperFrame } from "../PaperFrame"
 
 export const Intermediate = ({children}) => { 
   return (
-    <PaperFrame noFrame sx={{
-      display: "flex",
+    <PaperFrame sx={{
       justifyContent: "center",
       alignItems: "center",
       width: "100%",

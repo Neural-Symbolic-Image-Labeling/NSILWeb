@@ -16,15 +16,15 @@ export const Workstation = () => {
   const getPageContent = (pageNum) => { 
     switch (pageNum) { 
       case 1:
-        return <Annotation setPage={setPageNum} />;
+        // return <Annotation setPage={setPageNum} />;
       default:
-        return <Gallery setPage={setPageNum} />;
+        // return <Gallery setPage={setPageNum} />;
     }
   }
 
   return (
     <Fragment>
-      { getPageContent(page) }
+      {/* { getPageContent(page) } */}
     </Fragment>
   )
 }

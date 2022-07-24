@@ -1,4 +1,5 @@
 import { Box } from "@mui/material"
+import { ChartSection } from "../Workstation/ChartSection"
 
 /**ResultSideBar Wrapper
  * The ResultSideBar section acts as a wrapper for ChartSection and RuleSection.
@@ -9,9 +10,9 @@ export const ResultSideBar = () => {
     <Box sx={{
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
+      width: "100%",
     }}>
-      
+      <ChartSection />
     </Box>
   )
 }

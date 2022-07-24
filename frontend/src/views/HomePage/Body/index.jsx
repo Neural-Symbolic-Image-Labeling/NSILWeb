@@ -1,3 +1,4 @@
+import { Box } from "@mui/material"
 import { ResultSideBar } from "./ReusltSideBar"
 import { Workstation } from "./Workstation"
 
@@ -11,7 +12,9 @@ export const Body = () => {
     <Box sx={{
       display: "flex",
       flexDirection: "row",
-
+      height: "100vh",
+      maxHeight: "100vh",
+      padding: "14px",
     }}>
       <Box sx={{
         width: "70vw",

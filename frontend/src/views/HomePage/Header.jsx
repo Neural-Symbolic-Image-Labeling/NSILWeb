@@ -1,11 +1,10 @@
-import { AppBar, Toolbar } from "@mui/material";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { AppBar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, List, TextField, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { SmartToy } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loadWorkspace } from "../../stores/workspace";
+import { fetchWorkspace, loadWorkspace } from "../../stores/workspace";
 import { useState } from "react";
 
 const navigations = [
@@ -16,55 +15,63 @@ const navigations = [
 
 export const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
 
-  <Fragment>
-    <LoadWorkspaceModal openModal={openModal} setOpenModal={setOpenModal} />
-    <AppBar position="static" elevation={0}
-      sx={{
-        color: 'black',
-        bgcolor: "rgba(90, 106, 191, 1)"
-      }}
-    >
-      <Toolbar>
-        <SmartToy />
-        <Box sx={{ flexBasis: "50%", display: "flex", alignItems: 'center' }}>
-          <Typography
-            variant="h6"
-            sx={{ marginLeft: "10px" }}
-          >
-            Neural-Symbolic Image Labeling
-          </Typography>
-        </Box>
-        <Box sx={{ flexBasis: "50%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-          <Button
-            variant="outlined"
-            sx={{
-              borderColor: "white",
-              mr: "10px",
-              color: "white",
-              "&:hover": {
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-              },
-            }}
-            onClick={() => setOpenModal(true)}
-          >
-            Login
-          </Button>
-          {navigations.map((link, index) => (
-            <Button
-              key={index}
-              onClick={() => navigate(link.link)}
-              variant="text"
-              sx={{ color: "black" }}
+  useEffect(() => { 
+    dispatch(fetchWorkspace());
+  });
+
+  return (
+    <Fragment>
+      <LoadWorkspaceModal openModal={openModal} setOpenModal={setOpenModal} />
+      <AppBar position="static" elevation={0}
+        sx={{
+          color: 'white',
+          bgcolor: "rgba(90, 106, 191, 1)"
+        }}
+      >
+        <Toolbar>
+          <SmartToy />
+          <Box sx={{ flexBasis: "50%", display: "flex", alignItems: 'center' }}>
+            <Typography
+              variant="h6"
+              sx={{ marginLeft: "10px" }}
             >
-              {link.title}
+              Neural-Symbolic Image Labeling
+            </Typography>
+          </Box>
+          <Box sx={{ flexBasis: "50%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+            <Button
+              variant="outlined"
+              sx={{
+                borderColor: "white",
+                mr: "10px",
+                color: "white",
+                "&:hover": {
+                  borderColor: "white",
+                  backgroundColor: "rgba(255, 255, 255, 0.2)",
+                },
+              }}
+              onClick={() => setOpenModal(true)}
+            >
+              Login
             </Button>
-          ))}
-        </Box>
-      </Toolbar>
-    </AppBar>
-  </Fragment>
+            {navigations.map((link, index) => (
+              <Button
+                key={index}
+                onClick={() => navigate(link.link)}
+                variant="text"
+                sx={{ color: "white" }}
+              >
+                {link.title}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </Fragment>
+  )
 }
 
 const LoadWorkspaceModal = ({ openModal, setOpenModal }) => {

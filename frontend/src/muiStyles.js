@@ -10,18 +10,26 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: "rgba(4, 18, 141, 1)",
+    },
+    purple: {
+      dark: "rgba(4, 18, 141, 1)",
+      light: "rgba(90, 106, 191, 1)",
+    },
+    bg: {
+      main: "rgba(1, 36, 88, 0.08)",
+      canvas: "rgba(219, 227, 240, 0.72)"
     }
   },
   typography: {
     fontFamily: [
-      'Inter',
+      'Helvetica',
     ]
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
         '@font-face': {
-          'font-family': 'Inter',
+          'font-family': 'Helvetica',
           'font-style': 'normal'
         },
       }
