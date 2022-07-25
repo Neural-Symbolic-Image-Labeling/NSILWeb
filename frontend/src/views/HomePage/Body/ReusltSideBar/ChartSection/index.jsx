@@ -35,11 +35,12 @@ export const ChartSection = () => {
     cutout: 50,
     plugins: {
       legend: {
-        display: false,
+        display: true,
         position: "right",
         labels: {
           boxWidth: 10,
           boxHeight: 10,
+          padding: 40,
         }
       },
       tooltip: {
@@ -73,7 +74,7 @@ export const ChartSection = () => {
     }}>
       <Typography variant="h5" gutterBottom color="purple.dark" sx={{
         fontWeight: "bold",
-        fontSize: "16px",
+        fontSize: "18px",
         lineHeight: "19px",
         mt: "16px",
       }}>
@@ -81,7 +82,7 @@ export const ChartSection = () => {
       </Typography>
       {isLoading ? <Intermediate>Loading...</Intermediate> : !workspace ? <Intermediate>No data available</Intermediate> : (
         <Box sx={{
-          width: "170px",
+          width: "290px",
           height: "170px",
           mt: "35px",
           mb: "42px",

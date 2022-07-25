@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material"
-import { colorPicker } from "../../muiStyles"
+import { colorPicker } from "../muiStyles"
 
 /**
  * @param {{label: string; type: "unlabeled" | "auto" | "manual"}} param0 

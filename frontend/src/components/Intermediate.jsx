@@ -1,4 +1,4 @@
-import { PaperFrame } from "../PaperFrame"
+import { PaperFrame } from "./PaperFrame"
 
 export const Intermediate = ({children}) => { 
   return (

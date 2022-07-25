@@ -1,5 +1,5 @@
-import { Box } from "@mui/material"
-import { ChartSection } from "../Workstation/ChartSection"
+import { Box } from "@mui/material";
+import { ChartSection } from "./ChartSection";
 
 /**ResultSideBar Wrapper
  * The ResultSideBar section acts as a wrapper for ChartSection and RuleSection.

@@ -18,6 +18,7 @@ export const Body = () => {
     }}>
       <Box sx={{
         width: "70vw",
+        mr: "12px",
       }}>
         <Workstation />
       </Box>
