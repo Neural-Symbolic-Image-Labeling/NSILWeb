@@ -2,7 +2,7 @@ import { Box, ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Intermediate, LabelItem, PaperFrame, StatusBar } from '../../../../../components';
 import { adjustedScrollbar } from '../../../../../muiStyles';
-import { setCurrentImage } from '../../../../../stores/workstation';
+import { setCurrentImage, setPage } from '../../../../../stores/workstation';
 import { findCollection } from '../../../../../utils/workspace';
 import { TopActionBar } from './TopActionBar';
 

@@ -15,12 +15,7 @@ const navigations = [
 
 export const Header = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
-
-  useEffect(() => { 
-    dispatch(fetchWorkspace());
-  });
 
   return (
     <Fragment>

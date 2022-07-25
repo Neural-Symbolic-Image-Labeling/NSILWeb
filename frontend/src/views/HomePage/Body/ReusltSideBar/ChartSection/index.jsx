@@ -71,6 +71,9 @@ export const ChartSection = () => {
     <PaperFrame col sx={{
       alignItems: "center",
       width: "100%",
+      minHeight: "40vh",
+      overflow: "hidden",
+      height: '1px',
     }}>
       <Typography variant="h5" gutterBottom color="purple.dark" sx={{
         fontWeight: "bold",
