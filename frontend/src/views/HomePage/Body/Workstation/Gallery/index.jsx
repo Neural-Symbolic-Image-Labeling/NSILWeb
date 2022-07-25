@@ -66,7 +66,7 @@ export const Gallery = (setPage) => {
             height: "100%",
             overflowX: "hidden",
             overflowY: "scroll",
-            ...adjustedScrollbar.thin,
+            ...adjustedScrollbar.hidden,
           }}>
             <ImageList
               sx={{

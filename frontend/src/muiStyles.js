@@ -13,7 +13,7 @@ export const adjustedScrollbar = {
       display: 'none'
     },
     // Firefox
-    'scrollbar-width': 'none'
+    'scrollbarWidth': 'none'
   },
   thin: {
     // Chrome
@@ -24,13 +24,13 @@ export const adjustedScrollbar = {
       background: 'transparent',
     },
     '::-webkit-scrollbar-thumb': {
-      'background-color': 'rgba(155, 155, 155, 0.5)',
-      'border-radius': '20px',
+      'backgroundColor': 'rgba(155, 155, 155, 0.5)',
+      'borderRadius': '20px',
       'border': 'transparent',
     },
     // Firefox
-    'scrollbar-width': 'thin',
-    'scrollbar-color': 'rgba(155, 155, 155, 0.5) transparent',
+    'scrollbarWidth': 'thin',
+    'scrollbarColor': 'rgba(155, 155, 155, 0.5) transparent',
   }
 };
 
@@ -66,7 +66,7 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          'box-shadow': 'none',
+          'boxShadow': 'none',
         }
       }
     },
