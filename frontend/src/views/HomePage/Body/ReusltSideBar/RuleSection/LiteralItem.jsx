@@ -51,8 +51,10 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
 
   const handleValueChange = (e) => {
     setValue(e.target.value);
-    rules[indexR].clauses[indexC].literals[indexL].naturalValue = e.target.value;
-    setRules(rules);
+    let temp = JSON.parse(JSON.stringify(rules));
+    console.log(`(${indexR}, ${indexC}, ${indexL})original: ${temp[indexR].clauses[indexC].literals[indexL].naturalValue}; new: ${e.target.value}`);
+    temp[indexR].clauses[indexC].literals[indexL].naturalValue = e.target.value;
+    setRules(temp);
   }
 
   const handleClickAway = () => { 

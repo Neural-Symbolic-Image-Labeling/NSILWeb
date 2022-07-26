@@ -87,7 +87,7 @@ export const RuleSection = () => {
         // pr: '9px',
         ...adjustedScrollbar.thin
       }}>
-        {isLoading ? <Intermediate>Loading...</Intermediate> : !rules ? <Intermediate>No data available</Intermediate> : (
+        {isLoading ? <Intermediate>Loading...</Intermediate> : !rules ? <Intermediate>No Data</Intermediate> : (
           <Fragment>
             {rules.map((rule, index) => (
               <RuleItem key={index} rule={rule} indexR={index} setRules={setRules} rules={rules} />

@@ -71,26 +71,43 @@ export const ChartSection = () => {
     <PaperFrame col sx={{
       alignItems: "center",
       width: "100%",
-      minHeight: "40vh",
+      minHeight: "35vh",
       overflow: "hidden",
       height: '1px',
     }}>
-      <Typography variant="h5" gutterBottom color="purple.dark" sx={{
-        fontWeight: "bold",
-        fontSize: "18px",
-        lineHeight: "19px",
-        mt: "16px",
+      <Box sx={{
+        display: "flex",
+        width: "100%",
+        boxSizing: "border-box",
+        justifyContent: "flex-start",
+        pt: "16px",
+        pl: '25px',
       }}>
-        Labeling Results
-      </Typography>
-      {isLoading ? <Intermediate>Loading...</Intermediate> : !workspace ? <Intermediate>No data available</Intermediate> : (
-        <Box sx={{
-          width: "290px",
-          height: "170px",
-          mt: "35px",
-          mb: "42px",
+        <Typography variant="h5" gutterBottom color="purple.dark" sx={{
+          fontWeight: "bold",
+          fontSize: "18px",
+          lineHeight: "19px",
         }}>
-          <Doughnut data={DoughnutData} options={DoughnutOptions} />
+          Labeling Results
+        </Typography>
+      </Box>
+      {isLoading ? <Intermediate>Loading...</Intermediate> : !workspace ? <Intermediate>No Data</Intermediate> : (
+        <Box sx={{
+          display: "flex",
+          width: "100%",
+          height: "100%",
+          boxSizing: "border-box",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+          <Box sx={{
+            width: "290px",
+            height: "170px",
+            // mt: "35px",
+            // mb: "42px",
+          }}>
+            <Doughnut data={DoughnutData} options={DoughnutOptions} />
+          </Box>
         </Box>
       )}
     </PaperFrame>

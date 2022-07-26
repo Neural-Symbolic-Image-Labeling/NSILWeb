@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { ClauseItem } from "./ClauseItem";
 
 export const RuleItem = ({ rule, indexR, setRules, rules }) => {
-  const handleAddClause = () => { 
+  const handleAddClause = () => {
     let temp = JSON.parse(JSON.stringify(rules));
     temp[indexR].clauses.push({
       literals: [{
@@ -46,20 +46,24 @@ export const RuleItem = ({ rule, indexR, setRules, rules }) => {
         </Typography>
       </Box>
 
-      {rule.clauses.filter(c => !c.deleted).map((clause, index) => (
+      {rule.clauses.map((clause, index) => (
         <Box key={index}>
-          {index !== 0 && (
-            <Typography sx={{
-              fontWeight: "700",
-              fontSize: "22px",
-              lineHeight: "36px",
-              mt: "6px",
-              mb: "6px",
-            }}>
-              OR
-            </Typography>
+          {clause.deleted ? null : (
+            <Fragment>
+              {rule.clauses.findIndex(c => !c.deleted) !== index && (
+                <Typography sx={{
+                  fontWeight: "700",
+                  fontSize: "22px",
+                  lineHeight: "36px",
+                  mt: "6px",
+                  mb: "6px",
+                }}>
+                  OR
+                </Typography>
+              )}
+              <ClauseItem clause={clause} indexR={indexR} indexC={index} setRules={setRules} rules={rules} />
+            </Fragment>
           )}
-          <ClauseItem clause={clause} indexR={indexR} indexC={index} setRules={setRules} rules={rules} />
         </Box>
       ))}
       <Box sx={{

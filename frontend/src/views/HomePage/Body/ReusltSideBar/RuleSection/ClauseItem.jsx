@@ -37,7 +37,7 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
     }
   ]
 
-  const handleAddLiteral = () => { 
+  const handleAddLiteral = () => {
     let temp = JSON.parse(JSON.stringify(rules));
     temp[indexR].clauses[indexC].literals.push({
       literal: "",
@@ -56,7 +56,7 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
     setShowMenu(true);
   }
 
-  const getBorderStyle = () => { 
+  const getBorderStyle = () => {
     if (clause.locked) {
       return "3px solid rgba(11, 164, 54, 0.84)";
     }
@@ -89,23 +89,27 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
           p: '11px 9px 11px 9px',
         }}
       >
-        {clause.literals.filter(l => !l.deleted).map((literal, index) => (
+        {clause.literals.map((literal, index) => (
           <Fragment key={index}>
-            {index !== 0 && (
-              <Typography sx={{
-                fontWeight: "700",
-                fontSize: "17px",
-                lineHeight: "26px",
-                letterSpacing: "0.15px",
-                color: "purple.dark",
-                ml: "5px",
-                mr: "5px",
-              }}>
-                AND
-              </Typography>
+            {literal.deleted ? null : (
+              <Fragment>
+                {clause.literals.findIndex(l => !l.deleted) !== index && (
+                  <Typography sx={{
+                    fontWeight: "700",
+                    fontSize: "17px",
+                    lineHeight: "26px",
+                    letterSpacing: "0.15px",
+                    color: "purple.dark",
+                    ml: "5px",
+                    mr: "5px",
+                  }}>
+                    AND
+                  </Typography>
+                )}
+                {/* {`deleted: ${literal.deleted} | locked: ${literal.locked}`} */}
+                <LiteralItem literal={literal} indexR={indexR} indexC={indexC} indexL={index} setRules={setRules} rules={rules} />
+              </Fragment>
             )}
-            {/* {`deleted: ${literal.deleted} | locked: ${literal.locked}`} */}
-            <LiteralItem literal={literal} indexR={indexR} indexC={indexC} indexL={index} setRules={setRules} rules={rules} />
           </Fragment>
         ))}
         <Box sx={{
