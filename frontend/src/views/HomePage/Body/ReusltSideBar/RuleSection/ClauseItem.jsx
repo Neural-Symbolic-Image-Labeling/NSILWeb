@@ -68,9 +68,9 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
 
   return (
     <Fragment>
-      <Box>
+      {/* <Box>
         {clause.literals.reduce((pre, curr) => curr.deleted && pre, true) ? '1': '0'}
-      </Box>
+      </Box> */}
       <RuleMenu showMenu={showMenu} setShowMenu={setShowMenu} x={coord.xPos} y={coord.yPos} menuItems={clauseMenuItems}>
         lol1
       </RuleMenu>

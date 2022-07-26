@@ -16,7 +16,7 @@ const matchLabel = (labels, filterStr) => {
   return false;
 }
 
-export const Gallery = (setPage) => {
+export const Gallery = ({ setPage }) => {
   const dispatch = useDispatch();
   const workspace = useSelector(state => state.workspace.workspace);
   const currCollectionId = useSelector(state => state.workspace.currCollectionId);
