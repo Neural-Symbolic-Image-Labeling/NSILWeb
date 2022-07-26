@@ -3,7 +3,7 @@ const { ErrorResponse } = require('../../models/ErrorResponse');
 const { ImageSet } = require('../../models/Image');
 const { Workspace } = require('../../models/Workspace');
 const { authWorkspace } = require('../../utils');
-const { createWorkspace, collectionBuilder, requestFoil } = require('./manager');
+const { createWorkspace, collectionBuilder, requestLabel } = require('./manager');
 
 const getPath = (path) => `/workspace${path}`;
 
@@ -57,12 +57,12 @@ router.post(getPath('/collection'), async (req, res) => {
   res.status(400).json(new ErrorResponse(2, "request body is required"));
 });
 
-router.post(getPath('/autolabel'), async (req, res) => {
+router.post(getPath('/label'), async (req, res) => {
   if (req.body) {
     /**@type {import('./request').AutoLabelRequest} */
     const reqBody = req.body;
     try {
-      const result = await requestFoil(reqBody.workspaceId, reqBody.collectionId);
+      const result = await requestLabel(reqBody.workspaceId, reqBody.collectionId, reqBody.task);
       res.status(200).json(result);
       return;
     } catch (err) {
@@ -108,7 +108,7 @@ router.post(getPath('/savelabelstatus'), authWorkspace, async (req, res) => {
   }
 });
 
-router.post(getPath('/updaterule'), authWorkspace, async (req, res) => { 
+router.post(getPath('/updaterules'), authWorkspace, async (req, res) => { 
   if (req.body) { 
     /**@type {import('./request').UpdateRuleRequest} */
     const reqBody = req.body;
@@ -117,7 +117,7 @@ router.post(getPath('/updaterule'), authWorkspace, async (req, res) => {
       res.status(404).json(new ErrorResponse(0, "Collection not found"));
       return;
     }
-    collection.rules[reqBody.ruleIndex] = reqBody.rule;
+    collection.rules = reqBody.rules;
     try {
       await req.workspace.save();
       res.status(200).json({ message: "success" });

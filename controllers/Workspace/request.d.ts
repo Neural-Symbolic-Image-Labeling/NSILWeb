@@ -19,10 +19,9 @@ export interface SaveLabelStatusRequest {
     labelData: any;
 }
 
-export interface UpdateRuleRequest { 
+export interface UpdateRulesRequest { 
     collectionId: string;
-    ruleIndex: number;
-    rule: any;
+    rules: any;
 }
 
 export interface UpdateLabelsRequest { 

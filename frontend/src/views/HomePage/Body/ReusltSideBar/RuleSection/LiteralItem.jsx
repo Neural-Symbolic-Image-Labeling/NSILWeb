@@ -55,13 +55,21 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
     setRules(rules);
   }
 
+  const handleClickAway = () => { 
+    // generate literal from natural value
+
+    // close menu
+    setEditing(false)
+  }
+
   return (
     <Fragment>
       <RuleMenu showMenu={showMenu} setShowMenu={setShowMenu} x={coord.xPos} y={coord.yPos} menuItems={literalMenuItems}>
         lol2
       </RuleMenu>
+      {/* {`${indexR}, ${indexC}, ${indexL}`} */}
       {editing ? (
-        <ClickAwayListener onClickAway={() => setEditing(false)}>
+        <ClickAwayListener onClickAway={handleClickAway}>
           <Box
             component='textarea'
             value={value}

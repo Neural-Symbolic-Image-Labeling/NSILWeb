@@ -56,7 +56,7 @@ export const TopActionBar = () => {
         {/* Left Button */}
         <Button
           variant="contained"
-          disabled={loadSets}
+          disabled={loadSets || !workspace}
           onClick={() => setOpenModal(true)}
           size="medium"
           sx={{
@@ -104,7 +104,7 @@ export const TopActionBar = () => {
           variant="contained"
           size="medium"
           onClick={() => handleAutoLabel()}
-          disabled={autoLabelButtonDisabled}
+          disabled={autoLabelButtonDisabled || !workspace}
           sx={{
             bgcolor: 'purple.dark',
             color: 'white',

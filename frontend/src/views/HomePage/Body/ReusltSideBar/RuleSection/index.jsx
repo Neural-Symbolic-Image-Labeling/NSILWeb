@@ -1,21 +1,37 @@
 import { Box, Button, Typography } from "@mui/material"
 import { useEffect } from "react";
 import { Fragment, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { requestAutoLabel, requestTrailLabel, updateRules } from "../../../../../apis/workspace";
 import { Intermediate } from "../../../../../components/Intermediate";
 import { PaperFrame } from "../../../../../components/PaperFrame"
 import { adjustedScrollbar } from "../../../../../muiStyles"
+import { loadWorkspace } from "../../../../../stores/workspace";
 import { findCollection } from "../../../../../utils/workspace";
 import { RuleItem } from "./RuleItem";
 
 export const RuleSection = () => {
+  const dispatch = useDispatch();
   const workspace = useSelector(state => state.workspace.workspace);
   const isLoading = useSelector(state => state.workspace.loading);
   const currCollectionId = useSelector(state => state.workspace.currCollectionId);
   const currCollection = findCollection(workspace, currCollectionId);
   const [rules, setRules] = useState(null);
 
-  useEffect(() => { 
+  const handlePreview = () => {
+    updateRules(currCollectionId, rules)
+      .then(() => {
+        requestTrailLabel(currCollectionId)
+          .then(() => {
+            dispatch(loadWorkspace(workspace.name));
+          }).catch(err => { console.log(err) });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
     if (workspace && currCollection) {
       setRules(JSON.parse(JSON.stringify(currCollection.rules)));
     }
@@ -46,11 +62,17 @@ export const RuleSection = () => {
           Labeling Rules
         </Typography>
 
-        <Button size="medium" variant="contained" sx={{
-          bgColor: "purple.dark",
-          color: "white",
-          ml: "auto",
-        }}>
+        <Button
+          size="medium"
+          variant="contained"
+          sx={{
+            bgColor: "purple.dark",
+            color: "white",
+            ml: "auto",
+          }}
+          onClick={() => handlePreview()}
+          disabled={isLoading || !rules}
+        >
           Preview
         </Button>
       </Box>

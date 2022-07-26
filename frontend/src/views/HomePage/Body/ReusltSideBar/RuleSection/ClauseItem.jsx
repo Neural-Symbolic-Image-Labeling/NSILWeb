@@ -8,7 +8,6 @@ import { RuleMenu } from "./RuleMenu";
 export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [coord, setCoord] = useState({ xPos: 0, yPos: 0 });
-
   const clauseMenuItems = [
     {
       name: "Delete",
@@ -38,6 +37,18 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
     }
   ]
 
+  const handleAddLiteral = () => { 
+    let temp = JSON.parse(JSON.stringify(rules));
+    temp[indexR].clauses[indexC].literals.push({
+      literal: "",
+      naturalValue: "New Literal",
+      deleted: false,
+      locked: false
+    });
+    // alert(`${indexR}, ${indexC}, ${JSON.stringify(temp[indexR].clauses[indexC].literals)}`);
+    setRules(temp);
+  }
+
   const handleContextMenu = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -45,8 +56,21 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
     setShowMenu(true);
   }
 
+  const getBorderStyle = () => { 
+    if (clause.locked) {
+      return "3px solid rgba(11, 164, 54, 0.84)";
+    }
+    else if (clause.literals.reduce((pre, curr) => curr.deleted && pre, true)) {
+      return "3px solid rgba(255, 37, 23, 0.7)";
+    }
+    return "0";
+  }
+
   return (
     <Fragment>
+      <Box>
+        {clause.literals.reduce((pre, curr) => curr.deleted && pre, true) ? '1': '0'}
+      </Box>
       <RuleMenu showMenu={showMenu} setShowMenu={setShowMenu} x={coord.xPos} y={coord.yPos} menuItems={clauseMenuItems}>
         lol1
       </RuleMenu>
@@ -55,10 +79,11 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
         sx={{
           display: "flex",
           borderRadius: "5px",
+          alignItems: "center",
           flexWrap: "wrap",
           boxSizing: "border-box",
           maxWidth: "100%",
-          border: clause.locked ? "3px solid rgba(11, 164, 54, 0.84)" : "0",
+          border: getBorderStyle(),
           // clause section indicator
           backgroundColor: "rgba(229, 235, 244, 1)",
           p: '11px 9px 11px 9px',
@@ -80,7 +105,7 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
               </Typography>
             )}
             {/* {`deleted: ${literal.deleted} | locked: ${literal.locked}`} */}
-            <LiteralItem literal={literal} indexR={indexR} indexC={index} indexL={index} setRules={setRules} rules={rules} />
+            <LiteralItem literal={literal} indexR={indexR} indexC={indexC} indexL={index} setRules={setRules} rules={rules} />
           </Fragment>
         ))}
         <Box sx={{
@@ -90,7 +115,7 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
           // width: "100%",
           ml: "5px",
         }}>
-          <IconButton onClick={() => alert("Not implemented yet!")}>
+          <IconButton onClick={() => handleAddLiteral()}>
             <ControlPoint sx={{ color: 'purple.dark' }} />
           </IconButton>
         </Box>
