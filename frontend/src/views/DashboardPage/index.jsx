@@ -26,7 +26,7 @@ const readerProcess = (file) => {
 
 export const DashboardPage = () => {
   const dispatch = useDispatch();
-  const authed = useSelector(state => state.gallery.authed);
+  const authed = useSelector(state => state.workspace.authed);
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [openNotifyModal, setOpenNotifyModal] = useState(false);
   const [imageSetNameList, setImageSetNameList] = useState([]);
