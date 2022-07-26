@@ -34,6 +34,8 @@ export interface ILiteralSchema {
 
 export interface IClauseSchema { 
     literals: ILiteralSchema[];
+    locked: boolean;
+    deleted: boolean;
 }
 
 export interface IStatisticsSchema { 
@@ -46,6 +48,8 @@ export interface IStatisticsSchema {
 export interface IRuleSchema { 
     name: string;
     clauses: IClauseSchema[];
+    locked: boolean;
+    deleted: boolean;
 }
 
 export interface IImageCollectionSchema { 

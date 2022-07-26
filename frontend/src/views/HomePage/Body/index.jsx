@@ -24,6 +24,8 @@ export const Body = () => {
       </Box>
       <Box sx={{
         width: "30vw",
+        boxSizing: "border-box",
+        overflow: "hidden",
       }}>
         <ResultSideBar />
       </Box>

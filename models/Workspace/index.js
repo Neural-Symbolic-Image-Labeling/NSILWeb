@@ -93,6 +93,14 @@ const ClauseSchema = new mongoose.Schema({
   literals: {
     type: [LiteralSchema],
     default: [],
+  },
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
+  locked: {
+    type: Boolean,
+    default: false,
   }
 });
 
@@ -104,6 +112,14 @@ const RuleSchema = new mongoose.Schema({
   clauses: {
     type: [ClauseSchema], // array of clauses
     default: []
+  },
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
+  locked: {
+    type: Boolean,
+    default: false,
   }
 });
 

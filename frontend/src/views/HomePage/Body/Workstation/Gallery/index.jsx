@@ -85,7 +85,7 @@ export const Gallery = (setPage) => {
                     minHeight: '220px',
                   }}
                   onClick={() => {
-                    dispatch(setPage(1));
+                    setPage(1);
                     dispatch(setCurrentImage(index));
                   }}
                 >
