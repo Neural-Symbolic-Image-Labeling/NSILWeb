@@ -27,7 +27,12 @@ const collectionBuilder = (imgSetDoc) => {
       autoLabeled: 0,
     },
     images: images,
-    rules: []
+    rules: [],
+    objectList: [],
+    restrictions: {
+      deleted: null,
+      locked: null,
+    }
   };
   return collection;
 }
