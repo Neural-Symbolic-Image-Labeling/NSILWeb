@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPage } from "../../../../stores/workstation";
 import { Gallery } from "./Gallery";
+import { Annotation } from "./Annotation";
 
 /**Workstation Wrapper
  * The Workstation section controls the rendering of gallery or annotation page.
@@ -17,7 +18,7 @@ export const Workstation = () => {
   const getPageContent = (pageNum) => { 
     switch (pageNum) { 
       case 1:
-        // return <Annotation setPage={setPageNum} />;
+        return <Annotation setPage={setPageNum} />;
       default:
         return <Gallery setPage={setPageNum} />;
     }
