@@ -40,7 +40,7 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
   const handleAddLiteral = () => {
     let temp = JSON.parse(JSON.stringify(rules));
     temp[indexR].clauses[indexC].literals.push({
-      literal: "",
+      literal: null,
       naturalValue: "New Literal",
       deleted: false,
       locked: false

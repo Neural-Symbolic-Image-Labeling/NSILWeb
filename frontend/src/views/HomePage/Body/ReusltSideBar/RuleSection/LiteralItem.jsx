@@ -1,14 +1,21 @@
 import { Delete, Lock } from "@mui/icons-material";
 import { Box, ClickAwayListener, Typography } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { ContextMenu } from "../../../../../components";
+import { findCollection } from "../../../../../utils/workspace";
+import { parseLiteral } from "./literalParser";
 import { RuleMenu } from "./RuleMenu";
 
 export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }) => {
+  const workspace = useSelector(state => state.workspace.workspace);
+  const currCollectionId = useSelector(state => state.workspace.currCollectionId);
+  const currCollection = findCollection(workspace, currCollectionId);
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(literal.naturalValue);
   const [showMenu, setShowMenu] = useState(false);
   const [coord, setCoord] = useState({ xPos: 0, yPos: 0 });
+  const [parsing, setParsing] = useState(false);
   const literalMenuItems = [
     {
       name: "Delete",
@@ -58,10 +65,19 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
   }
 
   const handleClickAway = () => { 
-    // generate literal from natural value
-
+    setParsing(true);
     // close menu
-    setEditing(false)
+    setEditing(false);
+    // generate literal from natural value
+    let newClause = parseLiteral(literal.naturalValue,
+      currCollection.objectList,
+      JSON.parse(JSON.stringify(rules[indexR].clauses[indexC])),
+      indexL);
+    // update clause
+    let temp = JSON.parse(JSON.stringify(rules));
+    temp[indexR].clauses[indexC] = newClause;
+    setRules(temp);
+    setParsing(false);
   }
 
   return (
@@ -81,14 +97,14 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
       ) : (
 
         <Box sx={{boxSizing: "border-box", maxWidth: "100%",}} onDoubleClick={() => setEditing(true)} onContextMenu={handleContextMenu} >
-          <LiteralChip literal={literal} />
+            <LiteralChip literal={literal} isParsing={parsing} />
         </Box>
       )}
     </Fragment>
   )
 }
 
-const LiteralChip = ({ literal }) => {
+const LiteralChip = ({ literal, isParsing }) => {
 
   return (
     <Box sx={{
@@ -99,9 +115,10 @@ const LiteralChip = ({ literal }) => {
       backgroundColor: "white",
       maxWidth: "100%",
       overflow: "hidden",
-      border: `3px solid ${literal.locked ? 'rgba(11, 164, 54, 0.84)' : 'rgba(229, 235, 244, 1)'}`,
+      border: `3px solid ${literal.literal === null ? "rgba(255, 37, 23, 0.7)" : literal.locked ? 'rgba(11, 164, 54, 0.84)' : 'rgba(229, 235, 244, 1)'}`,
       p: '5px 16px 5px 16px',
     }}>
+      
       <Typography sx={{
         maxWidth: "100%",
         overflow: "hidden",
@@ -109,7 +126,7 @@ const LiteralChip = ({ literal }) => {
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",
       }}>
-        {literal.naturalValue}
+        {isParsing ? "Parsing...": literal.naturalValue}
       </Typography>
     </Box>
   )
