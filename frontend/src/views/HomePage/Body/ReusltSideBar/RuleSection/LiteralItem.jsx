@@ -74,9 +74,11 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
       JSON.parse(JSON.stringify(rules[indexR].clauses[indexC])),
       indexL);
     // update clause
-    let temp = JSON.parse(JSON.stringify(rules));
-    temp[indexR].clauses[indexC] = newClause;
-    setRules(temp);
+    if (newClause) {      
+      let temp = JSON.parse(JSON.stringify(rules));
+      temp[indexR].clauses[indexC] = newClause;
+      setRules(temp);
+    }
     setParsing(false);
   }
 
