@@ -52,27 +52,13 @@ export const workspcaeSlice = createSlice({
     setLoading: (state, action) => { 
       state.loading = action.payload;
     },
-    labelImage: (state, action) => {
-      const { imageId, labels } = action.payload;
+    setImageMetaData: (state, action) => {
+      const { indexI, data } = action.payload;
       // find collection
       const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
-      // find image
-      const image = collection.images.find((image) => image.imageId.toString() === imageId.toString());
-      if (image) {
-        // auto labelled before
-        if (image.labels.length > 0 && !image.manual) {
-          collection.statistics.autoLabeled--;
-        }
-        image.labels = labels;
-        // when it is the first time being labeled manually.
-        if (!image.manual) {
-          image.manual = true; 
-          collection.statistics.manual++;
-          collection.statistics.userChecked++;
-          collection.statistics.unlabeled--;
-        }
-      }
-    }
+      // update image
+      collection.images[indexI] = data;
+    },
   },
   extraReducers: (builder) => {
     // #region fetchWorkspace
@@ -119,6 +105,6 @@ export const {
   setCurrCollectionId,
   setAuthed,
   setFilter,
-  labelImage
+  setImageMetaData
 } = workspcaeSlice.actions;
 export default workspcaeSlice.reducer;
