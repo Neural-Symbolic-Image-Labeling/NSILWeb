@@ -123,6 +123,15 @@ const RuleSchema = new mongoose.Schema({
   }
 });
 
+const RestrictionSchema = new mongoose.Schema({
+  deleted: {
+    type: mongoose.Schema.Types.Mixed,
+  },
+  locked: {
+    type: mongoose.Schema.Types.Mixed,
+  }
+}, { _id: false });
+
 const ImageCollectionSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -136,7 +145,10 @@ const ImageCollectionSchema = new mongoose.Schema({
   images: [ImageMetaDataSchema],
   statistics: StatisticsSchema,
   rules: [RuleSchema],
-  externalRules: [RuleSchema],
+  objectList: [String],
+  restrictions: {
+    type: RestrictionSchema
+  }
 });
 
 const WorkspaceSchema = new mongoose.Schema({
@@ -158,5 +170,6 @@ module.exports = {
   ImageMetaDataSchema,
   LiteralSchema,
   ClauseSchema,
+  RestrictionSchema,
   StatisticsSchema,
 }

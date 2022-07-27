@@ -52,12 +52,19 @@ export interface IRuleSchema {
     deleted: boolean;
 }
 
+export interface IRestrictionSchema { 
+    deleted: any;
+    locked: any;
+}
+
 export interface IImageCollectionSchema { 
     name: string;
     method: "Classification" | "Segmentation";
     images: IImageMetaDataSchema[];
     statistics: IStatisticsSchema;
     rules: IRuleSchema[];
+    restrictions: IRestrictionSchema;
+    objectList: string[];
 }
 
 export interface IWorkspaceSchema { 
@@ -73,5 +80,6 @@ export declare const StatisticsSchema: Schema<IStatisticsSchema>;
 export declare const ImageCollectionSchema: Schema<IImageCollectionSchema>;
 export declare const WorkspaceSchema: Schema<IWorkspaceSchema>;
 export declare const RuleSchema: Schema<IRuleSchema>;
+export declare const RestrictionSchema: Schema<IRestrictionSchema>;
 
 export declare const Workspace: Model<IWorkspaceSchema & Document>;
