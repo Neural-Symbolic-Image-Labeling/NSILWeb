@@ -21,7 +21,7 @@ export const RuleSection = () => {
   const handlePreview = () => {
     updateRules(currCollectionId, rules)
       .then(() => {
-        requestTrailLabel(currCollectionId)
+        requestTrailLabel(workspace._id, currCollectionId)
           .then(() => {
             dispatch(loadWorkspace(workspace.name));
           }).catch(err => { console.log(err) });
