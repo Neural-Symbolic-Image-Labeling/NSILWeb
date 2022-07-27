@@ -5,6 +5,7 @@ export const WorkstationSlice = createSlice({
   initialState: {
     page: 0, // switch between gallery and annoatation canvas
     currentImage : 0,
+    currentTool: "null"
   },
   reducers: {
     setPage: (state, action) => { 
@@ -12,6 +13,9 @@ export const WorkstationSlice = createSlice({
     },
     setCurrentImage: (state, action) => { 
       state.currentImage= action.payload;
+    },
+    setCurrentTool:(state, action) => {
+      state.currentTool= action.payload;
     }
   }
 });
@@ -19,6 +23,7 @@ export const WorkstationSlice = createSlice({
 export const {
   setPage,
   setCurrentImage,
+  setCurrentTool
 } = WorkstationSlice.actions;
 
 export default WorkstationSlice.reducer; 
