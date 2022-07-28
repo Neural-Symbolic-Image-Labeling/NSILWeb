@@ -3,9 +3,9 @@ import { Box, Typography, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { Canvas } from "./Canvas/Canvas";
 import { Toolbar } from "./Toolbar";
+import { Carousel } from "./Carousel";
 
 export const Annotation = (setPage) => {
-
   return (
     <Box
       sx={{
@@ -19,37 +19,43 @@ export const Annotation = (setPage) => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          height: "74%",
+          height: "75%",
           width: "100%",
         }}
       >
         <Box
           sx={{
-            width: "5vw",
+            width: "5%",
             mr: "12px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
-          <Toolbar/>
+          <Toolbar />
         </Box>
 
-        <PaperFrame
+        <Box
           sx={{
-            width: "90vw",
+            width: "95%",
             mr: "12px",
-            height: "92%",
-            p: "15px 0 15px 0",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
           <Canvas />
-        </PaperFrame>
-
         </Box>
+      </Box>
+
+      <Box
+        sx={{
+          height: "25%",
+          width: "100%",
+        }}
+      >
+        <Carousel />
+      </Box>
     </Box>
   );
 };

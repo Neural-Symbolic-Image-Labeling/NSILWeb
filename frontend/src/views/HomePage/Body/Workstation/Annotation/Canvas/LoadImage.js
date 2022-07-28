@@ -1,36 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Image } from "react-konva";
-import Konva from 'konva';
+import useImage from 'use-image';
 
 const LoadImage = ({
   imageUrl,
-  imageWidth,
-  imageHeight,
-  onMouseDown,
-  onMouseUp,
-  onMouseMove,
+  onMouseDown
 }) => {
-  const [image, setImage] = useState(null);
-  useEffect(() => {
-    const imageToLoad = new window.Image();
-    imageToLoad.src = imageUrl;
-    imageToLoad.addEventListener("load", () => {
-      setImage(imageToLoad);
-    });
-
-    return () => imageToLoad.removeEventListener("load");
-  }, [imageUrl, setImage]);
-
-  return (
-    <Image
-      image={image}
-      onMouseDown={onMouseDown}
-      onMouseMove={onMouseMove}
-      onMouseUp={onMouseUp}
-      width = {imageWidth}
-      height = {imageHeight}
-    />
-  );
+  const [image] = useImage(imageUrl);
+  return <Image image={image}  onMouseDown={onMouseDown} />;
 };
+
 
 export default LoadImage;

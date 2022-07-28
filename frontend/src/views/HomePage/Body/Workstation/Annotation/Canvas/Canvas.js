@@ -1,23 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Stage, Layer, Line, Label, Tag, Text } from "react-konva";
-import { useSelector } from "react-redux";
 import { v1 as uuid } from "uuid";
 import BoundingBox from "./BoudingBox";
 import LoadImage from "./LoadImage";
 import Polygon from "./Polygon";
+import { findCollection } from "../../../../../../utils/workspace";
+import { PaperFrame } from "../../../../../../components";
+import { Box} from "@mui/material";
+import TextField from '@mui/material/TextField';
+import {setCurrentLabels} from "../../../../../../stores/workstation";
 
 export const Canvas = () => {
+  const dispatch = useDispatch();
+  const currentImage = useSelector((state) => state.workstation.currentImage);
+  const workspace = useSelector((state) => state.workspace.workspace);
+  const currCollectionId = useSelector(
+    (state) => state.workspace.currCollectionId
+  );
+  const currCollection = findCollection(workspace, currCollectionId);
+  const imageSet = currCollection ? currCollection.images : null;
+  const currentLabels = useSelector((state) => state.workstation.currentLabels);
+
   const [annotations, setAnnotations] = useState([
     {
       x: 10,
       y: 10,
-      width: 100,
-      height: 100,
-      id: uuid(),
-    },
-    {
-      x: 150,
-      y: 150,
       width: 100,
       height: 100,
       id: uuid(),
@@ -171,84 +179,138 @@ export const Canvas = () => {
   const annotationsToDraw = [...annotations, ...newAnnotation];
   return (
     <div tabIndex={1} onKeyDown={handleKeyDown}>
-      <Stage
-        width={600}
-        height={400}
-        onMouseEnter={handleMouseEnter}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
+     <PaperFrame col sx={{
+      alignItems: "center",
+      height: "100%",
+      width: "100%",
+      overflow: "hidden",
+      p: '25px',
+      mt: '13px',
+      boxSizing: "border-box",
+    }}>
+      <Box
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          mb:1,
+          height:"90%",
+          padding:1,
+        }}
       >
-        <Layer>
-          <LoadImage
-            imageUrl="https://drive.google.com/uc?id=1JvoXSE2mbg5LbiAUCoca3nk9Jb2ueI5L"
-            onMouseDown={() => {
-              selectAnnotation(null);
-            }}
-            imageWidth = {600}
-            imageHeight = {400}
-          />
+        {imageSet.map((slide, index) => {
+          return (
+            <div key={index}>
+              {imageSet.indexOf(slide) === currentImage && (
+                <Stage
+                  width={600}
+                  height={400}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                >
+                  <Layer>
+                    <LoadImage
+                      imageUrl={slide.url}
+                      onMouseDown={() => {
+                        selectAnnotation(null);
+                      }}
+                    />
+                    {tool === "boundingbox" &&
+                      annotationsToDraw.map((annotation, i) => {
+                        return (
+                          <BoundingBox
+                            key={i}
+                            shapeProps={annotation}
+                            isSelected={annotation.id === selectedId}
+                            onSelect={() => {
+                              selectAnnotation(annotation.id);
+                            }}
+                            onChange={(newAttrs) => {
+                              const rects = annotations.slice();
+                              rects[i] = newAttrs;
+                              setAnnotations(rects);
+                            }}
+                          />
+                        );
+                      })}
 
-          {tool === "boundingbox" &&
-            annotationsToDraw.map((annotation, i) => {
-              return (
-                <BoundingBox
-                  key={i}
-                  shapeProps={annotation}
-                  isSelected={annotation.id === selectedId}
-                  onSelect={() => {
-                    selectAnnotation(annotation.id);
-                  }}
-                  onChange={(newAttrs) => {
-                    const rects = annotations.slice();
-                    rects[i] = newAttrs;
-                    setAnnotations(rects);
-                  }}
-                />
-              );
-            })}
+                    {tool === "polygon" && (
+                      <Polygon
+                        points={points}
+                        flattenedPoints={flattenedPoints}
+                        handlePointDragMove={handlePointDragMovePoly}
+                        handleGroupDragEnd={handleGroupDragEnd}
+                        handleMouseOverStartPoint={
+                          handleMouseOverStartPointPoly
+                        }
+                        handleMouseOutStartPoint={handleMouseOutStartPointPoly}
+                        isFinished={isPolyComplete}
+                      />
+                    )}
 
-          {tool === "polygon" && (
-            <Polygon
-              points={points}
-              flattenedPoints={flattenedPoints}
-              handlePointDragMove={handlePointDragMovePoly}
-              handleGroupDragEnd={handleGroupDragEnd}
-              handleMouseOverStartPoint={handleMouseOverStartPointPoly}
-              handleMouseOutStartPoint={handleMouseOutStartPointPoly}
-              isFinished={isPolyComplete}
-            />
-          )}
+                    {tool === "freedrawing" &&
+                      lines.map((line, i) => (
+                        <Line
+                          key={i}
+                          points={line.points}
+                          stroke="white"
+                          strokeWidth={5}
+                          tension={0.5}
+                          lineCap="round"
+                          lineJoin="round"
+                          globalCompositeOperation={
+                            line.tool === "eraser"
+                              ? "destination-out"
+                              : "source-over"
+                          }
+                        />
+                      ))}
 
-          {tool === "freedrawing" &&
-            lines.map((line, i) => (
-              <Line
-                key={i}
-                points={line.points}
-                stroke="white"
-                strokeWidth={5}
-                tension={0.5}
-                lineCap="round"
-                lineJoin="round"
-                globalCompositeOperation={
-                  line.tool === "eraser" ? "destination-out" : "source-over"
-                }
-              />
-            ))}
+                    {tool === "text" && (
+                      <Label x={300} y={0}>
+                        <Tag
+                          fill="white"
+                          lineJoin="round"
+                          shadowColor="black"
+                          padding="1px"
+                          margin="1px"
+                        />
+                        <Text
+                          text={currentLabels}
+                          fontFamily="Helvetica"
+                          fontSize={15}
+                          fill="black"
+                        />
+                      </Label>
+                    )}
+                  </Layer>
+                </Stage>
+              )}
+            </div>
+          );
+        })}
+      </Box>
 
-          {tool === "text" &&
-              <Label x={0} y={0}>
-              <Tag fill="white" lineJoin="round" shadowColor="black" />
-              <Text
-                text="Name"
-                fontFamily="Calibri"
-                fontSize={15}
-                fill="black"
-              />
-            </Label>}
-        </Layer>
-      </Stage>
-      {/* <pre style={{ whiteSpace: "pre-wrap" }}>{JSON.stringify(points)}</pre> */}
+      <Box
+        sx={{
+          height: "10%",
+          justifyContent: "center",
+          alignItems: "center",
+          padding:1
+        }}
+      >
+         <TextField
+          required
+          id="outlined-required"
+          label="Label Name"
+          value={currentLabels}
+          onChange={(event)=>{
+          dispatch(setCurrentLabels(event.target.value))
+          }}
+        />
+     </Box>
+      </PaperFrame >
     </div>
   );
 };

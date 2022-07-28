@@ -2,7 +2,7 @@ import { Box, ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Intermediate, LabelItem, PaperFrame, StatusBar } from '../../../../../components';
 import { adjustedScrollbar } from '../../../../../muiStyles';
-import { setCurrentImage, setPage } from '../../../../../stores/workstation';
+import { setCurrentImage, setCurrentLabels} from '../../../../../stores/workstation';
 import { findCollection } from '../../../../../utils/workspace';
 import { TopActionBar } from './TopActionBar';
 
@@ -22,6 +22,9 @@ export const Gallery = ({ setPage }) => {
   const currCollectionId = useSelector(state => state.workspace.currCollectionId);
   const filterStr = useSelector(state => state.workspace.filter);
   const isLoading = useSelector(state => state.workspace.loading);
+  const currCollection = findCollection(workspace, currCollectionId);
+  const currentImage = useSelector((state) => state.workstation.currentImage);
+  const imageMetaData = currCollection ? currCollection.images[currentImage] : null;
 
   const getDisplayImages = () => {
     // find collection
@@ -84,10 +87,6 @@ export const Gallery = ({ setPage }) => {
                     width: '220px',
                     minHeight: '220px',
                   }}
-                  onClick={() => {
-                    setPage(1);
-                    dispatch(setCurrentImage(index));
-                  }}
                 >
                   <Box
                     component="img"
@@ -99,6 +98,11 @@ export const Gallery = ({ setPage }) => {
                     src={image.url}
                     alt={image.name}
                     loading="lazy"
+                    onClick={() => {
+                      setPage(1);
+                      dispatch(setCurrentImage(index));
+                      dispatch(setCurrentLabels(imageMetaData.labels[0] === undefined ? "": imageMetaData.labels[0].name[0]))
+                    }}
                   />
                   <ImageListItemBar
                     title={<LabelItem type={getType(image)} label={image.name} />}

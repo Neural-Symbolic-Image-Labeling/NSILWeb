@@ -3,9 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const WorkstationSlice = createSlice({
   name: "workstation",
   initialState: {
-    page: 1, // switch between gallery and annoatation canvas
+    page: 0, // switch between gallery and annoatation canvas
     currentImage : 0,
-    currentTool: "null"
+    currentTool: "text",
+    currentLabels: "",
   },
   reducers: {
     setPage: (state, action) => { 
@@ -16,6 +17,9 @@ export const WorkstationSlice = createSlice({
     },
     setCurrentTool:(state, action) => {
       state.currentTool= action.payload;
+    },
+    setCurrentLabels:(state, action) => {
+      state.currentLabels= action.payload;
     }
   }
 });
@@ -23,7 +27,8 @@ export const WorkstationSlice = createSlice({
 export const {
   setPage,
   setCurrentImage,
-  setCurrentTool
+  setCurrentTool,
+  setCurrentLabels,
 } = WorkstationSlice.actions;
 
 export default WorkstationSlice.reducer; 

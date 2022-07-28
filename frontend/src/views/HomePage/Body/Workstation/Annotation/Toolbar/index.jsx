@@ -14,24 +14,15 @@ export const Toolbar = () => {
   const tool = useSelector((state) => state.workstation.currentTool);
 
   return (
-    <PaperFrame
+    <PaperFrame col
       sx={{
         width: "100%",
         height: "40%",
+        justifyContent: "center",
+        alignItems: "center",
         p: "15px 0 15px 0",
       }}
     >
-      <Box
-        sx={{
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          width: "90%",
-          m: 1,
-        }}
-      >
         <Box
           sx={{
             display: "flex",
@@ -150,7 +141,6 @@ export const Toolbar = () => {
         >
           <TitleIcon fontSize="large" />
         </Box>
-      </Box>
     </PaperFrame>
   );
 };
