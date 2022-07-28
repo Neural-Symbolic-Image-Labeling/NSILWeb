@@ -1,31 +1,63 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { PaperFrame } from "../../../../../components";
+import { adjustedScrollbar } from "../../../../../muiStyles";
+import { setImageMetaData } from "../../../../../stores/workspace";
 
-export const LabelPanel = ({ mode, imageMetaData }) => { 
-  
-  const getPanel = () => { 
-    switch (mode) { 
+export const LabelPanel = () => {
+  const currImgIndex = useSelector(state => state.workstation.currentImage);
+  const workspace = useSelector(state => state.workspace.workspace);
+  const currCollectionId = useSelector(state => state.workspace.currCollectionId);
+  const currCollection = findCollection(workspace, currCollectionId);
+  const imageMetaData = currCollection ? currCollection.images[currImgIndex] : null;
+  const mode = imageMetaData ? imageMetaData.mode : "";
+
+  const getPanel = () => {
+    switch (mode) {
       case 'segmentation':
-        // return <SegmentationPanel imageMetaData={imageMetaData} />
-      default: 
+      // return <SegmentationPanel imageMetaData={imageMetaData} />
+      default:
         return <ClassificationPanel imageMetaData={imageMetaData} />
     }
   }
 
   return (
     <Fragment>
-      {getPanel()}
+      {imageMetaData && getPanel()}
     </Fragment>
   )
 }
 
 const ClassificationPanel = ({ imageMetaData }) => {
+  const dispatch = useDispatch();
+
+  const detectMode = () => {
+    if (imageMetaData.labels.length <= 1) {
+      if (imageMetaData.manual) {
+        return 'normal';
+      }
+      return 'confirmed';
+    }
+    return 'conflict';
+  }
+
+  const handleClick = (indexL) => { 
+    // only keep indexL-th label
+    const newLabels = imageMetaData.labels.filter((_, index) => index !== indexL);
+    // update imageMetaData
+    let temp = JSON.parse(JSON.stringify(imageMetaData));
+    temp.labels = newLabels;
+    dispatch(setImageMetaData({ indexI: currImgIndex, data: temp }));
+  }
 
   return (
     <PaperFrame sx={{
-
+      width: '100%',
+      alignContent: 'center',
+      overflowX: 'scroll',
+      ...adjustedScrollbar.thin
     }}>
       <Typography sx={{
         mr: '8px',
@@ -35,36 +67,73 @@ const ClassificationPanel = ({ imageMetaData }) => {
       }}>
         Image Class:
       </Typography>
-
+      {imageMetaData.labels.map((label, index) => (
+        <Fragment key={index}>
+          {index !== 0 && (
+            <Typography sx={{
+              ml: '10px',
+              mr: '10px',
+              fontWeight: '700',
+              fontSize: '22px',
+              lineHeight: '26px',
+              letterSpacing: '0.15px',
+            }}>
+              OR
+            </Typography>
+          )}
+          <LabelChip label={label.name} indexL={index} mode={detectMode()} handleClick={handleClick} />
+        </Fragment>
+      ))}
 
     </PaperFrame>
   )
 }
 
-const LabelChip = ({ label, onClick, indexL, mode }) => {
+const LabelChip = ({ label, handleClick, indexL, mode }) => {
 
-  const getBorderStyle = () => { 
-    switch (mode) { 
+  const getBorderStyle = () => {
+    switch (mode) {
       case 'confirmed':
         return '3px solid #0BA436';
       case 'conflict':
         return '3px solid rgba(255, 0, 0, 0.6)';
-      default: 
-        return '1px solid purple.dark'
+      case 'normal':
+      default:
+        return 'rgba(229, 235, 244, 1)'
+    }
+  }
+
+  const clickHandler = () => { 
+    if(mode === 'conflict'){
+      handleClick(indexL);
+      return;
     }
   }
 
   return (
-    <Box sx={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      p: '5px 24px',
-      backgroundColor: 'white',
-      borderRadius: '16px',
-      border: '1px solid purple.dark',
-    }}>
-
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        p: '5px 24px',
+        backgroundColor: 'white',
+        borderRadius: '16px',
+        border: getBorderStyle(),
+        '&:hover': {
+          cursor: mode === conflict ? 'pointer' : 'default',
+          backgroundColor: mode === conflict ? 'bg.main' : 'white',
+        },
+      }}
+      onClick={clickHandler}
+    >
+      <Typography sx={{
+        fontSize: '17px',
+        lineHeight: '26px',
+        letterSpacing: '0.15px',
+      }}>
+        {label}
+      </Typography>
     </Box>
   )
 }
