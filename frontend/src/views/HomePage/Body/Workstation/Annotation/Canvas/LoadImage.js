@@ -4,6 +4,8 @@ import Konva from 'konva';
 
 const LoadImage = ({
   imageUrl,
+  imageWidth,
+  imageHeight,
   onMouseDown,
   onMouseUp,
   onMouseMove,
@@ -25,6 +27,8 @@ const LoadImage = ({
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
+      width = {imageWidth}
+      height = {imageHeight}
     />
   );
 };
