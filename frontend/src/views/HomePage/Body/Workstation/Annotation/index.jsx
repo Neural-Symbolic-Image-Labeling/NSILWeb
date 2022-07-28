@@ -38,7 +38,7 @@ export const Annotation = (setPage) => {
 
         <PaperFrame
           sx={{
-            width: "70vw",
+            width: "90vw",
             mr: "12px",
             height: "92%",
             p: "15px 0 15px 0",

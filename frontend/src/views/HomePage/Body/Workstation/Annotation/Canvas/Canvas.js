@@ -185,6 +185,8 @@ export const Canvas = () => {
             onMouseDown={() => {
               selectAnnotation(null);
             }}
+            imageWidth = {600}
+            imageHeight = {400}
           />
 
           {tool === "boundingbox" &&
