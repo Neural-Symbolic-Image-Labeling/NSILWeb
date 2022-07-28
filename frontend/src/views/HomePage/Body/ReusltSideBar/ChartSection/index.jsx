@@ -72,8 +72,9 @@ export const ChartSection = () => {
       alignItems: "center",
       width: "100%",
       minHeight: "35vh",
-      overflow: "hidden",
+      // overflow: "hidden",
       height: '1px',
+      pb: '12px'
     }}>
       <Box sx={{
         display: "flex",
@@ -101,8 +102,8 @@ export const ChartSection = () => {
           justifyContent: "center",
         }}>
           <Box sx={{
-            width: "290px",
-            height: "170px",
+            width: "70%",
+            height: "95%",
             // mt: "35px",
             // mb: "42px",
           }}>
