@@ -20,14 +20,21 @@ export const requestTrailLabel = (workspaceId, collectionId) => {
   return post("/workspace/label", { workspaceId: workspaceId, collectionId: collectionId, task: "trail" });
 };
 
-export const saveLabelStatus = (collectionId, imageId, labelData) => { 
-  return post("/workspace/savelabelstatus", { collectionId: collectionId, imageId: imageId, labelData: labelData });
-}
+// export const saveLabelStatus = (collectionId, imageId, labelData) => { 
+//   return post("/workspace/savelabelstatus", { collectionId: collectionId, imageId: imageId, labelData: labelData });
+// }
 
 export const updateRules = (collectionId, rulesData) => { 
   return post("/workspace/updaterules", { collectionId: collectionId, rules: rulesData });
 }
 
-export const updateLabels = (collectionId, imageIndex, labelData) => { 
-  return post("/workspace/updateLabels", { collectionId: collectionId, imageIndex: imageIndex, label: labelData});
+export const updateImageMetaData = (collectionId, indexI, imgData) => { 
+  return post("/workspace/updateImageMetaData", {
+    collectionId: collectionId,
+    indexI: indexI,
+    data: imgData
+  })
 }
+// export const updateLabels = (collectionId, imageIndex, labelData) => { 
+//   return post("/workspace/updateLabels", { collectionId: collectionId, imageIndex: imageIndex, label: labelData});
+// }

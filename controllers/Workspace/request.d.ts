@@ -29,3 +29,9 @@ export interface UpdateLabelsRequest {
     imageIndex: number;
     label: any;
 }
+
+export interface UpdateImageMetaDataRequest {
+    collectionId: string;
+    indexI: string;
+    data: any;
+}
