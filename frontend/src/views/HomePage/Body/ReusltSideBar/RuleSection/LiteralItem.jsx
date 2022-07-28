@@ -52,6 +52,7 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
   const handleContextMenu = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    if(literal.locked) return;
     setCoord({ xPos: e.pageX + "px", yPos: e.pageY + "px" });
     setShowMenu(true);
   }
@@ -62,6 +63,12 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
     // console.log(`(${indexR}, ${indexC}, ${indexL})original: ${temp[indexR].clauses[indexC].literals[indexL].naturalValue}; new: ${e.target.value}`);
     temp[indexR].clauses[indexC].literals[indexL].naturalValue = e.target.value;
     setRules(temp);
+  }
+
+  const handleDoubleClick = () => { 
+    if(!literal.locked) {
+      setEditing(true);
+    }
   }
 
   const handleClickAway = () => { 
@@ -98,7 +105,7 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
         </ClickAwayListener>
       ) : (
 
-        <Box sx={{boxSizing: "border-box", maxWidth: "100%",}} onDoubleClick={() => setEditing(true)} onContextMenu={handleContextMenu} >
+        <Box sx={{boxSizing: "border-box", maxWidth: "100%",}} onDoubleClick={handleDoubleClick} onContextMenu={handleContextMenu} >
             <LiteralChip literal={literal} isParsing={parsing} />
         </Box>
       )}
