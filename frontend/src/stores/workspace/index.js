@@ -40,6 +40,11 @@ export const workspcaeSlice = createSlice({
     setCurrImageId: (state, action) => { 
       state.currImageId = action.payload;
     },
+    setStatistics: (state, action) => { 
+      const { statistics } = action.payload;
+      const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
+      collection.statistics = statistics;
+    },
     setCurrCollectionId: (state, action) => { 
       state.currCollectionId = action.payload;
     },
@@ -102,6 +107,7 @@ export const {
   setRule,
   setWorkspace,
   setCurrImageId,
+  setStatistics,
   setCurrCollectionId,
   setAuthed,
   setFilter,

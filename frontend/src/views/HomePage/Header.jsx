@@ -23,21 +23,22 @@ export const Header = () => {
       <AppBar position="static" elevation={0}
         sx={{
           color: 'white',
-          bgcolor: "rgba(90, 106, 191, 1)"
+          bgcolor: "rgba(90, 106, 191, 1)",
         }}
       >
-        <Toolbar>
+        <Toolbar variant="dense">
           <SmartToy />
           <Box sx={{ flexBasis: "50%", display: "flex", alignItems: 'center' }}>
             <Typography
-              variant="h6"
-              sx={{ marginLeft: "10px" }}
+              // variant="h6"
+              sx={{ marginLeft: "10px", fontSize: "16px" }}
             >
               Neural-Symbolic Image Labeling
             </Typography>
           </Box>
           <Box sx={{ flexBasis: "50%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
             <Button
+              size="small"
               variant="outlined"
               sx={{
                 borderColor: "white",
@@ -57,7 +58,7 @@ export const Header = () => {
                 key={index}
                 onClick={() => navigate(link.link)}
                 variant="text"
-                sx={{ color: "white" }}
+                sx={{ color: "white", fontSize: "13px"}}
               >
                 {link.title}
               </Button>

@@ -36,9 +36,9 @@ const ClassificationPanel = ({ imageMetaData }) => {
   const detectMode = () => {
     if (imageMetaData.labels.length <= 1) {
       if (imageMetaData.manual) {
-        return 'normal';
+        return 'confirmed';
       }
-      return 'confirmed';
+      return 'normal';
     }
     return 'conflict';
   }
@@ -47,9 +47,16 @@ const ClassificationPanel = ({ imageMetaData }) => {
     // only keep indexL-th label
     const newLabels = imageMetaData.labels.filter((_, index) => index !== indexL);
     // update imageMetaData
+    let oldType = imageMetaData.labeled ? imageMetaData.manual ? "manual" : "autoLabeled" : 'unlabeled';
     let temp = JSON.parse(JSON.stringify(imageMetaData));
     temp.labels = newLabels;
+    temp.labeled = true;
+    temp.manual = true;
     dispatch(setImageMetaData({ indexI: currImgIndex, data: temp }));
+    // TODO: update statistics
+    temp = JSON.parse(JSON.stringify(currCollection));
+    temp.statistics[oldType] -= 1;
+    temp.statistics["manual"] += 1;
   }
 
   return (
@@ -104,10 +111,8 @@ const LabelChip = ({ label, handleClick, indexL, mode }) => {
   }
 
   const clickHandler = () => { 
-    if(mode === 'conflict'){
-      handleClick(indexL);
-      return;
-    }
+    if (mode === 'confirmed') return;
+    handleClick(indexL);
   }
 
   return (
