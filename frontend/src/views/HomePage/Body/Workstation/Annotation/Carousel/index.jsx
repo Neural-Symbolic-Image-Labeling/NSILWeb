@@ -57,7 +57,7 @@ export const Carousel = () => {
   const prevSlide = () => {
     if (currentLabels !== "") {
     let temp = JSON.parse(JSON.stringify(imageMetaData));
-    temp.labels[0].name[0] = currentLabels;
+    temp.labels = [{ name: [currentLabels] }];
     dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
     updateLabels(currCollectionId, currentImage, temp.labels)
       .then(() => {
