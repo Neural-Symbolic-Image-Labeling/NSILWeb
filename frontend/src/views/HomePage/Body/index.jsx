@@ -14,7 +14,7 @@ export const Body = () => {
       flexDirection: "row",
       height: "100vh",
       maxHeight: "100vh",
-      padding: "14px",
+      padding: "10px",
     }}>
       <Box sx={{
         width: "70vw",

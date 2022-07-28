@@ -1,4 +1,4 @@
-import { Delete, Lock } from "@mui/icons-material";
+import { Delete, Lock, LockOpen } from "@mui/icons-material";
 import { Box, ClickAwayListener, Typography } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -14,8 +14,24 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(literal.naturalValue);
   const [showMenu, setShowMenu] = useState(false);
+  const [showLockedMenu, setShowLockedMenu] = useState(false);
   const [coord, setCoord] = useState({ xPos: 0, yPos: 0 });
   const [parsing, setParsing] = useState(false);
+  const literalLockedMenuItem = [
+    {
+      name: "Unlock",
+      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14.8385 5.34315C15.028 5.71146 15.4802 5.85641 15.8486 5.6669C16.2169 5.47738 16.3618 5.02517 16.1723 4.65685L14.8385 5.34315ZM5 21H4.25C4.25 21.4142 4.58579 21.75 5 21.75V21ZM19 21V21.75C19.4142 21.75 19.75 21.4142 19.75 21H19ZM19 11H19.75C19.75 10.5858 19.4142 10.25 19 10.25V11ZM5 11V10.25C4.58579 10.25 4.25 10.5858 4.25 11H5ZM8.75 11V7H7.25V11H8.75ZM8.75 7C8.75 6.45335 8.92016 5.61668 9.40865 4.93823C9.8696 4.29802 10.6444 3.75 12 3.75V2.25C10.1556 2.25 8.9304 3.03532 8.19135 4.06177C7.47984 5.04998 7.25 6.21332 7.25 7H8.75ZM12 3.75C13.5991 3.75 14.4125 4.51517 14.8385 5.34315L16.1723 4.65685C15.5181 3.38547 14.2215 2.25 12 2.25V3.75ZM5 21.75H19V20.25H5V21.75ZM19.75 21V11H18.25V21H19.75ZM4.25 11V21H5.75V11H4.25ZM8 10.25H5V11.75H8V10.25ZM19 10.25H8V11.75H19V10.25Z" fill="#000000"/>
+      </svg>,
+      handleClick: () => {
+        literal.locked = false;
+        let temp = JSON.parse(JSON.stringify(rules));
+        temp[indexR].clauses[indexC].literals[indexL].locked = false;
+        setRules(temp);
+        setShowLockedMenu(false);
+      }
+    }
+  ]
   const literalMenuItems = [
     {
       name: "Delete",
@@ -52,9 +68,12 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
   const handleContextMenu = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if(literal.locked) return;
     setCoord({ xPos: e.pageX + "px", yPos: e.pageY + "px" });
-    setShowMenu(true);
+    if (literal.locked) {
+      setShowLockedMenu(true);
+    } else {
+      setShowMenu(true);
+    }
   }
 
   const handleValueChange = (e) => {
@@ -65,23 +84,23 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
     setRules(temp);
   }
 
-  const handleDoubleClick = () => { 
-    if(!literal.locked) {
+  const handleDoubleClick = () => {
+    if (!literal.locked) {
       setEditing(true);
     }
   }
 
-  const handleClickAway = () => { 
+  const handleClickAway = () => {
     setParsing(true);
     // close menu
     setEditing(false);
     // generate literal from natural value
     let newClause = parseLiteral(literal.naturalValue,
-      currCollection.objectList,
+      currCollection ? currCollection.objectList ? currCollection.objectList : [] : [],
       JSON.parse(JSON.stringify(rules[indexR].clauses[indexC])),
       indexL);
     // update clause
-    if (newClause) {      
+    if (newClause) {
       let temp = JSON.parse(JSON.stringify(rules));
       temp[indexR].clauses[indexC] = newClause;
       setRules(temp);
@@ -92,7 +111,10 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
   return (
     <Fragment>
       <RuleMenu showMenu={showMenu} setShowMenu={setShowMenu} x={coord.xPos} y={coord.yPos} menuItems={literalMenuItems}>
-        lol2
+        default
+      </RuleMenu>
+      <RuleMenu showMenu={showLockedMenu} setShowMenu={setShowLockedMenu} x={coord.xPos} y={coord.yPos} menuItems={literalLockedMenuItem}>
+        unlock menu
       </RuleMenu>
       {/* {`${indexR}, ${indexC}, ${indexL}`} */}
       {editing ? (
@@ -105,8 +127,8 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
         </ClickAwayListener>
       ) : (
 
-        <Box sx={{boxSizing: "border-box", maxWidth: "100%",}} onDoubleClick={handleDoubleClick} onContextMenu={handleContextMenu} >
-            <LiteralChip literal={literal} isParsing={parsing} />
+        <Box sx={{ boxSizing: "border-box", maxWidth: "100%", }} onDoubleClick={handleDoubleClick} onContextMenu={handleContextMenu} >
+          <LiteralChip literal={literal} isParsing={parsing} />
         </Box>
       )}
     </Fragment>
@@ -124,10 +146,10 @@ const LiteralChip = ({ literal, isParsing }) => {
       backgroundColor: "white",
       maxWidth: "100%",
       overflow: "hidden",
-      border: `3px solid ${literal.literal === null ? "rgba(255, 37, 23, 0.7)" : literal.locked ? 'rgba(11, 164, 54, 0.84)' : 'rgba(229, 235, 244, 1)'}`,
+      border: `3px solid ${!literal.literal ? "rgba(255, 37, 23, 0.7)" : literal.locked ? 'rgba(11, 164, 54, 0.84)' : 'rgba(229, 235, 244, 1)'}`,
       p: '5px 16px 5px 16px',
     }}>
-      
+
       <Typography sx={{
         maxWidth: "100%",
         overflow: "hidden",
@@ -135,7 +157,7 @@ const LiteralChip = ({ literal, isParsing }) => {
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",
       }}>
-        {isParsing ? "Parsing...": literal.naturalValue}
+        {isParsing ? "Parsing..." : literal.naturalValue}
       </Typography>
     </Box>
   )

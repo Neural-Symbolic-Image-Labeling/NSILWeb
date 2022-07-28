@@ -76,9 +76,6 @@ const LiteralSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  modifiedValue: {
-    type: String,
-  },
   locked: {
     type: Boolean,
     default: false,

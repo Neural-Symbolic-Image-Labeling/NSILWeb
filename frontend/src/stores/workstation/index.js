@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const WorkstationSlice = createSlice({
   name: "workstation",
   initialState: {
-    page: 1, // switch between gallery and annoatation canvas
+    page: 0, // switch between gallery and annoatation canvas
     currentImage : 0,
     currentTool: "null"
   },
