@@ -1,4 +1,4 @@
-import { PaperFrame } from "../../../../../components";
+import { PaperFrame, StatusBar } from "../../../../../components";
 import { Box, Typography, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { Canvas } from "./Canvas/Canvas";
@@ -10,6 +10,7 @@ import { findCollection } from "../../../../../utils/workspace";
 import { setImageMetaData } from "../../../../../stores/workspace";
 import { updateImageMetaData } from "../../../../../apis/workspace";
 import { loadWorkspace } from "../../../../../stores/workspace";
+import { LabelPanel } from "./LabelPanel";
 
 export const Annotation = ({setPage}) => {
   const dispatch = useDispatch();
@@ -47,14 +48,17 @@ export const Annotation = ({setPage}) => {
         flexDirection: "column",
         height: "100%",
         width: "100%",
+        // border: '2px solid red',
       }}
     >
+      <StatusBar />
       <Box
         sx={{
           display: "flex",
           flexDirection: "row",
           height: "75%",
           width: "100%",
+          // border: '2px solid red',
         }}
       >
         <Box
@@ -82,15 +86,22 @@ export const Annotation = ({setPage}) => {
           <Canvas />
         </Box>
       </Box>
-
-      <Box
+      <Box sx={{
+        display: "flex",
+        width: "80%",
+        // mt: '100px',
+        // mb: '1000px',
+      }}>
+        <LabelPanel />
+      </Box>
+      {/* <Box
         sx={{
           height: "25%",
           width: "100%",
         }}
       >
         <Carousel />
-      </Box>
+      </Box> */}
     </Box>
   );
 };

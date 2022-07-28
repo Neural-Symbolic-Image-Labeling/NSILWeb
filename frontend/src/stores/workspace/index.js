@@ -41,7 +41,7 @@ export const workspcaeSlice = createSlice({
       state.currImageId = action.payload;
     },
     setStatistics: (state, action) => { 
-      const { statistics } = action.payload;
+      const statistics = action.payload;
       const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
       collection.statistics = statistics;
     },
