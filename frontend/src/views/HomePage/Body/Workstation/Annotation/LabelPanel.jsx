@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PaperFrame } from "../../../../../components";
 import { adjustedScrollbar } from "../../../../../muiStyles";
 import { setImageMetaData } from "../../../../../stores/workspace";
+import { findCollection } from "../../../../../utils/workspace";
 
 export const LabelPanel = () => {
   const currImgIndex = useSelector(state => state.workstation.currentImage);

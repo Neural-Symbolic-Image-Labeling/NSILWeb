@@ -11,6 +11,7 @@ import { Box} from "@mui/material";
 import TextField from '@mui/material/TextField';
 import {setCurrentLabels} from "../../../../../../stores/workstation";
 
+
 export const Canvas = () => {
   const dispatch = useDispatch();
   const currentImage = useSelector((state) => state.workstation.currentImage);

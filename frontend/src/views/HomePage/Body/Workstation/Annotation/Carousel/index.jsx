@@ -8,7 +8,7 @@ import { setCurrentImage } from "../../../../../../stores/workstation";
 import { setCurrentLabels } from "../../../../../../stores/workstation";
 import { setImageMetaData } from "../../../../../../stores/workspace";
 import { PaperFrame } from "../../../../../../components";
-import { updateLabels } from "../../../../../../apis/workspace";
+import { updateImageMetaData } from "../../../../../../apis/workspace";
 import { loadWorkspace } from "../../../../../../stores/workspace";
 
 export const Carousel = () => {
@@ -32,7 +32,7 @@ export const Carousel = () => {
       let temp = JSON.parse(JSON.stringify(imageMetaData));
       temp.labels = [{ name: [currentLabels] }];
       dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
-      updateLabels(currCollectionId, currentImage, temp.labels)
+      updateImageMetaData(currCollectionId, currentImage, temp)
         .then(() => {
           dispatch(loadWorkspace(workspace.name));
         })
@@ -59,13 +59,13 @@ export const Carousel = () => {
     let temp = JSON.parse(JSON.stringify(imageMetaData));
     temp.labels = [{ name: [currentLabels] }];
     dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
-    updateLabels(currCollectionId, currentImage, temp.labels)
-      .then(() => {
-        dispatch(loadWorkspace(workspace.name));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    updateImageMetaData(currCollectionId, currentImage, temp)
+        .then(() => {
+          dispatch(loadWorkspace(workspace.name));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
     setCurrent(current === 0 ? length - 1 : current - 1);
     dispatch(setCurrentImage(current === 0 ? length - 1 : current - 1));
