@@ -28,18 +28,16 @@ export const Carousel = () => {
   const currentLabels = useSelector((state) => state.workstation.currentLabels);
 
   const nextSlide = () => {
-    if (currentLabels !== "") {
-      let temp = JSON.parse(JSON.stringify(imageMetaData));
-      temp.labels = [{ name: [currentLabels] }];
-      dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
-      updateImageMetaData(currCollectionId, currentImage, temp)
-        .then(() => {
-          dispatch(loadWorkspace(workspace.name));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    let temp = JSON.parse(JSON.stringify(imageMetaData));
+    temp.labels = [{ name: [currentLabels] }];
+    dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
+    updateImageMetaData(currCollectionId, currentImage, temp)
+      .then(() => {
+        dispatch(loadWorkspace(workspace.name));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     setCurrent(current === length - 1 ? 0 : current + 1);
     dispatch(setCurrentImage(current === length - 1 ? 0 : current + 1));
@@ -56,10 +54,10 @@ export const Carousel = () => {
 
   const prevSlide = () => {
     if (currentLabels !== "") {
-    let temp = JSON.parse(JSON.stringify(imageMetaData));
-    temp.labels = [{ name: [currentLabels] }];
-    dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
-    updateImageMetaData(currCollectionId, currentImage, temp)
+      let temp = JSON.parse(JSON.stringify(imageMetaData));
+      temp.labels = [{ name: [currentLabels] }];
+      dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
+      updateImageMetaData(currCollectionId, currentImage, temp)
         .then(() => {
           dispatch(loadWorkspace(workspace.name));
         })
