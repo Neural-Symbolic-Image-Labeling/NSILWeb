@@ -35,6 +35,13 @@ export const updateImageMetaData = (collectionId, indexI, imgData) => {
     data: imgData
   })
 }
+
+export const updateStatistics = (collectionId, statisticsData) => { 
+  return post("/workspace/updateStatistics", {
+    collectionId: collectionId,
+    data: statisticsData
+  });
+}
 // export const updateLabels = (collectionId, imageIndex, labelData) => { 
 //   return post("/workspace/updateLabels", { collectionId: collectionId, imageIndex: imageIndex, label: labelData});
 // }

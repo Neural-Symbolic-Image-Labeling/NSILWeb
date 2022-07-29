@@ -189,4 +189,27 @@ router.post(getPath('/updateImageMetaData'), authWorkspace, async (req, res) => 
     }
   }
 });
+
+router.post(getPath('/updateStatistics'), authWorkspace, async (req, res) => { 
+  if (req.body) {
+    /**@type {import('./request').UpdateStatisticsRequest} */
+    const reqBody = req.body;
+    try { 
+      // find the collection
+      const collection = req.workspace.collections.find(c => c._id.toString() === reqBody.collectionId);
+      if (!collection) {
+        res.status(404).json(new ErrorResponse(0, "Collection not found"));
+        return;
+      }
+      // update labels
+      collection.statistics = reqBody.data;
+      await req.workspace.save();
+      res.status(200).json({ message: "success" });
+      return;
+    }catch(err) {
+      res.status(500).json(new ErrorResponse(0, "Failed to update statistics", err));
+      return;
+    }
+  }
+});
 module.exports = { router }

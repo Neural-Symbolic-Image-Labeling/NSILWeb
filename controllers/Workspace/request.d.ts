@@ -35,3 +35,8 @@ export interface UpdateImageMetaDataRequest {
     indexI: string;
     data: any;
 }
+
+export interface UpdateStatisticsRequest { 
+    collectionId: string;
+    data: any;
+}
