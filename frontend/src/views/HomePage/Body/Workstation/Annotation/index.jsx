@@ -1,6 +1,6 @@
-import { PaperFrame, StatusBar } from "../../../../../components";
-import { Box, Typography, TextField } from "@mui/material";
-import React, { useState } from "react";
+import { StatusBar } from "../../../../../components";
+import { Box } from "@mui/material";
+import React from "react";
 import { Canvas } from "./Canvas/Canvas";
 import { Toolbar } from "./Toolbar";
 import { Carousel } from "./Carousel";
@@ -81,27 +81,26 @@ export const Annotation = ({setPage}) => {
             mr: "12px",
             justifyContent: "center",
             alignItems: "center",
+            mb:"12px",
           }}
         >
           <Canvas />
         </Box>
       </Box>
-      <Box sx={{
+      {/* <Box sx={{
         display: "flex",
-        width: "80%",
-        // mt: '100px',
-        // mb: '1000px',
+        width: "100%"
       }}>
         <LabelPanel />
-      </Box>
-      {/* <Box
+      </Box> */}
+      <Box
         sx={{
-          height: "25%",
+          height: "20%",
           width: "100%",
         }}
       >
         <Carousel />
-      </Box> */}
+      </Box>
     </Box>
   );
 };

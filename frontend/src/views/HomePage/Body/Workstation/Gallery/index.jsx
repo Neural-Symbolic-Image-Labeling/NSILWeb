@@ -101,7 +101,7 @@ export const Gallery = ({ setPage }) => {
                     onClick={() => {
                       setPage(1);
                       dispatch(setCurrentImage(index));
-                      dispatch(setCurrentLabels(imageMetaData.labels[0] === undefined ? "": imageMetaData.labels[0].name[0]))
+                      dispatch(setCurrentLabels(currCollection.images[index].labels[0] === undefined ? "": currCollection.images[index].labels[0].name[0]))
                     }}
                   />
                   <ImageListItemBar

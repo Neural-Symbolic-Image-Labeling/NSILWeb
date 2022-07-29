@@ -95,13 +95,10 @@ export const Carousel = () => {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          height: 100,
-          width: 700,
-          padding: 1,
-          m: 2,
         }}
       >
         {imageSet.map((slide, index) => {
+
           const pre = imageSet.find(
             (slide) =>
               imageSet.indexOf(slide) ===
@@ -112,6 +109,8 @@ export const Carousel = () => {
               imageSet.indexOf(slide) ===
               (current === length - 1 ? 0 : current + 1)
           );
+
+
           return (
             <div
               className={
@@ -119,7 +118,7 @@ export const Carousel = () => {
               }
               key={index}
             >
-              {index === current && (
+              {index === current && length >=3 && length <= 4 &&(
                 <div className={style["container"]}>
                   <img
                     src={pre.url}
@@ -135,6 +134,52 @@ export const Carousel = () => {
                     src={next.url}
                     alt={next.name}
                     className={style["image_pre"]}
+                  />
+                </div>
+              )}
+
+              {index === current && length >=5 && (
+                <div className={style["container"]}>
+                  <img
+                    src={imageSet.find(
+                      (slide) =>
+                        imageSet.indexOf(slide) ===
+                        (current === 0 ? length - 2 : current === 1 ? length - 1: current - 2)
+                    ).url}
+                    alt={imageSet.find(
+                      (slide) =>
+                        imageSet.indexOf(slide) ===
+                        (current === 0 ? length - 2 : current === 1 ? length - 1:current - 2)
+                    ).name}
+                    className={style["image_pre_pre"]}
+                  />
+                  <img
+                    src={pre.url}
+                    alt={pre.name}
+                    className={style["image_pre"]}
+                  />
+                  <img
+                    src={slide.url}
+                    alt={slide.name}
+                    className={style["image"]}
+                  />
+                  <img
+                    src={next.url}
+                    alt={next.name}
+                    className={style["image_pre"]}
+                  />
+                  <img
+                    src={imageSet.find(
+                      (slide) =>
+                        imageSet.indexOf(slide) ===
+                        (current === length - 1 ? 1 : current === length - 2 ? 0 : current + 2)
+                    ).url}
+                    alt={imageSet.find(
+                      (slide) =>
+                        imageSet.indexOf(slide) ===
+                        (current === length - 1 ? 1 : current === length - 2 ? 0 : current + 2)
+                    ).name}
+                    className={style["image_pre_pre"]}
                   />
                 </div>
               )}

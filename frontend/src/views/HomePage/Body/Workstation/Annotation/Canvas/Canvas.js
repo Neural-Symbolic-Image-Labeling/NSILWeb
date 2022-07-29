@@ -185,7 +185,6 @@ export const Canvas = () => {
       height: "100%",
       width: "100%",
       overflow: "hidden",
-      p: '25px',
       mt: '13px',
       boxSizing: "border-box",
     }}>
@@ -203,8 +202,8 @@ export const Canvas = () => {
             <div key={index}>
               {imageSet.indexOf(slide) === currentImage && (
                 <Stage
-                  width={600}
-                  height={400}
+                  width={900}
+                  height={600}
                   onMouseEnter={handleMouseEnter}
                   onMouseDown={handleMouseDown}
                   onMouseMove={handleMouseMove}
@@ -269,18 +268,18 @@ export const Canvas = () => {
                       ))}
 
                     {tool === "text" && (
-                      <Label x={300} y={0}>
+                      <Label x={425} y={0} padding={1}>
                         <Tag
                           fill="white"
                           lineJoin="round"
                           shadowColor="black"
-                          padding="1px"
+                          padding="2px"
                           margin="1px"
                         />
                         <Text
                           text={currentLabels}
                           fontFamily="Helvetica"
-                          fontSize={15}
+                          fontSize={20}
                           fill="black"
                         />
                       </Label>
