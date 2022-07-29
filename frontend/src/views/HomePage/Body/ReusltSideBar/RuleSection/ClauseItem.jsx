@@ -43,7 +43,8 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
       literal: null,
       naturalValue: "New Literal",
       deleted: false,
-      locked: false
+      locked: false,
+      new: true
     });
     // alert(`${indexR}, ${indexC}, ${JSON.stringify(temp[indexR].clauses[indexC].literals)}`);
     setRules(temp);

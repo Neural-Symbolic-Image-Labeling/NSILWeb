@@ -179,7 +179,7 @@ router.post(getPath('/updateImageMetaData'), authWorkspace, async (req, res) => 
         return;
       }
       // update labels
-      collection.images[reqBody.imageIndex] = reqBody.data;
+      collection.images[reqBody.indexI] = reqBody.data;
       await req.workspace.save();
       res.status(200).json({ message: "success" });
       return;
