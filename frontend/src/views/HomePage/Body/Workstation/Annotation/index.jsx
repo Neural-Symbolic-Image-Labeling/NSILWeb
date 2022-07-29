@@ -7,8 +7,9 @@ import { Carousel } from "./Carousel";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useSelector, useDispatch } from "react-redux";
 import { findCollection } from "../../../../../utils/workspace";
-import { setImageMetaData } from "../../../../../stores/workspace";
-import { updateImageMetaData } from "../../../../../apis/workspace";
+import { setImageMetaData,setStatistics } from "../../../../../stores/workspace";
+import { updateImageMetaData,updateStatistics } from "../../../../../apis/workspace";
+import { setManual } from "../../../../../stores/workstation";
 import { loadWorkspace } from "../../../../../stores/workspace";
 import { LabelPanel } from "./LabelPanel";
 
@@ -24,25 +25,37 @@ export const Annotation = ({setPage}) => {
     ? currCollection.images[currentImage]
     : null;
   const currentLabels = useSelector((state) => state.workstation.currentLabels);
-
+  const manual = useSelector((state) => state.workstation.manual);
+  
   const saveLabels = () => {
-    if (currentLabels !== "") {
-      let temp = JSON.parse(JSON.stringify(imageMetaData));
-      temp.labels = [{ name: [currentLabels] }];
-      temp.labeled = true;
-      if(temp.labels !== imageMetaData.labels){
-        temp.manual = true;
+    let temp = JSON.parse(JSON.stringify(imageMetaData));
+    let statistic = JSON.parse(
+      JSON.stringify(currCollection ? currCollection.statistics : null)
+    );
+    if (manual === true) {
+      if (temp.labeled === false) {
+        statistic.unlabeled = statistic.unlabeled === 0 ? 0 : statistic.unlabeled - 1;
       }
+      if(temp.labeled === true && temp.manual === false ){
+        statistic.autoLabeled = statistic.autoLabeled === 0 ? statistic.autoLabeled : statistic.autoLabeled -1;
+      }
+      temp.labeled = true;
       temp.manual = true;
-      dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
-      updateImageMetaData(currCollectionId, currentImage, temp)
-        .then(() => {
-          dispatch(loadWorkspace(workspace.name));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      statistic.manual = statistic.manual === statistic.total ? statistic.manual : statistic.manual + 1;
+      updateStatistics(currCollectionId, statistic).catch((err) => {
+        console.log(err);
+      });
     }
+    temp.labels = [{ name: [currentLabels] }];
+    dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
+    dispatch(setStatistics(statistic));
+    updateImageMetaData(currCollectionId, currentImage, temp)
+      .then(() => {
+        dispatch(loadWorkspace(workspace.name))
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setPage(0);
   };
 

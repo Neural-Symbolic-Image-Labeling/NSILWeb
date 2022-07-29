@@ -7,6 +7,7 @@ export const WorkstationSlice = createSlice({
     currentImage : 0,
     currentTool: "text",
     currentLabels: "",
+    manual: false,
   },
   reducers: {
     setPage: (state, action) => { 
@@ -20,6 +21,9 @@ export const WorkstationSlice = createSlice({
     },
     setCurrentLabels:(state, action) => {
       state.currentLabels= action.payload;
+    },
+    setManual:(state, action) => {
+      state.manual= action.payload;
     }
   }
 });
@@ -29,6 +33,7 @@ export const {
   setCurrentImage,
   setCurrentTool,
   setCurrentLabels,
+  setManual,
 } = WorkstationSlice.actions;
 
 export default WorkstationSlice.reducer; 

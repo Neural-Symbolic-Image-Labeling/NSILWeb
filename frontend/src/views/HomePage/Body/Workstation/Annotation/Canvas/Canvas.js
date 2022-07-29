@@ -10,6 +10,7 @@ import { PaperFrame } from "../../../../../../components";
 import { Box} from "@mui/material";
 import TextField from '@mui/material/TextField';
 import {setCurrentLabels} from "../../../../../../stores/workstation";
+import { setManual } from "../../../../../../stores/workstation";
 
 
 export const Canvas = () => {
@@ -306,7 +307,8 @@ export const Canvas = () => {
           label="Label Name"
           value={currentLabels}
           onChange={(event)=>{
-          dispatch(setCurrentLabels(event.target.value))
+          dispatch(setCurrentLabels(event.target.value));
+          dispatch(setManual(true));
           }}
         />
      </Box>

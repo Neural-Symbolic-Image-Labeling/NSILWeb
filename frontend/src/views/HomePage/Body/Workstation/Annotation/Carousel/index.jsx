@@ -7,8 +7,11 @@ import style from "./style.module.css";
 import { setCurrentImage } from "../../../../../../stores/workstation";
 import { setCurrentLabels } from "../../../../../../stores/workstation";
 import { setImageMetaData } from "../../../../../../stores/workspace";
+import { setManual } from "../../../../../../stores/workstation";
+import { setStatistics } from "../../../../../../stores/workspace";
 import { PaperFrame } from "../../../../../../components";
 import { updateImageMetaData } from "../../../../../../apis/workspace";
+import { updateStatistics } from "../../../../../../apis/workspace";
 import { loadWorkspace } from "../../../../../../stores/workspace";
 
 export const Carousel = () => {
@@ -26,19 +29,33 @@ export const Carousel = () => {
     ? currCollection.images[currentImage]
     : null;
   const currentLabels = useSelector((state) => state.workstation.currentLabels);
+  const manual = useSelector((state) => state.workstation.manual);
 
   const nextSlide = () => {
     let temp = JSON.parse(JSON.stringify(imageMetaData));
-    temp.labels = [{ name: [currentLabels] }];
-    temp.labeled = true;
-    if(temp.labels !== imageMetaData.labels){
+    let statistic = JSON.parse(
+      JSON.stringify(currCollection ? currCollection.statistics : null)
+    );
+    if (manual === true) {
+      if (temp.labeled === false) {
+        statistic.unlabeled = statistic.unlabeled === 0 ? 0 : statistic.unlabeled - 1;
+      }
+      if(temp.labeled === true && temp.manual === false ){
+        statistic.autoLabeled = statistic.autoLabeled === 0 ? statistic.autoLabeled : statistic.autoLabeled -1;
+      }
+      temp.labeled = true;
       temp.manual = true;
+      statistic.manual = statistic.manual === statistic.total ? statistic.manual : statistic.manual + 1;
+      updateStatistics(currCollectionId, statistic).catch((err) => {
+        console.log(err);
+      });
     }
-    temp.manual = true;
+    temp.labels = [{ name: [currentLabels] }];
     dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
+    dispatch(setStatistics(statistic));
     updateImageMetaData(currCollectionId, currentImage, temp)
       .then(() => {
-        dispatch(loadWorkspace(workspace.name));
+        dispatch(loadWorkspace(workspace.name))
       })
       .catch((err) => {
         console.log(err);
@@ -55,26 +72,38 @@ export const Carousel = () => {
               .labels[0].name[0]
       )
     );
+    dispatch(setManual(false));  
   };
 
   const prevSlide = () => {
-    if (currentLabels !== "") {
-      let temp = JSON.parse(JSON.stringify(imageMetaData));
-      temp.labels = [{ name: [currentLabels] }];
-      temp.labeled = true;
-      if(temp.labels !== imageMetaData.labels){
-        temp.manual = true;
+    let temp = JSON.parse(JSON.stringify(imageMetaData));
+    let statistic = JSON.parse(
+      JSON.stringify(currCollection ? currCollection.statistics : null)
+    );
+    if (manual === true) {
+      if (temp.labeled === false) {
+        statistic.unlabeled = statistic.unlabeled === 0 ? 0 : statistic.unlabeled - 1;
       }
+      if(temp.labeled === true && temp.manual === false ){
+        statistic.autoLabeled = statistic.autoLabeled === 0 ? statistic.autoLabeled : statistic.autoLabeled -1;
+      }
+      temp.labeled = true;
       temp.manual = true;
-      dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
-      updateImageMetaData(currCollectionId, currentImage, temp)
-        .then(() => {
-          dispatch(loadWorkspace(workspace.name));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      statistic.manual = statistic.manual === statistic.total ? statistic.manual : statistic.manual + 1;
+      updateStatistics(currCollectionId, statistic).catch((err) => {
+        console.log(err);
+      });
     }
+    temp.labels = [{ name: [currentLabels] }];
+    dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
+    dispatch(setStatistics(statistic));
+    updateImageMetaData(currCollectionId, currentImage, temp)
+      .then(() => {
+        dispatch(loadWorkspace(workspace.name))
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setCurrent(current === 0 ? length - 1 : current - 1);
     dispatch(setCurrentImage(current === 0 ? length - 1 : current - 1));
     dispatch(
@@ -83,6 +112,7 @@ export const Carousel = () => {
           .labels[0].name[0]
       )
     );
+    dispatch(setManual(false));
   };
 
   return (
@@ -108,7 +138,6 @@ export const Carousel = () => {
         }}
       >
         {imageSet.map((slide, index) => {
-
           const pre = imageSet.find(
             (slide) =>
               imageSet.indexOf(slide) ===
@@ -120,7 +149,6 @@ export const Carousel = () => {
               (current === length - 1 ? 0 : current + 1)
           );
 
-
           return (
             <div
               className={
@@ -128,7 +156,7 @@ export const Carousel = () => {
               }
               key={index}
             >
-              {index === current && length >=3 && length <= 4 &&(
+              {index === current && length >= 3 && length <= 4 && (
                 <div className={style["container"]}>
                   <img
                     src={pre.url}
@@ -148,19 +176,31 @@ export const Carousel = () => {
                 </div>
               )}
 
-              {index === current && length >=5 && (
+              {index === current && length >= 5 && (
                 <div className={style["container"]}>
                   <img
-                    src={imageSet.find(
-                      (slide) =>
-                        imageSet.indexOf(slide) ===
-                        (current === 0 ? length - 2 : current === 1 ? length - 1: current - 2)
-                    ).url}
-                    alt={imageSet.find(
-                      (slide) =>
-                        imageSet.indexOf(slide) ===
-                        (current === 0 ? length - 2 : current === 1 ? length - 1:current - 2)
-                    ).name}
+                    src={
+                      imageSet.find(
+                        (slide) =>
+                          imageSet.indexOf(slide) ===
+                          (current === 0
+                            ? length - 2
+                            : current === 1
+                            ? length - 1
+                            : current - 2)
+                      ).url
+                    }
+                    alt={
+                      imageSet.find(
+                        (slide) =>
+                          imageSet.indexOf(slide) ===
+                          (current === 0
+                            ? length - 2
+                            : current === 1
+                            ? length - 1
+                            : current - 2)
+                      ).name
+                    }
                     className={style["image_pre_pre"]}
                   />
                   <img
@@ -179,16 +219,28 @@ export const Carousel = () => {
                     className={style["image_pre"]}
                   />
                   <img
-                    src={imageSet.find(
-                      (slide) =>
-                        imageSet.indexOf(slide) ===
-                        (current === length - 1 ? 1 : current === length - 2 ? 0 : current + 2)
-                    ).url}
-                    alt={imageSet.find(
-                      (slide) =>
-                        imageSet.indexOf(slide) ===
-                        (current === length - 1 ? 1 : current === length - 2 ? 0 : current + 2)
-                    ).name}
+                    src={
+                      imageSet.find(
+                        (slide) =>
+                          imageSet.indexOf(slide) ===
+                          (current === length - 1
+                            ? 1
+                            : current === length - 2
+                            ? 0
+                            : current + 2)
+                      ).url
+                    }
+                    alt={
+                      imageSet.find(
+                        (slide) =>
+                          imageSet.indexOf(slide) ===
+                          (current === length - 1
+                            ? 1
+                            : current === length - 2
+                            ? 0
+                            : current + 2)
+                      ).name
+                    }
                     className={style["image_pre_pre"]}
                   />
                 </div>

@@ -2,7 +2,7 @@ import { Box, ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Intermediate, LabelItem, PaperFrame, StatusBar } from '../../../../../components';
 import { adjustedScrollbar } from '../../../../../muiStyles';
-import { setCurrentImage, setCurrentLabels} from '../../../../../stores/workstation';
+import { setCurrentImage, setCurrentLabels, setManual} from '../../../../../stores/workstation';
 import { findCollection } from '../../../../../utils/workspace';
 import { TopActionBar } from './TopActionBar';
 
@@ -101,6 +101,7 @@ export const Gallery = ({ setPage }) => {
                     onClick={() => {
                       setPage(1);
                       dispatch(setCurrentImage(index));
+                      dispatch(setManual(false));
                       dispatch(setCurrentLabels(currCollection.images[index].labels[0] === undefined ? "": currCollection.images[index].labels[0].name[0]))
                     }}
                   />
