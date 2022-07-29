@@ -29,6 +29,11 @@ export const Annotation = ({setPage}) => {
     if (currentLabels !== "") {
       let temp = JSON.parse(JSON.stringify(imageMetaData));
       temp.labels = [{ name: [currentLabels] }];
+      temp.labeled = true;
+      if(temp.labels !== imageMetaData.labels){
+        temp.manual = true;
+      }
+      temp.manual = true;
       dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
       updateImageMetaData(currCollectionId, currentImage, temp)
         .then(() => {
