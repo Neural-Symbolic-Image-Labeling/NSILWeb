@@ -29,33 +29,31 @@ export const Annotation = ({setPage}) => {
   
   const saveLabels = () => {
     let temp = JSON.parse(JSON.stringify(imageMetaData));
-    let statistic = JSON.parse(
-      JSON.stringify(currCollection ? currCollection.statistics : null)
-    );
+    let statistic = JSON.parse(JSON.stringify(currCollection.statistics));
     if (manual === true) {
-      if (temp.labeled === false) {
-        statistic.unlabeled = statistic.unlabeled === 0 ? 0 : statistic.unlabeled - 1;
-      }
-      if(temp.labeled === true && temp.manual === false ){
-        statistic.autoLabeled = statistic.autoLabeled === 0 ? statistic.autoLabeled : statistic.autoLabeled -1;
-      }
+      let oldType = imageMetaData.labeled
+        ? imageMetaData.manual
+          ? "manual"
+          : "autoLabeled"
+        : "unlabeled";
+      temp.labels = [{ name: [currentLabels] }];
       temp.labeled = true;
       temp.manual = true;
-      statistic.manual = statistic.manual === statistic.total ? statistic.manual : statistic.manual + 1;
+      dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
+      statistic[oldType]--;
+      statistic.manual++;
+      dispatch(setStatistics(statistic));
       updateStatistics(currCollectionId, statistic).catch((err) => {
         console.log(err);
       });
-    }
-    temp.labels = [{ name: [currentLabels] }];
-    dispatch(setImageMetaData({ indexI: currentImage, data: temp }));
-    dispatch(setStatistics(statistic));
-    updateImageMetaData(currCollectionId, currentImage, temp)
+      updateImageMetaData(currCollectionId, currentImage, temp)
       .then(() => {
-        dispatch(loadWorkspace(workspace.name))
+        dispatch(loadWorkspace(workspace.name));
       })
       .catch((err) => {
         console.log(err);
       });
+    }
     setPage(0);
   };
 
