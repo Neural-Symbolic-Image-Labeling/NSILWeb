@@ -11,7 +11,8 @@ export const RuleItem = ({ rule, indexR, setRules, rules }) => {
         literal: "",
         naturalValue: "New Clause",
         deleted: false,
-        locked: false
+        locked: false,
+        new: true
       }],
       deleted: false,
       locked: false

@@ -88,7 +88,7 @@ router.post(getPath('/'), authAdmin, async (req, res) => {
       imgSet.images.push(imageData._id);
       await imgSet.save();
       // ask for image interpretation
-      requestForInterpretation(imageData._id).catch(err => { console.log(err); });
+      requestForInterpretation(imageData._id).catch(err => { });
       res.status(200).send({ message: "success" });
       return;
     } catch (err) {

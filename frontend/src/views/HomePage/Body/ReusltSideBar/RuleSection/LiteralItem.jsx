@@ -37,8 +37,12 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
       name: "Delete",
       icon: <Delete />,
       handleClick: () => {
-        // literal.deleted = !literal.deleted;
-        // rules[indexR].clauses[indexC].literals[indexL].deleted = !rules[indexR].clauses[indexC].literals[indexL].deleted;
+        if (literal.new) {
+          let temp = JSON.parse(JSON.stringify(rules));
+          temp[indexR].clauses[indexC].literals.splice(indexL, 1);
+          setRules(temp);
+          return;
+        }
         literal.deleted = true;
         let temp = JSON.parse(JSON.stringify(rules));
         temp[indexR].clauses[indexC].literals[indexL].deleted = true;

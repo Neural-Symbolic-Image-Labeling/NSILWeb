@@ -154,7 +154,7 @@ const LabelChip = ({ label, handleClick, indexL, mode }) => {
         wordBreak: 'keep-all',
         whiteSpace: 'nowrap',
       }}>
-        {label + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+        {label}
       </Typography>
     </Box>
   )
