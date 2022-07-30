@@ -51,11 +51,11 @@ const ClassificationPanel = ({ imageMetaData }) => {
 
   const handleClick = (indexL, indexN) => { 
     // only keep indexN-th label
-    const newLabels = imageMetaData.labels[indexL].filter((_, index) => index === indexN);
+    const newLabels = imageMetaData.labels[indexL].name.filter((_, index) => index === indexN);
     // update imageMetaData
     let oldType = imageMetaData.labeled ? imageMetaData.manual ? "manual" : "autoLabeled" : 'unlabeled';
     let temp = JSON.parse(JSON.stringify(imageMetaData));
-    temp.labels[indexL] = newLabels;
+    temp.labels[indexL].name = newLabels;
     temp.labeled = true;
     temp.manual = true;
     dispatch(setImageMetaData({ indexI: currImgIndex, data: temp }));
@@ -84,7 +84,7 @@ const ClassificationPanel = ({ imageMetaData }) => {
       }}>
         Image Class:
       </Typography>
-      {imageMetaData.labels.length <= 0 ? null : imageMetaData.labels[0].map((label, index) => (
+      {imageMetaData.labels.length <= 0 ? null : imageMetaData.labels[0].name.map((label, index) => (
         <Box key={index} sx={{
           display: 'flex',
           alignItems: 'center',
