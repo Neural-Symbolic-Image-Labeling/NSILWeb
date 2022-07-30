@@ -51,7 +51,7 @@ export const Header = () => {
               }}
               onClick={() => setOpenModal(true)}
             >
-              Login
+              Workspace
             </Button>
             {navigations.map((link, index) => (
               <Button

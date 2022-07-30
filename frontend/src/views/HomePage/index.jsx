@@ -12,7 +12,7 @@ export const HomePage = () => {
 
   useEffect(() => { 
     if (!workspace) {
-      alert("load workspace");
+      // alert("load workspace");
       dispatch(fetchWorkspace());
     }
   });

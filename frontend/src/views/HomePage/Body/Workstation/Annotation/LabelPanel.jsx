@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PaperFrame } from "../../../../../components";
 import { adjustedScrollbar } from "../../../../../muiStyles";
 import { setImageMetaData, setStatistics } from "../../../../../stores/workspace";
+import { setManual } from "../../../../../stores/workstation";
 import { findCollection } from "../../../../../utils/workspace";
 
 export const LabelPanel = () => {
@@ -63,6 +64,8 @@ const ClassificationPanel = ({ imageMetaData }) => {
     temp[oldType]--;
     temp.manual++;
     dispatch(setStatistics(temp));
+    // notify sync required
+    dispatch(setManual(true));
   }
 
   return (
