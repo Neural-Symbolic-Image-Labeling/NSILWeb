@@ -63,6 +63,11 @@ export const ChartSection = () => {
         borderWidth: 0,
       }
     },
+    /**@type {import("chart.js").DoughnutAnimationOptions} */
+    animation: {
+      animateRotate: false,
+      animateScale: false
+    },
     responsive: true,
     maintainAspectRatio: false,
   }
