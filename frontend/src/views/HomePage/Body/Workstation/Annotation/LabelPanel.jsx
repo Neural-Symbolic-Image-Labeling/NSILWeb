@@ -49,13 +49,13 @@ const ClassificationPanel = ({ imageMetaData }) => {
     return 'conflict';
   }
 
-  const handleClick = (indexL) => { 
-    // only keep indexL-th label
-    const newLabels = imageMetaData.labels.filter((_, index) => index === indexL);
+  const handleClick = (indexL, indexN) => { 
+    // only keep indexN-th label
+    const newLabels = imageMetaData.labels[indexL].name.filter((_, index) => index === indexN);
     // update imageMetaData
     let oldType = imageMetaData.labeled ? imageMetaData.manual ? "manual" : "autoLabeled" : 'unlabeled';
     let temp = JSON.parse(JSON.stringify(imageMetaData));
-    temp.labels = newLabels;
+    temp.labels[indexL].name = newLabels;
     temp.labeled = true;
     temp.manual = true;
     dispatch(setImageMetaData({ indexI: currImgIndex, data: temp }));
@@ -84,7 +84,7 @@ const ClassificationPanel = ({ imageMetaData }) => {
       }}>
         Image Class:
       </Typography>
-      {imageMetaData.labels.map((label, index) => (
+      {imageMetaData.labels.length <= 0 ? null : imageMetaData.labels[0].name.map((label, index) => (
         <Box key={index} sx={{
           display: 'flex',
           alignItems: 'center',
@@ -102,7 +102,7 @@ const ClassificationPanel = ({ imageMetaData }) => {
               OR
             </Typography>
           )}
-          <LabelChip label={label.name} indexL={index} mode={detectMode()} handleClick={handleClick} />
+          <LabelChip label={label} indexL={0} indexN={index} mode={detectMode()} handleClick={handleClick} />
         </Box>
       ))}
 
@@ -110,7 +110,7 @@ const ClassificationPanel = ({ imageMetaData }) => {
   )
 }
 
-const LabelChip = ({ label, handleClick, indexL, mode }) => {
+const LabelChip = ({ label, handleClick, indexL, indexN, mode }) => {
 
   const getBorderStyle = () => {
     switch (mode) {
@@ -126,7 +126,7 @@ const LabelChip = ({ label, handleClick, indexL, mode }) => {
 
   const clickHandler = () => { 
     if (mode === 'confirmed') return;
-    handleClick(indexL);
+    handleClick(indexL, indexN);
   }
 
   return (
@@ -154,7 +154,7 @@ const LabelChip = ({ label, handleClick, indexL, mode }) => {
         wordBreak: 'keep-all',
         whiteSpace: 'nowrap',
       }}>
-        {label + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+        {label}
       </Typography>
     </Box>
   )

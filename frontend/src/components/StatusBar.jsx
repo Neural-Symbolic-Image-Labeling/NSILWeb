@@ -21,19 +21,19 @@ export const StatusBar = () => {
       <StatusItem
         color={colorPicker.manual}
         label="Manually-Labeled"
-        value={statistics ? (statistics.manual / statistics.total) * 100 : null}
+        value={statistics ? ((statistics.manual / statistics.total) * 100).toFixed(0) : null}
         loading={isLoading}
       />
       <StatusItem
         color={colorPicker.auto}
         label="Auto-Labeled"
-        value={statistics ? (statistics.autoLabeled / statistics.total) * 100 : null}
+        value={statistics ? ((statistics.autoLabeled / statistics.total) * 100).toFixed(0) : null}
         loading={isLoading}
       />
       <StatusItem
         color={colorPicker.unlabeled}
         label="Unlabeled"
-        value={statistics ? (statistics.unlabeled / statistics.total) * 100 : null}
+        value={statistics ? ((statistics.unlabeled / statistics.total) * 100).toFixed(0) : null}
         loading={isLoading}
       />
     </PaperFrame>

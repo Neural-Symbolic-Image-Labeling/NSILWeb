@@ -15,10 +15,14 @@ export const Body = () => {
       height: "100vh",
       maxHeight: "100vh",
       padding: "10px",
+      boxSizing: "border-box",
+      // overflow: "hidden",
     }}>
       <Box sx={{
         width: "70vw",
         mr: "12px",
+        height: "100%",
+        boxSizing: "border-box",
       }}>
         <Workstation />
       </Box>

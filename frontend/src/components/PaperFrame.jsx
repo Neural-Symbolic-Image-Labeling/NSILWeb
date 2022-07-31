@@ -16,6 +16,7 @@ export const PaperFrame = ({
       borderRadius: "5px",
       display: "flex",
       flexDirection: col ? "column" : "row",
+      boxSizing: "border-box",
       ...sx,
     }}>
       {children}

@@ -13,8 +13,12 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
       name: "Delete",
       icon: <Delete />,
       handleClick: () => {
-        // clause.deleted = !clause.deleted;
-        // rules[indexR].clauses[indexC].deleted = !rules[indexR].clauses[indexC].deleted;
+        if (clause.new) {
+          let temp = JSON.parse(JSON.stringify(rules));
+          temp.splice(indexR, 1);
+          setRules(temp);
+          return;
+        }
         clause.deleted = true;
         let temp = JSON.parse(JSON.stringify(rules));
         temp[indexR].clauses[indexC].deleted = true;

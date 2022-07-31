@@ -2,15 +2,17 @@ import { Box, ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Intermediate, LabelItem, PaperFrame, StatusBar } from '../../../../../components';
 import { adjustedScrollbar } from '../../../../../muiStyles';
-import { setCurrentImage, setCurrentLabels, setManual} from '../../../../../stores/workstation';
+import { setCurrentImage, setCurrentLabels, setManual } from '../../../../../stores/workstation';
 import { findCollection } from '../../../../../utils/workspace';
 import { TopActionBar } from './TopActionBar';
 
 const matchLabel = (labels, filterStr) => {
   if (!filterStr) return true;
   for (let i = 0; i < labels.length; i++) {
-    if (labels[i].name.toLowerCase().includes(filterStr.toLowerCase())) {
-      return true;
+    for (let j = 0; j < labels[i].name.length; j++) {
+      if (labels[i].name[j].toLowerCase().includes(filterStr.toLowerCase())) {
+        return true;
+      }
     }
   }
   return false;
@@ -49,6 +51,9 @@ export const Gallery = ({ setPage }) => {
       display: 'flex',
       flexDirection: 'column',
       height: "100%",
+      boxSizing: "border-box",
+      // overflow: "auto",
+      // border: "3px solid red",
     }}>
       <TopActionBar />
       <Box sx={{
@@ -60,32 +65,40 @@ export const Gallery = ({ setPage }) => {
       <PaperFrame sx={{
         justifyContent: "center",
         alignItems: "center",
-        height: "100%",
-        p: "15px 0 15px 0"
+        p: "0 0 20px 0",
+        boxSizing: "border-box",
+        // border: "3px solid blue",
+        minHeight: '0'
       }}>
         {isLoading ? <Intermediate>Loading</Intermediate> : workspace === null ? <Intermediate>No Data</Intermediate> : (
           <Box sx={{
             width: "100%",
+            maxHeight: "100%",
             height: "100%",
-            overflowX: "hidden",
-            overflowY: "scroll",
-            ...adjustedScrollbar.hidden,
+            boxSizing: "border-box",
+            // overflowX: "hidden",
+            // overflowY: "auto",
+            // ...adjustedScrollbar.hidden,
           }}>
             <ImageList
               sx={{
                 width: "100%",
                 height: "100%",
                 justifyItems: "center",
+                overflowX: "hidden",
+                overflowY: "auto",
+                ...adjustedScrollbar.thin,
+                boxSizing: "border-box",
                 // gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr)) !important",
               }}
               cols={4}
-              // gap={6}
+            // gap={6}
             >
               {getDisplayImages().length === 0 ? <Intermediate>No Result</Intermediate> : getDisplayImages().map((image, index) => (
                 <ImageListItem key={index}
                   sx={{
                     width: '220px',
-                    minHeight: '220px',
+                    height: 'fit-content',
                   }}
                 >
                   <Box
@@ -102,7 +115,7 @@ export const Gallery = ({ setPage }) => {
                       setPage(1);
                       dispatch(setCurrentImage(index));
                       dispatch(setManual(false));
-                      dispatch(setCurrentLabels(currCollection.images[index].labels[0] === undefined ? "": currCollection.images[index].labels[0].name[0]))
+                      dispatch(setCurrentLabels(currCollection.images[index].labels[0] === undefined ? "" : currCollection.images[index].labels[0].name[0]))
                     }}
                   />
                   <ImageListItemBar

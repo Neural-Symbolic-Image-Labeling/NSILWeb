@@ -19,7 +19,18 @@ export const RuleSection = () => {
   const [rules, setRules] = useState(null);
 
   const handlePreview = () => {
-    updateRules(currCollectionId, rules)
+    // delete "new" field in literals and clauses
+    let temp = JSON.parse(JSON.stringify(rules));
+    for (let rule of temp) { 
+      for (let clause of rule.clauses) {
+        delete clause.new;
+        for (let literal of clause.literals) {
+          delete literal.new;
+        }
+      }
+    }
+
+    updateRules(currCollectionId, temp)
       .then(() => {
         requestTrailLabel(workspace._id, currCollectionId)
           .then(() => {
