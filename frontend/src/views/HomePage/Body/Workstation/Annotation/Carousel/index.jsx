@@ -76,6 +76,7 @@ export const Carousel = () => {
   const prevSlide = () => {
     let temp = JSON.parse(JSON.stringify(imageMetaData));
     let statistic = JSON.parse(JSON.stringify(currCollection.statistics));
+    
     if (manual === true) {
       let oldType = imageMetaData.labeled
         ? imageMetaData.manual
@@ -100,13 +101,16 @@ export const Carousel = () => {
         console.log(err);
       });
     }
-    
+
     setCurrent(current === 0 ? length - 1 : current - 1);
     dispatch(setCurrentImage(current === 0 ? length - 1 : current - 1));
     dispatch(
       setCurrentLabels(
-        currCollection.images[current === 0 ? length - 1 : current - 1]
-          .labels[0].name[0]
+        currCollection.images[current === length - 1 ? 0 : current + 1]
+        .labels[0] === undefined
+        ? ""
+        : currCollection.images[current === length - 1 ? 0 : current + 1]
+            .labels[0].name[0]
       )
     );
     dispatch(setManual(false));
