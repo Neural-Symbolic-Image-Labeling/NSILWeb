@@ -2,6 +2,7 @@ import { ControlPoint, Delete, Lock } from "@mui/icons-material";
 import { Box, ClickAwayListener, IconButton, Typography } from "@mui/material"
 import React, { Fragment, useState } from "react";
 import { ContextMenu } from "../../../../../components/ContextMenu";
+import { adjustedScrollbar } from "../../../../../muiStyles";
 import { LiteralItem } from "./LiteralItem";
 import { RuleMenu } from "./RuleMenu";
 
@@ -89,6 +90,8 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
           boxSizing: "border-box",
           maxWidth: "100%",
           border: getBorderStyle(),
+          overflowX: "auto",
+          ...adjustedScrollbar.thin,
           // clause section indicator
           backgroundColor: "rgba(229, 235, 244, 1)",
           p: clause.literals.reduce((pre, curr) => pre || !curr.deleted, false) ? '11px 9px 1px 9px' : '11px 9px 11px 9px'
