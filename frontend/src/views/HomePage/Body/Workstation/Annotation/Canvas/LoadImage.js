@@ -18,10 +18,10 @@ const LoadImage = ({ imageUrl, onMouseDown }) => {
       const { naturalHeight, naturalWidth} = image;
       console.log(naturalHeight, naturalWidth);
       if (naturalWidth > naturalHeight){
-        let ratioH = naturalWidth >= 900 ? 1-((naturalWidth-900)/naturalWidth) : ((900-naturalWidth)/naturalWidth)+1
-        image.width = Math.ceil(naturalWidth*ratioH);
-        image.height = Math.ceil(naturalHeight*ratioH);
-        image.alt = Math.ceil(450-((naturalWidth*ratioH)/2));
+        let ratioW = naturalWidth >= 900 ? 1-((naturalWidth-900)/naturalWidth) : ((900-naturalWidth)/naturalWidth)+1
+        image.width = Math.ceil(naturalWidth*ratioW);
+        image.height = Math.ceil(naturalHeight*ratioW);
+        image.alt = Math.ceil(450-((naturalWidth*ratioW)/2));
         if(image.height > 600){
           let ratio = naturalHeight >= 600 ? 1-((naturalHeight-600)/naturalHeight) : ((600 -naturalHeight)/naturalHeight)+1
           image.width = Math.ceil(naturalWidth*ratio);
@@ -29,10 +29,11 @@ const LoadImage = ({ imageUrl, onMouseDown }) => {
           image.alt = Math.ceil(450-((naturalWidth*ratio)/2));
         }
       }else{
-        let ratio = naturalHeight >= 600 ? 1-((naturalHeight-600)/naturalHeight) : ((600 -naturalHeight)/naturalHeight)+1
-        image.width = Math.ceil(naturalWidth*ratio);
-        image.height = Math.ceil(naturalHeight*ratio);
-        image.alt = Math.ceil(450-((naturalWidth*ratio)/2));
+        let ratioH = naturalHeight >= 600 ? 1-((naturalHeight-600)/naturalHeight) : ((600 -naturalHeight)/naturalHeight)+1
+        image.width = Math.ceil(naturalWidth*ratioH);
+        image.height = Math.ceil(naturalHeight*ratioH);
+        image.alt = Math.ceil(450-((naturalWidth*ratioH)/2));
+        
       }
       console.log(image.width, image.height);
       setImage(image);
