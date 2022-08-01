@@ -99,6 +99,7 @@ export const Gallery = ({ setPage }) => {
                 boxSizing: "border-box",
                 // gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr)) !important",
               }}
+              rowHeight={135}
               cols={7}
             // gap={6}
             >
@@ -115,7 +116,7 @@ export const Gallery = ({ setPage }) => {
                       objectFit: "cover",
                       width: '120px',
                       height: '120px',
-                      border: borderDict[getType(image)],
+                      borderBottom: borderDict[getType(image)],
                       '&:hover': {
                         cursor: "pointer",
                         opacity: 0.5,
