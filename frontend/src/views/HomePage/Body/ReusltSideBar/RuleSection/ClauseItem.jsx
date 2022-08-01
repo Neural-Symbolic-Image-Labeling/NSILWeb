@@ -2,6 +2,7 @@ import { ControlPoint, Delete, Lock } from "@mui/icons-material";
 import { Box, ClickAwayListener, IconButton, Typography } from "@mui/material"
 import React, { Fragment, useState } from "react";
 import { ContextMenu } from "../../../../../components/ContextMenu";
+import { adjustedScrollbar } from "../../../../../muiStyles";
 import { LiteralItem } from "./LiteralItem";
 import { RuleMenu } from "./RuleMenu";
 
@@ -89,9 +90,11 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
           boxSizing: "border-box",
           maxWidth: "100%",
           border: getBorderStyle(),
+          overflowX: "auto",
+          ...adjustedScrollbar.thin,
           // clause section indicator
           backgroundColor: "rgba(229, 235, 244, 1)",
-          p: '11px 9px 11px 9px',
+          p: clause.literals.reduce((pre, curr) => pre || !curr.deleted, false) ? '11px 9px 1px 9px' : '11px 9px 11px 9px'
         }}
       >
         {clause.literals.map((literal, index) => (
@@ -107,12 +110,17 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
                     color: "purple.dark",
                     ml: "5px",
                     mr: "5px",
+                    mb: '10px'
                   }}>
                     AND
                   </Typography>
                 )}
                 {/* {`deleted: ${literal.deleted} | locked: ${literal.locked}`} */}
-                <LiteralItem literal={literal} indexR={indexR} indexC={indexC} indexL={index} setRules={setRules} rules={rules} />
+                <Box sx={{
+                  mb: '10px'
+                }}>
+                  <LiteralItem literal={literal} indexR={indexR} indexC={indexC} indexL={index} setRules={setRules} rules={rules} />
+                </Box>
               </Fragment>
             )}
           </Fragment>
@@ -120,9 +128,11 @@ export const ClauseItem = ({ clause, indexR, indexC, setRules, rules }) => {
         <Box sx={{
           // display: "flex",
           // alignItems: "center",
+          // height: "100%",
           // justifyContent: "center",
           // width: "100%",
           ml: "5px",
+          mb: '10px'
         }}>
           <IconButton onClick={() => handleAddLiteral()}>
             <ControlPoint sx={{ color: 'purple.dark' }} />

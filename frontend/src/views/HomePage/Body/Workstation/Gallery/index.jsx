@@ -6,6 +6,13 @@ import { setCurrentImage, setCurrentLabels, setManual } from '../../../../../sto
 import { findCollection } from '../../../../../utils/workspace';
 import { TopActionBar } from './TopActionBar';
 
+const borderDict = {
+  unlabeled: { borderBottom: '3px solid #757575'},
+  manual: { borderBottom: '3px solid #40ab6e' },
+  conflict: { border: '3px solid rgba(255, 0, 0, 0.8)' },
+  auto: { borderBottom: '3px solid #dc6e25' },
+}
+
 const matchLabel = (labels, filterStr) => {
   if (!filterStr) return true;
   for (let i = 0; i < labels.length; i++) {
@@ -39,11 +46,12 @@ export const Gallery = ({ setPage }) => {
   const getType = (image) => {
     if (!image.labeled) {
       return "unlabeled";
-    } else if (image.manual) {
-      return "manual";
-    } else {
-      return "auto";
     }
+    for (let l of image.labels) { 
+      if (l.name.length > 1) return "conflict";
+    }
+    if(image.manual) return "manual";
+    return "auto";
   }
 
   return (
@@ -91,13 +99,14 @@ export const Gallery = ({ setPage }) => {
                 boxSizing: "border-box",
                 // gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr)) !important",
               }}
-              cols={4}
+              rowHeight={135}
+              cols={8}
             // gap={6}
             >
               {getDisplayImages().length === 0 ? <Intermediate>No Result</Intermediate> : getDisplayImages().map((image, index) => (
                 <ImageListItem key={index}
                   sx={{
-                    width: '220px',
+                    width: 'fit-content',
                     height: 'fit-content',
                   }}
                 >
@@ -105,8 +114,13 @@ export const Gallery = ({ setPage }) => {
                     component="img"
                     sx={{
                       objectFit: "cover",
-                      width: '220px',
-                      height: '220px',
+                      width: '120px',
+                      height: '120px',
+                      ...borderDict[getType(image)],
+                      '&:hover': {
+                        cursor: "pointer",
+                        opacity: 0.5,
+                      }
                     }}
                     src={image.url}
                     alt={image.name}
@@ -118,10 +132,10 @@ export const Gallery = ({ setPage }) => {
                       dispatch(setCurrentLabels(currCollection.images[index].labels[0] === undefined ? "" : currCollection.images[index].labels[0].name[0]))
                     }}
                   />
-                  <ImageListItemBar
+                  {/* <ImageListItemBar
                     title={<LabelItem type={getType(image)} label={image.name} />}
                     position="below"
-                  />
+                  /> */}
                 </ImageListItem>
               ))}
             </ImageList>

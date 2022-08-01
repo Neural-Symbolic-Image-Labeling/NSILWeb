@@ -127,6 +127,13 @@ export const LiteralItem = ({ literal, indexR, indexC, indexL, setRules, rules }
             component='textarea'
             value={value}
             onChange={handleValueChange}
+            sx={{
+              fontFamily: "Helvetica",
+              fontSize: "14px",
+              color: "purple.dark",
+              height: "26px",
+              p: '3px'
+            }}
           />
         </ClickAwayListener>
       ) : (
@@ -145,12 +152,12 @@ const LiteralChip = ({ literal, isParsing }) => {
     <Box sx={{
       display: "flex",
       alignItems: "center",
-      borderRadius: "16px",
+      borderRadius: "5px",
       boxSizing: "border-box",
       backgroundColor: "white",
       maxWidth: "100%",
       overflow: "hidden",
-      border: `3px solid ${!literal.literal ? "rgba(255, 37, 23, 0.7)" : literal.locked ? 'rgba(11, 164, 54, 0.84)' : 'rgba(229, 235, 244, 1)'}`,
+      border: `3px solid ${!literal.literal ? "rgba(255, 37, 23, 0.7)" : literal.locked ? 'rgba(11, 164, 54, 0.84)' : 'white'}`,
       p: '5px 16px 5px 16px',
     }}>
 

@@ -76,38 +76,6 @@ router.post(getPath('/label'), async (req, res) => {
   }
 });
 
-// router.post(getPath('/savelabelstatus'), authWorkspace, async (req, res) => { 
-//   if (req.body) {
-//     /**@type {import('./request').SaveLabelStatusRequest} */
-//     const reqBody = req.body;
-//     try { 
-//       // find the collection
-//       const collection = req.workspace.collections.find(c => c._id.toString() === reqBody.collectionId);
-//       if (!collection) {
-//         res.status(404).json(new ErrorResponse(0, "Collection not found"));
-//         return;
-//       }
-//       // find the image
-//       const image = collection.images.find(i => i.imageId.toString() === reqBody.imageId);
-//       if (!image) {
-//         res.status(404).json(new ErrorResponse(0, "Image not found"));
-//         return;
-//       }
-//       // update labels
-//       image.labels = reqBody.labels;
-//       await req.workspace.save();
-//       res.status(200).json({ message: "success" });
-//       return;
-//     }catch(err) {
-//       res.status(500).json(new ErrorResponse(0, "Failed to save label status", err));
-//       return;
-//     }
-//   } else {
-//     res.status(400).json(new ErrorResponse(2, "request body is required"));
-//     return;
-//   }
-// });
-
 router.post(getPath('/updaterules'), authWorkspace, async (req, res) => { 
   if (req.body) { 
     /**@type {import('./request').UpdateRuleRequest} */
@@ -131,41 +99,6 @@ router.post(getPath('/updaterules'), authWorkspace, async (req, res) => {
     return;
   }
 });
-
-// router.post(getPath('/updateLabels'), authWorkspace, async (req, res) => { 
-//   if (req.body) {
-//     /**@type {import('./request').UpdateLabelsRequest} */
-//     const reqBody = req.body;
-//     try { 
-//       if (!reqBody.label) {
-//         res.status(200).json({ message: "no change" });
-//         return;
-//       }
-//       // find the collection
-//       const collection = req.workspace.collections.find(c => c._id.toString() === reqBody.collectionId);
-//       if (!collection) {
-//         res.status(404).json(new ErrorResponse(0, "Collection not found"));
-//         return;
-//       }
-//       if (!reqBody.label) {
-//         collection.images[reqBody.imageIndex].labels = [];
-//         res.status(200).json({ message: "success" });
-//         return;
-//       }
-//       // update labels
-//       collection.images[reqBody.imageIndex].labels = [...reqBody.label];
-//       await req.workspace.save();
-//       res.status(200).json({ message: "success" });
-//       return;
-//     }catch(err) {
-//       res.status(500).json(new ErrorResponse(0, "Failed to update label", err));
-//       return;
-//     }
-//   } else {
-//     res.status(400).json(new ErrorResponse(2, "request body is required"));
-//     return;
-//   }
-// });
 
 router.post(getPath('/updateImageMetaData'), authWorkspace, async (req, res) => { 
   if (req.body) {
@@ -208,6 +141,29 @@ router.post(getPath('/updateStatistics'), authWorkspace, async (req, res) => {
       return;
     }catch(err) {
       res.status(500).json(new ErrorResponse(0, "Failed to update statistics", err));
+      return;
+    }
+  }
+});
+
+router.post(getPath('/updateMode'), authWorkspace, async (req, res) => { 
+  if(req.body) {
+    /**@type {import('./request').UpdateModeRequest} */
+    const reqBody = req.body;
+    try { 
+      // find the collection
+      const collection = req.workspace.collections.find(c => c._id.toString() === reqBody.collectionId);
+      if (!collection) {
+        res.status(404).json(new ErrorResponse(0, "Collection not found"));
+        return;
+      }
+      // update labels
+      collection.method = reqBody.mode;
+      await req.workspace.save();
+      res.status(200).json({ message: "success" });
+      return;
+    }catch(err) {
+      res.status(500).json(new ErrorResponse(0, "Failed to update mode", err));
       return;
     }
   }

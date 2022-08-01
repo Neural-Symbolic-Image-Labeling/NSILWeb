@@ -35,12 +35,17 @@ export const ChartSection = () => {
     cutout: 50,
     plugins: {
       legend: {
-        display: true,
+        display: false,
         position: "right",
+        // onClick: (e, legendItem) => { },
         labels: {
           boxWidth: 10,
           boxHeight: 10,
           padding: 40,
+          
+          font: {
+            size: 16,
+          }
         }
       },
       tooltip: {

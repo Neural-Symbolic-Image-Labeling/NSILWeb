@@ -60,15 +60,15 @@ export const RuleSection = () => {
     }}>
       <Box sx={{
         display: "flex",
+        alignItems: "center",
         width: "100%",
         boxSizing: "border-box",
         mb: '18px',
       }}>
-        <Typography variant="h5" gutterBottom color="purple.dark" sx={{
+        <Typography variant="h5" color="purple.dark" sx={{
           fontWeight: "bold",
           fontSize: "18px",
           lineHeight: "19px",
-          mt: "16px",
         }}>
           Labeling Rules
         </Typography>

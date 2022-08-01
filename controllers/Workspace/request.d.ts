@@ -40,3 +40,8 @@ export interface UpdateStatisticsRequest {
     collectionId: string;
     data: any;
 }
+
+export interface UpdateModeRequest { 
+    collectionId: string;
+    mode: string;
+}
