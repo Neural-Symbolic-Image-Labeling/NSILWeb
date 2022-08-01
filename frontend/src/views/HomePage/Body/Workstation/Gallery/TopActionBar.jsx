@@ -1,13 +1,13 @@
-import { Button, Box, Typography, TextField, InputAdornment, Paper, Dialog, DialogTitle, DialogContent, List, ListItemButton, ListItemIcon, ListItemText, DialogActions, CircularProgress } from "@mui/material";
+import { Button, Box, Typography, TextField, InputAdornment, Paper, Dialog, DialogTitle, DialogContent, List, ListItemButton, ListItemIcon, ListItemText, DialogActions, CircularProgress, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import { Collections } from "@mui/icons-material";
-import { loadWorkspace, search, setCurrCollectionId, setFilter, setWorkspace } from "../../../../../stores/workspace";
+import { loadWorkspace, search, setCurrCollectionId, setFilter, setMode, setWorkspace } from "../../../../../stores/workspace";
 import { useDispatch, useSelector } from "react-redux";
 import { Fragment, useEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
 import { getAllSetNames } from "../../../../../apis/image";
 import { PaperFrame } from "../../../../../components/PaperFrame";
-import { autoLogin, requestAutoLabel, requestNewCollection } from "../../../../../apis/workspace";
-
+import { autoLogin, requestAutoLabel, requestNewCollection, updateMode } from "../../../../../apis/workspace";
+import { findCollection } from "../../../../../utils/workspace";
 
 export const TopActionBar = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,8 @@ export const TopActionBar = () => {
   const [autoLabelButtonDisabled, setAutoLabelButtonDisabled] = useState(false);
   const workspace = useSelector(state => state.workspace.workspace);
   const currCollectionId = useSelector(state => state.workspace.currCollectionId);
+  const currCollection = findCollection(workspace, currCollectionId);
+  const mode = currCollection ? currCollection.method : null;
 
   useEffect(() => {
     getAllSetNames()
@@ -26,6 +28,17 @@ export const TopActionBar = () => {
         setLoadSets(false);
       })
   }, []);
+
+  const handleModeSelect = (e) => {
+    // request db change
+    updateMode(currCollectionId, e.target.value)
+      .then(() => {
+        // update store
+        dispatch(setMode(e.target.value));
+      }).catch(err => {
+        console.log(err);
+      });
+  }
 
   const handleAutoLabel = () => {
     setAutoLabelButtonDisabled(true);
@@ -73,7 +86,7 @@ export const TopActionBar = () => {
           <TextField
             variant="outlined"
             size="small"
-            placeholder="Search label name or image name"
+            placeholder="Search label name"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -82,7 +95,7 @@ export const TopActionBar = () => {
               )
             }}
             sx={{
-              width: "350px"
+              width: "250px"
             }}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -99,6 +112,21 @@ export const TopActionBar = () => {
             Search
           </Button>
         </Box>
+        {/* Mode Dropdown */}
+        {mode && (
+          <Box sx={{
+            width: "110px",
+          }}>
+            <FormControl fullWidth size="small">
+              <InputLabel>Mode</InputLabel>
+              <Select value={mode} label="Mode" onChange={handleModeSelect}>
+                <MenuItem value="Classification">Classification</MenuItem>
+                <MenuItem value="Segmentation">Segmentation</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+        )}
+
         {/* Right Button */}
         <Button
           variant="contained"

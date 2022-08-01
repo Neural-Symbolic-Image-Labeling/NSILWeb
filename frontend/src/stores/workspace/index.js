@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { autoLogin, login } from "../../apis/workspace";
 
-export const fetchWorkspace = createAsyncThunk("gallery/fetchWorkspace",
+export const fetchWorkspace = createAsyncThunk("workspace/fetchWorkspace",
   async () => {
     const data = await autoLogin();
     return data;
   }
 );
 
-export const loadWorkspace = createAsyncThunk("gallery/loadWorkspace",
+export const loadWorkspace = createAsyncThunk("workspace/loadWorkspace",
   async (workspaceName) => { 
     const data = await login(workspaceName);
     return data;
@@ -53,6 +53,11 @@ export const workspcaeSlice = createSlice({
     },
     setFilter: (state, action) => { 
       state.filter = action.payload;
+    },
+    setMode: (state, action) => { 
+      // find collection
+      const collection = state.workspace.collections.find(c => c._id.toString() === state.currCollectionId.toString());
+      collection.method = action.payload;
     },
     setLoading: (state, action) => { 
       state.loading = action.payload;
@@ -110,6 +115,7 @@ export const {
   setStatistics,
   setCurrCollectionId,
   setAuthed,
+  setMode,
   setFilter,
   setImageMetaData
 } = workspcaeSlice.actions;
