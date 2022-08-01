@@ -31,7 +31,11 @@ export const Header = () => {
           <Box sx={{ flexBasis: "50%", display: "flex", alignItems: 'center' }}>
             <Typography
               // variant="h6"
-              sx={{ marginLeft: "10px", fontSize: "16px" }}
+              sx={{
+                marginLeft: "10px",
+                fontSize: "18px",
+                fontStyle: "italic",
+              }}
             >
               Neural-Symbolic Image Labeling
             </Typography>
@@ -58,7 +62,11 @@ export const Header = () => {
                 key={index}
                 onClick={() => navigate(link.link)}
                 variant="text"
-                sx={{ color: "white", fontSize: "13px"}}
+                sx={{
+                  color: "white",
+                  fontSize: "13px",
+                  fontWeight: "400 !important",
+                }}
               >
                 {link.title}
               </Button>

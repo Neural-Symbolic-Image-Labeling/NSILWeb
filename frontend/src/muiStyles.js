@@ -31,6 +31,23 @@ export const adjustedScrollbar = {
     // Firefox
     'scrollbarWidth': 'thin',
     'scrollbarColor': 'rgba(155, 155, 155, 0.5) transparent',
+  },
+  superthin: {
+    // Chrome
+    '::-webkit-scrollbar': {
+      width: '4.5px',
+    },
+    '::-webkit-scrollbar-track': {
+      background: 'transparent',
+    },
+    '::-webkit-scrollbar-thumb': {
+      'backgroundColor': 'rgba(155, 155, 155, 0.5)',
+      'borderRadius': '20px',
+      'border': 'transparent',
+    },
+    // Firefox
+    'scrollbarWidth': 'thin',
+    'scrollbarColor': 'rgba(155, 155, 155, 0.5) transparent',
   }
 };
 
@@ -67,6 +84,8 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           'boxShadow': 'none',
+          'fontSize': '12px',
+          'fontWeight': '700',
         }
       }
     },

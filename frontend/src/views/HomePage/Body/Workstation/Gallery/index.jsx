@@ -100,7 +100,7 @@ export const Gallery = ({ setPage }) => {
                 // gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr)) !important",
               }}
               rowHeight={135}
-              cols={7}
+              cols={8}
             // gap={6}
             >
               {getDisplayImages().length === 0 ? <Intermediate>No Result</Intermediate> : getDisplayImages().map((image, index) => (

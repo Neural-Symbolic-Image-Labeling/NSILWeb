@@ -37,10 +37,15 @@ export const ChartSection = () => {
       legend: {
         display: true,
         position: "right",
+        // onClick: (e, legendItem) => { },
         labels: {
           boxWidth: 10,
           boxHeight: 10,
           padding: 40,
+          
+          font: {
+            size: 16,
+          }
         }
       },
       tooltip: {

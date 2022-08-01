@@ -74,7 +74,7 @@ export const TopActionBar = () => {
           size="medium"
           sx={{
             bgcolor: 'purple.dark',
-            color: 'white',
+            color: 'white'
           }}
         >
           Load Images
@@ -115,15 +115,15 @@ export const TopActionBar = () => {
         {/* Mode Dropdown */}
         {mode && (
           <Box sx={{
-            width: "110px",
+            // width: "140px",
           }}>
-            <FormControl fullWidth size="small">
-              <InputLabel>Mode</InputLabel>
-              <Select value={mode} label="Mode" onChange={handleModeSelect}>
-                <MenuItem value="Classification">Classification</MenuItem>
-                <MenuItem value="Segmentation">Segmentation</MenuItem>
-              </Select>
-            </FormControl>
+            {/* <FormControl fullWidth size="small">
+              <InputLabel>Mode</InputLabel> */}
+            <Select value={mode} size="small" label="Mode" onChange={handleModeSelect}>
+              <MenuItem value="Classification">Classification</MenuItem>
+              <MenuItem value="Segmentation">Segmentation</MenuItem>
+            </Select>
+            {/* </FormControl> */}
           </Box>
         )}
 
