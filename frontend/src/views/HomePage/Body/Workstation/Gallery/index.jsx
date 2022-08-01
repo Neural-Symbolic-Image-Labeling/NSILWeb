@@ -7,10 +7,10 @@ import { findCollection } from '../../../../../utils/workspace';
 import { TopActionBar } from './TopActionBar';
 
 const borderDict = {
-  unlabeled: '3px solid #757575',
-  manual: '3px solid #40ab6e',
-  conflict: '3px solid rgba(255, 0, 0, 0.8)',
-  auto: '3px solid #dc6e25',
+  unlabeled: { borderBottom: '3px solid #757575'},
+  manual: { borderBottom: '3px solid #40ab6e' },
+  conflict: { border: '3px solid rgba(255, 0, 0, 0.8)' },
+  auto: { borderBottom: '3px solid #dc6e25' },
 }
 
 const matchLabel = (labels, filterStr) => {
@@ -116,7 +116,7 @@ export const Gallery = ({ setPage }) => {
                       objectFit: "cover",
                       width: '120px',
                       height: '120px',
-                      borderBottom: borderDict[getType(image)],
+                      ...borderDict[getType(image)],
                       '&:hover': {
                         cursor: "pointer",
                         opacity: 0.5,
