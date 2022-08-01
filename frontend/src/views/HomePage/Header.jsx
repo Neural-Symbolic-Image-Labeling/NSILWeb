@@ -34,7 +34,7 @@ export const Header = () => {
               sx={{
                 marginLeft: "10px",
                 fontSize: "18px",
-                fontStyle: "italic",
+                // fontStyle: "italic",
               }}
             >
               Neural-Symbolic Image Labeling
