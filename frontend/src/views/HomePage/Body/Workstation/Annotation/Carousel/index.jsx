@@ -106,10 +106,10 @@ export const Carousel = () => {
     dispatch(setCurrentImage(current === 0 ? length - 1 : current - 1));
     dispatch(
       setCurrentLabels(
-        currCollection.images[current === length - 1 ? 0 : current + 1]
+        currCollection.images[current === 0 ? length - 1 : current - 1]
         .labels[0] === undefined
         ? ""
-        : currCollection.images[current === length - 1 ? 0 : current + 1]
+        : currCollection.images[current === 0 ? length - 1 : current - 1]
             .labels[0].name[0]
       )
     );

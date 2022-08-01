@@ -16,21 +16,24 @@ const LoadImage = ({ imageUrl, onMouseDown }) => {
     image.src = imageUrl;
     image.onload = () => {
       const { naturalHeight, naturalWidth} = image;
+      console.log(naturalHeight, naturalWidth);
       if (naturalWidth > naturalHeight){
-        let ratio = naturalWidth >= 900 ? 1-((naturalWidth-900)/naturalWidth) : ((900-naturalWidth)/naturalWidth)+1
+        let ratio = naturalHeight >= 600 ? 1-((naturalHeight-600)/naturalHeight) : ((600 -naturalHeight)/naturalHeight)+1
         image.width = Math.ceil(naturalWidth*ratio);
         image.height = Math.ceil(naturalHeight*ratio);
-        image.alt = 0
+        image.alt = Math.ceil(450-((naturalWidth*ratio)/2));
       }else{
-        let ratioH = naturalHeight >= 600 ? 1-((naturalHeight-600)/naturalHeight) : ((600 -naturalHeight)/naturalHeight)+1
+        let ratioH = naturalWidth >= 900 ? 1-((naturalWidth-900)/naturalWidth) : ((900-naturalWidth)/naturalWidth)+1
         image.width = Math.ceil(naturalWidth*ratioH);
         image.height = Math.ceil(naturalHeight*ratioH);
         image.alt = Math.ceil(450-((naturalWidth*ratioH)/2));
       }
+      console.log(image.width, image.height);
       setImage(image);
+
     };
   }
-  return <Image image={image} onMouseDown={onMouseDown} x={image === null ? 0 :Number(image.alt)}></Image>;
+  return <Image image={image} onMouseDown={onMouseDown} x={image === null ? 0 : Number(image.alt)}></Image>;
 };
 
 export default LoadImage;
