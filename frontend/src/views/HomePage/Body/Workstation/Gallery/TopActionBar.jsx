@@ -120,11 +120,22 @@ export const TopActionBar = () => {
         {/* Mode Dropdown */}
         {mode && (
           <Box sx={{
-            // width: "140px",
+            height: "33px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}>
             {/* <FormControl fullWidth size="small">
               <InputLabel>Mode</InputLabel> */}
-            <Select value={mode} size="small" label="Mode" onChange={handleModeSelect}>
+            <Select
+              value={mode}
+              size="small"
+              label="Mode"
+              onChange={handleModeSelect}
+              sx={{
+                height: "33px",
+              }}
+            >
               <MenuItem value="Classification">Classification</MenuItem>
               <MenuItem value="Segmentation">Segmentation</MenuItem>
             </Select>
