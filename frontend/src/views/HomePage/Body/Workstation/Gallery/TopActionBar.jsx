@@ -85,17 +85,21 @@ export const TopActionBar = () => {
         }}>
           <TextField
             variant="outlined"
-            size="small"
+            // size="small"
             placeholder="Search label name"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
                   <Search sx={{ color: "purple.dark" }} />
                 </InputAdornment>
-              )
+              ),
+              style: {
+                height: "33px",
+              }
             }}
             sx={{
-              width: "250px"
+              width: "250px",
+              height: "33px",
             }}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -104,6 +108,7 @@ export const TopActionBar = () => {
             size="medium"
             onClick={() => dispatch(setFilter(searchTerm))}
             sx={{
+              height: "33px",
               marginLeft: "5px",
               bgcolor: 'purple.dark',
               color: 'white',
