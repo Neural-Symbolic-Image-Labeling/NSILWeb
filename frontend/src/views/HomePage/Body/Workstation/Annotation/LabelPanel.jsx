@@ -79,8 +79,9 @@ const ClassificationPanel = ({ imageMetaData }) => {
       <Typography sx={{
         mr: '8px',
         color: 'purple.dark',
-        fontSize: '20px',
-        lineHeight: '26px',
+        fontWeight: "bold",
+        fontSize: "18px",
+        lineHeight: "19px",
       }}>
         Image Class:
       </Typography>

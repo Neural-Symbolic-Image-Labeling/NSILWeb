@@ -7,11 +7,14 @@ import LoadImage from "./LoadImage";
 import Polygon from "./Polygon";
 import { findCollection } from "../../../../../../utils/workspace";
 import { PaperFrame } from "../../../../../../components";
-import { Box} from "@mui/material";
-import TextField from '@mui/material/TextField';
-import {setCurrentLabels} from "../../../../../../stores/workstation";
+import { Box, Typography } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import {
+  setCurrentLabels,
+  setCurrentInput,
+} from "../../../../../../stores/workstation";
 import { setManual } from "../../../../../../stores/workstation";
-
+import { LabelPanel } from "../LabelPanel";
 
 export const Canvas = () => {
   const dispatch = useDispatch();
@@ -23,6 +26,7 @@ export const Canvas = () => {
   const currCollection = findCollection(workspace, currCollectionId);
   const imageSet = currCollection ? currCollection.images : null;
   const currentLabels = useSelector((state) => state.workstation.currentLabels);
+  const currentInput = useSelector((state) => state.workstation.currentInput);
 
   const [annotations, setAnnotations] = useState([
     {
@@ -181,138 +185,188 @@ export const Canvas = () => {
   const annotationsToDraw = [...annotations, ...newAnnotation];
   return (
     <div tabIndex={1} onKeyDown={handleKeyDown}>
-     <PaperFrame col sx={{
-      alignItems: "center",
-      height: "100%",
-      width: "100%",
-      overflow: "hidden",
-      mt: '13px',
-      boxSizing: "border-box",
-    }}>
-      <Box
+      <PaperFrame
+        col
         sx={{
-          justifyContent: "center",
           alignItems: "center",
-          mb:1,
-          height:"90%",
-          padding:1,
+          height: "100%",
+          width: "100%",
+          overflow: "hidden",
+          mt: "13px",
+          boxSizing: "border-box",
         }}
       >
-        {imageSet.map((slide, index) => {
-          return (
-            <div key={index}>
-              {imageSet.indexOf(slide) === currentImage && (
-                <Stage
-                  width={900}
-                  height={600}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseDown={handleMouseDown}
-                  onMouseMove={handleMouseMove}
-                  onMouseUp={handleMouseUp}
-                >
-                  <Layer>
-                    <LoadImage
-                      imageUrl={slide.url}
-                      onMouseDown={() => {
-                        selectAnnotation(null);
-                      }}
-                    />
-                    {tool === "boundingbox" &&
-                      annotationsToDraw.map((annotation, i) => {
-                        return (
-                          <BoundingBox
-                            key={i}
-                            shapeProps={annotation}
-                            isSelected={annotation.id === selectedId}
-                            onSelect={() => {
-                              selectAnnotation(annotation.id);
-                            }}
-                            onChange={(newAttrs) => {
-                              const rects = annotations.slice();
-                              rects[i] = newAttrs;
-                              setAnnotations(rects);
-                            }}
-                          />
-                        );
-                      })}
-
-                    {tool === "polygon" && (
-                      <Polygon
-                        points={points}
-                        flattenedPoints={flattenedPoints}
-                        handlePointDragMove={handlePointDragMovePoly}
-                        handleGroupDragEnd={handleGroupDragEnd}
-                        handleMouseOverStartPoint={
-                          handleMouseOverStartPointPoly
-                        }
-                        handleMouseOutStartPoint={handleMouseOutStartPointPoly}
-                        isFinished={isPolyComplete}
-                      />
-                    )}
-
-                    {tool === "freedrawing" &&
-                      lines.map((line, i) => (
-                        <Line
-                          key={i}
-                          points={line.points}
-                          stroke="white"
-                          strokeWidth={5}
-                          tension={0.5}
-                          lineCap="round"
-                          lineJoin="round"
-                          globalCompositeOperation={
-                            line.tool === "eraser"
-                              ? "destination-out"
-                              : "source-over"
-                          }
-                        />
-                      ))}
-
-                    {tool === "text" && (
-                      <Label x={425} y={0} padding={1}>
-                        <Tag
-                          fill="white"
-                          lineJoin="round"
-                          shadowColor="black"
-                          padding="2px"
-                          margin="1px"
-                        />
-                        <Text
-                          text={currentLabels}
-                          fontFamily="Helvetica"
-                          fontSize={20}
-                          fill="black"
-                        />
-                      </Label>
-                    )}
-                  </Layer>
-                </Stage>
-              )}
-            </div>
-          );
-        })}
-      </Box>
-
-      <Box
-        sx={{
-          height: "10%",
-          justifyContent: "center",
-          alignItems: "center",
-          padding:1
-        }}
-      >
-         <TextField
-          required
-          id="outlined-required"
-          label="Label Name"
-          value={currentLabels}
-          onChange={(event)=>{
-          dispatch(setCurrentLabels(event.target.value));
-          dispatch(setManual(true));
+        <Box
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+            mb: 1,
+            height: "90%",
+            padding: 1,
           }}
-        />
-     </Box>
-      </PaperFrame >
+        >
+          {imageSet.map((slide, index) => {
+            return (
+              <div key={index}>
+                {imageSet.indexOf(slide) === currentImage && (
+                  <Stage
+                    width={900}
+                    height={600}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                  >
+                    <Layer>
+                      <LoadImage
+                        imageUrl={slide.url}
+                        onMouseDown={() => {
+                          selectAnnotation(null);
+                        }}
+                      />
+                      {tool === "boundingbox" &&
+                        annotationsToDraw.map((annotation, i) => {
+                          return (
+                            <BoundingBox
+                              key={i}
+                              shapeProps={annotation}
+                              isSelected={annotation.id === selectedId}
+                              onSelect={() => {
+                                selectAnnotation(annotation.id);
+                              }}
+                              onChange={(newAttrs) => {
+                                const rects = annotations.slice();
+                                rects[i] = newAttrs;
+                                setAnnotations(rects);
+                              }}
+                            />
+                          );
+                        })}
+
+                      {tool === "polygon" && (
+                        <Polygon
+                          points={points}
+                          flattenedPoints={flattenedPoints}
+                          handlePointDragMove={handlePointDragMovePoly}
+                          handleGroupDragEnd={handleGroupDragEnd}
+                          handleMouseOverStartPoint={
+                            handleMouseOverStartPointPoly
+                          }
+                          handleMouseOutStartPoint={
+                            handleMouseOutStartPointPoly
+                          }
+                          isFinished={isPolyComplete}
+                        />
+                      )}
+
+                      {tool === "freedrawing" &&
+                        lines.map((line, i) => (
+                          <Line
+                            key={i}
+                            points={line.points}
+                            stroke="white"
+                            strokeWidth={5}
+                            tension={0.5}
+                            lineCap="round"
+                            lineJoin="round"
+                            globalCompositeOperation={
+                              line.tool === "eraser"
+                                ? "destination-out"
+                                : "source-over"
+                            }
+                          />
+                        ))}
+
+                      {tool === "text" && (
+                        <Label x={425} y={0} padding={1}>
+                          <Tag
+                            fill="white"
+                            lineJoin="round"
+                            shadowColor="black"
+                            padding="2px"
+                            margin="1px"
+                          />
+                          <Text
+                            text={currentLabels}
+                            fontFamily="Helvetica"
+                            fontSize={20}
+                            fill="black"
+                          />
+                        </Label>
+                      )}
+                    </Layer>
+                  </Stage>
+                )}
+              </div>
+            );
+          })}
+        </Box>
+
+        <Box
+          sx={{
+            height: "10%",
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            padding: 1,
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexBasis: "50%",
+              justifyContent: "flex-end",
+              alignItems:"center"
+            }}
+          >
+            <Typography
+              sx={{
+                mr: "8px",
+                whiteSpace: "nowrap",
+                color: "purple.dark",
+                fontWeight: "bold",
+                fontSize: "18px",
+                lineHeight: "19px",
+              }}
+            >
+              Enter Label Name:
+            </Typography>
+
+            <TextField
+              required
+              id="outlined"
+              value={currentInput}
+              InputProps={{
+                style: {
+                  height: "33px",
+                  width: "100%",
+                },
+              }}
+              sx={{
+                mr: 5,
+                width: "150px",
+              }}
+              onChange={(event) => {
+                dispatch(setCurrentInput(event.target.value));
+                dispatch(setCurrentLabels(event.target.value));
+                dispatch(setManual(true));
+              }}
+            />
+          </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexBasis: "50%",
+              justifyContent: "flex-start",
+              alignItems:"center"
+            }}
+          >
+            {currentLabels && <LabelPanel />}
+          </Box>
+        </Box>
+      </PaperFrame>
     </div>
   );
 };

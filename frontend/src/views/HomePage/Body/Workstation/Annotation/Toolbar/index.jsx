@@ -17,10 +17,10 @@ export const Toolbar = () => {
     <PaperFrame col
       sx={{
         width: "100%",
-        height: "40%",
+        height: "wrap-content",
         justifyContent: "center",
         alignItems: "center",
-        p: "15px 0 15px 0",
+        p: "15px 12px 15px 12px",
       }}
     >
         <Box

@@ -4,16 +4,22 @@ import React from "react";
 import { Canvas } from "./Canvas/Canvas";
 import { Toolbar } from "./Toolbar";
 import { Carousel } from "./Carousel";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useSelector, useDispatch } from "react-redux";
 import { findCollection } from "../../../../../utils/workspace";
-import { setImageMetaData,setStatistics } from "../../../../../stores/workspace";
-import { updateImageMetaData,updateStatistics } from "../../../../../apis/workspace";
-import { setManual } from "../../../../../stores/workstation";
+import {
+  setImageMetaData,
+  setStatistics,
+} from "../../../../../stores/workspace";
+import {
+  updateImageMetaData,
+  updateStatistics,
+} from "../../../../../apis/workspace";
+import { setManual, setCurrentInput } from "../../../../../stores/workstation";
 import { loadWorkspace } from "../../../../../stores/workspace";
 import { LabelPanel } from "./LabelPanel";
 
-export const Annotation = ({setPage}) => {
+export const Annotation = ({ setPage }) => {
   const dispatch = useDispatch();
   const currentImage = useSelector((state) => state.workstation.currentImage);
   const workspace = useSelector((state) => state.workspace.workspace);
@@ -26,7 +32,7 @@ export const Annotation = ({setPage}) => {
     : null;
   const currentLabels = useSelector((state) => state.workstation.currentLabels);
   const manual = useSelector((state) => state.workstation.manual);
-  
+
   const saveLabels = () => {
     let temp = JSON.parse(JSON.stringify(imageMetaData));
     let statistic = JSON.parse(JSON.stringify(currCollection.statistics));
@@ -47,13 +53,14 @@ export const Annotation = ({setPage}) => {
         console.log(err);
       });
       updateImageMetaData(currCollectionId, currentImage, temp)
-      .then(() => {
-        dispatch(loadWorkspace(workspace.name));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then(() => {
+          dispatch(loadWorkspace(workspace.name));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
+    dispatch(setCurrentInput(""));
     setPage(0);
   };
 
@@ -81,42 +88,45 @@ export const Annotation = ({setPage}) => {
           sx={{
             width: "5%",
             mr: "12px",
+            mt: "28px",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-around",
+            justifyContent: "flex-start",
             alignItems: "center",
           }}
         >
-          <ArrowBackIosNewIcon  onClick={saveLabels} />
+          <ArrowBackIosNewIcon onClick={saveLabels} />
+          <Box
+            sx={{
+              mt:"140px"
+            }}
+          >
           <Toolbar />
+          </Box>
+
         </Box>
 
         <Box
           sx={{
             width: "95%",
-            mr: "12px",
             justifyContent: "center",
             alignItems: "center",
-            mb:"12px",
+            mb: "12px",
           }}
         >
           <Canvas />
         </Box>
       </Box>
-      {/* <Box sx={{
-        display: "flex",
-        width: "100%"
-      }}>
-        <LabelPanel />
-      </Box> */}
+
       <Box
         sx={{
-          height: "20%",
+          height: "25%",
           width: "100%",
         }}
       >
         <Carousel />
       </Box>
+
     </Box>
   );
 };

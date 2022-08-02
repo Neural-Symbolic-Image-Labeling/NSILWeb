@@ -5,7 +5,7 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import { Box } from "@mui/material";
 import style from "./style.module.css";
 import { setCurrentImage } from "../../../../../../stores/workstation";
-import { setCurrentLabels } from "../../../../../../stores/workstation";
+import { setCurrentLabels, setCurrentInput } from "../../../../../../stores/workstation";
 import { setImageMetaData } from "../../../../../../stores/workspace";
 import { setManual } from "../../../../../../stores/workstation";
 import { setStatistics } from "../../../../../../stores/workspace";
@@ -71,6 +71,7 @@ export const Carousel = () => {
       )
     );
     dispatch(setManual(false));
+    dispatch(setCurrentInput(""));
   };
 
   const prevSlide = () => {
@@ -114,6 +115,7 @@ export const Carousel = () => {
       )
     );
     dispatch(setManual(false));
+    dispatch(setCurrentInput(""));
   };
 
   return (
